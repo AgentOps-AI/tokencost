@@ -4,6 +4,12 @@
 import pytest
 from costs import count_message_tokens, count_string_tokens, calculate_cost
 
+MESSSAGES = [
+        {"role": "user", "content": "Hello"},
+        {"role": "assistant", "content": "Hi there!"},
+    ]
+
+
 
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 15),
@@ -20,11 +26,8 @@ from costs import count_message_tokens, count_string_tokens, calculate_cost
 ])
 def test_count_message_tokens(model, expected_output):
     print(model)
-    messages = [
-        {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
-    assert count_message_tokens(messages, model) == expected_output
+
+    assert count_message_tokens(MESSSAGES, model) == expected_output
 
 
 # Chat models only, no embeddings
@@ -42,11 +45,8 @@ def test_count_message_tokens(model, expected_output):
 ])
 def test_count_message_tokens_with_name(model, expected_output):
     """Notice: name 'John' appears"""
-    messages = [
-        {"role": "user", "content": "Hello", "name": "John"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
-    assert count_message_tokens(messages, model) == expected_output
+
+    assert count_message_tokens(MESSSAGES, model) == expected_output
 
 
 def test_count_message_tokens_empty_input():
@@ -57,12 +57,9 @@ def test_count_message_tokens_empty_input():
 
 def test_count_message_tokens_invalid_model():
     """Invalid model should raise a KeyError"""
-    messages = [
-        {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
+
     with pytest.raises(NotImplementedError):
-        count_message_tokens(messages, model="invalid_model")
+        count_message_tokens(MESSSAGES, model="invalid_model")
 
 
 @pytest.mark.parametrize("model,expected_output", [
