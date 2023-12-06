@@ -4,6 +4,15 @@
 import pytest
 from costs import count_message_tokens, count_string_tokens, calculate_cost
 
+MESSAGES = [
+        {"role": "user", "content": "Hello"},
+        {"role": "assistant", "content": "Hi there!"},
+    ]
+
+MESSAGES_WITH_NAME = [
+        {"role": "user", "content": "Hello", "name": "John"},
+        {"role": "assistant", "content": "Hi there!"},
+    ]
 
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 15),
@@ -20,11 +29,7 @@ from costs import count_message_tokens, count_string_tokens, calculate_cost
 ])
 def test_count_message_tokens(model, expected_output):
     print(model)
-    messages = [
-        {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
-    assert count_message_tokens(messages, model) == expected_output
+    assert count_message_tokens(MESSAGES, model) == expected_output
 
 
 # Chat models only, no embeddings
@@ -42,11 +47,8 @@ def test_count_message_tokens(model, expected_output):
 ])
 def test_count_message_tokens_with_name(model, expected_output):
     """Notice: name 'John' appears"""
-    messages = [
-        {"role": "user", "content": "Hello", "name": "John"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
-    assert count_message_tokens(messages, model) == expected_output
+
+    assert count_message_tokens(MESSAGES_WITH_NAME, model) == expected_output
 
 
 def test_count_message_tokens_empty_input():
@@ -57,12 +59,9 @@ def test_count_message_tokens_empty_input():
 
 def test_count_message_tokens_invalid_model():
     """Invalid model should raise a KeyError"""
-    messages = [
-        {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi there!"},
-    ]
+
     with pytest.raises(NotImplementedError):
-        count_message_tokens(messages, model="invalid_model")
+        count_message_tokens(MESSAGES, model="invalid_model")
 
 
 @pytest.mark.parametrize("model,expected_output", [
@@ -110,6 +109,8 @@ def test_count_string_tokens_gpt_4(model, expected_output):
     assert count_string_tokens(string, model_name=model) == expected_output
 
 
+# Costs from https://openai.com/pricing
+# https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 7500),
     ("gpt-3.5-turbo-0301", 7500),
@@ -120,7 +121,7 @@ def test_count_string_tokens_gpt_4(model, expected_output):
     ("gpt-4", 180000),
     ("gpt-4-32k", 360000),
     ("gpt-4-32k-0314", 360000),
-    ("gpt-4-0613", 360000),
+    ("gpt-4-0613", 180000),
     ("text-embedding-ada-002", 300),
 ])
 def test_calculate_cost(model, expected_output):
