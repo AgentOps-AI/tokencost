@@ -37,6 +37,12 @@ text = "Your sample text here"
 token_count, cost = calculator.calculate(text)
 print(f"Token Count: {token_count}, Cost: {cost}")
 
+To run tests, follow the below steps:
+
+	0. `pip install pytest` if you don't have pytest already
+
+	1. `pytest tests` while in the `tokencost` folder to run the `tests` folder
+
 Contributing
 
 Contributions to TokenCost are welcome! Please refer to our Contribution Guidelines for more details.

@@ -4,47 +4,14 @@ Costs dictionary and utility tool for counting tokens
 
 import tiktoken
 from typing import List
-
-# Calculated in TPU (token price units) aka (1/10,000,000 of $1)
-TOKEN_COSTS = {
-    # Applications using the gpt-3.5-turbo name will automatically be upgraded to the new model on December 11.
-    "gpt-3.5-turbo": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-0301": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-0613": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-1106": {"prompt": 10, "completion": 20},
-    "gpt-3.5-turbo-instruct": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-16k": {"prompt": 30, "completion": 40},
-    "gpt-3.5-turbo-16k-0613": {"prompt": 30, "completion": 40},
-    "gpt-4": {"prompt": 300, "completion": 600},
-    "gpt-4-0314": {"prompt": 300, "completion": 600},
-    "gpt-4-0613": {"prompt": 300, "completion": 600},
-    "gpt-4-32k": {"prompt": 600, "completion": 1200},
-    "gpt-4-32k-0314": {"prompt": 600, "completion": 1200},
-    "gpt-4-32k-0613": {"prompt": 600, "completion": 1200},
-    "gpt-4-1106-preview": {"prompt": 100, "completion": 300},
-    "gpt-4-1106-vision-preview": {"prompt": 100, "completion": 300},
-    "text-embedding-ada-002": {"prompt": 1, "completion": 0, },
-}
-
+from constants import *
 
 # TODO: Add Claude support
 # https://www-files.anthropic.com/production/images/model_pricing_july2023.pdf
 # Note: cl100k is the openai base tokenizer. Nothing to do with Claude. Tiktoken doesn't have claude yet.
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
-TOKEN_MAX = {
-    "gpt-3.5-turbo": 4096,
-    "gpt-3.5-turbo-0301": 4096,
-    "gpt-3.5-turbo-0613": 4096,
-    "gpt-3.5-turbo-16k": 16384,
-    "gpt-3.5-turbo-16k-0613": 16384,
-    "gpt-4-0314": 8192,
-    "gpt-4": 8192,
-    "gpt-4-32k": 32768,
-    "gpt-4-32k-0314": 32768,
-    "gpt-4-0613": 8192,
-    "text-embedding-ada-002": 8192,
-}
+
 
 
 def count_message_tokens(messages, model):
