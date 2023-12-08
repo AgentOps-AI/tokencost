@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from costs import count_message_tokens, count_string_tokens, calculate_cost
+from tokencost.costs import count_message_tokens, count_string_tokens, calculate_cost
 
 MESSAGES = [
         {"role": "user", "content": "Hello"},

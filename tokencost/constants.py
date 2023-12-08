@@ -36,6 +36,6 @@ TOKEN_MAX = {
     "gpt-4-32k": 32768,
     "gpt-4-32k-0314": 32768,
     "gpt-4-0613": 8192,
-    "gpt-4-1106-vision-preview": 
+    # "gpt-4-1106-vision-preview": 
     "text-embedding-ada-002": 8192,
 }

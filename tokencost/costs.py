@@ -4,7 +4,7 @@ Costs dictionary and utility tool for counting tokens
 
 import tiktoken
 from typing import List
-from tokencost.constants import *
+from .constants import TOKEN_COSTS, TOKEN_MAX
 
 # TODO: Add Claude support
 # https://www-files.anthropic.com/production/images/model_pricing_july2023.pdf
