@@ -25,7 +25,6 @@ dev = [
     "pytest",
     "flake8",
     "coverage",
-    "requests_mock"
 ]
 
 [project.urls]

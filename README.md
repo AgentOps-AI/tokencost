@@ -13,15 +13,20 @@ TokenCost is a specialized tool designed for calculating the token count and ass
 
 ## Installation
 
-### To install TokenCost as a PyPI SDK:
-https://pypi.org/project/tokencost/
+Tokencost can be installed either via PyPI or GitHub.
 
-### To install TokenCost locally, use the following command:
+
+#### With [PyPI](https://pypi.org/project/tokencost/) (Python package):
+```bash
+pip install tokencost
+```
+
+#### With [GitHub](https://github.com/AgentOps-AI/tokencost):
 
 ```bash
 git clone git@github.com:AgentOps-AI/tokencost.git
 cd tokencost
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Usage
