@@ -40,6 +40,16 @@ token_count, cost = calculator.calculate(text)
 print(f"Token Count: {token_count}, Cost: {cost}")
 ```
 
+### Running tests
+0. Install ```pytest``` if you don't have it already
+```python
+pip install pytest
+```
+
+1. Run the `tests/` folder while in the parent directory 
+```python
+pytest tests
+```
 
 ## Contributing
 

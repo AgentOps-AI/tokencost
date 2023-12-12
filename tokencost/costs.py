@@ -1,30 +1,9 @@
 """
 Costs dictionary and utility tool for counting tokens
 """
-
 import tiktoken
 from typing import List
-
-# Calculated in TPU (token price units) aka (1/10,000,000 of $1)
-TOKEN_COSTS = {
-    # Applications using the gpt-3.5-turbo name will automatically be upgraded to the new model on December 11.
-    "gpt-3.5-turbo": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-0301": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-0613": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-1106": {"prompt": 10, "completion": 20},
-    "gpt-3.5-turbo-instruct": {"prompt": 15, "completion": 20},
-    "gpt-3.5-turbo-16k": {"prompt": 30, "completion": 40},
-    "gpt-3.5-turbo-16k-0613": {"prompt": 30, "completion": 40},
-    "gpt-4": {"prompt": 300, "completion": 600},
-    "gpt-4-0314": {"prompt": 300, "completion": 600},
-    "gpt-4-0613": {"prompt": 300, "completion": 600},
-    "gpt-4-32k": {"prompt": 600, "completion": 1200},
-    "gpt-4-32k-0314": {"prompt": 600, "completion": 1200},
-    "gpt-4-32k-0613": {"prompt": 600, "completion": 1200},
-    "gpt-4-1106-preview": {"prompt": 100, "completion": 300},
-    "gpt-4-1106-vision-preview": {"prompt": 100, "completion": 300},
-    "text-embedding-ada-002": {"prompt": 1, "completion": 0, },
-}
+from .constants import TOKEN_COSTS, TOKEN_MAX
 
 
 # TODO: Add Claude support
@@ -32,23 +11,12 @@ TOKEN_COSTS = {
 # Note: cl100k is the openai base tokenizer. Nothing to do with Claude. Tiktoken doesn't have claude yet.
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
-TOKEN_MAX = {
-    "gpt-3.5-turbo": 4096,
-    "gpt-3.5-turbo-0301": 4096,
-    "gpt-3.5-turbo-0613": 4096,
-    "gpt-3.5-turbo-16k": 16384,
-    "gpt-3.5-turbo-16k-0613": 16384,
-    "gpt-4-0314": 8192,
-    "gpt-4": 8192,
-    "gpt-4-32k": 32768,
-    "gpt-4-32k-0314": 32768,
-    "gpt-4-0613": 8192,
-    "text-embedding-ada-002": 8192,
-}
-
 
 def count_message_tokens(messages, model):
     """Return the number of tokens used by a list of messages."""
+    if not messages:
+        raise KeyError("Empty message list provided.")
+    model = model.lower()
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
@@ -76,8 +44,10 @@ def count_message_tokens(messages, model):
             "Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
-        raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+        raise KeyError(
+            f"""num_tokens_from_messages() is not implemented for model {model}.
+            Double check your spelling, or open an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
+            See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
         )
     num_tokens = 0
     for message in messages:
@@ -90,7 +60,7 @@ def count_message_tokens(messages, model):
     return num_tokens
 
 
-def count_string_tokens(string: str, model_name: str) -> int:
+def count_string_tokens(string: str, model: str) -> int:
     """
     Returns the number of tokens in a text string.
 
@@ -101,7 +71,8 @@ def count_string_tokens(string: str, model_name: str) -> int:
     Returns:
         int: The number of tokens in the text string.
     """
-    encoding = tiktoken.encoding_for_model(model_name)
+    model = model.lower()
+    encoding = tiktoken.encoding_for_model(model)
     return len(encoding.encode(string))
 
 
@@ -115,6 +86,7 @@ def get_max_completion_tokens(messages: List[dict], model: str, default: int) ->
     Returns:
         The maximum number of completion tokens.
     """
+    model = model.lower()
     if model not in TOKEN_MAX:
         return default
     return TOKEN_MAX[model] - count_message_tokens(messages) - 1
@@ -132,6 +104,13 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
     Returns:
         float: The calculated cost.
     """
+    model = model.lower()
+    if model not in TOKEN_COSTS:
+        raise KeyError(
+            f"""calculate_cost() is not implemented for model {model}.
+            Double check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
+            """
+        )
     prompt_cost = TOKEN_COSTS[model]["prompt"]
     print(f"{prompt_cost=}")
     completion_cost = TOKEN_COSTS[model]["completion"]
@@ -139,4 +118,3 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
 
     cost = (prompt_tokens * prompt_cost + completion_tokens * completion_cost)
     return cost
-
