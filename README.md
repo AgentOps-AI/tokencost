@@ -43,7 +43,7 @@ print(f"Token Count: {token_count}, Cost: {cost}")
 ### Running tests
 0. Install ```pytest``` if you don't have it already
 ```python
-npi install pytest
+pip install pytest
 ```
 
 1. Run the `tests/` folder while in the parent directory 

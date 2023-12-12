@@ -46,6 +46,7 @@ def count_message_tokens(messages, model):
     else:
         raise KeyError(
             f"""num_tokens_from_messages() is not implemented for model {model}.
+            Double check your spelling, or open an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
         )
     num_tokens = 0
@@ -107,7 +108,7 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""calculate_cost() is not implemented for model {model}.
-            Double check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost.
+            Double check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             """
         )
     prompt_cost = TOKEN_COSTS[model]["prompt"]
