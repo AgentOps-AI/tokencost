@@ -1,10 +1,10 @@
 """
 Costs dictionary and utility tool for counting tokens
 """
-
 import tiktoken
 from typing import List
 from .constants import TOKEN_COSTS, TOKEN_MAX
+
 
 # TODO: Add Claude support
 # https://www-files.anthropic.com/production/images/model_pricing_july2023.pdf
@@ -12,10 +12,11 @@ from .constants import TOKEN_COSTS, TOKEN_MAX
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
 
-
-
 def count_message_tokens(messages, model):
     """Return the number of tokens used by a list of messages."""
+    if not messages:
+        raise KeyError("Empty message list provided.")
+    model = model.lower()
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
@@ -43,8 +44,9 @@ def count_message_tokens(messages, model):
             "Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
-        raise NotImplementedError(
-            f"""num_tokens_from_messages() is not implemented for model {model}. See https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to tokens."""
+        raise KeyError(
+            f"""num_tokens_from_messages() is not implemented for model {model}.
+            See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
         )
     num_tokens = 0
     for message in messages:
@@ -57,7 +59,7 @@ def count_message_tokens(messages, model):
     return num_tokens
 
 
-def count_string_tokens(string: str, model_name: str) -> int:
+def count_string_tokens(string: str, model: str) -> int:
     """
     Returns the number of tokens in a text string.
 
@@ -68,7 +70,8 @@ def count_string_tokens(string: str, model_name: str) -> int:
     Returns:
         int: The number of tokens in the text string.
     """
-    encoding = tiktoken.encoding_for_model(model_name)
+    model = model.lower()
+    encoding = tiktoken.encoding_for_model(model)
     return len(encoding.encode(string))
 
 
@@ -82,6 +85,7 @@ def get_max_completion_tokens(messages: List[dict], model: str, default: int) ->
     Returns:
         The maximum number of completion tokens.
     """
+    model = model.lower()
     if model not in TOKEN_MAX:
         return default
     return TOKEN_MAX[model] - count_message_tokens(messages) - 1
@@ -99,6 +103,13 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
     Returns:
         float: The calculated cost.
     """
+    model = model.lower()
+    if model not in TOKEN_COSTS:
+        raise KeyError(
+            f"""calculate_cost() is not implemented for model {model}.
+            Double check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost.
+            """
+        )
     prompt_cost = TOKEN_COSTS[model]["prompt"]
     print(f"{prompt_cost=}")
     completion_cost = TOKEN_COSTS[model]["completion"]
@@ -106,4 +117,3 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
 
     cost = (prompt_tokens * prompt_cost + completion_tokens * completion_cost)
     return cost
-
