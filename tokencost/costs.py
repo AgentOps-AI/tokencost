@@ -97,8 +97,8 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
     Calculate the cost of tokens.
 
     Args:
-        prompt (str): The prompt string.
-        completion (str): The completion string.
+        prompt_tokens (int): How many tokens the prompt string is.
+        completion_tokens (int): How many tokens the completion string is.
         model (str): The model name.
 
     Returns:
