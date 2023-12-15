@@ -48,15 +48,41 @@ import tokencost
 
 2. Calculate tokens and cost (using `from tokencost import *`):
 ```python
-prompt = "Your sample text here"
+
+
+string_prompt = "Your sample text here"
 response = "Sample response text"
 model= "gpt-3.5-turbo"
 
-prompt_token_count = count_string_tokens(prompt, model)
-completion_token_count = count_string_tokens(response, model)
-cost = calculate_cost(prompt, response, model)
+string_cost = calculate_cost(string_prompt, response, model)
 
-print(f"Prompt Token Count: {prompt_token_count}, Completion Token Count: {completion_token_count}, Cost: ${cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
+prompt_string_token_count = count_string_tokens(string_prompt, model)
+
+print(f"Prompt Token Count: {prompt_string_token_count}, Completion Token Count:{completion_string_token_count}, Cost: ${string_cost/USD_PER_TPU} ({string_cost/CENTS_PER_TPU} cents)")
+
+messages =[
+    {
+        "role": "user",
+        "content": "Hey how is your day",
+    },
+    {
+        "role": 'assistant',
+        "content": "As an LLM model I do not have days"
+    },
+    {
+        "role": "user",
+        "content": "Err sure okay fine"
+    }
+]
+response = "Sample response text"
+model= "gpt-3.5-turbo"
+
+message_cost = calculate_cost(messages, response, model)
+
+prompt_message_token_count = count_message_tokens(messages, model)
+completion_string_token_count = count_string_tokens(response, model)
+
+print(f"Prompt Token Count: {prompt_message_token_count}, Completion Token Count: {completion_string_token_count}, Cost: ${message_cost/USD_PER_TPU} ({message_cost/CENTS_PER_TPU} cents)")
 ```
 
 This is what it should look like when you use iPython:
