@@ -16,12 +16,12 @@ TokenCost is a specialized tool designed for calculating the token count and ass
 Tokencost can be installed either via PyPI or GitHub.
 
 
-#### With [PyPI](https://pypi.org/project/tokencost/) (Python package):
+#### Recommended: with [PyPI](https://pypi.org/project/tokencost/) (Python package):
 ```bash
 pip install tokencost
 ```
 
-#### With [GitHub](https://github.com/AgentOps-AI/tokencost):
+#### OR: with [GitHub](https://github.com/AgentOps-AI/tokencost):
 
 ```bash
 git clone git@github.com:AgentOps-AI/tokencost.git
@@ -35,7 +35,7 @@ To use TokenCost, follow these steps:
 
 1. Import the module:
 
-- If you want to call the functions as `function_name` directly:
+- Recommended: If you want to call the functions as `function_name` directly:
 ```python
 from tokencost import count_message_tokens, count_string_tokens, calculate_cost
 ```
