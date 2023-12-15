@@ -2,7 +2,7 @@
 
 ## Overview
 
-TokenCost is a specialized tool designed for calculating the token count and associated cost of strings and messages used in Large Language Models (LLMs). This utility is particularly useful for developers and researchers working with language models, enabling them to estimate the computational resources required for processing various inputs.
+TokenCost is a specialized tool designed for calculating the token count and associated U.S. dollar cost of strings and messages used in Large Language Models (LLMs). This utility is particularly useful for developers and researchers working with language models, enabling them to estimate the computational resources required for processing various inputs and their returned outputs.
 
 ## Features
 
@@ -35,19 +35,50 @@ To use TokenCost, follow these steps:
 
 1. Import the module:
 
+- If you want to call the functions as `function_name` directly:
 ```python
-from tokencost import TokenCalculator
+from tokencost import *
 ```
 
 
-3. Calculate tokens and cost:
+- OR if you want to call the functions as `tokencost.function_name`:
 ```python
-text = "Your sample text here"
-token_count, cost = calculator.calculate(text)
-print(f"Token Count: {token_count}, Cost: {cost}")
+import tokencost
 ```
 
-### Running tests
+2. Calculate tokens and cost (using `from tokencost import *`):
+```python
+prompt = "Your sample text here"
+response = "Sample response text"
+model= "gpt-3.5-turbo"
+
+prompt_token_count = count_string_tokens(prompt, model)
+completion_token_count = count_string_tokens(response, model)
+cost = calculate_cost(prompt, response, model)
+
+print(f"Prompt Token Count: {prompt_token_count}, Completion Token Count: {completion_token_count}, Cost: ${cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
+```
+
+This is what it should look like when you use iPython:
+```bash
+In [1]: from tokencost import *
+
+In [2]: prompt = "Your sample text here"
+   ...: response = "Sample response text"
+   ...: model= "gpt-3.5-turbo"
+   ...: prompt_token_count = count_string_tokens(prompt, model)
+   ...: completion_token_count =count_string_tokens(response, model)
+   ...: cost = calculate_cost(prompt, response, model)
+   ...:
+   ...:
+   ...: print(f"Prompt Token Count: {prompt_token_count}, Completion Token Count: {c
+   ...: ompletion_token_count}, Cost: ${cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cent
+   ...: s)")
+Prompt Token Count: 4, Completion Token Count: 3, Cost: $1.2e-05 (0.0012 cents)
+```
+
+
+## Running tests
 0. Install ```pytest``` if you don't have it already
 ```python
 pip install pytest
@@ -60,7 +91,7 @@ pytest tests
 
 ## Contributing
 
-Contributions to TokenCost are welcome! Please refer to our Contribution Guidelines for more details.
+Contributions to TokenCost are welcome! Feel free to create an [issue](https://github.com/AgentOps-AI/tokencost/issues) for any bug reports, complaints, or feature suggestions.
 
 ## License
 
