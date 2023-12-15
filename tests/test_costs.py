@@ -14,9 +14,9 @@ MESSAGES_WITH_NAME = [
     {"role": "assistant", "content": "Hi there!"},
 ]
 
+STRING = "Hello, world!"
+
 # Chat models only, no embeddings (such as ada) since embeddings only does strings, not messages
-
-
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 15),
     ("gpt-3.5-turbo-0301", 17),
@@ -31,7 +31,7 @@ MESSAGES_WITH_NAME = [
     ("gpt-4-32k", 15),
     ("gpt-4-32k-0314", 15),
     ("gpt-4-1106-preview", 15),
-    ("gpt-4-1106-vision-preview", 15),
+    ("gpt-4-vision-preview", 15),
 ])
 def test_count_message_tokens(model, expected_output):
     print(model)
@@ -53,7 +53,7 @@ def test_count_message_tokens(model, expected_output):
     ("gpt-4-32k", 17),
     ("gpt-4-32k-0314", 17),
     ("gpt-4-1106-preview", 17),
-    ("gpt-4-1106-vision-preview", 17),
+    ("gpt-4-vision-preview", 17),
 ])
 def test_count_message_tokens_with_name(model, expected_output):
     """Notice: name 'John' appears"""
@@ -88,7 +88,7 @@ def test_count_message_tokens_invalid_model():
     ("gpt-4-32k-0314", 4),
     ("gpt-4-0613", 4),
     ("gpt-4-1106-preview", 4),
-    ("gpt-4-1106-vision-preview", 4),
+    ("gpt-4-vision-preview", 4),
     ("text-embedding-ada-002", 4),
 ])
 def test_count_string_tokens(model, expected_output):
@@ -110,44 +110,50 @@ def test_count_string_tokens_invalid_model():
 
 # Costs from https://openai.com/pricing
 # https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
-@pytest.mark.parametrize("model,expected_output", [
-    ("gpt-3.5-turbo", 7500),
-    ("gpt-3.5-turbo-0301", 7500),
-    ("gpt-3.5-turbo-0613", 7500),
-    ("gpt-3.5-turbo-16k", 15000),
-    ("gpt-3.5-turbo-16k-0613", 15000),
-    ("gpt-3.5-turbo-1106", 6000),
-    ("gpt-3.5-turbo-instruct", 7500),
-    ("gpt-4", 180000),
-    ("gpt-4-0314", 180000),
-    ("gpt-4-32k", 360000),
-    ("gpt-4-32k-0314", 360000),
-    ("gpt-4-0613", 180000),
-    ("gpt-4-1106-preview", 75000),
-    ("gpt-4-1106-vision-preview", 75000),
-    ("text-embedding-ada-002", 300),
+@pytest.mark.parametrize("prompt,completion,model,expected_output", [
+    (STRING, MESSAGES, "gpt-3.5-turbo", 360),
+    (STRING, STRING, "gpt-3.5-turbo", 140),
+    (MESSAGES, STRING, "gpt-3.5-turbo", 305),
+    (MESSAGES, MESSAGES, "gpt-3.5-turbo", 525),
+    ([MESSAGES[0]], "", "gpt-3.5-turbo", 120),
+    (STRING, STRING, "gpt-3.5-turbo-0301", 140),
+    (STRING, STRING, "gpt-3.5-turbo-0613", 140),
+    (STRING, STRING, "gpt-3.5-turbo-16k", 280),
+    (STRING, STRING, "gpt-3.5-turbo-16k-0613", 280),
+    (STRING, STRING, "gpt-3.5-turbo-1106", 120),
+    (STRING, STRING, "gpt-3.5-turbo-instruct", 140),
+    (STRING, STRING, "gpt-4", 3600),
+    (STRING, STRING, "gpt-4-0314", 3600),
+    (STRING, STRING, "gpt-4-32k", 7200),
+    (STRING, STRING, "gpt-4-32k-0314", 7200),
+    (STRING, STRING, "gpt-4-0613", 3600),
+    (STRING, STRING, "gpt-4-1106-preview", 1600),
+    (STRING, STRING, "gpt-4-vision-preview", 1600),
+    (STRING, STRING, "text-embedding-ada-002", 4),
 ])
-def test_calculate_cost(model, expected_output):
+def test_calculate_cost(prompt, completion, model, expected_output):
     """Test that the cost calculation is correct."""
 
-    prompt_tokens = count_string_tokens('hello world!'*100,  # 300 tokens
-                                        model)
-    assert prompt_tokens == 300
-    completion_tokens = count_string_tokens('hello world!'*50,  # 150 tokens
-                                            model)
-
-    assert completion_tokens == 150
-
-    cost = calculate_cost(prompt_tokens,
-                          completion_tokens,
+    cost = calculate_cost(prompt,
+                          completion,
                           model)
     assert cost == expected_output
-
-    assert calculate_cost(900, 754, 'gpt-4') == 722400
 
 
 def test_calculate_cost_invalid_model():
     """Invalid model should raise a KeyError"""
 
     with pytest.raises(KeyError):
-        calculate_cost(900, 754, model="invalid_model")
+        calculate_cost(STRING, STRING, model="invalid_model")
+
+def test_calculate_cost_invalid_input_types():
+    """Invalid input type should raise a KeyError"""
+
+    with pytest.raises(KeyError):
+        calculate_cost(5, STRING, model="invalid_model")
+
+    with pytest.raises(KeyError):
+        calculate_cost(STRING, 5, model="invalid_model")
+
+    with pytest.raises(KeyError):
+        calculate_cost(MESSAGES[0], 5, model="invalid_model") # Message objects not allowed, must be list of message objects.
