@@ -16,9 +16,8 @@ MESSAGES_WITH_NAME = [
 
 STRING = "Hello, world!"
 
+
 # Chat models only, no embeddings (such as ada) since embeddings only does strings, not messages
-
-
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 15),
     ("gpt-3.5-turbo-0301", 17),
