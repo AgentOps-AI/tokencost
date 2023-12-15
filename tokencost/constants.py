@@ -16,6 +16,8 @@ is considered a prompt (for the purpose of context) and will thus cost prompt to
 1 Token Price Unit (TPU) is defined as 1/10,000,000 of $1 (USD). 100,000 TPUs would equate to $0.01.
 """
 
+USD_PER_TPU = float(10_000_000)
+CENTS_PER_TPU = float(100_000)
 
 # How to read TOKEN_COSTS:
 # Each prompt token costs __ TPUs per token.
