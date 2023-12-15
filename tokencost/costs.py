@@ -93,7 +93,8 @@ def calculate_cost(prompt: Union[List[dict], str], completion: Union[List[dict],
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""calculate_cost() is not implemented for model {model}.
-            Double-check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
+            Double-check your spelling, or submit an issue/PR:
+            https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             """
         )
     if not isinstance(prompt, (list, str)) or not isinstance(completion, (list, str)):
@@ -102,10 +103,12 @@ def calculate_cost(prompt: Union[List[dict], str], completion: Union[List[dict],
             They are {type(prompt)} and {type(completion)}, respectively.
             """
         )
-    prompt_tokens = count_string_tokens(prompt, model) if isinstance(prompt, str) else count_message_tokens(prompt, model)
+    prompt_tokens = count_string_tokens(prompt, model) if isinstance(
+        prompt, str) else count_message_tokens(prompt, model)
     prompt_cost = TOKEN_COSTS[model]["prompt"]
     print(f"{prompt_cost=}")
-    completion_tokens = count_string_tokens(completion, model) if isinstance(completion, str) else count_message_tokens(completion, model)
+    completion_tokens = count_string_tokens(completion, model) if isinstance(
+        completion, str) else count_message_tokens(completion, model)
     completion_cost = TOKEN_COSTS[model]["completion"]
     print(f"{completion_cost=}")
 

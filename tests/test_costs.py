@@ -17,6 +17,8 @@ MESSAGES_WITH_NAME = [
 STRING = "Hello, world!"
 
 # Chat models only, no embeddings (such as ada) since embeddings only does strings, not messages
+
+
 @pytest.mark.parametrize("model,expected_output", [
     ("gpt-3.5-turbo", 15),
     ("gpt-3.5-turbo-0301", 17),
@@ -146,6 +148,7 @@ def test_calculate_cost_invalid_model():
     with pytest.raises(KeyError):
         calculate_cost(STRING, STRING, model="invalid_model")
 
+
 def test_calculate_cost_invalid_input_types():
     """Invalid input type should raise a KeyError"""
 
@@ -156,4 +159,5 @@ def test_calculate_cost_invalid_input_types():
         calculate_cost(STRING, 5, model="invalid_model")
 
     with pytest.raises(KeyError):
-        calculate_cost(MESSAGES[0], 5, model="invalid_model") # Message objects not allowed, must be list of message objects.
+        # Message objects not allowed, must be list of message objects.
+        calculate_cost(MESSAGES[0], 5, model="invalid_model")
