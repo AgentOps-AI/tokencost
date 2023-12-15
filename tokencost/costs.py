@@ -3,7 +3,7 @@ Costs dictionary and utility tool for counting tokens
 """
 import tiktoken
 from typing import List
-from .constants import TOKEN_COSTS, TOKEN_MAX
+from .constants import TOKEN_COSTS
 
 
 # TODO: Add Claude support
@@ -13,7 +13,7 @@ from .constants import TOKEN_COSTS, TOKEN_MAX
 
 
 def count_message_tokens(messages, model):
-    """Return the number of tokens used by a list of messages."""
+    """Return the total number of tokens in a list of (prompt or completion) messages."""
     if not messages:
         raise KeyError("Empty message list provided.")
     model = model.lower()
@@ -46,7 +46,8 @@ def count_message_tokens(messages, model):
     else:
         raise KeyError(
             f"""num_tokens_from_messages() is not implemented for model {model}.
-            Double check your spelling, or open an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
+            Double check your spelling, or open an issue/PR:
+            https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
         )
     num_tokens = 0
@@ -62,7 +63,7 @@ def count_message_tokens(messages, model):
 
 def count_string_tokens(string: str, model: str) -> int:
     """
-    Returns the number of tokens in a text string.
+    Returns the number of tokens in a (prompt or completion) text string.
 
     Args:
         string (str): The text string.
@@ -76,33 +77,17 @@ def count_string_tokens(string: str, model: str) -> int:
     return len(encoding.encode(string))
 
 
-def get_max_completion_tokens(messages: List[dict], model: str, default: int) -> int:
-    """Calculate the maximum number of completion tokens for a given model and list of messages.
+def calculate_cost(prompt: List[dict] | str, completion: List[dict] | str, model: str) -> float:
+    """
+    Calculate the cost of tokens in TPUs.  1 TPU = 1/10,000,000 of $1 (USD), so 100,000 TPUs = $0.01.
 
     Args:
-        messages: A list of messages.
-        model: The model name.
-
-    Returns:
-        The maximum number of completion tokens.
-    """
-    model = model.lower()
-    if model not in TOKEN_MAX:
-        return default
-    return TOKEN_MAX[model] - count_message_tokens(messages) - 1
-
-
-def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> float:
-    """
-    Calculate the cost of tokens.
-
-    Args:
-        prompt (str): The prompt string.
-        completion (str): The completion string.
+        prompt_tokens (List[dict] | str): List of message objects or single string prompt.
+        completion_tokens (List[dict] | str): List of message objects or single string completion.
         model (str): The model name.
 
     Returns:
-        float: The calculated cost.
+        float: The calculated cost in TPUs.
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
@@ -111,8 +96,17 @@ def calculate_cost(prompt_tokens: int, completion_tokens: int, model: str) -> fl
             Double check your spelling, or submit an issue/PR: https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             """
         )
+    if type(prompt) not in [list, str] or type(completion) not in [list, str]:
+        raise KeyError(
+            f"""Prompt and completion each must be either a string or list of message objects.
+            They are {type(prompt)} and {type(completion)}, respectively.
+            """
+        )
+    prompt_tokens = count_string_tokens(prompt, model) if type(prompt) is str else count_message_tokens(prompt, model)
     prompt_cost = TOKEN_COSTS[model]["prompt"]
     print(f"{prompt_cost=}")
+    completion_tokens = count_string_tokens(completion, model) if type(
+        completion) is str else count_message_tokens(completion, model)
     completion_cost = TOKEN_COSTS[model]["completion"]
     print(f"{completion_cost=}")
 
