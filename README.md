@@ -37,7 +37,7 @@ To use TokenCost, follow these steps:
 
 - If you want to call the functions as `function_name` directly:
 ```python
-from tokencost import *
+from tokencost import count_message_tokens, count_string_tokens, calculate_cost
 ```
 
 
