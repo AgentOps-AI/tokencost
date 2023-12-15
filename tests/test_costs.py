@@ -31,7 +31,7 @@ STRING = "Hello, world!"
     ("gpt-4-32k", 15),
     ("gpt-4-32k-0314", 15),
     ("gpt-4-1106-preview", 15),
-    ("gpt-4-1106-vision-preview", 15),
+    ("gpt-4-vision-preview", 15),
 ])
 def test_count_message_tokens(model, expected_output):
     print(model)
@@ -53,7 +53,7 @@ def test_count_message_tokens(model, expected_output):
     ("gpt-4-32k", 17),
     ("gpt-4-32k-0314", 17),
     ("gpt-4-1106-preview", 17),
-    ("gpt-4-1106-vision-preview", 17),
+    ("gpt-4-vision-preview", 17),
 ])
 def test_count_message_tokens_with_name(model, expected_output):
     """Notice: name 'John' appears"""
@@ -88,7 +88,7 @@ def test_count_message_tokens_invalid_model():
     ("gpt-4-32k-0314", 4),
     ("gpt-4-0613", 4),
     ("gpt-4-1106-preview", 4),
-    ("gpt-4-1106-vision-preview", 4),
+    ("gpt-4-vision-preview", 4),
     ("text-embedding-ada-002", 4),
 ])
 def test_count_string_tokens(model, expected_output):
@@ -110,7 +110,6 @@ def test_count_string_tokens_invalid_model():
 
 # Costs from https://openai.com/pricing
 # https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
-
 @pytest.mark.parametrize("prompt,completion,model,expected_output", [
     (STRING, MESSAGES, "gpt-3.5-turbo", 360),
     (STRING, STRING, "gpt-3.5-turbo", 140),
@@ -129,7 +128,7 @@ def test_count_string_tokens_invalid_model():
     (STRING, STRING, "gpt-4-32k-0314", 7200),
     (STRING, STRING, "gpt-4-0613", 3600),
     (STRING, STRING, "gpt-4-1106-preview", 1600),
-    (STRING, STRING, "gpt-4-1106-vision-preview", 1600),
+    (STRING, STRING, "gpt-4-vision-preview", 1600),
     (STRING, STRING, "text-embedding-ada-002", 4),
 ])
 def test_calculate_cost(prompt, completion, model, expected_output):
