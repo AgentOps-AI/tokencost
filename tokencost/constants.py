@@ -1,5 +1,7 @@
 # Prices last updated Dec 6 2023 from: https://openai.com/pricing
-# Max prompt limits (aka context windows) last upated Dec 15 2023 from https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
+# Max prompt limits (aka context windows) last upated Dec 15 2023 from
+# https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo
+
 
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
@@ -26,7 +28,9 @@ CENTS_PER_TPU = float(100_000)
 TOKEN_COSTS = {
     # Applications using the gpt-3.5-turbo name will automatically be upgraded to the new model on December 11, 2023.
     # Note: Documentation for some of the gpt-3.5s has a max_prompt/context window ?typo? that says 4096.
-    # Can send 4097 prompt tokens (which returns 1 completion token, so total 4098) and overloading API returns error message that states limit of 4097.
+    # Can send 4097 prompt tokens (which returns 1 completion token, so total 4098)
+    # and overloading API returns error message that states limit of 4097.
+
     "gpt-3.5-turbo": {"prompt": 15, "completion": 20, "max_prompt": 4097},
     "gpt-3.5-turbo-0301": {"prompt": 15, "completion": 20, "max_prompt": 4097},
     "gpt-3.5-turbo-0613": {"prompt": 15, "completion": 20, "max_prompt": 4097},
