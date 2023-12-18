@@ -12,13 +12,9 @@ response = "Sample response text"
 model = "gpt-3.5-turbo"
 
 
-cost = calculate_cost(string_prompt, response, model)
-print(cost) # in units of TPU, which is 1/10,000,000th of a USD.
-
-# Prints the below:
-# prompt_cost=15
-# completion_cost=20
-# 120
+cost = calculate_cost(prompt, response, model)
+print(f"{cost=}) # in units of TPU, which is 1/10,000,000th of a USD.
+# cost=90
 ```
 
 ## Features
