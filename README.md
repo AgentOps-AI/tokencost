@@ -121,6 +121,30 @@ print(f"Cost: ${message_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
 # Cost: $5.7e-05 (0.0057 cents)
 ```
 
+## Cost table
+
+| Model Name                | Prompt Cost | Completion Cost | Max Prompt Tokens |
+|---------------------------|-------------|-----------------|-------------------|
+| gpt-3.5-turbo             | 15          | 20              | 4097              |
+| gpt-3.5-turbo-0301        | 15          | 20              | 4097              |
+| gpt-3.5-turbo-0613        | 15          | 20              | 4097              |
+| gpt-3.5-turbo-16k         | 30          | 40              | 16385             |
+| gpt-3.5-turbo-16k-0613    | 30          | 40              | 16385             |
+| gpt-3.5-turbo-1106        | 10          | 20              | 16385             |
+| gpt-3.5-turbo-instruct    | 15          | 20              | 4096              |
+| gpt-4                     | 300         | 600             | 8192              |
+| gpt-4-0314                | 300         | 600             | 8192              |
+| gpt-4-0613                | 300         | 600             | 8192              |
+| gpt-4-32k                 | 600         | 1200            | 32768             |
+| gpt-4-32k-0314            | 600         | 1200            | 32768             |
+| gpt-4-32k-0613            | 600         | 1200            | 32768             |
+| gpt-4-1106-preview        | 100         | 300             | 128000            |
+| gpt-4-vision-preview      | 100         | 300             | 128000            |
+| text-embedding-ada-002    | 1           | N/A             | 8192              |
+
+Units denominated in TPUs (Token Price Units = 1/10,000,000 USD) 
+
+
 ## Running tests
 
 0. Install `pytest` if you don't have it already
