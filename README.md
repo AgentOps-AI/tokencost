@@ -81,8 +81,10 @@ print(f"Cost: ${string_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
 # completion_cost=20
 # prompt_string_token_count=4, completion_string_token_count=3
 # Cost: $1.2e-05 (0.0012 cents)
+```
 
-# Second example using list of message objects instead of string input.
+**Calculating cost using chat messages instead of string inputs:**
+```python
 messages =[
     {
         "role": "user",
@@ -101,20 +103,16 @@ response = "Sample response text"
 model= "gpt-3.5-turbo"
 
 cost = calculate_cost(messages, response, model)
+print(f"Cost: ${message_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
+# Cost: $5.7e-05 (0.0057 cents)
 
 prompt_message_token_count = count_message_tokens(messages, model)
+print(f"{prompt_message_token_count=}")
+# prompt_message_token_count=34
+
 completion_string_token_count = count_string_tokens(response, model)
-
-print(f"{prompt_message_token_count=}, {completion_string_token_count=}")
-print(f"Cost: ${message_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
-
-# Prints the below:
-# Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.
-# prompt_cost=15
-# completion_cost=20
-# Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.
-# prompt_message_token_count=34, completion_string_token_count=3
-# Cost: $5.7e-05 (0.0057 cents)
+print(f"{completion_string_token_count=}
+# completion_string_token_count=3
 ```
 
 ## Cost table
