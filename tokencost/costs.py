@@ -106,11 +106,9 @@ def calculate_cost(prompt: Union[List[dict], str], completion: Union[List[dict],
     prompt_tokens = count_string_tokens(prompt, model) if isinstance(
         prompt, str) else count_message_tokens(prompt, model)
     prompt_cost = TOKEN_COSTS[model]["prompt"]
-    print(f"{prompt_cost=}")
     completion_tokens = count_string_tokens(completion, model) if isinstance(
         completion, str) else count_message_tokens(completion, model)
     completion_cost = TOKEN_COSTS[model]["completion"]
-    print(f"{completion_cost=}")
 
     cost = (prompt_tokens * prompt_cost + completion_tokens * completion_cost)
     return cost
