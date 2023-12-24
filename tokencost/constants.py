@@ -5,7 +5,7 @@
 
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
-Completion tokens are similarly based on how long chatGPT's response is. 
+Completion tokens are similarly based on how long chatGPT's response is.
 Prompt tokens + completion tokens = total tokens.
 The max total limit is typically 1 more than the prompt token limit, so there's space for at least one completion token.
 
