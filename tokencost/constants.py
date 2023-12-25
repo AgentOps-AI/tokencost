@@ -19,7 +19,6 @@ is considered a prompt (for the purpose of context) and will thus cost prompt to
 """
 
 USD_PER_TPU = float(10_000_000)
-CENTS_PER_TPU = float(100_000)
 
 # How to read TOKEN_COSTS:
 # Each prompt token costs __ TPUs per token.

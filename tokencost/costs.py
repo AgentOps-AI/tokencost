@@ -2,7 +2,7 @@
 Costs dictionary and utility tool for counting tokens
 """
 import tiktoken
-from typing import Union, List
+from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
 
 
@@ -12,10 +12,17 @@ from .constants import TOKEN_COSTS
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
 
-def count_message_tokens(messages: List, model: str) -> int:
-    """Return the total number of tokens in a list of (prompt or completion) messages."""
-    if not messages:
-        raise KeyError("Empty message list provided.")
+def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
+    """
+    Return the total number of tokens in a prompt's messages.
+    Args:
+        messages (List[Dict[str, str]]): Message format for prompt requests. e.g.:
+            [{ "role": "user", "content": "Hello world"},
+             { "role": "assistant", "content": "How may I assist you today?"}]
+        model (str): Name of LLM to choose encoding for.
+    Returns:
+        Total number of tokens in message.
+    """
     model = model.lower()
     try:
         encoding = tiktoken.encoding_for_model(model)
@@ -46,8 +53,6 @@ def count_message_tokens(messages: List, model: str) -> int:
     else:
         raise KeyError(
             f"""num_tokens_from_messages() is not implemented for model {model}.
-            Double check your spelling, or open an issue/PR:
-            https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
             See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
         )
     num_tokens = 0
@@ -66,49 +71,84 @@ def count_string_tokens(string: str, model: str) -> int:
     Returns the number of tokens in a (prompt or completion) text string.
 
     Args:
-        string (str): The text string.
+        string (str): The text string
         model_name (str): The name of the encoding to use. (e.g., "gpt-3.5-turbo")
 
     Returns:
         int: The number of tokens in the text string.
     """
     model = model.lower()
-    encoding = tiktoken.encoding_for_model(model)
+    try:
+        encoding = tiktoken.encoding_for_model(model)
+    except KeyError:
+        print("Warning: model not found. Using cl100k_base encoding.")
+        encoding = tiktoken.get_encoding("cl100k_base")
+
     return len(encoding.encode(string))
 
 
-def calculate_cost(prompt: Union[List[dict], str], completion: Union[List[dict], str], model: str) -> float:
+def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
     """
-    Calculate the cost of tokens in TPUs.  1 TPU = 1/10,000,000 of $1 (USD), so 100,000 TPUs = $0.01.
+    Calculate the prompt's cost in token price units (TPU). 1 TPU = $1/10,000,000.
+    e.g. 100,000 TPUs = $0.01.
 
     Args:
         prompt (Union[List[dict], str]): List of message objects or single string prompt.
-        completion (Union[List[dict], str]): List of message objects or single string completion.
         model (str): The model name.
 
     Returns:
-        float: The calculated cost in TPUs.
+        int: The calculated cost in TPUs.
+
+    e.g.: 
+    >>> prompt = [{ "role": "user", "content": "Hello world"},
+                  { "role": "assistant", "content": "How may I assist you today?"}]
+    # or 
+    >>> prompt = "Hello world"
+    >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
+    # TODO:
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
         raise KeyError(
-            f"""calculate_cost() is not implemented for model {model}.
-            Double-check your spelling, or submit an issue/PR:
-            https://github.com/AgentOps-AI/tokencost/blob/main/tokencost/constants.py
-            """
+            f"""Model {model} is not implemented.
+            Double-check your spelling, or submit an issue/PR"""
         )
-    if not isinstance(prompt, (list, str)) or not isinstance(completion, (list, str)):
+    if not isinstance(prompt, (list, str)) or not isinstance(prompt, (list, str)):
         raise TypeError(
             f"""Prompt and completion each must be either a string or list of message objects.
-            They are {type(prompt)} and {type(completion)}, respectively.
+            They are {type(prompt)} and {type(prompt)}, respectively.
             """
         )
     prompt_tokens = count_string_tokens(prompt, model) if isinstance(
         prompt, str) else count_message_tokens(prompt, model)
     prompt_cost = TOKEN_COSTS[model]["prompt"]
-    completion_tokens = count_string_tokens(completion, model) if isinstance(
-        completion, str) else count_message_tokens(completion, model)
+
+    return prompt_cost * prompt_tokens
+
+
+def calculate_completion_cost(completion: str, model: str) -> int:
+    """
+    Calculate the prompt's cost in token price units (TPU). 1 TPU = $1/10,000,000.
+    e.g. 100,000 TPUs = $0.01.
+
+    Args:
+        completion (str): Completion string.
+        model (str): The model name.
+
+    Returns:
+        int: The calculated cost in TPUs.
+
+    e.g.: 
+    >>> completion = "How may I assist you today?"
+    >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
+    # TODO:
+    """
+    if model not in TOKEN_COSTS:
+        raise KeyError(
+            f"""Model {model} is not implemented.
+            Double-check your spelling, or submit an issue/PR"""
+        )
+    completion_tokens = count_string_tokens(completion, model)
     completion_cost = TOKEN_COSTS[model]["completion"]
 
-    cost = (prompt_tokens * prompt_cost + completion_tokens * completion_cost)
-    return cost
+    return completion_cost * completion_tokens

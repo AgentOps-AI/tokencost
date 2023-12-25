@@ -2,117 +2,98 @@
 
 ## Overview
 
-TokenCost is a specialized tool designed for calculating the token count and associated U.S. dollar cost of strings and messages used in Large Language Models (LLMs). This utility is particularly useful for developers and researchers working with language models, enabling them to estimate the computational resources required for processing various inputs and their returned outputs.
+TokenCost is a specialized tool designed for calculating the USD cost of using major Large Language Models (LLMs) APIs. 
+
+### Features
+* **LLM Price Tracking** Major LLM providers frequently add new models and update pricing. This repo helps track the latest price changes
+* **Token counting** Accurately count prompt tokens before sending OpenAI requests
+* **Easy integration** Get the cost of a prompt or completion with a single function
+
+### Example usage:
 
 ```python
-from tokencost import calculate_cost
+from tokencost import calculate_prompt_cost, calculate_completion_cost
 
-prompt = "Sample input"
-response = "Sample response text"
 model = "gpt-3.5-turbo"
+prompt = "Hello world"
+completion = "How may I assist you today?"
 
-
-cost = calculate_cost(prompt, response, model)
-print(f"{cost=}) # in units of TPU, which is 1/10,000,000th of a USD.
-# cost=90
+prompt_cost = calculate_prompt_cost(prompt, model)
+completion_cost = calculate_completion_cost(completion, model)
+print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
+# 30 + 140 = 170
+# In TPUs (token price units), which is 1/10,000,000th of a USD.
 ```
-
-## Features
-
-- **Token Counting**: Accurately counts the number of tokens in a given string or message.
-- **Cost Calculation**: Computes the cost of processing based on the token count, considering the specific pricing model of the LLM in use.
-- **Support for Multiple LLMs**: Compatible with various Large Language Models.
-- **Easy Integration**: Simple API for integrating with existing projects or workflows.
 
 ## Installation
 
-Tokencost can be installed either via PyPI or GitHub.
-
-#### Recommended: with [PyPI](https://pypi.org/project/tokencost/) (Python package):
+#### Recommended: [PyPI](https://pypi.org/project/tokencost/):
 
 ```bash
 pip install tokencost
 ```
 
-#### OR: with [GitHub](https://github.com/AgentOps-AI/tokencost):
-
-```bash
-git clone git@github.com:AgentOps-AI/tokencost.git
-cd tokencost
-pip install -e .
-```
-
 ## Usage
 
-To use TokenCost, follow these steps:
-
-1. Import the module:
-
-- Recommended: If you want to call the functions as `function_name` directly:
+### Counting tokens
 
 ```python
-from tokencost import count_message_tokens, count_string_tokens, calculate_cost
+from tokencost import count_message_tokens, count_string_tokens
+
+message_prompt = [{ "role": "user", "content": "Hello world"}]
+# Counting tokens in prompts formatted as message lists
+print(count_message_tokens(message_prompt, model="gpt-3.5-turbo"))
+# TODO:
+
+# Alternatively, counting tokens in string prompts
+print(count_string_prompt(prompt="Hello world", model="gpt-3.5-turbo"))
+# TODO:
+
 ```
 
-- OR if you want to call the functions as `tokencost.function_name`:
-
+### Cost estimates
+Calculating the cost of prompts and completions from OpenAI requests
 ```python
-import tokencost
+from openai import OpenAI
+
+client = OpenAI()
+model = "gpt-3.5-turbo"
+prompt = [{ "role": "user", "content": "Say this is a test"}]
+
+chat_completion = client.chat.completions.create(
+    messages=prompt, model=model
+)
+
+completion = chat_completion.choices[0].message.content
+# "This is a test."
+
+prompt_cost = calculate_prompt_cost(prompt, model)
+completion_cost = calculate_completion_cost(completion, model)
+print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
+# 180 + 100 = 280
+
+from tokencost import USD_PER_TPU
+print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
+# $2.8e-05
 ```
 
-2. Calculate tokens and cost (using `from tokencost import count_message_tokens, count_string_tokens, calculate_cost`):
-
+**Calculating cost using string prompts instead of messages:**
 ```python
-
-# First example using string input.
-string_prompt = "Your sample text here"
-response = "Sample response text"
-model= "gpt-3.5-turbo"
-
-cost = calculate_cost(string_prompt, response, model)
-
-prompt_string_token_count = count_string_tokens(string_prompt, model)
-
-print(f"{prompt_string_token_count=}, {completion_string_token_count=}")
-print(f"Cost: ${string_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
-
-# Prints the below:
-# prompt_cost=15
-# completion_cost=20
-# prompt_string_token_count=4, completion_string_token_count=3
-# Cost: $1.2e-05 (0.0012 cents)
-```
-
-**Calculating cost using chat messages instead of string inputs:**
-```python
-messages =[
-    {
-        "role": "user",
-        "content": "Hey how is your day",
-    },
-    {
-        "role": 'assistant',
-        "content": "As an LLM model I do not have days"
-    },
-    {
-        "role": "user",
-        "content": "Err sure okay fine"
-    }
-]
-response = "Sample response text"
+messages = "Hello world" 
+response = "How may I assist you today?"
 model= "gpt-3.5-turbo"
 
 cost = calculate_cost(messages, response, model)
-print(f"Cost: ${message_cost/USD_PER_TPU} ({cost/CENTS_PER_TPU} cents)")
-# Cost: $5.7e-05 (0.0057 cents)
+print(f"Cost: ${message_cost/USD_PER_TPU}")
+# TODO:
 
 prompt_message_token_count = count_message_tokens(messages, model)
 print(f"{prompt_message_token_count=}")
-# prompt_message_token_count=34
+# TODO:
 
 completion_string_token_count = count_string_tokens(response, model)
 print(f"{completion_string_token_count=}
-# completion_string_token_count=3
+# TODO:
 ```
 
 ## Cost table
@@ -139,6 +120,16 @@ print(f"{completion_string_token_count=}
 Units denominated in TPUs (Token Price Units = 1/10,000,000 USD) 
 
 
+### Running locally
+
+#### Installation via [GitHub](https://github.com/AgentOps-AI/tokencost):
+
+```bash
+git clone git@github.com:AgentOps-AI/tokencost.git
+cd tokencost
+pip install -e .
+```
+
 ## Running tests
 
 0. Install `pytest` if you don't have it already
@@ -152,6 +143,8 @@ pip install pytest
 ```python
 pytest tests
 ```
+
+This repo also supports `tox`, simply run `python -m tox`.
 
 ## Contributing
 
