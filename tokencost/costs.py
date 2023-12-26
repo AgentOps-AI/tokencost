@@ -105,10 +105,12 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
     e.g.:
     >>> prompt = [{ "role": "user", "content": "Hello world"},
                   { "role": "assistant", "content": "How may I assist you today?"}]
+    >>>calculate_prompt_cost(prompt, "gpt-3.5-turbo")
+    300
     # or
     >>> prompt = "Hello world"
     >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
-    # TODO:
+    30
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
@@ -147,7 +149,7 @@ def calculate_completion_cost(completion: str, model: str) -> int:
     e.g.:
     >>> completion = "How may I assist you today?"
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
-    # TODO:
+    140
     """
     if model not in TOKEN_COSTS:
         raise KeyError(
