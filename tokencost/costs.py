@@ -44,11 +44,14 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         tokens_per_message = 4
         tokens_per_name = -1  # if there's a name, the role is omitted
     elif "gpt-3.5-turbo" in model:
-        print("Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
+        print(
+            "Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613."
+        )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4" in model:
         print(
-            "Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
+            "Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613."
+        )
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
         raise KeyError(
@@ -66,12 +69,12 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     return num_tokens
 
 
-def count_string_tokens(string: str, model: str) -> int:
+def count_string_tokens(prompt: str, model: str) -> int:
     """
     Returns the number of tokens in a (prompt or completion) text string.
 
     Args:
-        string (str): The text string
+        prompt (str): The text string
         model_name (str): The name of the encoding to use. (e.g., "gpt-3.5-turbo")
 
     Returns:
@@ -84,7 +87,7 @@ def count_string_tokens(string: str, model: str) -> int:
         print("Warning: model not found. Using cl100k_base encoding.")
         encoding = tiktoken.get_encoding("cl100k_base")
 
-    return len(encoding.encode(string))
+    return len(encoding.encode(prompt))
 
 
 def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
@@ -99,10 +102,10 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
     Returns:
         int: The calculated cost in TPUs.
 
-    e.g.: 
+    e.g.:
     >>> prompt = [{ "role": "user", "content": "Hello world"},
                   { "role": "assistant", "content": "How may I assist you today?"}]
-    # or 
+    # or
     >>> prompt = "Hello world"
     >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
     # TODO:
@@ -119,8 +122,11 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
             They are {type(prompt)} and {type(prompt)}, respectively.
             """
         )
-    prompt_tokens = count_string_tokens(prompt, model) if isinstance(
-        prompt, str) else count_message_tokens(prompt, model)
+    prompt_tokens = (
+        count_string_tokens(prompt, model)
+        if isinstance(prompt, str)
+        else count_message_tokens(prompt, model)
+    )
     prompt_cost = TOKEN_COSTS[model]["prompt"]
 
     return prompt_cost * prompt_tokens
@@ -138,7 +144,7 @@ def calculate_completion_cost(completion: str, model: str) -> int:
     Returns:
         int: The calculated cost in TPUs.
 
-    e.g.: 
+    e.g.:
     >>> completion = "How may I assist you today?"
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
     # TODO:

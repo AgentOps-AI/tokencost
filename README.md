@@ -43,11 +43,11 @@ from tokencost import count_message_tokens, count_string_tokens
 message_prompt = [{ "role": "user", "content": "Hello world"}]
 # Counting tokens in prompts formatted as message lists
 print(count_message_tokens(message_prompt, model="gpt-3.5-turbo"))
-# TODO:
+# 9
 
 # Alternatively, counting tokens in string prompts
-print(count_string_prompt(prompt="Hello world", model="gpt-3.5-turbo"))
-# TODO:
+print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
+# 2
 
 ```
 
@@ -79,24 +79,30 @@ print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
 
 **Calculating cost using string prompts instead of messages:**
 ```python
-messages = "Hello world" 
+prompt_string = "Hello world" 
 response = "How may I assist you today?"
 model= "gpt-3.5-turbo"
 
-cost = calculate_cost(messages, response, model)
-print(f"Cost: ${message_cost/USD_PER_TPU}")
-# TODO:
+prompt_cost = calculate_prompt_cost(prompt_string, model)
+print(f"Cost: ${prompt_cost/USD_PER_TPU}")
+# Cost: $3e-06
+```
 
-prompt_message_token_count = count_message_tokens(messages, model)
+**Counting tokens**
+```python
+from tokencost import count_message_tokens, count_string_tokens
+prompt = [{ "role": "user", "content": "Say this is a test"}]
+prompt_message_token_count = count_message_tokens(prompt, model)
 print(f"{prompt_message_token_count=}")
-# TODO:
+# prompt_message_token_count=12
 
 completion_string_token_count = count_string_tokens(response, model)
-print(f"{completion_string_token_count=}
-# TODO:
+print(f"{completion_string_token_count=}")
+# completion_string_token_count=7
 ```
 
 ## Cost table
+Units denominated in TPUs (Token Price Units = 1/10,000,000 USD)
 
 | Model Name                | Prompt Cost | Completion Cost | Max Prompt Tokens |
 |---------------------------|-------------|-----------------|-------------------|
@@ -117,7 +123,7 @@ print(f"{completion_string_token_count=}
 | gpt-4-vision-preview      | 100         | 300             | 128000            |
 | text-embedding-ada-002    | 1           | N/A             | 8192              |
 
-Units denominated in TPUs (Token Price Units = 1/10,000,000 USD) 
+
 
 
 ### Running locally
