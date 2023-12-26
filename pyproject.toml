@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tokencost"
-version = "0.0.2"
+name = "tokencost"https://github.com/AgentOps-AI/tokencost/blob/main/pyproject.toml
+version = "0.0.1"
 authors = [
   { name="Trisha Pan", email="trishaepan@gmail.com" },
   { name="Alex Reibman", email="areibman@gmail.com" },
