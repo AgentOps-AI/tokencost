@@ -15,14 +15,16 @@ TokenCost is a specialized tool designed for calculating the USD cost of using m
 from tokencost import calculate_prompt_cost, calculate_completion_cost
 
 model = "gpt-3.5-turbo"
-prompt = "Hello world"
+prompt = [{ "role": "user", "content": "Hello world"}]
 completion = "How may I assist you today?"
+
 
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
+
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# 30 + 140 = 170
-# In TPUs (token price units), which is 1/10,000,000th of a USD.
+# 135 + 140 = 275 ($0.0000275)
+# Priced in TPUs (token price units), which is 1/10,000,000th of a USD.
 ```
 
 ## Installation
@@ -70,7 +72,7 @@ completion = chat_completion.choices[0].message.content
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# 180 + 100 = 280
+# 180 + 100 = 280 ($0.0000280)
 
 from tokencost import USD_PER_TPU
 print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
@@ -85,7 +87,7 @@ model= "gpt-3.5-turbo"
 
 prompt_cost = calculate_prompt_cost(prompt_string, model)
 print(f"Cost: ${prompt_cost/USD_PER_TPU}")
-# Cost: $3e-06
+# Cost: $2e-07
 ```
 
 **Counting tokens**
