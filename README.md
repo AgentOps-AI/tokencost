@@ -1,7 +1,9 @@
 # TokenCost
 
-## Overview
 Clientside token counting + price estimation for LLM apps and AI agents. Tokencost helps calculate the USD cost of using major Large Language Model (LLMs) APIs by calculating the estimated cost of prompts and completions.
+
+Building AI agents? Check out [AgentOps](https://agentops.ai/?tokencost)
+
 
 ### Features
 * **LLM Price Tracking** Major LLM providers frequently add new models and update pricing. This repo helps track the latest price changes
@@ -16,7 +18,6 @@ from tokencost import calculate_prompt_cost, calculate_completion_cost
 model = "gpt-3.5-turbo"
 prompt = [{ "role": "user", "content": "Hello world"}]
 completion = "How may I assist you today?"
-
 
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
@@ -35,22 +36,6 @@ pip install tokencost
 ```
 
 ## Usage
-
-### Counting tokens
-
-```python
-from tokencost import count_message_tokens, count_string_tokens
-
-message_prompt = [{ "role": "user", "content": "Hello world"}]
-# Counting tokens in prompts formatted as message lists
-print(count_message_tokens(message_prompt, model="gpt-3.5-turbo"))
-# 9
-
-# Alternatively, counting tokens in string prompts
-print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
-# 2
-
-```
 
 ### Cost estimates
 Calculating the cost of prompts and completions from OpenAI requests
@@ -90,16 +75,19 @@ print(f"Cost: ${prompt_cost/USD_PER_TPU}")
 ```
 
 **Counting tokens**
+
 ```python
 from tokencost import count_message_tokens, count_string_tokens
-prompt = [{ "role": "user", "content": "Say this is a test"}]
-prompt_message_token_count = count_message_tokens(prompt, model)
-print(f"{prompt_message_token_count=}")
-# prompt_message_token_count=12
 
-completion_string_token_count = count_string_tokens(response, model)
-print(f"{completion_string_token_count=}")
-# completion_string_token_count=7
+message_prompt = [{ "role": "user", "content": "Hello world"}]
+# Counting tokens in prompts formatted as message lists
+print(count_message_tokens(message_prompt, model="gpt-3.5-turbo"))
+# 9
+
+# Alternatively, counting tokens in string prompts
+print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
+# 2
+
 ```
 
 ## Cost table
