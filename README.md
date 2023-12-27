@@ -1,8 +1,7 @@
 # TokenCost
 
 ## Overview
-
-TokenCost is a specialized tool designed for calculating the USD cost of using major Large Language Models (LLMs) APIs. 
+Clientside token counting + price estimation for LLM apps and AI agents. Tokencost helps calculate the USD cost of using major Large Language Model (LLMs) APIs by calculating the estimated cost of prompts and completions.
 
 ### Features
 * **LLM Price Tracking** Major LLM providers frequently add new models and update pricing. This repo helps track the latest price changes
