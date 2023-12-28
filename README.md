@@ -65,13 +65,15 @@ print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
 
 **Calculating cost using string prompts instead of messages:**
 ```python
+from tokencost import calculate_prompt_cost, USD_PER_TPU
+
 prompt_string = "Hello world" 
 response = "How may I assist you today?"
 model= "gpt-3.5-turbo"
 
 prompt_cost = calculate_prompt_cost(prompt_string, model)
 print(f"Cost: ${prompt_cost/USD_PER_TPU}")
-# Cost: $2e-07
+# Cost: $3e-06
 ```
 
 **Counting tokens**
