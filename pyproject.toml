@@ -18,7 +18,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "tiktoken"
+    "tiktoken",
+    "pyyaml"
 ]
 [project.optional-dependencies]
 dev = [
