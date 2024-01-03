@@ -266,6 +266,22 @@ Units denominated in TPUs (Token Price Units = 1/10,000,000 USD). All prices can
 | voyage/voyage-01 | 1 | 0 | 4096 |
 | voyage/voyage-lite-01 | 1 | 0 | 4096 |
 
+### Callback handlers
+You may also calculate token costs in LLM wrapper/framework libraries using callbacks. 
+#### LlamaIndex
+```sh
+pip install `'tokencost[llama-index]'`
+```
+To use the base callback handler, you may import it:
+
+```python
+from tokencost.callbacks.llama_index import BaseCallbackHandler
+```
+
+and pass to your framework callback handler.
+
+#### Langchain
+(Coming Soon)
 
 ### Running locally
 
