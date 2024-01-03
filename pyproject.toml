@@ -18,15 +18,19 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "tiktoken",
-    "pyyaml"
+    "tiktoken>=0.5.2",
+    "pyyaml>=6.0.1"
 ]
 [project.optional-dependencies]
 dev = [
-    "pytest",
-    "flake8",
-    "coverage",
+    "pytest>=7.4.4",
+    "flake8>=3.1.0",
+    "coverage[toml]>=7.4.0",
 ]
+llama-index = [
+    "llama-index>=0.9.24"
+]
+
 
 [project.urls]
 Homepage = "https://github.com/AgentOps-AI/tokencost"
