@@ -94,7 +94,7 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 ```
 
 ## Cost table
-Units denominated in TPUs (Token Price Units = 1/10,000,000 USD)
+Units denominated in TPUs (Token Price Units = 1/10,000,000 USD). All prices can be located in `model_prices.yaml`.
 
 | Model Name | Prompt Cost | Completion Cost | Max Prompt Tokens | 
 | --- | --- | --- | --- |
