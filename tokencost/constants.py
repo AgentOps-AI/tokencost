@@ -1,3 +1,4 @@
+import os
 import yaml
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
@@ -20,5 +21,6 @@ USD_PER_TPU = 10_000_000
 # Each prompt token costs __ TPUs per token.
 # Each completion token costs __ TPUs per token.
 # Max prompt limit of each model is __ tokens.
-with open("model_prices.yaml", "r") as f:
+
+with open(os.path.join(os.path.dirname(__file__), "model_prices.yaml"), "r") as f:
     TOKEN_COSTS = yaml.safe_load(f)
