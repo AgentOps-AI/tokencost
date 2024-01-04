@@ -2,12 +2,15 @@
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.package-data]
+tokencost = ["model_prices.yaml"]
+
 [project]
 name = "tokencost"
 version = "0.0.4"
 authors = [
-  { name="Trisha Pan", email="trishaepan@gmail.com" },
-  { name="Alex Reibman", email="areibman@gmail.com" },
+  { name = "Trisha Pan", email = "trishaepan@gmail.com" },
+  { name = "Alex Reibman", email = "areibman@gmail.com" },
 ]
 description = "To calculate token and translated USD cost of string and message calls to OpenAI, for example when used by AI agents"
 readme = "README.md"
@@ -31,9 +34,6 @@ dev = [
 llama-index = [
     "llama-index>=0.9.24"
 ]
-
-[tool.setuptools.dynamic]
-package_data = { "tokencost": ["model_prices.yaml"] }
 
 [project.urls]
 Homepage = "https://github.com/AgentOps-AI/tokencost"
