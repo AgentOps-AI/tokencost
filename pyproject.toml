@@ -21,6 +21,7 @@ dependencies = [
     "tiktoken>=0.5.2",
     "pyyaml>=6.0.1"
 ]
+
 [project.optional-dependencies]
 dev = [
     "pytest>=7.4.4",
@@ -31,8 +32,8 @@ llama-index = [
     "llama-index>=0.9.24"
 ]
 
-[tool.setuptools.package_data]
-tokencost = ["model_prices.yaml"]
+[tool.setuptools.dynamic]
+package_data = { "tokencost": ["model_prices.yaml"] }
 
 [project.urls]
 Homepage = "https://github.com/AgentOps-AI/tokencost"
