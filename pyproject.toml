@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tokencost"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
   { name="Trisha Pan", email="trishaepan@gmail.com" },
   { name="Alex Reibman", email="areibman@gmail.com" },
@@ -31,6 +31,8 @@ llama-index = [
     "llama-index>=0.9.24"
 ]
 
+[tool.setuptools.package_data]
+tokencost = ["model_prices.yaml"]
 
 [project.urls]
 Homepage = "https://github.com/AgentOps-AI/tokencost"
