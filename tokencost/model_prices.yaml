@@ -34,6 +34,10 @@ gpt-4-1106-preview:
   max_prompt: 128000
   prompt: 100
   completion: 300
+gpt-4-0125-preview:
+  max_prompt: 128000
+  prompt: 100
+  completion: 300
 gpt-4-vision-preview:
   max_prompt: 128000
   prompt: 100
@@ -66,6 +70,8 @@ text-embedding-ada-002:
   max_prompt: 8191
   prompt: 1
   completion: 0
+text-embedding-3-small:
+
 azure/gpt-4-1106-preview:
   max_prompt: 128000
   prompt: 100
