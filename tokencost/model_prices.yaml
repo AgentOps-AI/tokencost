@@ -8,514 +8,524 @@
 
 gpt-4:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 gpt-4-0314:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 gpt-4-0613:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 gpt-4-32k:
   max_prompt: 32768
-  prompt: 600
-  completion: 1200
+  prompt: 6000
+  completion: 12000
 gpt-4-32k-0314:
   max_prompt: 32768
-  prompt: 600
-  completion: 1200
+  prompt: 6000
+  completion: 12000
 gpt-4-32k-0613:
   max_prompt: 32768
-  prompt: 600
-  completion: 1200
+  prompt: 6000
+  completion: 12000
 gpt-4-1106-preview:
   max_prompt: 128000
-  prompt: 100
-  completion: 300
+  prompt: 1000
+  completion: 3000
 gpt-4-0125-preview:
   max_prompt: 128000
-  prompt: 100
-  completion: 300
+  prompt: 1000
+  completion: 3000
 gpt-4-vision-preview:
   max_prompt: 128000
-  prompt: 100
-  completion: 300
+  prompt: 1000
+  completion: 3000
 gpt-3.5-turbo:
   max_prompt: 4097
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 gpt-3.5-turbo-0301:
   max_prompt: 4097
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 gpt-3.5-turbo-0613:
   max_prompt: 4097
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 gpt-3.5-turbo-1106:
   max_prompt: 16385
-  prompt: 10
-  completion: 20
+  prompt: 50
+  completion: 150
+gpt-3.5-turbo-0125:
+  max_prompt: 16385
+  prompt: 50
+  completion: 150
 gpt-3.5-turbo-16k:
   max_prompt: 16385
-  prompt: 30
-  completion: 40
+  prompt: 300
+  completion: 400
 gpt-3.5-turbo-16k-0613:
   max_prompt: 16385
-  prompt: 30
-  completion: 40
+  prompt: 300
+  completion: 400
 text-embedding-ada-002:
   max_prompt: 8191
-  prompt: 1
+  prompt: 10
   completion: 0
 text-embedding-3-small:
-
+  max_prompt: 8191
+  prompt: 2
+  completion: 0
+text-embedding-3-large:
+  max_prompt: 8191
+  prompt: 13
+  completion: 0
 azure/gpt-4-1106-preview:
   max_prompt: 128000
-  prompt: 100
-  completion: 300
+  prompt: 1000
+  completion: 3000
 azure/gpt-4-0613:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 azure/gpt-4-32k-0613:
   max_prompt: 32768
-  prompt: 600
-  completion: 1200
+  prompt: 6000
+  completion: 12000
 azure/gpt-4-32k:
   max_prompt: 32768
-  prompt: 600
-  completion: 1200
+  prompt: 6000
+  completion: 12000
 azure/gpt-4:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 azure/gpt-35-turbo-16k-0613:
   max_prompt: 16385
-  prompt: 30
-  completion: 40
+  prompt: 300
+  completion: 400
 azure/gpt-35-turbo-1106:
   max_prompt: 16384
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 azure/gpt-35-turbo-16k:
   max_prompt: 16385
-  prompt: 30
-  completion: 40
+  prompt: 300
+  completion: 400
 azure/gpt-35-turbo:
   max_prompt: 4097
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 azure/text-embedding-ada-002:
   max_prompt: 8191
-  prompt: 1
+  prompt: 10
   completion: 0
 text-davinci-003:
   max_prompt: 4097
-  prompt: 20
-  completion: 20
+  prompt: 200
+  completion: 200
 text-curie-001:
   max_prompt: 2049
-  prompt: 20
-  completion: 20
+  prompt: 200
+  completion: 200
 text-babbage-001:
   max_prompt: 2049
-  prompt: 4
-  completion: 4
+  prompt: 40
+  completion: 40
 text-ada-001:
   max_prompt: 2049
-  prompt: 4
-  completion: 4
+  prompt: 40
+  completion: 40
 babbage-002:
   max_prompt: 16384
-  prompt: 4
-  completion: 4
+  prompt: 40
+  completion: 40
 davinci-002:
   max_prompt: 16384
-  prompt: 20
-  completion: 20
+  prompt: 200
+  completion: 200
 gpt-3.5-turbo-instruct:
   max_prompt: 8192
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 claude-instant-1:
   max_prompt: 100000
-  prompt: 16
-  completion: 55
+  prompt: 160
+  completion: 550
 mistral/mistral-tiny:
   max_prompt: 8192
-  prompt: 1
-  completion: 4
+  prompt: 10
+  completion: 40
 mistral/mistral-small:
   max_prompt: 8192
-  prompt: 6
-  completion: 19
+  prompt: 60
+  completion: 190
 mistral/mistral-medium:
   max_prompt: 8192
-  prompt: 27
-  completion: 82
+  prompt: 270
+  completion: 820
 claude-instant-1.2:
   max_prompt: 100000
-  prompt: 1
-  completion: 5
+  prompt: 10
+  completion: 50
 claude-2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 claude-2.1:
   max_prompt: 200000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 text-bison:
   max_prompt: 8192
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 text-bison@001:
   max_prompt: 8192
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 text-unicorn:
   max_prompt: 8192
-  prompt: 100
-  completion: 280
+  prompt: 1000
+  completion: 2800
 text-unicorn@001:
   max_prompt: 8192
-  prompt: 100
-  completion: 280
+  prompt: 1000
+  completion: 2800
 chat-bison:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 chat-bison@001:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 chat-bison@002:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 chat-bison-32k:
   max_prompt: 32000
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 code-bison:
   max_prompt: 6144
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 code-bison@001:
   max_prompt: 6144
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 code-gecko@001:
   max_prompt: 2048
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 code-gecko@002:
   max_prompt: 2048
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 code-gecko:
   max_prompt: 2048
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 codechat-bison:
   max_prompt: 6144
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 codechat-bison@001:
   max_prompt: 6144
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 codechat-bison-32k:
   max_prompt: 32000
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 gemini-pro:
   max_prompt: 30720
-  prompt: 2
-  completion: 5
+  prompt: 20
+  completion: 50
 gemini-pro-vision:
   max_prompt: 30720
-  prompt: 2
-  completion: 5
+  prompt: 20
+  completion: 50
 palm/chat-bison:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 palm/chat-bison-001:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 palm/text-bison:
   max_prompt: 8196
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 palm/text-bison-001:
   max_prompt: 8196
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 palm/text-bison-safety-off:
   max_prompt: 8196
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 palm/text-bison-safety-recitation-off:
   max_prompt: 8196
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 command-nightly:
   max_prompt: 4096
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 command:
   max_prompt: 4096
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 command-light:
   max_prompt: 4096
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 command-medium-beta:
   max_prompt: 4096
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 command-xlarge-beta:
   max_prompt: 4096
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 openrouter/openai/gpt-3.5-turbo:
   max_prompt: 4095
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 openrouter/openai/gpt-3.5-turbo-16k:
   max_prompt: 16383
-  prompt: 30
-  completion: 40
+  prompt: 300
+  completion: 400
 openrouter/openai/gpt-4:
   max_prompt: 8192
-  prompt: 300
-  completion: 600
+  prompt: 3000
+  completion: 6000
 openrouter/anthropic/claude-instant-v1:
   max_prompt: 100000
-  prompt: 16
-  completion: 55
+  prompt: 160
+  completion: 550
 openrouter/anthropic/claude-2:
   max_prompt: 100000
-  prompt: 110
-  completion: 326
+  prompt: 1100
+  completion: 3260
 openrouter/google/palm-2-chat-bison:
   max_prompt: 8000
-  prompt: 5
-  completion: 5
+  prompt: 50
+  completion: 50
 openrouter/google/palm-2-codechat-bison:
   max_prompt: 8000
-  prompt: 5
-  completion: 5
+  prompt: 50
+  completion: 50
 openrouter/meta-llama/llama-2-13b-chat:
   max_prompt: 4096
-  prompt: 2
-  completion: 2
+  prompt: 20
+  completion: 20
 openrouter/meta-llama/llama-2-70b-chat:
   max_prompt: 4096
-  prompt: 15
-  completion: 15
+  prompt: 150
+  completion: 150
 openrouter/meta-llama/codellama-34b-instruct:
   max_prompt: 8096
-  prompt: 5
-  completion: 5
+  prompt: 50
+  completion: 50
 openrouter/nousresearch/nous-hermes-llama2-13b:
   max_prompt: 4096
-  prompt: 2
-  completion: 2
+  prompt: 20
+  completion: 20
 openrouter/mancer/weaver:
   max_prompt: 8000
-  prompt: 56
-  completion: 56
+  prompt: 560
+  completion: 560
 openrouter/gryphe/mythomax-l2-13b:
   max_prompt: 8192
-  prompt: 18
-  completion: 18
+  prompt: 180
+  completion: 180
 openrouter/jondurbin/airoboros-l2-70b-2.1:
   max_prompt: 4096
-  prompt: 138
-  completion: 138
+  prompt: 1380
+  completion: 1380
 openrouter/undi95/remm-slerp-l2-13b:
   max_prompt: 6144
-  prompt: 18
-  completion: 18
+  prompt: 180
+  completion: 180
 openrouter/pygmalionai/mythalion-13b:
   max_prompt: 4096
-  prompt: 18
-  completion: 18
+  prompt: 180
+  completion: 180
 openrouter/mistralai/mistral-7b-instruct:
   max_prompt: 4096
   prompt: 0
   completion: 0
 j2-ultra:
   max_prompt: 8192
-  prompt: 150
-  completion: 150
+  prompt: 1500
+  completion: 1500
 j2-mid:
   max_prompt: 8192
-  prompt: 100
-  completion: 100
+  prompt: 1000
+  completion: 1000
 j2-light:
   max_prompt: 8192
-  prompt: 30
-  completion: 30
+  prompt: 300
+  completion: 300
 dolphin:
   max_prompt: 4096
-  prompt: 200
-  completion: 200
+  prompt: 2000
+  completion: 2000
 chatdolphin:
   max_prompt: 4096
-  prompt: 200
-  completion: 200
+  prompt: 2000
+  completion: 2000
 luminous-base:
   max_prompt: 2048
-  prompt: 300
-  completion: 330
+  prompt: 3000
+  completion: 3300
 luminous-base-control:
   max_prompt: 2048
-  prompt: 374
-  completion: 412
+  prompt: 3740
+  completion: 4120
 luminous-extended:
   max_prompt: 2048
-  prompt: 450
-  completion: 494
+  prompt: 4500
+  completion: 4940
 luminous-extended-control:
   max_prompt: 2048
-  prompt: 562
-  completion: 618
+  prompt: 5620
+  completion: 6180
 luminous-supreme:
   max_prompt: 2048
-  prompt: 1750
-  completion: 1925
+  prompt: 17500
+  completion: 19250
 luminous-supreme-control:
   max_prompt: 2048
-  prompt: 2187
-  completion: 2406
+  prompt: 21870
+  completion: 24060
 ai21.j2-mid-v1:
   max_prompt: 8191
-  prompt: 125
-  completion: 125
+  prompt: 1250
+  completion: 1250
 ai21.j2-ultra-v1:
   max_prompt: 8191
-  prompt: 188
-  completion: 188
+  prompt: 1880
+  completion: 1880
 amazon.titan-text-lite-v1:
   max_prompt: 8000
-  prompt: 3
-  completion: 4
+  prompt: 30
+  completion: 40
 amazon.titan-text-express-v1:
   max_prompt: 8000
-  prompt: 13
-  completion: 17
+  prompt: 130
+  completion: 170
 anthropic.claude-v1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-east-1/anthropic.claude-v1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-west-2/anthropic.claude-v1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/ap-northeast-1/anthropic.claude-v1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/eu-central-1/anthropic.claude-v1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 anthropic.claude-v2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-east-1/anthropic.claude-v2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-west-2/anthropic.claude-v2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/ap-northeast-1/anthropic.claude-v2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/eu-central-1/anthropic.claude-v2:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 anthropic.claude-v2:1:
   max_prompt: 200000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-east-1/anthropic.claude-v2:1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/us-west-2/anthropic.claude-v2:1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/ap-northeast-1/anthropic.claude-v2:1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 bedrock/eu-central-1/anthropic.claude-v2:1:
   max_prompt: 100000
-  prompt: 80
-  completion: 240
+  prompt: 800
+  completion: 2400
 anthropic.claude-instant-v1:
   max_prompt: 100000
-  prompt: 16
-  completion: 55
+  prompt: 160
+  completion: 550
 bedrock/us-east-1/anthropic.claude-instant-v1:
   max_prompt: 100000
-  prompt: 8
-  completion: 24
+  prompt: 80
+  completion: 240
 bedrock/us-west-2/anthropic.claude-instant-v1:
   max_prompt: 100000
-  prompt: 8
-  completion: 24
+  prompt: 80
+  completion: 240
 bedrock/ap-northeast-1/anthropic.claude-instant-v1:
   max_prompt: 100000
-  prompt: 22
-  completion: 75
+  prompt: 220
+  completion: 750
 bedrock/eu-central-1/anthropic.claude-instant-v1:
   max_prompt: 100000
-  prompt: 24
-  completion: 83
+  prompt: 240
+  completion: 830
 cohere.command-text-v14:
   max_prompt: 4096
-  prompt: 15
-  completion: 20
+  prompt: 150
+  completion: 200
 cohere.command-light-text-v14:
   max_prompt: 4000
-  prompt: 3
-  completion: 6
+  prompt: 30
+  completion: 60
 cohere.embed-english-v3:
   max_prompt: 512
-  prompt: 1
+  prompt: 10
   completion: 0
 cohere.embed-multilingual-v3:
   max_prompt: 512
-  prompt: 1
+  prompt: 10
   completion: 0
 meta.llama2-13b-chat-v1:
   max_prompt: 4096
-  prompt: 7
-  completion: 10
+  prompt: 70
+  completion: 100
 meta.llama2-70b-chat-v1:
   max_prompt: 4096
-  prompt: 19
-  completion: 25
+  prompt: 190
+  completion: 250
 sagemaker/meta-textgeneration-llama-2-7b:
   max_prompt: 4096
   prompt: 0
@@ -542,8 +552,8 @@ sagemaker/meta-textgeneration-llama-2-70b-b-f:
   completion: 0
 together-ai-7.1b-20b:
   max_prompt: 1000
-  prompt: 4
-  completion: 4
+  prompt: 40
+  completion: 40
 ollama/llama2:
   max_prompt: 4096
   prompt: 0
@@ -578,28 +588,28 @@ ollama/vicuna:
   completion: 0
 deepinfra/meta-llama/Llama-2-70b-chat-hf:
   max_prompt: 4096
-  prompt: 7
-  completion: 9
+  prompt: 70
+  completion: 90
 deepinfra/codellama/CodeLlama-34b-Instruct-hf:
   max_prompt: 4096
-  prompt: 6
-  completion: 6
+  prompt: 60
+  completion: 60
 deepinfra/meta-llama/Llama-2-13b-chat-hf:
   max_prompt: 4096
-  prompt: 3
-  completion: 3
+  prompt: 30
+  completion: 30
 deepinfra/meta-llama/Llama-2-7b-chat-hf:
   max_prompt: 4096
-  prompt: 2
-  completion: 2
+  prompt: 20
+  completion: 20
 deepinfra/mistralai/Mistral-7B-Instruct-v0.1:
   max_prompt: 4096
-  prompt: 2
-  completion: 2
+  prompt: 20
+  completion: 20
 deepinfra/jondurbin/airoboros-l2-70b-gpt4-1.4.1:
   max_prompt: 4096
-  prompt: 7
-  completion: 9
+  prompt: 70
+  completion: 90
 perplexity/pplx-7b-chat:
   max_prompt: 8192
   prompt: 0
@@ -611,11 +621,11 @@ perplexity/pplx-70b-chat:
 perplexity/pplx-7b-online:
   max_prompt: 4096
   prompt: 0
-  completion: 5000
+  completion: 50000
 perplexity/pplx-70b-online:
   max_prompt: 4096
   prompt: 0
-  completion: 5000
+  completion: 50000
 perplexity/llama-2-13b-chat:
   max_prompt: 4096
   prompt: 0
@@ -634,49 +644,49 @@ perplexity/replit-code-v1.5-3b:
   completion: 0
 anyscale/mistralai/Mistral-7B-Instruct-v0.1:
   max_prompt: 16384
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 anyscale/HuggingFaceH4/zephyr-7b-beta:
   max_prompt: 16384
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 anyscale/meta-llama/Llama-2-7b-chat-hf:
   max_prompt: 4096
-  prompt: 1
-  completion: 1
+  prompt: 10
+  completion: 10
 anyscale/meta-llama/Llama-2-13b-chat-hf:
   max_prompt: 4096
-  prompt: 2
-  completion: 2
+  prompt: 20
+  completion: 20
 anyscale/meta-llama/Llama-2-70b-chat-hf:
   max_prompt: 4096
-  prompt: 10
-  completion: 10
+  prompt: 100
+  completion: 100
 anyscale/codellama/CodeLlama-34b-Instruct-hf:
   max_prompt: 16384
-  prompt: 10
-  completion: 10
+  prompt: 100
+  completion: 100
 cloudflare/@cf/meta/llama-2-7b-chat-fp16:
   max_prompt: 3072
-  prompt: 19
-  completion: 19
+  prompt: 190
+  completion: 190
 cloudflare/@cf/meta/llama-2-7b-chat-int8:
   max_prompt: 2048
-  prompt: 19
-  completion: 19
+  prompt: 190
+  completion: 190
 cloudflare/@cf/mistral/mistral-7b-instruct-v0.1:
   max_prompt: 8192
-  prompt: 19
-  completion: 19
+  prompt: 190
+  completion: 190
 cloudflare/@hf/thebloke/codellama-7b-instruct-awq:
   max_prompt: 4096
-  prompt: 19
-  completion: 19
+  prompt: 190
+  completion: 190
 voyage/voyage-01:
   max_prompt: 4096
-  prompt: 1
+  prompt: 10
   completion: 0
 voyage/voyage-lite-01:
   max_prompt: 4096
-  prompt: 1
+  prompt: 10
   completion: 0
