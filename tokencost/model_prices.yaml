@@ -1,5 +1,5 @@
 
-# Prices last updated Jan 1, 2024 from: https://openai.com/pricing and https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+# Prices last updated Jan 27, 2024 from: https://openai.com/pricing and https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
 
 # Applications using the gpt-3.5-turbo name will automatically be upgraded to the new model on December 11, 2023.
 # Note: Documentation for some of the gpt-3.5s has a max_prompt/context window typo that says 4096.
