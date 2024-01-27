@@ -26,7 +26,7 @@ completion_cost = calculate_completion_cost(completion, model)
 
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
 # 135 + 140 = 275 ($0.0000275)
-# Priced in TPUs (token price units), which is 1/10,000,000th of a USD.
+# Priced in TPUs (token price units), which is 1/100,000,000th of a USD.
 ```
 
 ## Installation
@@ -58,7 +58,7 @@ completion = chat_completion.choices[0].message.content
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# 180 + 100 = 280 ($0.0000280)
+# 1800 + 1000 = 2800 ($0.0000280)
 
 from tokencost import USD_PER_TPU
 print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
