@@ -129,9 +129,8 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
         if isinstance(prompt, str)
         else count_message_tokens(prompt, model)
     )
-    prompt_cost = TOKEN_COSTS[model]["prompt"]
-
-    return Decimal(prompt_cost) * Decimal(prompt_tokens)
+    prompt_cost = TOKEN_COSTS[model]["input_cost_per_token"]
+    return Decimal(str(prompt_cost)) * Decimal(prompt_tokens)
 
 
 def calculate_completion_cost(completion: str, model: str) -> Decimal:
@@ -156,6 +155,6 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
             Double-check your spelling, or submit an issue/PR"""
         )
     completion_tokens = count_string_tokens(completion, model)
-    completion_cost = TOKEN_COSTS[model]["completion"]
+    completion_cost = TOKEN_COSTS[model]["output_cost_per_token"]
 
-    return Decimal(completion_cost) * Decimal(completion_tokens)
+    return Decimal(str(completion_cost)) * Decimal(completion_tokens)

@@ -162,47 +162,47 @@
     "256-x-256/dall-e-2": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000024414,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "512-x-512/dall-e-2": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.0000000686,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "1024-x-1024/dall-e-2": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.000000019,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "hd/1024-x-1792/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000006539,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "hd/1792-x-1024/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000006539,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "hd/1024-x-1024/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000007629,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "standard/1024-x-1792/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000004359,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "standard/1792-x-1024/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.00000004359,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "standard/1024-x-1024/dall-e-3": {
         "mode": "image_generation",
         "input_cost_per_pixel": 0.0000000381469,
-        "output_cost_per_pixel": 0.0,
+        "output_cost_per_pixel": 0.0
     },
     "azure/gpt-4-1106-preview": {
         "max_tokens": 128000,
@@ -1267,24 +1267,24 @@
     },
     "together-ai-up-to-3b": {
         "input_cost_per_token": 0.0000001,
-        "output_cost_per_token": 0.0000001,
+        "output_cost_per_token": 0.0000001
     },
     "together-ai-3.1b-7b": {
         "input_cost_per_token": 0.0000002,
-        "output_cost_per_token": 0.0000002,
+        "output_cost_per_token": 0.0000002
     },
     "together-ai-7.1b-20b": {
         "max_tokens": 1000,
         "input_cost_per_token": 0.0000004,
-        "output_cost_per_token": 0.0000004,
+        "output_cost_per_token": 0.0000004
     },
     "together-ai-20.1b-40b": {
         "input_cost_per_token": 0.0000008,
-        "output_cost_per_token": 0.0000008,
+        "output_cost_per_token": 0.0000008
     },
     "together-ai-40.1b-70b": {
         "input_cost_per_token": 0.0000009,
-        "output_cost_per_token": 0.0000009,
+        "output_cost_per_token": 0.0000009
     },
     "ollama/llama2": {
         "max_tokens": 4096,
