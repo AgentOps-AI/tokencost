@@ -5,7 +5,6 @@ from llama_index.callbacks.schema import CBEventType, EventPayload
 from unittest.mock import MagicMock
 
 # Mock the calculate_prompt_cost and calculate_completion_cost functions
-# and the USD_PER_TPU constant
 
 STRING = "Hello, world!"
 
@@ -14,7 +13,6 @@ STRING = "Hello, world!"
 def mock_tokencost(monkeypatch):
     monkeypatch.setattr('tokencost.calculate_prompt_cost', MagicMock(return_value=100))
     monkeypatch.setattr('tokencost.calculate_completion_cost', MagicMock(return_value=200))
-    monkeypatch.setattr('tokencost.USD_PER_TPU', 10)
 
 # Mock the ChatMessage class
 

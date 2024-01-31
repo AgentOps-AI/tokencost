@@ -4,4 +4,4 @@ from .costs import (
     calculate_completion_cost,
     calculate_prompt_cost,
 )
-from .constants import TOKEN_COSTS, USD_PER_TPU
+from .constants import TOKEN_COSTS

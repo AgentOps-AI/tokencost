@@ -4,6 +4,7 @@ Costs dictionary and utility tool for counting tokens
 import tiktoken
 from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
+from decimal import Decimal
 
 
 # TODO: Add Claude support
@@ -90,17 +91,16 @@ def count_string_tokens(prompt: str, model: str) -> int:
     return len(encoding.encode(prompt))
 
 
-def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
+def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal:
     """
-    Calculate the prompt's cost in token price units (TPU). 1 TPU = $1/10,000,000.
-    e.g. 100,000 TPUs = $0.01.
+    Calculate the prompt's cost in USD.
 
     Args:
         prompt (Union[List[dict], str]): List of message objects or single string prompt.
         model (str): The model name.
 
     Returns:
-        int: The calculated cost in TPUs.
+        Decimal: The calculated cost in USD.
 
     e.g.:
     >>> prompt = [{ "role": "user", "content": "Hello world"},
@@ -110,7 +110,7 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
     # or
     >>> prompt = "Hello world"
     >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
-    30
+    TODO:
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
@@ -131,25 +131,24 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> int:
     )
     prompt_cost = TOKEN_COSTS[model]["prompt"]
 
-    return prompt_cost * prompt_tokens
+    return Decimal(prompt_cost) * Decimal(prompt_tokens)
 
 
-def calculate_completion_cost(completion: str, model: str) -> int:
+def calculate_completion_cost(completion: str, model: str) -> Decimal:
     """
-    Calculate the prompt's cost in token price units (TPU). 1 TPU = $1/10,000,000.
-    e.g. 100,000 TPUs = $0.01.
+    Calculate the prompt's cost in USD.
 
     Args:
         completion (str): Completion string.
         model (str): The model name.
 
     Returns:
-        int: The calculated cost in TPUs.
+        Decimal: The calculated cost in USD.
 
     e.g.:
     >>> completion = "How may I assist you today?"
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
-    140
+    TODO:
     """
     if model not in TOKEN_COSTS:
         raise KeyError(
@@ -159,4 +158,4 @@ def calculate_completion_cost(completion: str, model: str) -> int:
     completion_tokens = count_string_tokens(completion, model)
     completion_cost = TOKEN_COSTS[model]["completion"]
 
-    return completion_cost * completion_tokens
+    return Decimal(completion_cost) * Decimal(completion_tokens)

@@ -11,15 +11,11 @@ https://platform.openai.com/tokenizer
 
 Note: When asking follow-up questions, everything above and including your follow-up question
 is considered a prompt (for the purpose of context) and will thus cost prompt tokens.
-
-1 Token Price Unit (TPU) is defined as 1/100,000,000 of $1 (USD). 1,000,000 TPUs would equate to $0.01.
 """
 
-USD_PER_TPU = 100_000_000
-
 # How to read TOKEN_COSTS:
-# Each prompt token costs __ TPUs per token.
-# Each completion token costs __ TPUs per token.
+# Each prompt token costs __ USD per token.
+# Each completion token costs __ USD per token.
 # Max prompt limit of each model is __ tokens.
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.yaml"), "r") as f:
