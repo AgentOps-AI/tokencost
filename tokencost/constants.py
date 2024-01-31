@@ -29,7 +29,7 @@ try:
             TOKEN_COSTS = json.loads(response.read())
         else:
             raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
-except Exception as e:
+except Exception:
     # If fetching fails, use the local model_prices.json as a fallback
     with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
         TOKEN_COSTS = json.load(f)
