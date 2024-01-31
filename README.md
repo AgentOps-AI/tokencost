@@ -25,8 +25,7 @@ prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# 135 + 140 = 275 ($0.0000275)
-# Priced in TPUs (token price units), which is 1/100,000,000th of a USD.
+# 0.0000135 + 0.000014 = 0.0000275
 ```
 
 ## Installation
@@ -58,23 +57,19 @@ completion = chat_completion.choices[0].message.content
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# 1800 + 1000 = 2800 ($0.0000280)
-
-from tokencost import USD_PER_TPU
-print(f"Cost USD: ${(prompt_cost + completion_cost)/USD_PER_TPU}")
-# $2.8e-05
+# 0.0000180 + 0.000010 = 0.0000280
 ```
 
 **Calculating cost using string prompts instead of messages:**
 ```python
-from tokencost import calculate_prompt_cost, USD_PER_TPU
+from tokencost import calculate_prompt_cost
 
 prompt_string = "Hello world" 
 response = "How may I assist you today?"
 model= "gpt-3.5-turbo"
 
 prompt_cost = calculate_prompt_cost(prompt_string, model)
-print(f"Cost: ${prompt_cost/USD_PER_TPU}")
+print(f"Cost: ${prompt_cost}")
 # Cost: $3e-06
 ```
 
@@ -95,7 +90,11 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 ```
 
 ## Cost table
-Units denominated in TPUs (Token Price Units = 1/10,000,000 USD). All prices can be located in `model_prices.yaml`.
+Units denominated in USD. All prices can be located in `model_prices.json`.
+
+
+* Prices last updated Jan 30, 2024 from: https://openai.com/pricing and https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+
 
 | Model Name | Prompt Cost (USD) | Completion Cost (USD) | Max Prompt Tokens |
 | --- | --- | --- | --- |

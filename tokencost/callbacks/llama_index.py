@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Optional, cast
 from llama_index.callbacks.base_handler import BaseCallbackHandler
 from llama_index.callbacks.schema import CBEventType, EventPayload
-from tokencost import calculate_prompt_cost, calculate_completion_cost, USD_PER_TPU
+from tokencost import calculate_prompt_cost, calculate_completion_cost
 
 
 class TokenCostHandler(BaseCallbackHandler):
@@ -29,15 +29,15 @@ class TokenCostHandler(BaseCallbackHandler):
         if EventPayload.PROMPT in payload:
             prompt = str(payload.get(EventPayload.PROMPT))
             completion = str(payload.get(EventPayload.COMPLETION))
-            prompt_cost = calculate_prompt_cost(prompt, self.model) / USD_PER_TPU
-            completion_cost = calculate_completion_cost(completion, self.model) / USD_PER_TPU
+            prompt_cost = calculate_prompt_cost(prompt, self.model)
+            completion_cost = calculate_completion_cost(completion, self.model)
 
         elif EventPayload.MESSAGES in payload:
             messages = cast(List[ChatMessage], payload.get(EventPayload.MESSAGES, []))
             messages_str = "\n".join([str(x) for x in messages])
-            prompt_cost = calculate_prompt_cost(messages_str, self.model) / USD_PER_TPU
+            prompt_cost = calculate_prompt_cost(messages_str, self.model)
             response = str(payload.get(EventPayload.RESPONSE))
-            completion_cost = calculate_completion_cost(response, self.model) / USD_PER_TPU
+            completion_cost = calculate_completion_cost(response, self.model)
 
         print(f"# Prompt cost: {prompt_cost}")
         print(f"# Completion: {completion_cost}")

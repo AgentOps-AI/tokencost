@@ -6,11 +6,11 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.package-data]
-tokencost = ["model_prices.yaml"]
+tokencost = ["model_prices.json"]
 
 [project]
 name = "tokencost"
-version = "0.0.6"
+version = "0.1.0"
 authors = [
   { name = "Trisha Pan", email = "trishaepan@gmail.com" },
   { name = "Alex Reibman", email = "areibman@gmail.com" },
@@ -24,8 +24,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "tiktoken>=0.5.2",
-    "pyyaml>=6.0.1"
+    "tiktoken>=0.5.2"
 ]
 
 [project.optional-dependencies]
