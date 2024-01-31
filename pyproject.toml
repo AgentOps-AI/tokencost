@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 include-package-data = true
 
 [tool.setuptools.package-data]
-tokencost = ["model_prices.yaml"]
+tokencost = ["model_prices.json"]
 
 [project]
 name = "tokencost"
@@ -24,8 +24,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "tiktoken>=0.5.2",
-    "pyyaml>=6.0.1"
+    "tiktoken>=0.5.2"
 ]
 
 [project.optional-dependencies]

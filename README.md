@@ -92,6 +92,10 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 ## Cost table
 Units denominated in USD.. All prices can be located in `model_prices.json`.
 
+
+* Prices last updated Jan 30, 2024 from: https://openai.com/pricing and https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+
+
 | Model Name | Prompt Cost (USD) | Completion Cost (USD) | Max Prompt Tokens |
 | --- | --- | --- | --- |
 | gpt-4 | $0.00003000 | $0.00006000 | 8192 |
