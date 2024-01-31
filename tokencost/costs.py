@@ -106,11 +106,11 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     >>> prompt = [{ "role": "user", "content": "Hello world"},
                   { "role": "assistant", "content": "How may I assist you today?"}]
     >>>calculate_prompt_cost(prompt, "gpt-3.5-turbo")
-    300
+    Decimal('0.0000300')
     # or
     >>> prompt = "Hello world"
     >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
-    TODO:
+    Decimal('0.0000030')
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
@@ -147,7 +147,7 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     e.g.:
     >>> completion = "How may I assist you today?"
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
-    TODO:
+    Decimal('0.000014')
     """
     if model not in TOKEN_COSTS:
         raise KeyError(

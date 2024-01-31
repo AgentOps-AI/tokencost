@@ -25,7 +25,7 @@ prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# TODO:
+# 0.0000135 + 0.000014 = 0.0000275
 ```
 
 ## Installation
@@ -57,7 +57,7 @@ completion = chat_completion.choices[0].message.content
 prompt_cost = calculate_prompt_cost(prompt, model)
 completion_cost = calculate_completion_cost(completion, model)
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
-# TODO:
+# 0.0000180 + 0.000010 = 0.0000280
 ```
 
 **Calculating cost using string prompts instead of messages:**
