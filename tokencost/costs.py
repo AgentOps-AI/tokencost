@@ -13,6 +13,15 @@ from decimal import Decimal
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
 
+def strip_ft_model_name(model: str) -> str:
+    """
+    Finetuned models format: ft:gpt-3.5-turbo:my-org:custom_suffix:id
+    We only need the base model name to get cost info.
+    """
+    if model.startswith("ft:gpt-3.5-turbo"):
+        model = "ft:gpt-3.5-turbo"
+    return model
+
 def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     Return the total number of tokens in a prompt's messages.
@@ -25,6 +34,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         Total number of tokens in message.
     """
     model = model.lower()
+    model = strip_ft_model_name(model)
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
@@ -113,6 +123,7 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     Decimal('0.0000030')
     """
     model = model.lower()
+    model = strip_ft_model_name(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
@@ -149,6 +160,7 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
     Decimal('0.000014')
     """
+    model = strip_ft_model_name(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
