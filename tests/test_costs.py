@@ -6,6 +6,7 @@ from decimal import Decimal
 from tokencost.costs import (
     count_message_tokens,
     count_string_tokens,
+    calculate_cost_by_tokens,
     calculate_prompt_cost,
     calculate_completion_cost,
 )
@@ -204,6 +205,20 @@ def test_calculate_invalid_input_types():
     with pytest.raises(KeyError):
         calculate_completion_cost(STRING, model="invalid_model")
 
-    with pytest.raises(KeyError):
+    with pytest.raises(TypeError):
         # Message objects not allowed, must be list of message objects.
         calculate_prompt_cost(MESSAGES[0], model="invalid_model")
+
+
+@pytest.mark.parametrize(
+    "num_tokens,model,token_type,expected_output",
+    [
+        (10, "gpt-3.5-turbo", 'input', Decimal('0.0000150')),   # Example values
+        (5, "gpt-4", 'output', Decimal('0.00030')),             # Example values
+        (10, "ai21.j2-mid-v1", 'input', Decimal('0.0001250')),  # Example values
+    ],
+)
+def test_calculate_cost_by_tokens(num_tokens, model, token_type, expected_output):
+    """Test that the token cost calculation is correct."""
+    cost = calculate_cost_by_tokens(num_tokens, model, token_type)
+    assert cost == expected_output

@@ -101,6 +101,31 @@ def count_string_tokens(prompt: str, model: str) -> int:
     return len(encoding.encode(prompt))
 
 
+def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> Decimal:
+    """
+    Calculate the cost based on the number of tokens and the model.
+
+    Args:
+        num_tokens (int): The number of tokens.
+        model (str): The model name.
+        token_type (str): Type of token ('input' or 'output').
+
+    Returns:
+        Decimal: The calculated cost in USD.
+    """
+    model = model.lower()
+    if model not in TOKEN_COSTS:
+        raise KeyError(
+            f"""Model {model} is not implemented.
+            Double-check your spelling, or submit an issue/PR"""
+        )
+
+    cost_per_token_key = 'input_cost_per_token' if token_type == 'input' else 'output_cost_per_token'
+    cost_per_token = TOKEN_COSTS[model][cost_per_token_key]
+
+    return Decimal(str(cost_per_token)) * Decimal(num_tokens)
+
+
 def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal:
     """
     Calculate the prompt's cost in USD.
@@ -129,10 +154,10 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
             f"""Model {model} is not implemented.
             Double-check your spelling, or submit an issue/PR"""
         )
-    if not isinstance(prompt, (list, str)) or not isinstance(prompt, (list, str)):
+    if not isinstance(prompt, (list, str)):
         raise TypeError(
-            f"""Prompt and completion each must be either a string or list of message objects.
-            They are {type(prompt)} and {type(prompt)}, respectively.
+            f"""Prompt must be either a string or list of message objects.
+            it is {type(prompt)} instead.
             """
         )
     prompt_tokens = (
@@ -140,8 +165,8 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
         if isinstance(prompt, str)
         else count_message_tokens(prompt, model)
     )
-    prompt_cost = TOKEN_COSTS[model]["input_cost_per_token"]
-    return Decimal(str(prompt_cost)) * Decimal(prompt_tokens)
+
+    return calculate_cost_by_tokens(prompt_tokens, model, 'input')
 
 
 def calculate_completion_cost(completion: str, model: str) -> Decimal:
@@ -167,6 +192,5 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
             Double-check your spelling, or submit an issue/PR"""
         )
     completion_tokens = count_string_tokens(completion, model)
-    completion_cost = TOKEN_COSTS[model]["output_cost_per_token"]
 
-    return Decimal(str(completion_cost)) * Decimal(completion_tokens)
+    return calculate_cost_by_tokens(completion_tokens, model, 'output')
