@@ -301,13 +301,13 @@ pip install -e .
 
 0. Install `pytest` if you don't have it already
 
-```python
+```shell
 pip install pytest
 ```
 
 1. Run the `tests/` folder while in the parent directory
 
-```python
+```shell
 pytest tests
 ```
 
