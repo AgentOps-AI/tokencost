@@ -31,5 +31,6 @@ try:
             raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
 except Exception:
     # If fetching fails, use the local model_prices.json as a fallback
+    print('Unable to fetch token costs, using local model_prices.json as fallback. Prices may have changed since the last update.')
     with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
         TOKEN_COSTS = json.load(f)
