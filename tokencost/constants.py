@@ -23,14 +23,19 @@ is considered a prompt (for the purpose of context) and will thus cost prompt to
 # Fetch the latest prices using urllib.request
 PRICES_URL = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
 
-try:
-    with urlopen(PRICES_URL) as response:
-        if response.status == 200:
-            TOKEN_COSTS = json.loads(response.read())
-        else:
-            raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
-except Exception:
-    # If fetching fails, use the local model_prices.json as a fallback
-    print('Unable to fetch token costs, using local model_prices.json as fallback. Prices may have changed since the last update.')
-    with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
-        TOKEN_COSTS = json.load(f)
+
+def fetch_costs():
+    try:
+        with urlopen(PRICES_URL) as response:
+            if response.status == 200:
+                return json.loads(response.read())
+            else:
+                raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
+    except Exception:
+        # If fetching fails, use the local model_prices.json as a fallback
+        print('Unable to fetch token costs, using local model_prices.json as fallback. Prices may have changed since the last update.')
+        with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
+            return json.load(f)
+
+
+TOKEN_COSTS = fetch_costs()
