@@ -38,8 +38,6 @@ async def fetch_costs():
             else:
                 raise Exception(f"Failed to fetch token costs, status code: {response.status}")
 
-TOKEN_COSTS = asyncio.run(fetch_costs())
-
 
 async def update_token_costs():
     """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker asynchronously."""
@@ -50,9 +48,10 @@ async def update_token_costs():
     except Exception as e:
         print(f"Failed to update TOKEN_COSTS: {e}")
 
+with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
+    TOKEN_COSTS_STATIC = json.load(f)
+
+TOKEN_COSTS = TOKEN_COSTS_STATIC
 
 # Ensure TOKEN_COSTS is up to date when the module is loaded
 asyncio.run(update_token_costs())
-
-with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
-    TOKEN_COSTS_STATIC = json.load(f)
