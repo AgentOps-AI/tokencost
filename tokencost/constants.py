@@ -51,7 +51,10 @@ async def update_token_costs():
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
 
-TOKEN_COSTS = TOKEN_COSTS_STATIC
 
 # Ensure TOKEN_COSTS is up to date when the module is loaded
-asyncio.run(update_token_costs())
+try:
+    asyncio.run(update_token_costs())
+except Exception:
+    print('Failed to update token costs. Using static costs.')
+    TOKEN_COSTS = TOKEN_COSTS_STATIC
