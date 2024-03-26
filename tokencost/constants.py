@@ -2,6 +2,7 @@ import os
 import json
 import aiohttp
 import asyncio
+import logging
 
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
@@ -46,7 +47,7 @@ async def update_token_costs():
         TOKEN_COSTS = await fetch_costs()
         print("TOKEN_COSTS updated successfully.")
     except Exception as e:
-        print(f"Failed to update TOKEN_COSTS: {e}")
+        logging.error(f"Failed to update TOKEN_COSTS: {e}")
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
@@ -56,5 +57,5 @@ with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as 
 try:
     asyncio.run(update_token_costs())
 except Exception:
-    print('Failed to update token costs. Using static costs.')
+    logging.error('Failed to update token costs. Using static costs.')
     TOKEN_COSTS = TOKEN_COSTS_STATIC
