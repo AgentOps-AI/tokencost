@@ -1,6 +1,7 @@
 import os
 import json
-from urllib.request import urlopen
+import aiohttp
+import asyncio
 
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
@@ -20,25 +21,38 @@ is considered a prompt (for the purpose of context) and will thus cost prompt to
 # Each completion token costs __ USD per token.
 # Max prompt limit of each model is __ tokens.
 
-# Fetch the latest prices using urllib.request
 PRICES_URL = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
 
 
-def fetch_costs():
-    """Fetch the latest token costs from the LiteLLM cost tracker.
+async def fetch_costs():
+    """Fetch the latest token costs from the LiteLLM cost tracker asynchronously.
     Returns:
         dict: The token costs for each model.
     Raises:
         Exception: If the request fails.
     """
-    with urlopen(PRICES_URL) as response:
-        if response.status == 200:
-            return json.loads(response.read())
-        else:
-            raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
+    async with aiohttp.ClientSession() as session:
+        async with session.get(PRICES_URL) as response:
+            if response.status == 200:
+                return await response.json(content_type=None)
+            else:
+                raise Exception(f"Failed to fetch token costs, status code: {response.status}")
+
+TOKEN_COSTS = asyncio.run(fetch_costs())
 
 
-TOKEN_COSTS = fetch_costs()
+async def update_token_costs():
+    """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker asynchronously."""
+    global TOKEN_COSTS
+    try:
+        TOKEN_COSTS = await fetch_costs()
+        print("TOKEN_COSTS updated successfully.")
+    except Exception as e:
+        print(f"Failed to update TOKEN_COSTS: {e}")
+
+
+# Ensure TOKEN_COSTS is up to date when the module is loaded
+asyncio.run(update_token_costs())
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
