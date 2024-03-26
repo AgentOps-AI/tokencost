@@ -4,4 +4,4 @@ from .costs import (
     calculate_completion_cost,
     calculate_prompt_cost,
 )
-from .constants import TOKEN_COSTS_STATIC, TOKEN_COSTS_STATIC
+from .constants import TOKEN_COSTS_STATIC, TOKEN_COSTS_STATIC, update_token_costs
