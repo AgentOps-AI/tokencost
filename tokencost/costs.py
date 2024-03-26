@@ -3,7 +3,7 @@ Costs dictionary and utility tool for counting tokens
 """
 import tiktoken
 from typing import Union, List, Dict
-from .constants import TOKEN_COSTS_STATIC
+from .constants import TOKEN_COSTS
 from decimal import Decimal
 
 
@@ -115,14 +115,14 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> De
         Decimal: The calculated cost in USD.
     """
     model = model.lower()
-    if model not in TOKEN_COSTS_STATIC:
+    if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
             Double-check your spelling, or submit an issue/PR"""
         )
 
     cost_per_token_key = 'input_cost_per_token' if token_type == 'input' else 'output_cost_per_token'
-    cost_per_token = TOKEN_COSTS_STATIC[model][cost_per_token_key]
+    cost_per_token = TOKEN_COSTS[model][cost_per_token_key]
 
     return Decimal(str(cost_per_token)) * Decimal(num_tokens)
 
@@ -150,7 +150,7 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     """
     model = model.lower()
     model = strip_ft_model_name(model)
-    if model not in TOKEN_COSTS_STATIC:
+    if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
             Double-check your spelling, or submit an issue/PR"""
@@ -187,7 +187,7 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     Decimal('0.000014')
     """
     model = strip_ft_model_name(model)
-    if model not in TOKEN_COSTS_STATIC:
+    if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
             Double-check your spelling, or submit an issue/PR"""
