@@ -22,6 +22,7 @@ def strip_ft_model_name(model: str) -> str:
         model = "ft:gpt-3.5-turbo"
     return model
 
+
 def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     Return the total number of tokens in a prompt's messages.

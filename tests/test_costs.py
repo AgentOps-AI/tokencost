@@ -205,7 +205,7 @@ def test_calculate_invalid_input_types():
     with pytest.raises(KeyError):
         calculate_completion_cost(STRING, model="invalid_model")
 
-    with pytest.raises(TypeError):
+    with pytest.raises(KeyError):
         # Message objects not allowed, must be list of message objects.
         calculate_prompt_cost(MESSAGES[0], model="invalid_model")
 
