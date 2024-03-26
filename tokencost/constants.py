@@ -25,17 +25,20 @@ PRICES_URL = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_price
 
 
 def fetch_costs():
-    try:
-        with urlopen(PRICES_URL) as response:
-            if response.status == 200:
-                return json.loads(response.read())
-            else:
-                raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
-    except Exception:
-        # If fetching fails, use the local model_prices.json as a fallback
-        print('Unable to fetch token costs, using local model_prices.json as fallback. Prices may have changed since the last update.')
-        with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
-            return json.load(f)
+    """Fetch the latest token costs from the LiteLLM cost tracker.
+    Returns:
+        dict: The token costs for each model.
+    Raises:
+        Exception: If the request fails.
+    """
+    with urlopen(PRICES_URL) as response:
+        if response.status == 200:
+            return json.loads(response.read())
+        else:
+            raise Exception("Failed to fetch token costs, status code: {}".format(response.status))
 
 
 TOKEN_COSTS = fetch_costs()
+
+with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
+    TOKEN_COSTS_STATIC = json.load(f)
