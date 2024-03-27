@@ -5,6 +5,7 @@ import tiktoken
 from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
 from decimal import Decimal
+import logging
 
 
 # TODO: Add Claude support
@@ -39,7 +40,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
-        print("Warning: model not found. Using cl100k_base encoding.")
+        logging.warning("Model not found. Using cl100k_base encoding.")
         encoding = tiktoken.get_encoding("cl100k_base")
     if model in {
         "gpt-3.5-turbo-0613",
@@ -56,14 +57,10 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         tokens_per_message = 4
         tokens_per_name = -1  # if there's a name, the role is omitted
     elif "gpt-3.5-turbo" in model:
-        print(
-            "Warning: gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613."
-        )
+        logging.warning("gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4" in model:
-        print(
-            "Warning: gpt-4 may update over time. Returning num tokens assuming gpt-4-0613."
-        )
+        logging.warning("gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
         raise KeyError(
@@ -96,7 +93,7 @@ def count_string_tokens(prompt: str, model: str) -> int:
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
-        print("Warning: model not found. Using cl100k_base encoding.")
+        logging.warning("Warning: model not found. Using cl100k_base encoding.")
         encoding = tiktoken.get_encoding("cl100k_base")
 
     return len(encoding.encode(prompt))
