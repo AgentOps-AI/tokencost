@@ -24,7 +24,8 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "tiktoken>=0.5.2"
+    "tiktoken>=0.5.2",
+    "aiohttp>=3.9.3"
 ]
 
 [project.optional-dependencies]
