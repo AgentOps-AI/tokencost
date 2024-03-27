@@ -45,7 +45,6 @@ async def update_token_costs():
     global TOKEN_COSTS
     try:
         TOKEN_COSTS = await fetch_costs()
-        print("TOKEN_COSTS updated successfully.")
     except Exception as e:
         logging.error(f"Failed to update TOKEN_COSTS: {e}")
 
