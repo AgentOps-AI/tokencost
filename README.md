@@ -1,8 +1,30 @@
+<p align="center">
+  <img src="https://github.com/AgentOps-AI/tokencost/blob/c6c29613ec1131e72a27525de3aa5af8966fb6af/tokencost.png" height="300" alt="Tokencost" />
+</p>
+
+<p align="center">
+  <em>Clientside token counting + price estimation for LLM apps and AI agents.</em>
+</p>
+<p align="center">
+    <a href="https://pypi.org/project/tokencost/" target="_blank">
+        <img alt="Python" src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" />
+        <img alt="Version" src="https://img.shields.io/pypi/v/tokencost?style=for-the-badge&color=3670A0">
+    </a>
+</p>
+<p align="center">
+<a href="https://twitter.com/agentopsai/">🐦 Twitter</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://discord.gg/JHPt4C7r">📢 Discord</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="https://agentops.ai/?tokencost">🖇️ AgentOps</a>
+</p>
+
+
 # TokenCost
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PyPI - Version](https://img.shields.io/pypi/v/tokencost)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/AgentOpsAI)](https://x.com/agentopsai)
 
-Clientside token counting + price estimation for LLM apps and AI agents. Tokencost helps calculate the USD cost of using major Large Language Model (LLMs) APIs by calculating the estimated cost of prompts and completions.
+Tokencost helps calculate the USD cost of using major Large Language Model (LLMs) APIs by calculating the estimated cost of prompts and completions.
 
 Building AI agents? Check out [AgentOps](https://agentops.ai/?tokencost)
 
