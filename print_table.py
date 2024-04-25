@@ -3,6 +3,7 @@ import tokencost
 
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
+df['max_input_tokens'] = df['max_input_tokens'].apply(lambda x: '{:,.0f}'.format(x))
 
 # Updated function to format the cost or handle NaN
 
