@@ -12,7 +12,7 @@ df['max_tokens'] = df['max_tokens'].apply(lambda x: '{:,.0f}'.format(x))
 
 def format_cost(x):
     if pd.isna(x):
-        return 'NaN'
+        return '--'
     else:
         # Ensure the number is treated as a float and format it
         return '${:.8f}'.format(float(x))
@@ -22,5 +22,6 @@ def format_cost(x):
 df[['input_cost_per_token', 'output_cost_per_token']] = df[[
     'input_cost_per_token', 'output_cost_per_token']].applymap(format_cost)
 
-# Print the DataFrame as markdown
-print(df[['max_tokens', 'max_input_tokens', 'input_cost_per_token', 'output_cost_per_token']].to_markdown())
+# Write the DataFrame as markdown to a file
+with open('pricing_table.md', 'w') as f:
+    f.write(df[['max_tokens', 'max_input_tokens', 'input_cost_per_token', 'output_cost_per_token']].to_markdown())
