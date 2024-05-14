@@ -29,8 +29,9 @@ def format_cost(x):
 
 
 # Apply the formatting function
+# Apply the formatting function using DataFrame.apply and lambda
 df[['input_cost_per_token', 'output_cost_per_token']] = df[[
-    'input_cost_per_token', 'output_cost_per_token']].applymap(format_cost)
+    'input_cost_per_token', 'output_cost_per_token']].apply(lambda x: x.map(format_cost))
 
 
 column_mapping = {
@@ -40,6 +41,9 @@ column_mapping = {
     'max_output_tokens': 'Max Output Tokens',
     'model_name': 'Model Name'
 }
+
+# Assuming the keys of the JSON data represent the model names and have been set as the index
+df['Model Name'] = df.index
 
 # Apply the column renaming
 df.rename(columns=column_mapping, inplace=True)
