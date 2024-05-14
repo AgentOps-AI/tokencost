@@ -29,8 +29,7 @@ with open('tokencost/model_prices.json', 'r') as f:
 if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
     print('Updating model_prices.json')
     with open('tokencost/model_prices.json', 'w') as f:
-        json.dump(tokencost.TOKEN_COSTS, f)
-
+        json.dump(tokencost.TOKEN_COSTS, f, indent=4)
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
 df['max_input_tokens'] = df['max_input_tokens'].apply(lambda x: '{:,.0f}'.format(x))
