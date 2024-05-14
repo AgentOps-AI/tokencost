@@ -4,12 +4,32 @@ import json
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
 
+
+def diff_dicts(dict1, dict2):
+    diff_keys = dict1.keys() ^ dict2.keys()
+    differences = {k: (dict1.get(k), dict2.get(k)) for k in diff_keys}
+    differences.update({k: (dict1[k], dict2[k]) for k in dict1 if k in dict2 and dict1[k] != dict2[k]})
+
+    if differences:
+        print("Differences found:")
+        for key, (val1, val2) in differences.items():
+            print(f"{key}: {val1} != {val2}")
+    else:
+        print("No differences found.")
+
+    if differences:
+        return True
+    else:
+        return False
+
+
 with open('tokencost/model_prices.json', 'r') as f:
     model_prices = json.load(f)
-    if model_prices != tokencost.TOKEN_COSTS:
-        print('Updating model_prices.json')
 
-    json.dump(tokencost.TOKEN_COSTS, open('model_prices.json', 'w'))
+if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
+    print('Updating model_prices.json')
+    with open('tokencost/model_prices.json', 'w') as f:
+        json.dump(tokencost.TOKEN_COSTS, f)
 
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
