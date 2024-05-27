@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional, cast
-from llama_index.callbacks.base_handler import BaseCallbackHandler
-from llama_index.callbacks.schema import CBEventType, EventPayload
+from llama_index.core.callbacks.base_handler import BaseCallbackHandler
+from llama_index.core.callbacks.schema import CBEventType, EventPayload
 from tokencost import calculate_prompt_cost, calculate_completion_cost
 
 
