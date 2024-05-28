@@ -49,6 +49,10 @@ class TokenCostHandler(BaseCallbackHandler):
         self.prompt_tokens += prompt_tokens
         self.completion_tokens += completion_tokens
 
+        print(f"# Prompt cost: {prompt_cost}")
+        print(f"# Completion: {completion_cost}")
+        print("\n")
+
     def reset_counts(self) -> None:
         self.prompt_cost = 0
         self.completion_cost = 0
