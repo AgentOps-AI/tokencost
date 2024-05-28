@@ -506,7 +506,7 @@ pip install `'tokencost[llama-index]'`
 To use the base callback handler, you may import it:
 
 ```python
-from tokencost.callbacks.llama_index import BaseCallbackHandler
+from tokencost.callbacks.llama_index import TokenCostHandler
 ```
 
 and pass to your framework callback handler.
