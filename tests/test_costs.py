@@ -151,7 +151,7 @@ def test_count_string_invalid_model():
 def test_calculate_prompt_cost(prompt, model, expected_output):
     """Test that the cost calculation is correct."""
 
-    cost, _ = calculate_prompt_cost(prompt, model)
+    cost = calculate_prompt_cost(prompt, model)
     assert cost == expected_output
 
 
@@ -185,7 +185,7 @@ def test_invalid_prompt_format():
 def test_calculate_completion_cost(prompt, model, expected_output):
     """Test that the completion cost calculation is correct."""
 
-    cost, _ = calculate_completion_cost(prompt, model)
+    cost = calculate_completion_cost(prompt, model)
     assert cost == expected_output
 
 

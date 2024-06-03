@@ -3,7 +3,7 @@ Costs dictionary and utility tool for counting tokens
 """
 
 import tiktoken
-from typing import Tuple, Union, List, Dict
+from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
 from decimal import Decimal
 import logging
