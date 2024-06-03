@@ -43,8 +43,8 @@ model = "gpt-3.5-turbo"
 prompt = [{ "role": "user", "content": "Hello world"}]
 completion = "How may I assist you today?"
 
-prompt_cost, prompt_tokens = calculate_prompt_cost(prompt, model)
-completion_cost, completion_tokens = calculate_completion_cost(completion, model)
+prompt_cost = calculate_prompt_cost(prompt, model)
+completion_cost = calculate_completion_cost(completion, model)
 
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
 # 0.0000135 + 0.000014 = 0.0000275
@@ -76,8 +76,8 @@ chat_completion = client.chat.completions.create(
 completion = chat_completion.choices[0].message.content
 # "This is a test."
 
-prompt_cost, prompt_tokens = calculate_prompt_cost(prompt, model)
-completion_cost, completion_tokens = calculate_completion_cost(completion, model)
+prompt_cost = calculate_prompt_cost(prompt, model)
+completion_cost = calculate_completion_cost(completion, model)
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
 # 0.0000180 + 0.000010 = 0.0000280
 ```
@@ -90,7 +90,7 @@ prompt_string = "Hello world"
 response = "How may I assist you today?"
 model= "gpt-3.5-turbo"
 
-prompt_cost, prompt_tokens = calculate_prompt_cost(prompt_string, model)
+prompt_cost = calculate_prompt_cost(prompt_string, model)
 print(f"Cost: ${prompt_cost}")
 # Cost: $3e-06
 ```

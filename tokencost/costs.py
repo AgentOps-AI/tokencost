@@ -131,9 +131,7 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> De
     return Decimal(str(cost_per_token)) * Decimal(num_tokens)
 
 
-def calculate_prompt_cost(
-    prompt: Union[List[dict], str], model: str
-) -> Tuple[Decimal, int]:
+def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal:
     """
     Calculate the prompt's cost in USD.
 
@@ -142,7 +140,7 @@ def calculate_prompt_cost(
         model (str): The model name.
 
     Returns:
-        Tuple[Decimal, int]: The calculated cost in USD and number of tokens.
+        Decimal: The calculated cost in USD.
 
     e.g.:
     >>> prompt = [{ "role": "user", "content": "Hello world"},
@@ -173,10 +171,10 @@ def calculate_prompt_cost(
         else count_message_tokens(prompt, model)
     )
 
-    return calculate_cost_by_tokens(prompt_tokens, model, "input"), prompt_tokens
+    return calculate_cost_by_tokens(prompt_tokens, model, "input")
 
 
-def calculate_completion_cost(completion: str, model: str) -> Tuple[Decimal, int]:
+def calculate_completion_cost(completion: str, model: str) -> Decimal:
     """
     Calculate the prompt's cost in USD.
 
@@ -185,7 +183,7 @@ def calculate_completion_cost(completion: str, model: str) -> Tuple[Decimal, int
         model (str): The model name.
 
     Returns:
-        Tuple[Decimal, int]: The calculated cost in USD and number of tokens.
+        Decimal: The calculated cost in USD.
 
     e.g.:
     >>> completion = "How may I assist you today?"
@@ -200,6 +198,41 @@ def calculate_completion_cost(completion: str, model: str) -> Tuple[Decimal, int
         )
     completion_tokens = count_string_tokens(completion, model)
 
-    return calculate_cost_by_tokens(
-        completion_tokens, model, "output"
-    ), completion_tokens
+    return calculate_cost_by_tokens(completion_tokens, model, "output")
+
+
+def calculate_all_costs_and_tokens(
+    prompt: Union[List[dict], str], completion: str, model: str
+) -> dict:
+    """
+    Calculate the prompt and completion costs and tokens in USD.
+
+    Args:
+        prompt (Union[List[dict], str]): List of message objects or single string prompt.
+        completion (str): Completion string.
+        model (str): The model name.
+
+    Returns:
+        dict: The calculated cost and tokens in USD.
+
+    e.g.:
+    >>> prompt = "Hello world"
+    >>> completion = "How may I assist you today?"
+    >>> calculate_all_costs_and_tokens(prompt, completion, "gpt-3.5-turbo")
+    {'prompt_cost': Decimal('0.0000030'), 'prompt_tokens': 2, 'completion_cost': Decimal('0.000014'), 'completion_tokens': 7}
+    """
+    prompt_cost = calculate_prompt_cost(prompt, model)
+    completion_cost = calculate_completion_cost(completion, model)
+    prompt_tokens = (
+        count_string_tokens(prompt, model)
+        if isinstance(prompt, str)
+        else count_message_tokens(prompt, model)
+    )
+    completion_tokens = count_string_tokens(completion, model)
+
+    return {
+        "prompt_cost": prompt_cost,
+        "prompt_tokens": prompt_tokens,
+        "completion_cost": completion_cost,
+        "completion_tokens": completion_tokens,
+    }
