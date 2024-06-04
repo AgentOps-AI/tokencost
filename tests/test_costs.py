@@ -131,21 +131,21 @@ def test_count_string_invalid_model():
 @pytest.mark.parametrize(
     "prompt,model,expected_output",
     [
-        (MESSAGES, "gpt-3.5-turbo", Decimal('0.0000225')),
-        (MESSAGES, "gpt-3.5-turbo-0301", Decimal('0.0000255')),
-        (MESSAGES, "gpt-3.5-turbo-0613", Decimal('0.0000225')),
-        (MESSAGES, "gpt-3.5-turbo-16k", Decimal('0.000045')),
-        (MESSAGES, "gpt-3.5-turbo-16k-0613", Decimal('0.000045')),
-        (MESSAGES, "gpt-3.5-turbo-1106", Decimal('0.000015')),
-        (MESSAGES, "gpt-3.5-turbo-instruct", Decimal('0.0000225')),
-        (MESSAGES, "gpt-4", Decimal('0.00045')),
-        (MESSAGES, "gpt-4-0314", Decimal('0.00045')),
-        (MESSAGES, "gpt-4-32k", Decimal('0.00090')),
-        (MESSAGES, "gpt-4-32k-0314", Decimal('0.00090')),
-        (MESSAGES, "gpt-4-0613", Decimal('0.00045')),
-        (MESSAGES, "gpt-4-1106-preview", Decimal('0.00015')),
-        (MESSAGES, "gpt-4-vision-preview", Decimal('0.00015')),
-        (STRING, "text-embedding-ada-002", Decimal('0.0000004')),
+        (MESSAGES, "gpt-3.5-turbo", Decimal("0.0000225")),
+        (MESSAGES, "gpt-3.5-turbo-0301", Decimal("0.0000255")),
+        (MESSAGES, "gpt-3.5-turbo-0613", Decimal("0.0000225")),
+        (MESSAGES, "gpt-3.5-turbo-16k", Decimal("0.000045")),
+        (MESSAGES, "gpt-3.5-turbo-16k-0613", Decimal("0.000045")),
+        (MESSAGES, "gpt-3.5-turbo-1106", Decimal("0.000015")),
+        (MESSAGES, "gpt-3.5-turbo-instruct", Decimal("0.0000225")),
+        (MESSAGES, "gpt-4", Decimal("0.00045")),
+        (MESSAGES, "gpt-4-0314", Decimal("0.00045")),
+        (MESSAGES, "gpt-4-32k", Decimal("0.00090")),
+        (MESSAGES, "gpt-4-32k-0314", Decimal("0.00090")),
+        (MESSAGES, "gpt-4-0613", Decimal("0.00045")),
+        (MESSAGES, "gpt-4-1106-preview", Decimal("0.00015")),
+        (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
+        (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
     ],
 )
 def test_calculate_prompt_cost(prompt, model, expected_output):
@@ -165,20 +165,20 @@ def test_invalid_prompt_format():
 @pytest.mark.parametrize(
     "prompt,model,expected_output",
     [
-        (STRING, "gpt-3.5-turbo", Decimal('0.000008')),
-        (STRING, "gpt-3.5-turbo-0301", Decimal('0.000008')),
-        (STRING, "gpt-3.5-turbo-0613", Decimal('0.000008')),
-        (STRING, "gpt-3.5-turbo-16k", Decimal('0.000016')),
-        (STRING, "gpt-3.5-turbo-16k-0613", Decimal('0.000016')),
-        (STRING, "gpt-3.5-turbo-1106", Decimal('0.000008')),
-        (STRING, "gpt-3.5-turbo-instruct", Decimal('0.000008')),
-        (STRING, "gpt-4", Decimal('0.00024')),
-        (STRING, "gpt-4-0314", Decimal('0.00024')),
-        (STRING, "gpt-4-32k", Decimal('0.00048')),
-        (STRING, "gpt-4-32k-0314", Decimal('0.00048')),
-        (STRING, "gpt-4-0613", Decimal('0.00024')),
-        (STRING, "gpt-4-1106-preview", Decimal('0.00012')),
-        (STRING, "gpt-4-vision-preview", Decimal('0.00012')),
+        (STRING, "gpt-3.5-turbo", Decimal("0.000008")),
+        (STRING, "gpt-3.5-turbo-0301", Decimal("0.000008")),
+        (STRING, "gpt-3.5-turbo-0613", Decimal("0.000008")),
+        (STRING, "gpt-3.5-turbo-16k", Decimal("0.000016")),
+        (STRING, "gpt-3.5-turbo-16k-0613", Decimal("0.000016")),
+        (STRING, "gpt-3.5-turbo-1106", Decimal("0.000008")),
+        (STRING, "gpt-3.5-turbo-instruct", Decimal("0.000008")),
+        (STRING, "gpt-4", Decimal("0.00024")),
+        (STRING, "gpt-4-0314", Decimal("0.00024")),
+        (STRING, "gpt-4-32k", Decimal("0.00048")),
+        (STRING, "gpt-4-32k-0314", Decimal("0.00048")),
+        (STRING, "gpt-4-0613", Decimal("0.00024")),
+        (STRING, "gpt-4-1106-preview", Decimal("0.00012")),
+        (STRING, "gpt-4-vision-preview", Decimal("0.00012")),
         (STRING, "text-embedding-ada-002", 0),
     ],
 )
@@ -213,9 +213,9 @@ def test_calculate_invalid_input_types():
 @pytest.mark.parametrize(
     "num_tokens,model,token_type,expected_output",
     [
-        (10, "gpt-3.5-turbo", 'input', Decimal('0.0000150')),   # Example values
-        (5, "gpt-4", 'output', Decimal('0.00030')),             # Example values
-        (10, "ai21.j2-mid-v1", 'input', Decimal('0.0001250')),  # Example values
+        (10, "gpt-3.5-turbo", "input", Decimal("0.0000150")),  # Example values
+        (5, "gpt-4", "output", Decimal("0.00030")),  # Example values
+        (10, "ai21.j2-mid-v1", "input", Decimal("0.0001250")),  # Example values
     ],
 )
 def test_calculate_cost_by_tokens(num_tokens, model, token_type, expected_output):

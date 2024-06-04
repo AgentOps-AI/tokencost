@@ -1,6 +1,7 @@
 """
 Costs dictionary and utility tool for counting tokens
 """
+
 import tiktoken
 from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
@@ -57,10 +58,14 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         tokens_per_message = 4
         tokens_per_name = -1  # if there's a name, the role is omitted
     elif "gpt-3.5-turbo" in model:
-        logging.warning("gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613.")
+        logging.warning(
+            "gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613."
+        )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4" in model:
-        logging.warning("gpt-4 may update over time. Returning num tokens assuming gpt-4-0613.")
+        logging.warning(
+            "gpt-4 may update over time. Returning num tokens assuming gpt-4-0613."
+        )
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
         raise KeyError(
@@ -118,7 +123,9 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> De
             Double-check your spelling, or submit an issue/PR"""
         )
 
-    cost_per_token_key = 'input_cost_per_token' if token_type == 'input' else 'output_cost_per_token'
+    cost_per_token_key = (
+        "input_cost_per_token" if token_type == "input" else "output_cost_per_token"
+    )
     cost_per_token = TOKEN_COSTS[model][cost_per_token_key]
 
     return Decimal(str(cost_per_token)) * Decimal(num_tokens)
@@ -164,7 +171,7 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
         else count_message_tokens(prompt, model)
     )
 
-    return calculate_cost_by_tokens(prompt_tokens, model, 'input')
+    return calculate_cost_by_tokens(prompt_tokens, model, "input")
 
 
 def calculate_completion_cost(completion: str, model: str) -> Decimal:
@@ -191,4 +198,41 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
         )
     completion_tokens = count_string_tokens(completion, model)
 
-    return calculate_cost_by_tokens(completion_tokens, model, 'output')
+    return calculate_cost_by_tokens(completion_tokens, model, "output")
+
+
+def calculate_all_costs_and_tokens(
+    prompt: Union[List[dict], str], completion: str, model: str
+) -> dict:
+    """
+    Calculate the prompt and completion costs and tokens in USD.
+
+    Args:
+        prompt (Union[List[dict], str]): List of message objects or single string prompt.
+        completion (str): Completion string.
+        model (str): The model name.
+
+    Returns:
+        dict: The calculated cost and tokens in USD.
+
+    e.g.:
+    >>> prompt = "Hello world"
+    >>> completion = "How may I assist you today?"
+    >>> calculate_all_costs_and_tokens(prompt, completion, "gpt-3.5-turbo")
+    {'prompt_cost': Decimal('0.0000030'), 'prompt_tokens': 2, 'completion_cost': Decimal('0.000014'), 'completion_tokens': 7}
+    """
+    prompt_cost = calculate_prompt_cost(prompt, model)
+    completion_cost = calculate_completion_cost(completion, model)
+    prompt_tokens = (
+        count_string_tokens(prompt, model)
+        if isinstance(prompt, str)
+        else count_message_tokens(prompt, model)
+    )
+    completion_tokens = count_string_tokens(completion, model)
+
+    return {
+        "prompt_cost": prompt_cost,
+        "prompt_tokens": prompt_tokens,
+        "completion_cost": completion_cost,
+        "completion_tokens": completion_tokens,
+    }
