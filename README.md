@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/AgentOps-AI/tokencost/blob/c6c29613ec1131e72a27525de3aa5af8966fb6af/tokencost.png" height="300" alt="Tokencost" />
+  <img src="https://raw.githubusercontent.com/AgentOps-AI/tokencost/main/tokencost.png" height="300" alt="Tokencost" />
 </p>
 
 <p align="center">
@@ -115,7 +115,7 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 Units denominated in USD. All prices can be located in `model_prices.json`.
 
 
-* Prices last updated Jan 30, 2024 from: https://openai.com/pricing and https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+* Prices last updated Jan 30, 2024 from [LiteLLM's cost dictionary](https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json)
 
 | Model Name                                                                                  | Prompt Cost (USD)   | Completion Cost (USD)   | Max Prompt Tokens   |   Max Output Tokens |
 |:--------------------------------------------------------------------------------------------|:--------------------|:------------------------|:--------------------|--------------------:|
@@ -499,6 +499,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 
 ### Callback handlers
 You may also calculate token costs in LLM wrapper/framework libraries using callbacks. 
+
 #### LlamaIndex
 ```sh
 pip install `'tokencost[llama-index]'`
