@@ -142,6 +142,8 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gpt-3.5-turbo-16k                                                                           | $0.00000300         | $0.00000400             | 16,385              |                4096 |
 | gpt-3.5-turbo-16k-0613                                                                      | $0.00000300         | $0.00000400             | 16,385              |                4096 |
 | ft:gpt-3.5-turbo                                                                            | $0.00000300         | $0.00000600             | 4,097               |                4096 |
+| ft:davinci-002                                                                              | $0.00000200         | $0.00000200             | 16,384              |                4096 |
+| ft:babbage-002                                                                              | $0.00000040         | $0.00000040             | 16,384              |                4096 |
 | text-embedding-3-large                                                                      | $0.00000013         | $0.00000000             | 8,191               |                 nan |
 | text-embedding-3-small                                                                      | $0.00000002         | $0.00000000             | 8,191               |                 nan |
 | text-embedding-ada-002                                                                      | $0.00000010         | $0.00000000             | 8,191               |                 nan |
@@ -160,6 +162,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | standard/1024-x-1024/dall-e-3                                                               | --                  | --                      | nan                 |                 nan |
 | whisper-1                                                                                   | --                  | --                      | nan                 |                 nan |
 | azure/whisper-1                                                                             | --                  | --                      | nan                 |                 nan |
+| azure/gpt-4o                                                                                | $0.00000500         | $0.00001500             | 128,000             |                4096 |
 | azure/gpt-4-turbo-2024-04-09                                                                | $0.00001000         | $0.00003000             | 128,000             |                4096 |
 | azure/gpt-4-0125-preview                                                                    | $0.00001000         | $0.00003000             | 128,000             |                4096 |
 | azure/gpt-4-1106-preview                                                                    | $0.00001000         | $0.00003000             | 128,000             |                4096 |
@@ -173,7 +176,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | azure/gpt-35-turbo-1106                                                                     | $0.00000150         | $0.00000200             | 16,384              |                4096 |
 | azure/gpt-35-turbo-0125                                                                     | $0.00000050         | $0.00000150             | 16,384              |                4096 |
 | azure/gpt-35-turbo-16k                                                                      | $0.00000300         | $0.00000400             | 16,385              |                4096 |
-| azure/gpt-35-turbo                                                                          | $0.00000150         | $0.00000200             | 4,097               |                4096 |
+| azure/gpt-35-turbo                                                                          | $0.00000050         | $0.00000150             | 4,097               |                4096 |
 | azure/gpt-3.5-turbo-instruct-0914                                                           | $0.00000150         | $0.00000200             | 4,097               |                 nan |
 | azure/gpt-35-turbo-instruct                                                                 | $0.00000150         | $0.00000200             | 4,097               |                 nan |
 | azure/mistral-large-latest                                                                  | $0.00000800         | $0.00002400             | 32,000              |                 nan |
@@ -195,16 +198,20 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gpt-3.5-turbo-instruct                                                                      | $0.00000150         | $0.00000200             | 8,192               |                4096 |
 | gpt-3.5-turbo-instruct-0914                                                                 | $0.00000150         | $0.00000200             | 8,192               |                4097 |
 | claude-instant-1                                                                            | $0.00000163         | $0.00000551             | 100,000             |                8191 |
-| mistral/mistral-tiny                                                                        | $0.00000015         | $0.00000046             | 32,000              |                8191 |
-| mistral/mistral-small                                                                       | $0.00000200         | $0.00000600             | 32,000              |                8191 |
-| mistral/mistral-small-latest                                                                | $0.00000200         | $0.00000600             | 32,000              |                8191 |
+| mistral/mistral-tiny                                                                        | $0.00000025         | $0.00000025             | 32,000              |                8191 |
+| mistral/mistral-small                                                                       | $0.00000100         | $0.00000300             | 32,000              |                8191 |
+| mistral/mistral-small-latest                                                                | $0.00000100         | $0.00000300             | 32,000              |                8191 |
 | mistral/mistral-medium                                                                      | $0.00000270         | $0.00000810             | 32,000              |                8191 |
 | mistral/mistral-medium-latest                                                               | $0.00000270         | $0.00000810             | 32,000              |                8191 |
 | mistral/mistral-medium-2312                                                                 | $0.00000270         | $0.00000810             | 32,000              |                8191 |
-| mistral/mistral-large-latest                                                                | $0.00000800         | $0.00002400             | 32,000              |                8191 |
-| mistral/mistral-large-2402                                                                  | $0.00000800         | $0.00002400             | 32,000              |                8191 |
-| mistral/open-mixtral-8x7b                                                                   | $0.00000200         | $0.00000600             | 32,000              |                8191 |
-| mistral/mistral-embed                                                                       | $0.00000011         | --                      | 8,192               |                 nan |
+| mistral/mistral-large-latest                                                                | $0.00000400         | $0.00001200             | 32,000              |                8191 |
+| mistral/mistral-large-2402                                                                  | $0.00000400         | $0.00001200             | 32,000              |                8191 |
+| mistral/open-mistral-7b                                                                     | $0.00000025         | $0.00000025             | 32,000              |                8191 |
+| mistral/open-mixtral-8x7b                                                                   | $0.00000070         | $0.00000070             | 32,000              |                8191 |
+| mistral/open-mixtral-8x22b                                                                  | $0.00000200         | $0.00000600             | 64,000              |                8191 |
+| mistral/codestral-latest                                                                    | $0.00000100         | $0.00000300             | 32,000              |                8191 |
+| mistral/codestral-2405                                                                      | $0.00000100         | $0.00000300             | 32,000              |                8191 |
+| mistral/mistral-embed                                                                       | $0.00000010         | --                      | 8,192               |                 nan |
 | deepseek-chat                                                                               | $0.00000014         | $0.00000028             | 32,000              |                4096 |
 | deepseek-coder                                                                              | $0.00000014         | $0.00000028             | 16,000              |                4096 |
 | groq/llama2-70b-4096                                                                        | $0.00000070         | $0.00000080             | 4,096               |                4096 |
@@ -239,6 +246,10 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gemini-1.0-pro-001                                                                          | $0.00000025         | $0.00000050             | 32,760              |                8192 |
 | gemini-1.0-pro-002                                                                          | $0.00000025         | $0.00000050             | 32,760              |                8192 |
 | gemini-1.5-pro                                                                              | $0.00000063         | $0.00000188             | 1,000,000           |                8192 |
+| gemini-1.5-flash-001                                                                        | $0.00000000         | $0.00000000             | 1,000,000           |                8192 |
+| gemini-1.5-flash-preview-0514                                                               | $0.00000000         | $0.00000000             | 1,000,000           |                8192 |
+| gemini-1.5-pro-001                                                                          | $0.00000063         | $0.00000188             | 1,000,000           |                8192 |
+| gemini-1.5-pro-preview-0514                                                                 | $0.00000063         | $0.00000188             | 1,000,000           |                8192 |
 | gemini-1.5-pro-preview-0215                                                                 | $0.00000063         | $0.00000188             | 1,000,000           |                8192 |
 | gemini-1.5-pro-preview-0409                                                                 | $0.00000063         | $0.00000188             | 1,000,000           |                8192 |
 | gemini-experimental                                                                         | $0.00000000         | $0.00000000             | 1,000,000           |                8192 |
@@ -247,7 +258,8 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gemini-1.0-pro-vision-001                                                                   | $0.00000025         | $0.00000050             | 16,384              |                2048 |
 | vertex_ai/claude-3-sonnet@20240229                                                          | $0.00000300         | $0.00001500             | 200,000             |                4096 |
 | vertex_ai/claude-3-haiku@20240307                                                           | $0.00000025         | $0.00000125             | 200,000             |                4096 |
-| vertex_ai/claude-3-opus@20240229                                                            | $0.00000150         | $0.00000750             | 200,000             |                4096 |
+| vertex_ai/claude-3-opus@20240229                                                            | $0.00001500         | $0.00007500             | 200,000             |                4096 |
+| vertex_ai/imagegeneration@006                                                               | --                  | --                      | nan                 |                 nan |
 | textembedding-gecko                                                                         | $0.00000001         | $0.00000000             | 3,072               |                 nan |
 | textembedding-gecko-multilingual                                                            | $0.00000001         | $0.00000000             | 3,072               |                 nan |
 | textembedding-gecko-multilingual@001                                                        | $0.00000001         | $0.00000000             | 3,072               |                 nan |
@@ -261,6 +273,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | palm/text-bison-001                                                                         | $0.00000012         | $0.00000012             | 8,192               |                1024 |
 | palm/text-bison-safety-off                                                                  | $0.00000012         | $0.00000012             | 8,192               |                1024 |
 | palm/text-bison-safety-recitation-off                                                       | $0.00000012         | $0.00000012             | 8,192               |                1024 |
+| gemini/gemini-1.5-flash-latest                                                              | $0.00000000         | $0.00000000             | 1,000,000           |                8192 |
 | gemini/gemini-pro                                                                           | $0.00000000         | $0.00000000             | 32,760              |                8192 |
 | gemini/gemini-1.5-pro                                                                       | $0.00000000         | $0.00000000             | 1,000,000           |                8192 |
 | gemini/gemini-1.5-pro-latest                                                                | $0.00000000         | $0.00000000             | 1,048,576           |                8192 |
@@ -279,10 +292,10 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | replicate/meta/llama-2-70b-chat                                                             | $0.00000065         | $0.00000275             | 4,096               |                4096 |
 | replicate/meta/llama-2-7b                                                                   | $0.00000005         | $0.00000025             | 4,096               |                4096 |
 | replicate/meta/llama-2-7b-chat                                                              | $0.00000005         | $0.00000025             | 4,096               |                4096 |
-| replicate/meta/llama-3-70b                                                                  | $0.00000065         | $0.00000275             | 4,096               |                4096 |
-| replicate/meta/llama-3-70b-instruct                                                         | $0.00000065         | $0.00000275             | 4,096               |                4096 |
-| replicate/meta/llama-3-8b                                                                   | $0.00000005         | $0.00000025             | 4,096               |                4096 |
-| replicate/meta/llama-3-8b-instruct                                                          | $0.00000005         | $0.00000025             | 4,096               |                4096 |
+| replicate/meta/llama-3-70b                                                                  | $0.00000065         | $0.00000275             | 8,192               |                8192 |
+| replicate/meta/llama-3-70b-instruct                                                         | $0.00000065         | $0.00000275             | 8,192               |                8192 |
+| replicate/meta/llama-3-8b                                                                   | $0.00000005         | $0.00000025             | 8,086               |                8086 |
+| replicate/meta/llama-3-8b-instruct                                                          | $0.00000005         | $0.00000025             | 8,086               |                8086 |
 | replicate/mistralai/mistral-7b-v0.1                                                         | $0.00000005         | $0.00000025             | 4,096               |                4096 |
 | replicate/mistralai/mistral-7b-instruct-v0.2                                                | $0.00000005         | $0.00000025             | 4,096               |                4096 |
 | replicate/mistralai/mixtral-8x7b-instruct-v0.1                                              | $0.00000030         | $0.00000100             | 4,096               |                4096 |
@@ -301,6 +314,8 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | openrouter/meta-llama/llama-3-8b-instruct:extended                                          | $0.00000022         | $0.00000225             | nan                 |                 nan |
 | openrouter/meta-llama/llama-3-70b-instruct:nitro                                            | $0.00000090         | $0.00000090             | nan                 |                 nan |
 | openrouter/meta-llama/llama-3-70b-instruct                                                  | $0.00000059         | $0.00000079             | nan                 |                 nan |
+| openrouter/openai/gpt-4o                                                                    | $0.00000500         | $0.00001500             | 128,000             |                4096 |
+| openrouter/openai/gpt-4o-2024-05-13                                                         | $0.00000500         | $0.00001500             | 128,000             |                4096 |
 | openrouter/openai/gpt-4-vision-preview                                                      | $0.00001000         | $0.00003000             | nan                 |                 nan |
 | openrouter/openai/gpt-3.5-turbo                                                             | $0.00000150         | $0.00000200             | nan                 |                 nan |
 | openrouter/openai/gpt-3.5-turbo-16k                                                         | $0.00000300         | $0.00000400             | nan                 |                 nan |
@@ -443,7 +458,13 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | ollama/llama2:13b                                                                           | $0.00000000         | $0.00000000             | 4,096               |                4096 |
 | ollama/llama2:70b                                                                           | $0.00000000         | $0.00000000             | 4,096               |                4096 |
 | ollama/llama2-uncensored                                                                    | $0.00000000         | $0.00000000             | 4,096               |                4096 |
+| ollama/llama3                                                                               | $0.00000000         | $0.00000000             | 8,192               |                8192 |
+| ollama/llama3:70b                                                                           | $0.00000000         | $0.00000000             | 8,192               |                8192 |
 | ollama/mistral                                                                              | $0.00000000         | $0.00000000             | 8,192               |                8192 |
+| ollama/mistral-7B-Instruct-v0.1                                                             | $0.00000000         | $0.00000000             | 8,192               |                8192 |
+| ollama/mistral-7B-Instruct-v0.2                                                             | $0.00000000         | $0.00000000             | 32,768              |               32768 |
+| ollama/mixtral-8x7B-Instruct-v0.1                                                           | $0.00000000         | $0.00000000             | 32,768              |               32768 |
+| ollama/mixtral-8x22B-Instruct-v0.1                                                          | $0.00000000         | $0.00000000             | 65,536              |               65536 |
 | ollama/codellama                                                                            | $0.00000000         | $0.00000000             | 4,096               |                4096 |
 | ollama/orca-mini                                                                            | $0.00000000         | $0.00000000             | 4,096               |                4096 |
 | ollama/vicuna                                                                               | $0.00000000         | $0.00000000             | 2,048               |                2048 |
@@ -479,12 +500,17 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | perplexity/sonar-medium-chat                                                                | $0.00000060         | $0.00000180             | 16,384              |               16384 |
 | perplexity/sonar-medium-online                                                              | $0.00000000         | $0.00000180             | 12,000              |               12000 |
 | anyscale/mistralai/Mistral-7B-Instruct-v0.1                                                 | $0.00000015         | $0.00000015             | 16,384              |               16384 |
-| anyscale/Mixtral-8x7B-Instruct-v0.1                                                         | $0.00000015         | $0.00000015             | 16,384              |               16384 |
+| anyscale/mistralai/Mixtral-8x7B-Instruct-v0.1                                               | $0.00000015         | $0.00000015             | 16,384              |               16384 |
+| anyscale/mistralai/Mixtral-8x22B-Instruct-v0.1                                              | $0.00000090         | $0.00000090             | 65,536              |               65536 |
 | anyscale/HuggingFaceH4/zephyr-7b-beta                                                       | $0.00000015         | $0.00000015             | 16,384              |               16384 |
+| anyscale/google/gemma-7b-it                                                                 | $0.00000015         | $0.00000015             | 8,192               |                8192 |
 | anyscale/meta-llama/Llama-2-7b-chat-hf                                                      | $0.00000015         | $0.00000015             | 4,096               |                4096 |
 | anyscale/meta-llama/Llama-2-13b-chat-hf                                                     | $0.00000025         | $0.00000025             | 4,096               |                4096 |
 | anyscale/meta-llama/Llama-2-70b-chat-hf                                                     | $0.00000100         | $0.00000100             | 4,096               |                4096 |
 | anyscale/codellama/CodeLlama-34b-Instruct-hf                                                | $0.00000100         | $0.00000100             | 4,096               |                4096 |
+| anyscale/codellama/CodeLlama-70b-Instruct-hf                                                | $0.00000100         | $0.00000100             | 4,096               |                4096 |
+| anyscale/meta-llama/Meta-Llama-3-8B-Instruct                                                | $0.00000015         | $0.00000015             | 8,192               |                8192 |
+| anyscale/meta-llama/Meta-Llama-3-70B-Instruct                                               | $0.00000100         | $0.00000100             | 8,192               |                8192 |
 | cloudflare/@cf/meta/llama-2-7b-chat-fp16                                                    | $0.00000192         | $0.00000192             | 3,072               |                3072 |
 | cloudflare/@cf/meta/llama-2-7b-chat-int8                                                    | $0.00000192         | $0.00000192             | 2,048               |                2048 |
 | cloudflare/@cf/mistral/mistral-7b-instruct-v0.1                                             | $0.00000192         | $0.00000192             | 8,192               |                8192 |
@@ -496,6 +522,13 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | voyage/voyage-code-2                                                                        | $0.00000012         | $0.00000000             | 16,000              |                 nan |
 | voyage/voyage-2                                                                             | $0.00000010         | $0.00000000             | 4,000               |                 nan |
 | voyage/voyage-lite-02-instruct                                                              | $0.00000010         | $0.00000000             | 4,000               |                 nan |
+| databricks/databricks-dbrx-instruct                                                         | $0.00000075         | $0.00000225             | 32,768              |               32768 |
+| databricks/databricks-meta-llama-3-70b-instruct                                             | $0.00000100         | $0.00000300             | 8,192               |                8192 |
+| databricks/databricks-llama-2-70b-chat                                                      | $0.00000050         | $0.00000150             | 4,096               |                4096 |
+| databricks/databricks-mixtral-8x7b-instruct                                                 | $0.00000050         | $0.00000100             | 4,096               |                4096 |
+| databricks/databricks-mpt-30b-instruct                                                      | $0.00000100         | $0.00000100             | 8,192               |                8192 |
+| databricks/databricks-mpt-7b-instruct                                                       | $0.00000050         | $0.00000050             | 8,192               |                8192 |
+| databricks/databricks-bge-large-en                                                          | $0.00000010         | $0.00000000             | 512                 |                 nan |
 
 ### Callback handlers
 You may also calculate token costs in LLM wrapper/framework libraries using callbacks. 
