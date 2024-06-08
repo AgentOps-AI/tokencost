@@ -50,7 +50,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         "gpt-4-32k-0314",
         "gpt-4-0613",
         "gpt-4-32k-0613",
-    }:
+    } or model.startswith('ollama/'):
         tokens_per_message = 3
         tokens_per_name = 1
     elif model == "gpt-3.5-turbo-0301":
