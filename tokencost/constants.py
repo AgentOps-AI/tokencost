@@ -47,6 +47,7 @@ async def update_token_costs():
         TOKEN_COSTS = await fetch_costs()
     except Exception as e:
         logging.error(f"Failed to update TOKEN_COSTS: {e}")
+        raise
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
