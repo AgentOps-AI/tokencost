@@ -1,5 +1,6 @@
 import pandas as pd
 import tokencost
+from decimal import Decimal
 import json
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
@@ -43,13 +44,14 @@ def format_cost(x):
     if pd.isna(x):
         return '--'
     else:
-        # Ensure the number is treated as a float and format it
-        # Find the last non-zero digit
-        str_x = str(float(x * 1_000_000))
-        last_non_zero = len(str_x) - len(str_x.rstrip('0'))
-        # Ensure at least 2 decimal places
-        decimal_places = max(2, last_non_zero)
-        return '${:,.{}f}'.format(float(x * 1_000_000), decimal_places)
+        price_per_million = Decimal(str(x)) * Decimal(str(1_000_000))
+        print(price_per_million)
+        normalized = price_per_million.normalize()
+        formatted_price = '{:2f}'.format(normalized)
+
+        formatted_price = formatted_price.rstrip('0').rstrip('.') if '.' in formatted_price else formatted_price + '.00'
+
+        return f"${formatted_price}"
 
 
 # Apply the formatting function using DataFrame.apply and lambda
