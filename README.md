@@ -285,7 +285,6 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | command                                                                                     | $0.00001500         | $0.00001500             | 4,096               |                4096 |
 | command-medium-beta                                                                         | $0.00001500         | $0.00001500             | 4,096               |                4096 |
 | command-xlarge-beta                                                                         | $0.00001500         | $0.00001500             | 4,096               |                4096 |
-| replicate/llama-2-70b-chat:2c1608e18606fad2812020dc541930f2d0495ce32eee50074220b87300bc16e1 | $0.00000000         | $0.00000000             | 4,096               |                4096 |
 | replicate/meta/llama-2-13b                                                                  | $0.00000010         | $0.00000050             | 4,096               |                4096 |
 | replicate/meta/llama-2-13b-chat                                                             | $0.00000010         | $0.00000050             | 4,096               |                4096 |
 | replicate/meta/llama-2-70b                                                                  | $0.00000065         | $0.00000275             | 4,096               |                4096 |
