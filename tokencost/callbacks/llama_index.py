@@ -39,6 +39,8 @@ class TokenCostHandler(BaseCallbackHandler):
             estimates = calculate_all_costs_and_tokens(
                 messages_str, response, self.model
             )
+        else:
+            return
 
         self.prompt_cost += estimates["prompt_cost"]
         self.completion_cost += estimates["completion_cost"]
