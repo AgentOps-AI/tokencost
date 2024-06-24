@@ -960,6 +960,18 @@
         "supports_vision": true,
         "tool_use_system_prompt_tokens": 159
     },
+    "claude-3-5-sonnet-20240620": {
+        "max_tokens": 4096,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 4096,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "litellm_provider": "anthropic",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159
+    },
     "text-bison": {
         "max_tokens": 1024,
         "max_input_tokens": 8192,
@@ -2374,6 +2386,17 @@
         "mode": "chat"
     },
     "anthropic.claude-3-sonnet-20240229-v1:0": {
+        "max_tokens": 4096,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 4096,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "litellm_provider": "bedrock",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true
+    },
+    "anthropic.claude-3-5-sonnet-20240620-v1:0": {
         "max_tokens": 4096,
         "max_input_tokens": 200000,
         "max_output_tokens": 4096,
