@@ -594,13 +594,13 @@ pip install -e .
 
 ## Running tests
 
-0. Install `pytest` if you don't have it already
+1. Install `pytest` if you don't have it already
 
 ```shell
 pip install pytest
 ```
 
-1. Run the `tests/` folder while in the parent directory
+2. Run the `tests/` folder while in the parent directory
 
 ```shell
 pytest tests
