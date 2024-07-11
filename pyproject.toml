@@ -33,6 +33,7 @@ dev = [
     "pytest>=7.4.4",
     "flake8>=3.1.0",
     "coverage[toml]>=7.4.0",
+    "tach==0.6.9",
 ]
 llama-index = [
     "llama-index>=0.10.23"
