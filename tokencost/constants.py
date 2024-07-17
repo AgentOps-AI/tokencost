@@ -4,6 +4,8 @@ import aiohttp
 import asyncio
 import logging
 
+logger = logging.getLogger(__name__)
+
 """
 Prompt (aka context) tokens are based on number of words + other chars (eg spaces and punctuation) in input.
 Completion tokens are similarly based on how long chatGPT's response is.
@@ -46,7 +48,7 @@ async def update_token_costs():
     try:
         TOKEN_COSTS = await fetch_costs()
     except Exception as e:
-        logging.error(f"Failed to update TOKEN_COSTS: {e}")
+        logger.error(f"Failed to update TOKEN_COSTS: {e}")
         raise
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
@@ -57,5 +59,5 @@ with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as 
 try:
     asyncio.run(update_token_costs())
 except Exception:
-    logging.error('Failed to update token costs. Using static costs.')
+    logger.error('Failed to update token costs. Using static costs.')
     TOKEN_COSTS = TOKEN_COSTS_STATIC
