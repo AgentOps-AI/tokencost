@@ -2,6 +2,8 @@
 |:--------------------------------------------------------------------------------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|
 | gpt-4                                                                                       | $30.00                            | $60.00                                | 8,192               |                4096 |
 | gpt-4o                                                                                      | $ 5.00                            | $15.00                                | 128,000             |                4096 |
+| gpt-4o-mini                                                                                 | $0.15                             | $0.6                                  | 128,000             |                4096 |
+| gpt-4o-mini-2024-07-18                                                                      | $0.15                             | $0.6                                  | 128,000             |                4096 |
 | gpt-4o-2024-05-13                                                                           | $ 5.00                            | $15.00                                | 128,000             |                4096 |
 | gpt-4-turbo-preview                                                                         | $10.00                            | $30.00                                | 128,000             |                4096 |
 | gpt-4-0314                                                                                  | $30.00                            | $60.00                                | 8,192               |                4096 |
@@ -44,6 +46,10 @@
 | standard/1792-x-1024/dall-e-3                                                               | --                                | --                                    | nan                 |                 nan |
 | standard/1024-x-1024/dall-e-3                                                               | --                                | --                                    | nan                 |                 nan |
 | whisper-1                                                                                   | --                                | --                                    | nan                 |                 nan |
+| tts-1                                                                                       | --                                | --                                    | nan                 |                 nan |
+| tts-1-hd                                                                                    | --                                | --                                    | nan                 |                 nan |
+| azure/tts-1                                                                                 | --                                | --                                    | nan                 |                 nan |
+| azure/tts-1-hd                                                                              | --                                | --                                    | nan                 |                 nan |
 | azure/whisper-1                                                                             | --                                | --                                    | nan                 |                 nan |
 | azure/gpt-4o                                                                                | $ 5.00                            | $15.00                                | 128,000             |                4096 |
 | azure/gpt-4-turbo-2024-04-09                                                                | $10.00                            | $30.00                                | 128,000             |                4096 |
@@ -76,6 +82,10 @@
 | azure/hd/1024-x-1792/dall-e-3                                                               | --                                | $ 0.00                                | nan                 |                 nan |
 | azure/hd/1792-x-1024/dall-e-3                                                               | --                                | $ 0.00                                | nan                 |                 nan |
 | azure/standard/1024-x-1024/dall-e-2                                                         | --                                | $ 0.00                                | nan                 |                 nan |
+| azure_ai/jamba-instruct                                                                     | $0.5                              | $0.7                                  | 70,000              |                4096 |
+| azure_ai/mistral-large                                                                      | $ 4.00                            | $12.00                                | 32,000              |                8191 |
+| azure_ai/mistral-small                                                                      | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
+| azure_ai/Meta-Llama-3-70B-Instruct                                                          | $1.1                              | $0.37                                 | 8,192               |                8192 |
 | babbage-002                                                                                 | $0.4                              | $0.4                                  | 16,384              |                4096 |
 | davinci-002                                                                                 | $ 2.00                            | $ 2.00                                | 16,384              |                4096 |
 | gpt-3.5-turbo-instruct                                                                      | $1.5                              | $ 2.00                                | 8,192               |                4096 |
@@ -100,12 +110,14 @@
 | codestral/codestral-2405                                                                    | $ 0.00                            | $ 0.00                                | 32,000              |                8191 |
 | text-completion-codestral/codestral-latest                                                  | $ 0.00                            | $ 0.00                                | 32,000              |                8191 |
 | text-completion-codestral/codestral-2405                                                    | $ 0.00                            | $ 0.00                                | 32,000              |                8191 |
-| deepseek-coder                                                                              | $0.14                             | $0.28                                 | 32,000              |                4096 |
+| deepseek-coder                                                                              | $0.14                             | $0.28                                 | 128,000             |                4096 |
 | groq/llama2-70b-4096                                                                        | $0.7                              | $0.8                                  | 4,096               |                4096 |
 | groq/llama3-8b-8192                                                                         | $0.05                             | $0.08                                 | 8,192               |                8192 |
 | groq/llama3-70b-8192                                                                        | $0.59                             | $0.79                                 | 8,192               |                8192 |
 | groq/mixtral-8x7b-32768                                                                     | $0.24                             | $0.24                                 | 32,768              |               32768 |
 | groq/gemma-7b-it                                                                            | $0.07                             | $0.07                                 | 8,192               |                8192 |
+| groq/llama3-groq-70b-8192-tool-use-preview                                                  | $0.89                             | $0.89                                 | 8,192               |                8192 |
+| groq/llama3-groq-8b-8192-tool-use-preview                                                   | $0.19                             | $0.19                                 | 8,192               |                8192 |
 | friendliai/mixtral-8x7b-instruct-v0-1                                                       | $0.4                              | $0.4                                  | 32,768              |               32768 |
 | friendliai/meta-llama-3-8b-instruct                                                         | $0.1                              | $0.1                                  | 8,192               |                8192 |
 | friendliai/meta-llama-3-70b-instruct                                                        | $0.8                              | $0.8                                  | 8,192               |                8192 |
@@ -161,6 +173,8 @@
 | gemini-pro-vision                                                                           | $0.25                             | $0.5                                  | 16,384              |                2048 |
 | gemini-1.0-pro-vision                                                                       | $0.25                             | $0.5                                  | 16,384              |                2048 |
 | gemini-1.0-pro-vision-001                                                                   | $0.25                             | $0.5                                  | 16,384              |                2048 |
+| medlm-medium                                                                                | --                                | --                                    | 32,768              |                8192 |
+| medlm-large                                                                                 | --                                | --                                    | 8,192               |                1024 |
 | vertex_ai/claude-3-sonnet@20240229                                                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | vertex_ai/claude-3-5-sonnet@20240620                                                        | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | vertex_ai/claude-3-haiku@20240307                                                           | $0.25                             | $1.25                                 | 200,000             |                4096 |
@@ -184,8 +198,8 @@
 | gemini/gemini-1.5-flash                                                                     | $0.35                             | $1.05                                 | 1,000,000           |                8192 |
 | gemini/gemini-1.5-flash-latest                                                              | $0.35                             | $1.05                                 | 1,000,000           |                8192 |
 | gemini/gemini-pro                                                                           | $0.35                             | $1.05                                 | 32,760              |                8192 |
-| gemini/gemini-1.5-pro                                                                       | $0.35                             | $1.05                                 | 2,097,152           |                8192 |
-| gemini/gemini-1.5-pro-latest                                                                | $0.35                             | $1.05                                 | 1,048,576           |                8192 |
+| gemini/gemini-1.5-pro                                                                       | $3.5                              | $10.5                                 | 2,097,152           |                8192 |
+| gemini/gemini-1.5-pro-latest                                                                | $3.5                              | $1.05                                 | 1,048,576           |                8192 |
 | gemini/gemini-pro-vision                                                                    | $0.35                             | $1.05                                 | 30,720              |                2048 |
 | command-r                                                                                   | $0.5                              | $1.5                                  | 128,000             |                4096 |
 | command-light                                                                               | $15.00                            | $15.00                                | 4,096               |                4096 |
@@ -415,6 +429,11 @@
 | perplexity/sonar-small-online                                                               | $ 0.00                            | $0.28                                 | 12,000              |               12000 |
 | perplexity/sonar-medium-chat                                                                | $0.6                              | $1.8                                  | 16,384              |               16384 |
 | perplexity/sonar-medium-online                                                              | $ 0.00                            | $1.8                                  | 12,000              |               12000 |
+| fireworks_ai/firefunction-v2                                                                | $0.9                              | $0.9                                  | 8,192               |                8192 |
+| fireworks_ai/mixtral-8x22b-instruct-hf                                                      | $1.2                              | $1.2                                  | 65,536              |               65536 |
+| fireworks_ai/qwen2-72b-instruct                                                             | $0.9                              | $0.9                                  | 32,768              |               32768 |
+| fireworks_ai/yi-large                                                                       | $ 3.00                            | $ 3.00                                | 32,768              |               32768 |
+| fireworks_ai/deepseek-coder-v2-instruct                                                     | $1.2                              | $1.2                                  | 65,536              |                8192 |
 | anyscale/mistralai/Mistral-7B-Instruct-v0.1                                                 | $0.15                             | $0.15                                 | 16,384              |               16384 |
 | anyscale/mistralai/Mixtral-8x7B-Instruct-v0.1                                               | $0.15                             | $0.15                                 | 16,384              |               16384 |
 | anyscale/mistralai/Mixtral-8x22B-Instruct-v0.1                                              | $0.9                              | $0.9                                  | 65,536              |               65536 |
