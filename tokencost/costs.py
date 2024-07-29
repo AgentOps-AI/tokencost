@@ -63,7 +63,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
             "gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613."
         )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
-    elif "gpt-4" in model:
+    elif "gpt-4-" in model:
         logger.warning(
             "gpt-4 may update over time. Returning num tokens assuming gpt-4-0613."
         )
