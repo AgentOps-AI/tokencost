@@ -44,6 +44,7 @@ STRING = "Hello, world!"
         ("gpt-4-32k-0314", 15),
         ("gpt-4-1106-preview", 15),
         ("gpt-4-vision-preview", 15),
+        ("gpt-4o", 15),
     ],
 )
 def test_count_message_tokens(model, expected_output):
@@ -69,6 +70,7 @@ def test_count_message_tokens(model, expected_output):
         ("gpt-4-32k-0314", 17),
         ("gpt-4-1106-preview", 17),
         ("gpt-4-vision-preview", 17),
+        ("gpt-4o", 17),
     ],
 )
 def test_count_message_tokens_with_name(model, expected_output):
@@ -108,6 +110,7 @@ def test_count_message_tokens_invalid_model():
         ("gpt-4-1106-preview", 4),
         ("gpt-4-vision-preview", 4),
         ("text-embedding-ada-002", 4),
+        ("gpt-4o", 4)
     ],
 )
 def test_count_string_tokens(model, expected_output):

@@ -51,6 +51,10 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         "gpt-4-32k-0314",
         "gpt-4-0613",
         "gpt-4-32k-0613",
+        "gpt-4-turbo",
+        "gpt-4-turbo-2024-04-09",
+        "gpt-4o",
+        "gpt-4o-2024-05-13",
     }:
         tokens_per_message = 3
         tokens_per_name = 1
@@ -63,6 +67,10 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
             "gpt-3.5-turbo may update over time. Returning num tokens assuming gpt-3.5-turbo-0613."
         )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
+    elif "gpt-4o" in model:
+        print(
+            "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13.")
+        return count_message_tokens(messages, model="gpt-4o-2024-05-13")
     elif "gpt-4" in model:
         logger.warning(
             "gpt-4 may update over time. Returning num tokens assuming gpt-4-0613."
