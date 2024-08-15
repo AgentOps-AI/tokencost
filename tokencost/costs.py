@@ -49,9 +49,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         instead you should rely on the `usage` property in the response for exact counts.
         """
         prompt = "".join(message["content"] for message in messages)
-        client = anthropic.Client()
-        token_count = client.count_tokens(prompt)
-        return token_count
+        return count_string_tokens(prompt,model)
         
     try:
         encoding = tiktoken.encoding_for_model(model)
