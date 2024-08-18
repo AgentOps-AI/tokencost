@@ -1,8 +1,10 @@
+
 """
 Costs dictionary and utility tool for counting tokens
 """
 
 import tiktoken
+import anthropic
 from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
 from decimal import Decimal
@@ -39,6 +41,16 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     model = model.lower()
     model = strip_ft_model_name(model)
+    
+    if "claude-" in model:
+        """
+        Note that this is only accurate for older models, e.g. `claude-2.1`. 
+        For newer models this can only be used as a _very_ rough estimate, 
+        instead you should rely on the `usage` property in the response for exact counts.
+        """
+        prompt = "".join(message["content"] for message in messages)
+        return count_string_tokens(prompt,model)
+        
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
@@ -104,6 +116,16 @@ def count_string_tokens(prompt: str, model: str) -> int:
         int: The number of tokens in the text string.
     """
     model = model.lower()
+    if "claude-" in model:
+        """
+        Note that this is only accurate for older models, e.g. `claude-2.1`. 
+        For newer models this can only be used as a _very_ rough estimate, 
+        instead you should rely on the `usage` property in the response for exact counts.
+        """
+        client = anthropic.Client()
+        token_count = client.count_tokens(prompt)
+        return token_count
+
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
