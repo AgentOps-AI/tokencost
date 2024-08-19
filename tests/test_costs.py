@@ -156,8 +156,8 @@ def test_count_string_invalid_model():
         (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4o", Decimal("0.000075")),
         (MESSAGES, "azure/gpt-4o", Decimal("0.000075")),
+        (MESSAGES, "claude-2.1", Decimal("0.000032")),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
-        (STRING, "claude-2.1", Decimal("0.000032")),
     ],
 )
 def test_calculate_prompt_cost(prompt, model, expected_output):
