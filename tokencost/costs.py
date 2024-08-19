@@ -116,6 +116,10 @@ def count_string_tokens(prompt: str, model: str) -> int:
         int: The number of tokens in the text string.
     """
     model = model.lower()
+
+    if "/" in model:
+        model = model.split("/")[-1]
+
     if "claude-" in model:
         """
         Note that this is only accurate for older models, e.g. `claude-2.1`. 

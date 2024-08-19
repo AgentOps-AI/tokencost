@@ -45,6 +45,7 @@ STRING = "Hello, world!"
         ("gpt-4-1106-preview", 15),
         ("gpt-4-vision-preview", 15),
         ("gpt-4o", 15),
+        ("azure/gpt-4o", 15),
         ("claude-2.1", 4),
     ],
 )
@@ -72,6 +73,7 @@ def test_count_message_tokens(model, expected_output):
         ("gpt-4-1106-preview", 17),
         ("gpt-4-vision-preview", 17),
         ("gpt-4o", 17),
+        ("azure/gpt-4o", 17),
         ("claude-2.1", 4),
 
     ],
@@ -152,8 +154,9 @@ def test_count_string_invalid_model():
         (MESSAGES, "gpt-4-0613", Decimal("0.00045")),
         (MESSAGES, "gpt-4-1106-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
+        (MESSAGES, "gpt-4o", Decimal("0.000075")),
+        (MESSAGES, "azure/gpt-4o", Decimal("0.000075")),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
-        (STRING, "gpt-4o", Decimal("0.000020")),
         (STRING, "claude-2.1", Decimal("0.000032")),
     ],
 )
@@ -188,6 +191,9 @@ def test_invalid_prompt_format():
         (STRING, "gpt-4-0613", Decimal("0.00024")),
         (STRING, "gpt-4-1106-preview", Decimal("0.00012")),
         (STRING, "gpt-4-vision-preview", Decimal("0.00012")),
+        (STRING, "gpt-4o", Decimal("0.000060")),
+        (STRING, "azure/gpt-4o", Decimal("0.000060")),
+        (STRING, "claude-2.1", Decimal("0.000096")),
         (STRING, "text-embedding-ada-002", 0),
     ],
 )
