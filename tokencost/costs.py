@@ -41,7 +41,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     model = model.lower()
     model = strip_ft_model_name(model)
-    
+
     if "claude-" in model:
         """
         Note that this is only accurate for older models, e.g. `claude-2.1`. 
@@ -49,8 +49,8 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         instead you should rely on the `usage` property in the response for exact counts.
         """
         prompt = "".join(message["content"] for message in messages)
-        return count_string_tokens(prompt,model)
-        
+        return count_string_tokens(prompt, model)
+
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
@@ -122,6 +122,10 @@ def count_string_tokens(prompt: str, model: str) -> int:
         For newer models this can only be used as a _very_ rough estimate, 
         instead you should rely on the `usage` property in the response for exact counts.
         """
+        if "claude-3" in model:
+            logger.warning(
+                "Warning: Claude-3 models are not yet supported. Returning num tokens assuming claude-2.1."
+            )
         client = anthropic.Client()
         token_count = client.count_tokens(prompt)
         return token_count
