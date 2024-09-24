@@ -42,7 +42,8 @@ async def fetch_costs():
                 raise Exception(f"Failed to fetch token costs, status code: {response.status}")
 
 
-async def update_token_costs():
+
+async def update_token_costs_async():
     """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker asynchronously."""
     global TOKEN_COSTS
     try:
@@ -51,13 +52,22 @@ async def update_token_costs():
         logger.error(f"Failed to update TOKEN_COSTS: {e}")
         raise
 
+async def update_token_costs():
+    """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker synchronously."""
+    await update_token_costs_async()
+
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
 
 
-# Ensure TOKEN_COSTS is up to date when the module is loaded
-try:
-    asyncio.run(update_token_costs())
-except Exception:
-    logger.error('Failed to update token costs. Using static costs.')
-    TOKEN_COSTS = TOKEN_COSTS_STATIC
+# Initialize TOKEN_COSTS with static costs
+TOKEN_COSTS = TOKEN_COSTS_STATIC
+
+# Function to manually update token costs
+async def manual_update_token_costs():
+    try:
+        logger.info("Updating token costs...")
+        await update_token_costs_async()
+        logger.info("Token costs updated successfully.")
+    except Exception as e:
+        logger.error(f"Failed to update token costs: {e}")
