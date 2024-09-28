@@ -33,8 +33,8 @@ if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
         json.dump(tokencost.TOKEN_COSTS, f, indent=4)
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
-df['max_input_tokens'] = df['max_input_tokens'].apply(lambda x: '{:,.0f}'.format(x))
-df['max_tokens'] = df['max_tokens'].apply(lambda x: '{:,.0f}'.format(x))
+df['max_input_tokens'].iloc[1:] = df['max_input_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
+df['max_tokens'].iloc[1:] = df['max_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
 
 
 # Updated function to format the cost or handle NaN
