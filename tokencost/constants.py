@@ -47,6 +47,8 @@ async def update_token_costs():
     global TOKEN_COSTS
     try:
         TOKEN_COSTS = await fetch_costs()
+        # Safely remove 'sample_spec' if it exists
+        TOKEN_COSTS.pop('sample_spec', None)
     except Exception as e:
         logger.error(f"Failed to update TOKEN_COSTS: {e}")
         raise
