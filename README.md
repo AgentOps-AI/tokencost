@@ -121,6 +121,8 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 |:----------------------------------------------------------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|
 | gpt-4                                                                 | $30.00                            | $60.00                                | 8192                |                4096 |
 | gpt-4o                                                                | $ 5.00                            | $15.00                                | 128,000             |                4096 |
+| gpt-4o-audio-preview                                                  | $2.5                              | $10.00                                | 128,000             |               16384 |
+| gpt-4o-audio-preview-2024-10-01                                       | $2.5                              | $10.00                                | 128,000             |               16384 |
 | gpt-4o-mini                                                           | $0.15                             | $0.6                                  | 128,000             |               16384 |
 | gpt-4o-mini-2024-07-18                                                | $0.15                             | $0.6                                  | 128,000             |               16384 |
 | o1-mini                                                               | $ 3.00                            | $12.00                                | 128,000             |               65536 |
@@ -227,9 +229,9 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | azure_ai/mistral-large                                                | $ 4.00                            | $12.00                                | 32,000              |                8191 |
 | azure_ai/mistral-small                                                | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
 | azure_ai/Meta-Llama-3-70B-Instruct                                    | $1.1                              | $0.37                                 | 8,192               |                8192 |
-| azure_ai/Meta-Llama-31-8B-Instruct                                    | $0.3                              | $0.61                                 | 128,000             |              128000 |
-| azure_ai/Meta-Llama-31-70B-Instruct                                   | $2.68                             | $3.54                                 | 128,000             |              128000 |
-| azure_ai/Meta-Llama-31-405B-Instruct                                  | $5.33                             | $16.00                                | 128,000             |              128000 |
+| azure_ai/Meta-Llama-3.1-8B-Instruct                                   | $0.3                              | $0.61                                 | 128,000             |              128000 |
+| azure_ai/Meta-Llama-3.1-70B-Instruct                                  | $2.68                             | $3.54                                 | 128,000             |              128000 |
+| azure_ai/Meta-Llama-3.1-405B-Instruct                                 | $5.33                             | $16.00                                | 128,000             |              128000 |
 | azure_ai/cohere-rerank-v3-multilingual                                | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | azure_ai/cohere-rerank-v3-english                                     | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | azure_ai/Cohere-embed-v3-english                                      | $0.1                              | $ 0.00                                | 512                 |                 nan |
@@ -288,6 +290,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | claude-3-opus-20240229                                                | $15.00                            | $75.00                                | 200,000             |                4096 |
 | claude-3-sonnet-20240229                                              | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | claude-3-5-sonnet-20240620                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| claude-3-5-sonnet-20241022                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | text-bison                                                            | --                                | --                                    | 8,192               |                2048 |
 | text-bison@001                                                        | --                                | --                                    | 8,192               |                1024 |
 | text-bison@002                                                        | --                                | --                                    | 8,192               |                1024 |
@@ -341,6 +344,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | medlm-large                                                           | --                                | --                                    | 8,192               |                1024 |
 | vertex_ai/claude-3-sonnet@20240229                                    | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | vertex_ai/claude-3-5-sonnet@20240620                                  | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-5-sonnet-v2@20241022                               | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | vertex_ai/claude-3-haiku@20240307                                     | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | vertex_ai/claude-3-opus@20240229                                      | $15.00                            | $75.00                                | 200,000             |                4096 |
 | vertex_ai/meta/llama3-405b-instruct-maas                              | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
@@ -431,6 +435,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | openrouter/databricks/dbrx-instruct                                   | $0.6                              | $0.6                                  | nan                 |                 nan |
 | openrouter/anthropic/claude-3-haiku                                   | $0.25                             | $1.25                                 | nan                 |                 nan |
 | openrouter/anthropic/claude-3-haiku-20240307                          | $0.25                             | $1.25                                 | 200,000             |                4096 |
+| anthropic/claude-3-5-sonnet-20241022                                  | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.5-sonnet                                | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.5-sonnet:beta                           | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-sonnet                                  | $ 3.00                            | $15.00                                | nan                 |                 nan |
@@ -508,14 +513,17 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | bedrock/eu-west-3/mistral.mistral-large-2402-v1:0                     | $10.4                             | $31.2                                 | 32,000              |                8191 |
 | anthropic.claude-3-sonnet-20240229-v1:0                               | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-5-sonnet-20240620-v1:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| anthropic.claude-3-5-sonnet-20241022-v2:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-haiku-20240307-v1:0                                | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | anthropic.claude-3-opus-20240229-v1:0                                 | $15.00                            | $75.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-sonnet-20240229-v1:0                            | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-5-sonnet-20240620-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| us.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-haiku-20240307-v1:0                             | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | us.anthropic.claude-3-opus-20240229-v1:0                              | $15.00                            | $75.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-sonnet-20240229-v1:0                            | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-5-sonnet-20240620-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| eu.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-haiku-20240307-v1:0                             | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | eu.anthropic.claude-3-opus-20240229-v1:0                              | $15.00                            | $75.00                                | 200,000             |                4096 |
 | anthropic.claude-v1                                                   | $ 8.00                            | $24.00                                | 100,000             |                8191 |
@@ -743,6 +751,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | voyage/voyage-code-2                                                  | $0.12                             | $ 0.00                                | 16,000              |                 nan |
 | voyage/voyage-2                                                       | $0.1                              | $ 0.00                                | 4,000               |                 nan |
 | voyage/voyage-lite-02-instruct                                        | $0.1                              | $ 0.00                                | 4,000               |                 nan |
+| voyage/voyage-finance-2                                               | $0.12                             | $ 0.00                                | 4,000               |                 nan |
 | databricks/databricks-meta-llama-3-1-405b-instruct                    | $ 5.00                            | $15.00002                             | 128,000             |              128000 |
 | databricks/databricks-meta-llama-3-1-70b-instruct                     | $1.00002                          | $2.99999                              | 128,000             |              128000 |
 | databricks/databricks-dbrx-instruct                                   | $0.74998                          | $2.24901                              | 32,768              |               32768 |
