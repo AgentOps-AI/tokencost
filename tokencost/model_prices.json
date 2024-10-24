@@ -1751,6 +1751,22 @@
         "supports_assistant_prefill": true,
         "supports_prompt_caching": true
     },
+    "claude-3-5-sonnet-latest": {
+        "max_tokens": 8192,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "anthropic",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_prompt_caching": true
+    },
     "text-bison": {
         "max_tokens": 2048,
         "max_input_tokens": 8192,
@@ -3600,6 +3616,22 @@
         "supports_assistant_prefill": true,
         "supports_prompt_caching": true
     },
+    "anthropic/claude-3-5-sonnet-latest": {
+        "max_tokens": 8192,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "anthropic",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_prompt_caching": true
+    },
     "openrouter/anthropic/claude-3.5-sonnet": {
         "max_tokens": 8192,
         "max_input_tokens": 200000,
@@ -4275,6 +4307,17 @@
         "supports_vision": true
     },
     "anthropic.claude-3-5-sonnet-20241022-v2:0": {
+        "max_tokens": 4096,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 4096,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "litellm_provider": "bedrock",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true
+    },
+    "anthropic.claude-3-5-sonnet-latest-v2:0": {
         "max_tokens": 4096,
         "max_input_tokens": 200000,
         "max_output_tokens": 4096,
