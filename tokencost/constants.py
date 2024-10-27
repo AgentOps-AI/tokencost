@@ -46,7 +46,8 @@ async def update_token_costs():
     """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker asynchronously."""
     global TOKEN_COSTS
     try:
-        TOKEN_COSTS = await fetch_costs()
+        fetched_costs = await fetch_costs()
+        TOKEN_COSTS.update(fetched_costs)
         # Safely remove 'sample_spec' if it exists
         TOKEN_COSTS.pop('sample_spec', None)
     except Exception as e:
