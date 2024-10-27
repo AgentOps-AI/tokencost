@@ -55,7 +55,7 @@ async def update_token_costs():
         raise
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
-    TOKEN_COSTS_STATIC = json.load(f)
+    TOKEN_COSTS_STATIC = json.loads(f)
 
 
 # Ensure TOKEN_COSTS is up to date when the module is loaded
