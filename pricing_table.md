@@ -168,10 +168,13 @@
 | claude-2                                                              | $ 8.00                            | $24.00                                | 100,000             |                8191 |
 | claude-2.1                                                            | $ 8.00                            | $24.00                                | 200,000             |                8191 |
 | claude-3-haiku-20240307                                               | $0.25                             | $1.25                                 | 200,000             |                4096 |
+| claude-3-haiku-latest                                                 | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | claude-3-opus-20240229                                                | $15.00                            | $75.00                                | 200,000             |                4096 |
+| claude-3-opus-latest                                                  | $15.00                            | $75.00                                | 200,000             |                4096 |
 | claude-3-sonnet-20240229                                              | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | claude-3-5-sonnet-20240620                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | claude-3-5-sonnet-20241022                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| claude-3-5-sonnet-latest                                              | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | text-bison                                                            | --                                | --                                    | 8,192               |                2048 |
 | text-bison@001                                                        | --                                | --                                    | 8,192               |                1024 |
 | text-bison@002                                                        | --                                | --                                    | 8,192               |                1024 |
@@ -289,12 +292,12 @@
 | rerank-multilingual-v3.0                                              | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | rerank-english-v2.0                                                   | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | rerank-multilingual-v2.0                                              | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
-| embed-english-v3.0                                                    | $0.1                              | $ 0.00                                | 512                 |                 nan |
-| embed-english-light-v3.0                                              | $0.1                              | $ 0.00                                | 512                 |                 nan |
-| embed-multilingual-v3.0                                               | $0.1                              | $ 0.00                                | 512                 |                 nan |
-| embed-english-v2.0                                                    | $0.1                              | $ 0.00                                | 512                 |                 nan |
-| embed-english-light-v2.0                                              | $0.1                              | $ 0.00                                | 512                 |                 nan |
-| embed-multilingual-v2.0                                               | $0.1                              | $ 0.00                                | 256                 |                 nan |
+| embed-english-v3.0                                                    | $0.1                              | $ 0.00                                | 1,024               |                 nan |
+| embed-english-light-v3.0                                              | $0.1                              | $ 0.00                                | 1,024               |                 nan |
+| embed-multilingual-v3.0                                               | $0.1                              | $ 0.00                                | 1,024               |                 nan |
+| embed-english-v2.0                                                    | $0.1                              | $ 0.00                                | 4,096               |                 nan |
+| embed-english-light-v2.0                                              | $0.1                              | $ 0.00                                | 1,024               |                 nan |
+| embed-multilingual-v2.0                                               | $0.1                              | $ 0.00                                | 768                 |                 nan |
 | replicate/meta/llama-2-13b                                            | $0.1                              | $0.5                                  | 4,096               |                4096 |
 | replicate/meta/llama-2-13b-chat                                       | $0.1                              | $0.5                                  | 4,096               |                4096 |
 | replicate/meta/llama-2-70b                                            | $0.65                             | $2.75                                 | 4,096               |                4096 |
@@ -317,6 +320,7 @@
 | openrouter/anthropic/claude-3-haiku                                   | $0.25                             | $1.25                                 | nan                 |                 nan |
 | openrouter/anthropic/claude-3-haiku-20240307                          | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | anthropic/claude-3-5-sonnet-20241022                                  | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| anthropic/claude-3-5-sonnet-latest                                    | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.5-sonnet                                | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.5-sonnet:beta                           | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-sonnet                                  | $ 3.00                            | $15.00                                | nan                 |                 nan |
@@ -395,6 +399,7 @@
 | anthropic.claude-3-sonnet-20240229-v1:0                               | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-5-sonnet-20240620-v1:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-5-sonnet-20241022-v2:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| anthropic.claude-3-5-sonnet-latest-v2:0                               | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-haiku-20240307-v1:0                                | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | anthropic.claude-3-opus-20240229-v1:0                                 | $15.00                            | $75.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-sonnet-20240229-v1:0                            | $ 3.00                            | $15.00                                | 200,000             |                4096 |
@@ -643,3 +648,5 @@
 | databricks/databricks-mpt-7b-instruct                                 | $0.50001                          | $ 0.00                                | 8,192               |                8192 |
 | databricks/databricks-bge-large-en                                    | $0.10003                          | $ 0.00                                | 512                 |                 nan |
 | databricks/databricks-gte-large-en                                    | $0.12999                          | $ 0.00                                | 8,192               |                 nan |
+| azure/gpt-4o-mini-2024-07-18                                          | $0.165                            | $0.66                                 | 128,000             |               16384 |
+| amazon.titan-embed-image-v1                                           | $0.8                              | $ 0.00                                | 128                 |                 nan |

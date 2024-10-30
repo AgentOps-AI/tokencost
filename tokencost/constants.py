@@ -47,8 +47,8 @@ async def update_token_costs():
     global TOKEN_COSTS
     try:
         fetched_costs = await fetch_costs()
-        TOKEN_COSTS.update(fetched_costs)
         # Safely remove 'sample_spec' if it exists
+        TOKEN_COSTS.update(fetched_costs)
         TOKEN_COSTS.pop('sample_spec', None)
     except Exception as e:
         logger.error(f"Failed to update TOKEN_COSTS: {e}")
@@ -60,7 +60,7 @@ with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as 
 
 # Ensure TOKEN_COSTS is up to date when the module is loaded
 try:
+    TOKEN_COSTS = TOKEN_COSTS_STATIC
     asyncio.run(update_token_costs())
 except Exception:
     logger.error('Failed to update token costs. Using static costs.')
-    TOKEN_COSTS = TOKEN_COSTS_STATIC
