@@ -33,8 +33,8 @@ if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
         json.dump(tokencost.TOKEN_COSTS, f, indent=4)
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
-df['max_input_tokens'].iloc[1:] = df['max_input_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
-df['max_tokens'].iloc[1:] = df['max_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
+df.loc[df.index[1:], 'max_input_tokens'] = df['max_input_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
+df.loc[df.index[1:], 'max_tokens'] = df['max_tokens'].iloc[1:].apply(lambda x: '{:,.0f}'.format(x))
 
 
 # Updated function to format the cost or handle NaN
@@ -45,7 +45,7 @@ def format_cost(x):
         return '--'
     else:
         price_per_million = Decimal(str(x)) * Decimal(str(1_000_000))
-        print(price_per_million)
+        # print(price_per_million)
         normalized = price_per_million.normalize()
         formatted_price = '{:2f}'.format(normalized)
 
