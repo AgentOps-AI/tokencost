@@ -208,17 +208,17 @@
 | gemini-1.0-ultra                                                      | $0.5                              | $1.5                                  | 8,192               |                2048 |
 | gemini-1.0-ultra-001                                                  | $0.5                              | $1.5                                  | 8,192               |                2048 |
 | gemini-1.0-pro-002                                                    | $0.5                              | $1.5                                  | 32,760              |                8192 |
-| gemini-1.5-pro                                                        | $0.078125                         | $0.3125                               | 2,097,152           |                8192 |
-| gemini-1.5-pro-002                                                    | $0.078125                         | $0.3125                               | 2,097,152           |                8192 |
-| gemini-1.5-pro-001                                                    | $0.078125                         | $0.3125                               | 1,000,000           |                8192 |
+| gemini-1.5-pro                                                        | $1.25                             | $ 5.00                                | 2,097,152           |                8192 |
+| gemini-1.5-pro-002                                                    | $1.25                             | $ 5.00                                | 2,097,152           |                8192 |
+| gemini-1.5-pro-001                                                    | $1.25                             | $ 5.00                                | 1,000,000           |                8192 |
 | gemini-1.5-pro-preview-0514                                           | $0.078125                         | $0.3125                               | 1,000,000           |                8192 |
 | gemini-1.5-pro-preview-0215                                           | $0.078125                         | $0.3125                               | 1,000,000           |                8192 |
 | gemini-1.5-pro-preview-0409                                           | $0.078125                         | $0.3125                               | 1,000,000           |                8192 |
-| gemini-1.5-flash                                                      | $0.004688                         | $0.0046875                            | 1,000,000           |                8192 |
+| gemini-1.5-flash                                                      | $0.075                            | $0.3                                  | 1,000,000           |                8192 |
 | gemini-1.5-flash-exp-0827                                             | $0.004688                         | $0.0046875                            | 1,000,000           |                8192 |
-| gemini-1.5-flash-002                                                  | $0.004688                         | $0.0046875                            | 1,048,576           |                8192 |
-| gemini-1.5-flash-001                                                  | $0.004688                         | $0.0046875                            | 1,000,000           |                8192 |
-| gemini-1.5-flash-preview-0514                                         | $0.004688                         | $0.0046875                            | 1,000,000           |                8192 |
+| gemini-1.5-flash-002                                                  | $0.075                            | $0.3                                  | 1,048,576           |                8192 |
+| gemini-1.5-flash-001                                                  | $0.075                            | $0.3                                  | 1,000,000           |                8192 |
+| gemini-1.5-flash-preview-0514                                         | $0.075                            | $0.0046875                            | 1,000,000           |                8192 |
 | gemini-pro-experimental                                               | $ 0.00                            | $ 0.00                                | 1,000,000           |                8192 |
 | gemini-flash-experimental                                             | $ 0.00                            | $ 0.00                                | 1,000,000           |                8192 |
 | gemini-pro-vision                                                     | $0.25                             | $0.5                                  | 16,384              |                2048 |
@@ -234,7 +234,7 @@
 | vertex_ai/meta/llama3-405b-instruct-maas                              | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | vertex_ai/meta/llama3-70b-instruct-maas                               | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | vertex_ai/meta/llama3-8b-instruct-maas                                | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
-| vertex_ai/meta/llama-3.2-90b-vision-instruct-maas                     | $ 0.00                            | $ 0.00                                | 128,000             |                8192 |
+| vertex_ai/meta/llama-3.2-90b-vision-instruct-maas                     | $ 0.00                            | $ 0.00                                | 128,000             |                2048 |
 | vertex_ai/mistral-large@latest                                        | $ 3.00                            | $ 9.00                                | 128,000             |                8191 |
 | vertex_ai/mistral-large@2407                                          | $ 3.00                            | $ 9.00                                | 128,000             |                8191 |
 | vertex_ai/mistral-nemo@latest                                         | $ 3.00                            | $ 3.00                                | 128,000             |              128000 |
@@ -650,3 +650,24 @@
 | databricks/databricks-gte-large-en                                    | $0.12999                          | $ 0.00                                | 8,192               |                 nan |
 | azure/gpt-4o-mini-2024-07-18                                          | $0.165                            | $0.66                                 | 128,000             |               16384 |
 | amazon.titan-embed-image-v1                                           | $0.8                              | $ 0.00                                | 128                 |                 nan |
+| azure_ai/mistral-large-2407                                           | $ 2.00                            | $ 6.00                                | 128,000             |                4096 |
+| azure_ai/ministral-3b                                                 | $0.04                             | $0.04                                 | 128,000             |                4096 |
+| azure_ai/Llama-3.2-11B-Vision-Instruct                                | $0.37                             | $0.37                                 | 128,000             |                2048 |
+| azure_ai/Llama-3.2-90B-Vision-Instruct                                | $2.04                             | $2.04                                 | 128,000             |                2048 |
+| azure_ai/Phi-3.5-mini-instruct                                        | $0.13                             | $0.52                                 | 128,000             |                4096 |
+| azure_ai/Phi-3.5-vision-instruct                                      | $0.13                             | $0.52                                 | 128,000             |                4096 |
+| azure_ai/Phi-3.5-MoE-instruct                                         | $0.16                             | $0.64                                 | 128,000             |                4096 |
+| azure_ai/Phi-3-mini-4k-instruct                                       | $0.13                             | $0.52                                 | 4,096               |                4096 |
+| azure_ai/Phi-3-mini-128k-instruct                                     | $0.13                             | $0.52                                 | 128,000             |                4096 |
+| azure_ai/Phi-3-small-8k-instruct                                      | $0.15                             | $0.6                                  | 8,192               |                4096 |
+| azure_ai/Phi-3-small-128k-instruct                                    | $0.15                             | $0.6                                  | 128,000             |                4096 |
+| azure_ai/Phi-3-medium-4k-instruct                                     | $0.17                             | $0.68                                 | 4,096               |                4096 |
+| azure_ai/Phi-3-medium-128k-instruct                                   | $0.17                             | $0.68                                 | 128,000             |                4096 |
+| xai/grok-beta                                                         | $ 5.00                            | $15.00                                | 131,072             |              131072 |
+| claude-3-5-haiku-20241022                                             | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| openrouter/anthropic/claude-3-5-haiku                                 | $ 1.00                            | $ 5.00                                | nan                 |                 nan |
+| openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| anthropic.claude-3-5-haiku-20241022-v1:0                              | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
