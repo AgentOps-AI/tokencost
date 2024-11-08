@@ -43,13 +43,23 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     model = strip_ft_model_name(model)
 
     if "claude-" in model:
-        """
-        Note that this is only accurate for older models, e.g. `claude-2.1`. 
-        For newer models this can only be used as a _very_ rough estimate, 
-        instead you should rely on the `usage` property in the response for exact counts.
-        """
-        prompt = "".join(message["content"] for message in messages)
-        return count_string_tokens(prompt, model)
+        logger.warning(
+            "Warning: Anthropic token counting API is currently in beta. Please expect differences in costs!"
+        )
+        client = anthropic.Client()
+
+        if "claude-3-sonnet" in model:
+            logger.warning(
+                f"Token counting (beta) is not supported for {model}. Returning num tokens using count from the string."
+            )
+            prompt = "".join(message["content"] for message in messages)
+            return count_string_tokens(prompt, model)
+
+        num_tokens = client.beta.messages.count_tokens(
+            model=model,
+            messages=messages,
+        ).input_tokens
+        return num_tokens
 
     try:
         encoding = tiktoken.encoding_for_model(model)
@@ -80,7 +90,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4o" in model:
-        print(
+        logger.warning(
             "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13.")
         return count_message_tokens(messages, model="gpt-4o-2024-05-13")
     elif "gpt-4" in model:
@@ -121,14 +131,13 @@ def count_string_tokens(prompt: str, model: str) -> int:
         model = model.split("/")[-1]
 
     if "claude-" in model:
-        """
-        Note that this is only accurate for older models, e.g. `claude-2.1`. 
-        For newer models this can only be used as a _very_ rough estimate, 
-        instead you should rely on the `usage` property in the response for exact counts.
-        """
+        logger.warning(
+            "Warning: This is only accurate for older models e.g. `claude-2.1` so please expect a _very_ rough estimate."
+            "Use the `usage` property in the response for exact counts."
+        )
         if "claude-3" in model:
             logger.warning(
-                "Warning: Claude-3 models are not yet supported. Returning num tokens assuming claude-2.1."
+                "Warning: Claude-3 models are unsupported. Returning num tokens assuming claude-2.1."
             )
         client = anthropic.Client()
         token_count = client.count_tokens(prompt)
