@@ -1,0 +1,90 @@
+name: Update Token Prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+          
+      - name: Get current date
+        id: date
+        run: |
+          echo "DATE=$(date +'%d-%m-%Y')" >> $GITHUB_ENV
+          
+      - name: Create branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git checkout -b update/${{ env.DATE }}
+          
+      - name: Store original model prices
+        run: |
+          if [ -f model_prices.json ]; then
+            cp model_prices.json model_prices.old.json
+          else
+            echo "{}" > model_prices.old.json
+          fi
+          
+      - name: Run update script
+        run: python update_prices.py
+        
+      - name: Generate PR body
+        id: pr-body
+        run: |
+          body="## Changes ${{ env.DATE }}n\n"
+          body+="### Updated Models\n"
+          
+          updated=$(jq -r 'keys as $new | input | keys as $old | $new - $old | .[]' model_prices.json model_prices.old.json)
+          if [ ! -z "$updated" ]; then
+            while IFS= read -r model; do
+              body+="- $model\n"
+            done <<< "$updated"
+          else
+            body+="- No models updated\n"
+          fi
+          
+          body+="\n### New Models\n"
+          new=$(jq -r 'keys as $new | input | keys as $old | $new - $old | .[]' model_prices.json model_prices.old.json)
+          if [ ! -z "$new" ]; then
+            while IFS= read -r model; do
+              body+="- $model\n"
+            done <<< "$new"
+          else
+            body+="- No new models added\n"
+          fi
+          
+          echo "body<<EOF" >> $GITHUB_ENV
+          echo "$body" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Updated prices as on ${{ env.DATE }}"
+          git push origin update/${{ env.DATE }}
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Updated prices as on ${{ env.DATE }}"
+          body: ${{ env.body }}
+          branch: update/${{ env.DATE }}
+          base: main
+          delete-branch: true
