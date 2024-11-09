@@ -39,7 +39,9 @@ async def fetch_costs():
             if response.status == 200:
                 return await response.json(content_type=None)
             else:
-                raise Exception(f"Failed to fetch token costs, status code: {response.status}")
+                raise Exception(
+                    f"Failed to fetch token costs, status code: {response.status}"
+                )
 
 
 async def update_token_costs():
@@ -49,10 +51,11 @@ async def update_token_costs():
         fetched_costs = await fetch_costs()
         # Safely remove 'sample_spec' if it exists
         TOKEN_COSTS.update(fetched_costs)
-        TOKEN_COSTS.pop('sample_spec', None)
+        TOKEN_COSTS.pop("sample_spec", None)
     except Exception as e:
         logger.error(f"Failed to update TOKEN_COSTS: {e}")
         raise
+
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
     TOKEN_COSTS_STATIC = json.load(f)
@@ -63,4 +66,4 @@ try:
     TOKEN_COSTS = TOKEN_COSTS_STATIC
     asyncio.run(update_token_costs())
 except Exception:
-    logger.error('Failed to update token costs. Using static costs.')
+    logger.error("Failed to update token costs. Using static costs.")

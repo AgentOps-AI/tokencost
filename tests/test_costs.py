@@ -75,7 +75,6 @@ def test_count_message_tokens(model, expected_output):
         ("gpt-4o", 17),
         ("azure/gpt-4o", 17),
         ("claude-2.1", 4),
-
     ],
 )
 def test_count_message_tokens_with_name(model, expected_output):
@@ -116,7 +115,7 @@ def test_count_message_tokens_invalid_model():
         ("gpt-4-vision-preview", 4),
         ("text-embedding-ada-002", 4),
         ("gpt-4o", 4),
-        ("claude-2.1", 4)
+        ("claude-2.1", 4),
     ],
 )
 def test_count_string_tokens(model, expected_output):

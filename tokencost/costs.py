@@ -1,4 +1,3 @@
-
 """
 Costs dictionary and utility tool for counting tokens
 """
@@ -98,7 +97,8 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4o" in model:
         logger.warning(
-            "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13.")
+            "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13."
+        )
         return count_message_tokens(messages, model="gpt-4o-2024-05-13")
     elif "gpt-4" in model:
         logger.warning(
