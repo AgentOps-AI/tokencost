@@ -50,6 +50,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
             logger.warning(
                 f"Token counting (beta) is not supported for {model}. Returning num tokens using count from the string."
             )
+            # For anthropic<0.39.0 this method is no more supported
             prompt = "".join(message["content"] for message in messages)
             return count_string_tokens(prompt, model)
 
