@@ -3,6 +3,7 @@
 Costs dictionary and utility tool for counting tokens
 """
 
+import os
 import tiktoken
 import anthropic
 from typing import Union, List, Dict
@@ -40,12 +41,11 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     model = model.lower()
     model = strip_ft_model_name(model)
 
+    # Anthropic token counting requires a valid API key
     if "claude-" in model:
         logger.warning(
             "Warning: Anthropic token counting API is currently in beta. Please expect differences in costs!"
         )
-        client = anthropic.Client()
-
         if "claude-3-sonnet" in model:
             logger.warning(
                 f"Token counting (beta) is not supported for {model}. Returning num tokens using count from the string."
@@ -54,14 +54,19 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
             prompt = "".join(message["content"] for message in messages)
             return count_string_tokens(prompt, model)
 
+        ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+
         try:
+            client = anthropic.Client(api_key=ANTHROPIC_API_KEY)
             num_tokens = client.beta.messages.count_tokens(
                 model=model,
                 messages=messages,
             ).input_tokens
             return num_tokens
+        except TypeError as e:
+            raise e
         except Exception as e:
-            raise Exception(f"An error occured - {e}") from e
+            raise e
 
     try:
         encoding = tiktoken.encoding_for_model(model)
