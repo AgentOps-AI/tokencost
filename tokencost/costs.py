@@ -12,8 +12,6 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# TODO: Add Claude support
-# https://www-files.anthropic.com/production/images/model_pricing_july2023.pdf
 # Note: cl100k is the openai base tokenizer. Nothing to do with Claude. Tiktoken doesn't have claude yet.
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
 
@@ -55,11 +53,14 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
             prompt = "".join(message["content"] for message in messages)
             return count_string_tokens(prompt, model)
 
-        num_tokens = client.beta.messages.count_tokens(
-            model=model,
-            messages=messages,
-        ).input_tokens
-        return num_tokens
+        try:
+            num_tokens = client.beta.messages.count_tokens(
+                model=model,
+                messages=messages,
+            ).input_tokens
+            return num_tokens
+        except Exception as e:
+            raise Exception(f"An error occured - {e}") from e
 
     try:
         encoding = tiktoken.encoding_for_model(model)
