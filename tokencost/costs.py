@@ -45,18 +45,19 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         logger.warning(
             "Warning: Anthropic token counting API is currently in beta. Please expect differences in costs!"
         )
-        if "claude-3-sonnet" in model:
-            logger.warning(
-                f"Token counting (beta) is not supported for {model}. Returning num tokens using count from the string."
+        if not any(
+            supported_model in model for supported_model in [
+                "claude-3-5-sonnet", "claude-3-5-haiku", "claude-3-haiku", "claude-3-opus"
+            ]
+        ):
+            raise ValueError(
+                f"{model} is not supported in token counting (beta) API. Use the `usage` property in the response for exact counts."
             )
-            # For anthropic<0.39.0 this method is no more supported
-            prompt = "".join(message["content"] for message in messages)
-            return count_string_tokens(prompt, model)
 
         ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
         try:
-            client = anthropic.Client(api_key=ANTHROPIC_API_KEY)
+            client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
             num_tokens = client.beta.messages.count_tokens(
                 model=model,
                 messages=messages,
@@ -138,17 +139,9 @@ def count_string_tokens(prompt: str, model: str) -> int:
         model = model.split("/")[-1]
 
     if "claude-" in model:
-        logger.warning(
-            "Warning: This is only accurate for older models e.g. `claude-2.1` so please expect a _very_ rough estimate."
-            "Use the `usage` property in the response for exact counts."
+        raise ValueError(
+            "Claude models do not support this method. Use the `usage` property in the response for exact counts."
         )
-        if "claude-3" in model:
-            logger.warning(
-                "Warning: Claude-3 models are unsupported. Returning num tokens assuming claude-2.1."
-            )
-        client = anthropic.Client()
-        token_count = client.count_tokens(prompt)
-        return token_count
 
     try:
         encoding = tiktoken.encoding_for_model(model)
