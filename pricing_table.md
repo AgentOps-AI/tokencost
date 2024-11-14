@@ -1,7 +1,7 @@
 | Model Name                                                            | Prompt Cost (USD) per 1M tokens   | Completion Cost (USD) per 1M tokens   | Max Prompt Tokens   |   Max Output Tokens |
 |:----------------------------------------------------------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|
 | gpt-4                                                                 | $30.00                            | $60.00                                | 8192                |                4096 |
-| gpt-4o                                                                | $ 5.00                            | $15.00                                | 128,000             |                4096 |
+| gpt-4o                                                                | $2.5                              | $10.00                                | 128,000             |               16384 |
 | gpt-4o-audio-preview                                                  | $2.5                              | $10.00                                | 128,000             |               16384 |
 | gpt-4o-audio-preview-2024-10-01                                       | $2.5                              | $10.00                                | 128,000             |               16384 |
 | gpt-4o-mini                                                           | $0.15                             | $0.6                                  | 128,000             |               16384 |
@@ -398,18 +398,18 @@
 | bedrock/eu-west-3/mistral.mistral-large-2402-v1:0                     | $10.4                             | $31.2                                 | 32,000              |                8191 |
 | anthropic.claude-3-sonnet-20240229-v1:0                               | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-5-sonnet-20240620-v1:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
-| anthropic.claude-3-5-sonnet-20241022-v2:0                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| anthropic.claude-3-5-sonnet-20241022-v2:0                             | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | anthropic.claude-3-5-sonnet-latest-v2:0                               | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | anthropic.claude-3-haiku-20240307-v1:0                                | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | anthropic.claude-3-opus-20240229-v1:0                                 | $15.00                            | $75.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-sonnet-20240229-v1:0                            | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-5-sonnet-20240620-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
-| us.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| us.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | us.anthropic.claude-3-haiku-20240307-v1:0                             | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | us.anthropic.claude-3-opus-20240229-v1:0                              | $15.00                            | $75.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-sonnet-20240229-v1:0                            | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-5-sonnet-20240620-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
-| eu.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| eu.anthropic.claude-3-5-sonnet-20241022-v2:0                          | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | eu.anthropic.claude-3-haiku-20240307-v1:0                             | $0.25                             | $1.25                                 | 200,000             |                4096 |
 | eu.anthropic.claude-3-opus-20240229-v1:0                              | $15.00                            | $75.00                                | 200,000             |                4096 |
 | anthropic.claude-v1                                                   | $ 8.00                            | $24.00                                | 100,000             |                8191 |
@@ -664,10 +664,11 @@
 | azure_ai/Phi-3-medium-4k-instruct                                     | $0.17                             | $0.68                                 | 4,096               |                4096 |
 | azure_ai/Phi-3-medium-128k-instruct                                   | $0.17                             | $0.68                                 | 128,000             |                4096 |
 | xai/grok-beta                                                         | $ 5.00                            | $15.00                                | 131,072             |              131072 |
-| claude-3-5-haiku-20241022                                             | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
-| vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| claude-3-5-haiku-20241022                                             | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-5-haiku                                 | $ 1.00                            | $ 5.00                                | nan                 |                 nan |
-| openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | anthropic.claude-3-5-haiku-20241022-v1:0                              | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
 | us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| stability.sd3-large-v1:0                                              | --                                | --                                    | 77                  |                 nan |
