@@ -46,7 +46,7 @@ STRING = "Hello, world!"
         ("gpt-4-vision-preview", 15),
         ("gpt-4o", 15),
         ("azure/gpt-4o", 15),
-        ("claude-2.1", 4),
+        ("claude-3-opus-latest", 11),
     ],
 )
 def test_count_message_tokens(model, expected_output):
@@ -74,7 +74,7 @@ def test_count_message_tokens(model, expected_output):
         ("gpt-4-vision-preview", 17),
         ("gpt-4o", 17),
         ("azure/gpt-4o", 17),
-        ("claude-2.1", 4),
+        # ("claude-3-opus-latest", 4), # TODO: Claude is not supported yet
     ],
 )
 def test_count_message_tokens_with_name(model, expected_output):
@@ -115,7 +115,7 @@ def test_count_message_tokens_invalid_model():
         ("gpt-4-vision-preview", 4),
         ("text-embedding-ada-002", 4),
         ("gpt-4o", 4),
-        ("claude-2.1", 4),
+        # ("claude-3-opus-latest", 4), # NOTE: Claude only supports messages
     ],
 )
 def test_count_string_tokens(model, expected_output):
@@ -155,7 +155,7 @@ def test_count_string_invalid_model():
         (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4o", Decimal("0.000075")),
         (MESSAGES, "azure/gpt-4o", Decimal("0.000075")),
-        (MESSAGES, "claude-2.1", Decimal("0.000032")),
+        (MESSAGES, "claude-3-opus-latest", Decimal("0.000165")),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
     ],
 )
@@ -192,7 +192,7 @@ def test_invalid_prompt_format():
         (STRING, "gpt-4-vision-preview", Decimal("0.00012")),
         (STRING, "gpt-4o", Decimal("0.000060")),
         (STRING, "azure/gpt-4o", Decimal("0.000060")),
-        (STRING, "claude-2.1", Decimal("0.000096")),
+        (STRING, "claude-3-opus-latest", Decimal("0.000096")),
         (STRING, "text-embedding-ada-002", 0),
     ],
 )
