@@ -153,7 +153,7 @@ def test_count_string_invalid_model():
         (MESSAGES, "gpt-4-0613", Decimal("0.00045")),
         (MESSAGES, "gpt-4-1106-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
-        (MESSAGES, "gpt-4o", Decimal("0.000075")),
+        (MESSAGES, "gpt-4o", Decimal("0.0000375")),
         (MESSAGES, "azure/gpt-4o", Decimal("0.000075")),
         (MESSAGES, "claude-3-opus-latest", Decimal("0.000165")),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
@@ -190,7 +190,7 @@ def test_invalid_prompt_format():
         (STRING, "gpt-4-0613", Decimal("0.00024")),
         (STRING, "gpt-4-1106-preview", Decimal("0.00012")),
         (STRING, "gpt-4-vision-preview", Decimal("0.00012")),
-        (STRING, "gpt-4o", Decimal("0.000060")),
+        (STRING, "gpt-4o", Decimal("0.00004")),
         (STRING, "azure/gpt-4o", Decimal("0.000060")),
         # (STRING, "claude-3-opus-latest", Decimal("0.000096")), # NOTE: Claude only supports messages
         (STRING, "text-embedding-ada-002", 0),
