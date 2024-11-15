@@ -1,8 +1,7 @@
 # test_llama_index.py
 import pytest
 from tokencost.callbacks import llama_index
-from llama_index.core.callbacks.schema import CBEventType, EventPayload
-from unittest.mock import MagicMock
+from llama_index.core.callbacks.schema import EventPayload
 
 # Mock the calculate_prompt_cost and calculate_completion_cost functions
 

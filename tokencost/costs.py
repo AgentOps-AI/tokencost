@@ -1,8 +1,8 @@
-
 """
 Costs dictionary and utility tool for counting tokens
 """
 
+import os
 import tiktoken
 import anthropic
 from typing import Union, List, Dict
@@ -12,10 +12,28 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# TODO: Add Claude support
-# https://www-files.anthropic.com/production/images/model_pricing_july2023.pdf
 # Note: cl100k is the openai base tokenizer. Nothing to do with Claude. Tiktoken doesn't have claude yet.
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
+
+
+def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int:
+    if not any(
+        supported_model in model for supported_model in [
+            "claude-3-5-sonnet", "claude-3-5-haiku", "claude-3-haiku", "claude-3-opus"
+        ]
+    ):
+        raise ValueError(
+            f"{model} is not supported in token counting (beta) API. Use the `usage` property in the response for exact counts."
+        )
+    try:
+        return anthropic.Anthropic().beta.messages.count_tokens(
+            model=model,
+            messages=messages,
+        ).input_tokens
+    except TypeError as e:
+        raise e
+    except Exception as e:
+        raise e
 
 
 def strip_ft_model_name(model: str) -> str:
@@ -42,14 +60,12 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     model = model.lower()
     model = strip_ft_model_name(model)
 
+    # Anthropic token counting requires a valid API key
     if "claude-" in model:
-        """
-        Note that this is only accurate for older models, e.g. `claude-2.1`. 
-        For newer models this can only be used as a _very_ rough estimate, 
-        instead you should rely on the `usage` property in the response for exact counts.
-        """
-        prompt = "".join(message["content"] for message in messages)
-        return count_string_tokens(prompt, model)
+        logger.warning(
+            "Warning: Anthropic token counting API is currently in beta. Please expect differences in costs!"
+        )
+        return get_anthropic_token_count(messages, model)
 
     try:
         encoding = tiktoken.encoding_for_model(model)
@@ -80,8 +96,9 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         )
         return count_message_tokens(messages, model="gpt-3.5-turbo-0613")
     elif "gpt-4o" in model:
-        print(
-            "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13.")
+        logger.warning(
+            "Warning: gpt-4o may update over time. Returning num tokens assuming gpt-4o-2024-05-13."
+        )
         return count_message_tokens(messages, model="gpt-4o-2024-05-13")
     elif "gpt-4" in model:
         logger.warning(
@@ -121,18 +138,9 @@ def count_string_tokens(prompt: str, model: str) -> int:
         model = model.split("/")[-1]
 
     if "claude-" in model:
-        """
-        Note that this is only accurate for older models, e.g. `claude-2.1`. 
-        For newer models this can only be used as a _very_ rough estimate, 
-        instead you should rely on the `usage` property in the response for exact counts.
-        """
-        if "claude-3" in model:
-            logger.warning(
-                "Warning: Claude-3 models are not yet supported. Returning num tokens assuming claude-2.1."
-            )
-        client = anthropic.Client()
-        token_count = client.count_tokens(prompt)
-        return token_count
+        raise ValueError(
+            "Warning: Anthropic does not support this method. Please use the `count_message_tokens` function for the exact counts."
+        )
 
     try:
         encoding = tiktoken.encoding_for_model(model)
@@ -200,13 +208,11 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
         )
     if not isinstance(prompt, (list, str)):
         raise TypeError(
-            f"""Prompt must be either a string or list of message objects.
-            it is {type(prompt)} instead.
-            """
+            f"Prompt must be either a string or list of message objects but found {type(prompt)} instead."
         )
     prompt_tokens = (
         count_string_tokens(prompt, model)
-        if isinstance(prompt, str)
+        if isinstance(prompt, str) and "claude-" not in model
         else count_message_tokens(prompt, model)
     )
 
@@ -235,7 +241,18 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
             f"""Model {model} is not implemented.
             Double-check your spelling, or submit an issue/PR"""
         )
-    completion_tokens = count_string_tokens(completion, model)
+
+    if not isinstance(completion, str):
+        raise TypeError(
+            f"Prompt must be a string but found {type(completion)} instead."
+        )
+
+    if "claude-" in model:
+        completion_list = [{"role": "assistant", "content": completion}]
+        # Anthropic appends some 13 additional tokens to the actual completion tokens
+        completion_tokens = count_message_tokens(completion_list, model) - 13
+    else:
+        completion_tokens = count_string_tokens(completion, model)
 
     return calculate_cost_by_tokens(completion_tokens, model, "output")
 
@@ -264,10 +281,19 @@ def calculate_all_costs_and_tokens(
     completion_cost = calculate_completion_cost(completion, model)
     prompt_tokens = (
         count_string_tokens(prompt, model)
-        if isinstance(prompt, str)
+        if isinstance(prompt, str) and "claude-" not in model
         else count_message_tokens(prompt, model)
     )
-    completion_tokens = count_string_tokens(completion, model)
+
+    if "claude-" in model:
+        logger.warning(
+            "Warning: Token counting is estimated for "
+        )
+        completion_list = [{"role": "assistant", "content": completion}]
+        # Anthropic appends some 13 additional tokens to the actual completion tokens
+        completion_tokens = count_message_tokens(completion_list, model) - 13
+    else:
+        completion_tokens = count_string_tokens(completion, model)
 
     return {
         "prompt_cost": prompt_cost,
