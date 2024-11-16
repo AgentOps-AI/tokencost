@@ -18,18 +18,26 @@ logger = logging.getLogger(__name__)
 
 def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int:
     if not any(
-        supported_model in model for supported_model in [
-            "claude-3-5-sonnet", "claude-3-5-haiku", "claude-3-haiku", "claude-3-opus"
+        supported_model in model
+        for supported_model in [
+            "claude-3-5-sonnet",
+            "claude-3-5-haiku",
+            "claude-3-haiku",
+            "claude-3-opus",
         ]
     ):
         raise ValueError(
             f"{model} is not supported in token counting (beta) API. Use the `usage` property in the response for exact counts."
         )
     try:
-        return anthropic.Anthropic().beta.messages.count_tokens(
-            model=model,
-            messages=messages,
-        ).input_tokens
+        return (
+            anthropic.Anthropic()
+            .beta.messages.count_tokens(
+                model=model,
+                messages=messages,
+            )
+            .input_tokens
+        )
     except TypeError as e:
         raise e
     except Exception as e:
@@ -286,9 +294,7 @@ def calculate_all_costs_and_tokens(
     )
 
     if "claude-" in model:
-        logger.warning(
-            "Warning: Token counting is estimated for "
-        )
+        logger.warning("Warning: Token counting is estimated for ")
         completion_list = [{"role": "assistant", "content": completion}]
         # Anthropic appends some 13 additional tokens to the actual completion tokens
         completion_tokens = count_message_tokens(completion_list, model) - 13
