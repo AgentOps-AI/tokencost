@@ -111,6 +111,10 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 
 ```
 
+## How tokens are counting
+Under the hood, strings and ChatML messages are tokenized using Tiktoken. For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), the Anthropic beta token counting API is used.
+
+
 ## Cost table
 Units denominated in USD. All prices can be located in `model_prices.json`.
 
