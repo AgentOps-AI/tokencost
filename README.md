@@ -111,8 +111,11 @@ print(count_string_tokens(prompt="Hello world", model="gpt-3.5-turbo"))
 
 ```
 
-## How tokens are counting
-Under the hood, strings and ChatML messages are tokenized using Tiktoken. For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), the Anthropic beta token counting API is used.
+## How tokens are counted
+
+Under the hood, strings and ChatML messages are tokenized using [Tiktoken](https://github.com/openai/tiktoken), OpenAI's official tokenizer. Tiktoken splits text into tokens (which can be parts of words or individual characters) and handles both raw strings and message formats with additional tokens for message formatting and roles.
+
+For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), we use the [Anthropic beta token counting API](https://docs.anthropic.com/claude/docs/beta-api-for-counting-tokens) to ensure accurate token counts. For older Claude models, we approximate using Tiktoken with the cl100k_base encoding.
 
 
 ## Cost table
