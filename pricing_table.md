@@ -672,3 +672,26 @@
 | us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
 | eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
 | stability.sd3-large-v1:0                                              | --                                | --                                    | 77                  |                 nan |
+| gpt-4o-2024-11-20                                                     | $2.5                              | $10.00                                | 128,000             |               16384 |
+| ft:gpt-4o-2024-11-20                                                  | $3.75                             | $15.00                                | 128,000             |               16384 |
+| azure/gpt-4o-2024-11-20                                               | $2.75                             | $11.00                                | 128,000             |               16384 |
+| azure/global-standard/gpt-4o-2024-11-20                               | $2.5                              | $10.00                                | 128,000             |               16384 |
+| groq/llama-3.2-1b-preview                                             | $0.04                             | $0.04                                 | 8,192               |                8192 |
+| groq/llama-3.2-3b-preview                                             | $0.06                             | $0.06                                 | 8,192               |                8192 |
+| groq/llama-3.2-11b-text-preview                                       | $0.18                             | $0.18                                 | 8,192               |                8192 |
+| groq/llama-3.2-11b-vision-preview                                     | $0.18                             | $0.18                                 | 8,192               |                8192 |
+| groq/llama-3.2-90b-text-preview                                       | $0.9                              | $0.9                                  | 8,192               |                8192 |
+| groq/llama-3.2-90b-vision-preview                                     | $0.9                              | $0.9                                  | 8,192               |                8192 |
+| vertex_ai/claude-3-sonnet                                             | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| vertex_ai/claude-3-5-sonnet                                           | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-5-sonnet-v2                                        | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-haiku                                              | $0.25                             | $1.25                                 | 200,000             |                4096 |
+| vertex_ai/claude-3-5-haiku                                            | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-opus                                               | $15.00                            | $75.00                                | 200,000             |                4096 |
+| gemini/gemini-exp-1114                                                | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| openrouter/qwen/qwen-2.5-coder-32b-instruct                           | $0.18                             | $0.18                                 | 33,792              |               33792 |
+| us.meta.llama3-1-8b-instruct-v1:0                                     | $0.22                             | $0.22                                 | 128,000             |                2048 |
+| us.meta.llama3-1-70b-instruct-v1:0                                    | $0.99                             | $0.99                                 | 128,000             |                2048 |
+| us.meta.llama3-1-405b-instruct-v1:0                                   | $5.32                             | $16.00                                | 128,000             |                4096 |
+| stability.stable-image-ultra-v1:0                                     | --                                | --                                    | 77                  |                 nan |
+| fireworks_ai/accounts/fireworks/models/qwen2p5-coder-32b-instruct     | $0.9                              | $0.9                                  | 4,096               |                4096 |
