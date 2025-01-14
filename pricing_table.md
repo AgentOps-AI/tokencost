@@ -109,10 +109,10 @@
 | azure_ai/jamba-instruct                                               | $0.5                              | $0.7                                  | 70,000              |                4096 |
 | azure_ai/mistral-large                                                | $ 4.00                            | $12.00                                | 32,000              |                8191 |
 | azure_ai/mistral-small                                                | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
-| azure_ai/Meta-Llama-3-70B-Instruct                                    | $1.1                              | $0.37                                 | 8,192               |                8192 |
-| azure_ai/Meta-Llama-3.1-8B-Instruct                                   | $0.3                              | $0.61                                 | 128,000             |              128000 |
-| azure_ai/Meta-Llama-3.1-70B-Instruct                                  | $2.68                             | $3.54                                 | 128,000             |              128000 |
-| azure_ai/Meta-Llama-3.1-405B-Instruct                                 | $5.33                             | $16.00                                | 128,000             |              128000 |
+| azure_ai/Meta-Llama-3-70B-Instruct                                    | $1.1                              | $0.37                                 | 8,192               |                2048 |
+| azure_ai/Meta-Llama-3.1-8B-Instruct                                   | $0.3                              | $0.61                                 | 128,000             |                2048 |
+| azure_ai/Meta-Llama-3.1-70B-Instruct                                  | $2.68                             | $3.54                                 | 128,000             |                2048 |
+| azure_ai/Meta-Llama-3.1-405B-Instruct                                 | $5.33                             | $16.00                                | 128,000             |                2048 |
 | azure_ai/cohere-rerank-v3-multilingual                                | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | azure_ai/cohere-rerank-v3-english                                     | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
 | azure_ai/Cohere-embed-v3-english                                      | $0.1                              | $ 0.00                                | 512                 |                 nan |
@@ -128,7 +128,7 @@
 | mistral/mistral-medium                                                | $2.7                              | $8.1                                  | 32,000              |                8191 |
 | mistral/mistral-medium-latest                                         | $2.7                              | $8.1                                  | 32,000              |                8191 |
 | mistral/mistral-medium-2312                                           | $2.7                              | $8.1                                  | 32,000              |                8191 |
-| mistral/mistral-large-latest                                          | $ 3.00                            | $ 9.00                                | 128,000             |              128000 |
+| mistral/mistral-large-latest                                          | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
 | mistral/mistral-large-2402                                            | $ 4.00                            | $12.00                                | 32,000              |                8191 |
 | mistral/mistral-large-2407                                            | $ 3.00                            | $ 9.00                                | 128,000             |              128000 |
 | mistral/pixtral-12b-2409                                              | $0.15                             | $0.15                                 | 128,000             |              128000 |
@@ -235,27 +235,27 @@
 | vertex_ai/meta/llama3-70b-instruct-maas                               | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | vertex_ai/meta/llama3-8b-instruct-maas                                | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | vertex_ai/meta/llama-3.2-90b-vision-instruct-maas                     | $ 0.00                            | $ 0.00                                | 128,000             |                2048 |
-| vertex_ai/mistral-large@latest                                        | $ 3.00                            | $ 9.00                                | 128,000             |                8191 |
-| vertex_ai/mistral-large@2407                                          | $ 3.00                            | $ 9.00                                | 128,000             |                8191 |
-| vertex_ai/mistral-nemo@latest                                         | $ 3.00                            | $ 3.00                                | 128,000             |              128000 |
+| vertex_ai/mistral-large@latest                                        | $ 2.00                            | $ 6.00                                | 128,000             |                8191 |
+| vertex_ai/mistral-large@2407                                          | $ 2.00                            | $ 6.00                                | 128,000             |                8191 |
+| vertex_ai/mistral-nemo@latest                                         | $0.15                             | $0.15                                 | 128,000             |              128000 |
 | vertex_ai/jamba-1.5-mini@001                                          | $0.2                              | $0.4                                  | 256,000             |              256000 |
 | vertex_ai/jamba-1.5-large@001                                         | $ 2.00                            | $ 8.00                                | 256,000             |              256000 |
 | vertex_ai/jamba-1.5                                                   | $0.2                              | $0.4                                  | 256,000             |              256000 |
 | vertex_ai/jamba-1.5-mini                                              | $0.2                              | $0.4                                  | 256,000             |              256000 |
 | vertex_ai/jamba-1.5-large                                             | $ 2.00                            | $ 8.00                                | 256,000             |              256000 |
 | vertex_ai/mistral-nemo@2407                                           | $ 3.00                            | $ 3.00                                | 128,000             |              128000 |
-| vertex_ai/codestral@latest                                            | $ 1.00                            | $ 3.00                                | 128,000             |              128000 |
-| vertex_ai/codestral@2405                                              | $ 1.00                            | $ 3.00                                | 128,000             |              128000 |
+| vertex_ai/codestral@latest                                            | $0.2                              | $0.6                                  | 128,000             |              128000 |
+| vertex_ai/codestral@2405                                              | $0.2                              | $0.6                                  | 128,000             |              128000 |
 | vertex_ai/imagegeneration@006                                         | --                                | --                                    | nan                 |                 nan |
 | vertex_ai/imagen-3.0-generate-001                                     | --                                | --                                    | nan                 |                 nan |
 | vertex_ai/imagen-3.0-fast-generate-001                                | --                                | --                                    | nan                 |                 nan |
-| text-embedding-004                                                    | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
-| text-multilingual-embedding-002                                       | $0.00625                          | $ 0.00                                | 2,048               |                 nan |
-| textembedding-gecko                                                   | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
-| textembedding-gecko-multilingual                                      | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
-| textembedding-gecko-multilingual@001                                  | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
-| textembedding-gecko@001                                               | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
-| textembedding-gecko@003                                               | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
+| text-embedding-004                                                    | $0.1                              | $ 0.00                                | 2,048               |                 nan |
+| text-multilingual-embedding-002                                       | $0.1                              | $ 0.00                                | 2,048               |                 nan |
+| textembedding-gecko                                                   | $0.1                              | $ 0.00                                | 3,072               |                 nan |
+| textembedding-gecko-multilingual                                      | $0.1                              | $ 0.00                                | 3,072               |                 nan |
+| textembedding-gecko-multilingual@001                                  | $0.1                              | $ 0.00                                | 3,072               |                 nan |
+| textembedding-gecko@001                                               | $0.1                              | $ 0.00                                | 3,072               |                 nan |
+| textembedding-gecko@003                                               | $0.1                              | $ 0.00                                | 3,072               |                 nan |
 | text-embedding-preview-0409                                           | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
 | text-multilingual-embedding-preview-0409                              | $0.00625                          | $ 0.00                                | 3,072               |                 nan |
 | palm/chat-bison                                                       | $0.125                            | $0.125                                | 8,192               |                4096 |
@@ -311,7 +311,7 @@
 | replicate/mistralai/mistral-7b-v0.1                                   | $0.05                             | $0.25                                 | 4,096               |                4096 |
 | replicate/mistralai/mistral-7b-instruct-v0.2                          | $0.05                             | $0.25                                 | 4,096               |                4096 |
 | replicate/mistralai/mixtral-8x7b-instruct-v0.1                        | $0.3                              | $ 1.00                                | 4,096               |                4096 |
-| openrouter/deepseek/deepseek-coder                                    | $0.14                             | $0.28                                 | 32,000              |                4096 |
+| openrouter/deepseek/deepseek-coder                                    | $0.14                             | $0.28                                 | 66,000              |                4096 |
 | openrouter/microsoft/wizardlm-2-8x22b:nitro                           | $ 1.00                            | $ 1.00                                | nan                 |                 nan |
 | openrouter/google/gemini-pro-1.5                                      | $2.5                              | $7.5                                  | 1,000,000           |                8192 |
 | openrouter/mistralai/mixtral-8x22b-instruct                           | $0.65                             | $0.65                                 | nan                 |                 nan |
@@ -637,7 +637,7 @@
 | voyage/voyage-code-2                                                  | $0.12                             | $ 0.00                                | 16,000              |                 nan |
 | voyage/voyage-2                                                       | $0.1                              | $ 0.00                                | 4,000               |                 nan |
 | voyage/voyage-lite-02-instruct                                        | $0.1                              | $ 0.00                                | 4,000               |                 nan |
-| voyage/voyage-finance-2                                               | $0.12                             | $ 0.00                                | 4,000               |                 nan |
+| voyage/voyage-finance-2                                               | $0.12                             | $ 0.00                                | 32,000              |                 nan |
 | databricks/databricks-meta-llama-3-1-405b-instruct                    | $ 5.00                            | $15.00002                             | 128,000             |              128000 |
 | databricks/databricks-meta-llama-3-1-70b-instruct                     | $1.00002                          | $2.99999                              | 128,000             |              128000 |
 | databricks/databricks-dbrx-instruct                                   | $0.74998                          | $2.24901                              | 32,768              |               32768 |
@@ -668,9 +668,9 @@
 | vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-5-haiku                                 | $ 1.00                            | $ 5.00                                | nan                 |                 nan |
 | openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
-| anthropic.claude-3-5-haiku-20241022-v1:0                              | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
-| us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
-| eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                4096 |
+| anthropic.claude-3-5-haiku-20241022-v1:0                              | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | stability.sd3-large-v1:0                                              | --                                | --                                    | 77                  |                 nan |
 | gpt-4o-2024-11-20                                                     | $2.5                              | $10.00                                | 128,000             |               16384 |
 | ft:gpt-4o-2024-11-20                                                  | $3.75                             | $15.00                                | 128,000             |               16384 |
@@ -695,3 +695,61 @@
 | us.meta.llama3-1-405b-instruct-v1:0                                   | $5.32                             | $16.00                                | 128,000             |                4096 |
 | stability.stable-image-ultra-v1:0                                     | --                                | --                                    | 77                  |                 nan |
 | fireworks_ai/accounts/fireworks/models/qwen2p5-coder-32b-instruct     | $0.9                              | $0.9                                  | 4,096               |                4096 |
+| omni-moderation-latest                                                | $ 0.00                            | $ 0.00                                | 32,768              |                   0 |
+| omni-moderation-latest-intents                                        | $ 0.00                            | $ 0.00                                | 32,768              |                   0 |
+| omni-moderation-2024-09-26                                            | $ 0.00                            | $ 0.00                                | 32,768              |                   0 |
+| gpt-4o-audio-preview-2024-12-17                                       | $2.5                              | $10.00                                | 128,000             |               16384 |
+| gpt-4o-mini-audio-preview-2024-12-17                                  | $0.15                             | $0.6                                  | 128,000             |               16384 |
+| o1                                                                    | $15.00                            | $60.00                                | 200,000             |              100000 |
+| o1-2024-12-17                                                         | $15.00                            | $60.00                                | 200,000             |              100000 |
+| gpt-4o-realtime-preview-2024-10-01                                    | $ 5.00                            | $20.00                                | 128,000             |                4096 |
+| gpt-4o-realtime-preview                                               | $ 5.00                            | $20.00                                | 128,000             |                4096 |
+| gpt-4o-realtime-preview-2024-12-17                                    | $ 5.00                            | $20.00                                | 128,000             |                4096 |
+| gpt-4o-mini-realtime-preview                                          | $0.6                              | $2.4                                  | 128,000             |                4096 |
+| gpt-4o-mini-realtime-preview-2024-12-17                               | $0.6                              | $2.4                                  | 128,000             |                4096 |
+| azure/o1                                                              | $15.00                            | $60.00                                | 200,000             |              100000 |
+| azure_ai/Llama-3.3-70B-Instruct                                       | $0.71                             | $0.71                                 | 128,000             |                2048 |
+| mistral/mistral-large-2411                                            | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
+| mistral/pixtral-large-latest                                          | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
+| mistral/pixtral-large-2411                                            | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
+| deepseek/deepseek-chat                                                | $0.14                             | $0.28                                 | 128,000             |                4096 |
+| deepseek/deepseek-coder                                               | $0.14                             | $0.28                                 | 128,000             |                4096 |
+| groq/llama-3.3-70b-versatile                                          | $0.59                             | $0.79                                 | 128,000             |                8192 |
+| groq/llama-3.3-70b-specdec                                            | $0.59                             | $0.99                                 | 8,192               |                8192 |
+| friendliai/meta-llama-3.1-8b-instruct                                 | $0.1                              | $0.1                                  | 8,192               |                8192 |
+| friendliai/meta-llama-3.1-70b-instruct                                | $0.6                              | $0.6                                  | 8,192               |                8192 |
+| gemini-2.0-flash-exp                                                  | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| gemini/gemini-2.0-flash-exp                                           | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| vertex_ai/mistral-large@2411-001                                      | $ 2.00                            | $ 6.00                                | 128,000             |                8191 |
+| vertex_ai/mistral-large-2411                                          | $ 2.00                            | $ 6.00                                | 128,000             |                8191 |
+| text-embedding-005                                                    | $0.1                              | $ 0.00                                | 2,048               |                 nan |
+| gemini/gemini-1.5-flash-8b                                            | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| gemini/gemini-exp-1206                                                | $ 0.00                            | $ 0.00                                | 2,097,152           |                8192 |
+| command-r7b-12-2024                                                   | $0.15                             | $0.0375                               | 128,000             |                4096 |
+| rerank-v3.5                                                           | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
+| openrouter/deepseek/deepseek-chat                                     | $0.14                             | $0.28                                 | 66,000              |                4096 |
+| openrouter/openai/o1                                                  | $15.00                            | $60.00                                | 200,000             |              100000 |
+| amazon.nova-micro-v1:0                                                | $0.035                            | $0.14                                 | 300,000             |                4096 |
+| amazon.nova-lite-v1:0                                                 | $0.06                             | $0.24                                 | 128,000             |                4096 |
+| amazon.nova-pro-v1:0                                                  | $0.8                              | $3.2                                  | 300,000             |                4096 |
+| meta.llama3-3-70b-instruct-v1:0                                       | $0.72                             | $0.72                                 | 128,000             |                4096 |
+| together_ai/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo               | $0.18                             | $0.18                                 | nan                 |                 nan |
+| together_ai/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo              | $0.88                             | $0.88                                 | nan                 |                 nan |
+| together_ai/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo             | $3.5                              | $3.5                                  | nan                 |                 nan |
+| deepinfra/meta-llama/Meta-Llama-3.1-405B-Instruct                     | $0.9                              | $0.9                                  | 32,768              |               32768 |
+| fireworks_ai/accounts/fireworks/models/deepseek-v3                    | $0.9                              | $0.9                                  | 128,000             |                8192 |
+| voyage/voyage-3-large                                                 | $0.18                             | $ 0.00                                | 32,000              |                 nan |
+| voyage/voyage-3                                                       | $0.06                             | $ 0.00                                | 32,000              |                 nan |
+| voyage/voyage-3-lite                                                  | $0.02                             | $ 0.00                                | 32,000              |                 nan |
+| voyage/voyage-code-3                                                  | $0.18                             | $ 0.00                                | 32,000              |                 nan |
+| voyage/voyage-multimodal-3                                            | $0.12                             | $ 0.00                                | 32,000              |                 nan |
+| voyage/rerank-2                                                       | $0.05                             | $ 0.00                                | 16,000              |               16000 |
+| voyage/rerank-2-lite                                                  | $0.02                             | $ 0.00                                | 8,000               |                8000 |
+| databricks/meta-llama-3.3-70b-instruct                                | $1.00002                          | $2.99999                              | 128,000             |              128000 |
+| sambanova/Meta-Llama-3.1-8B-Instruct                                  | $0.1                              | $0.2                                  | 16,000              |               16000 |
+| sambanova/Meta-Llama-3.1-70B-Instruct                                 | $0.6                              | $1.2                                  | 128,000             |              128000 |
+| sambanova/Meta-Llama-3.1-405B-Instruct                                | $ 5.00                            | $10.00                                | 16,000              |               16000 |
+| sambanova/Meta-Llama-3.2-1B-Instruct                                  | $0.4                              | $0.8                                  | 16,000              |               16000 |
+| sambanova/Meta-Llama-3.2-3B-Instruct                                  | $0.8                              | $1.6                                  | 4,000               |                4000 |
+| sambanova/Qwen2.5-Coder-32B-Instruct                                  | $1.5                              | $ 3.00                                | 8,000               |                8000 |
+| sambanova/Qwen2.5-72B-Instruct                                        | $ 2.00                            | $ 4.00                                | 8,000               |                8000 |
