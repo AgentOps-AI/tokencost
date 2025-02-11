@@ -2,6 +2,7 @@ import pandas as pd
 import tokencost
 from decimal import Decimal
 import json
+import re
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
 
@@ -33,6 +34,7 @@ if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
     print("Updating model_prices.json")
     with open("tokencost/model_prices.json", "w") as f:
         json.dump(tokencost.TOKEN_COSTS, f, indent=4)
+
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
 df.loc[df.index[1:], "max_input_tokens"] = (
@@ -44,14 +46,11 @@ df.loc[df.index[1:], "max_tokens"] = (
 
 
 # Updated function to format the cost or handle NaN
-
-
 def format_cost(x):
     if pd.isna(x):
         return "--"
     else:
         price_per_million = Decimal(str(x)) * Decimal(str(1_000_000))
-        # print(price_per_million)
         normalized = price_per_million.normalize()
         formatted_price = "{:2f}".format(normalized)
 
@@ -84,16 +83,31 @@ df["Model Name"] = df.index
 # Apply the column renaming
 df.rename(columns=column_mapping, inplace=True)
 
-# Write the DataFrame with the correct column names as markdown to a file
+# Generate the markdown table
+table_md = df[
+    [
+        "Model Name",
+        "Prompt Cost (USD) per 1M tokens",
+        "Completion Cost (USD) per 1M tokens",
+        "Max Prompt Tokens",
+        "Max Output Tokens",
+    ]
+].to_markdown(index=False)
+
+# Write the markdown table to pricing_table.md for reference
 with open("pricing_table.md", "w") as f:
-    f.write(
-        df[
-            [
-                "Model Name",
-                "Prompt Cost (USD) per 1M tokens",
-                "Completion Cost (USD) per 1M tokens",
-                "Max Prompt Tokens",
-                "Max Output Tokens",
-            ]
-        ].to_markdown(index=False)
-    )
+    f.write(table_md)
+
+# Read the README.md file
+with open("README.md", "r") as f:
+    readme_content = f.read()
+
+# Find and replace just the table in the README, preserving the header text
+table_pattern = r"\| Model Name.*?(?=\n\n### )"
+table_replacement = table_md
+
+updated_readme = re.sub(table_pattern, table_replacement, readme_content, flags=re.DOTALL)
+
+# Write the updated README
+with open("README.md", "w") as f:
+    f.write(updated_readme)

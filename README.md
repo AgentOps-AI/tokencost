@@ -132,7 +132,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gpt-4o-audio-preview-2024-10-01                                       | $2.5                              | $10.00                                | 128,000             |               16384 |
 | gpt-4o-mini                                                           | $0.15                             | $0.6                                  | 128,000             |               16384 |
 | gpt-4o-mini-2024-07-18                                                | $0.15                             | $0.6                                  | 128,000             |               16384 |
-| o1-mini                                                               | $ 3.00                            | $12.00                                | 128,000             |               65536 |
+| o1-mini                                                               | $1.1                              | $4.4                                  | 128,000             |               65536 |
 | o1-mini-2024-09-12                                                    | $ 3.00                            | $12.00                                | 128,000             |               65536 |
 | o1-preview                                                            | $15.00                            | $60.00                                | 128,000             |               32768 |
 | o1-preview-2024-09-12                                                 | $15.00                            | $60.00                                | 128,000             |               32768 |
@@ -260,7 +260,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | mistral/pixtral-12b-2409                                              | $0.15                             | $0.15                                 | 128,000             |              128000 |
 | mistral/open-mistral-7b                                               | $0.25                             | $0.25                                 | 32,000              |                8191 |
 | mistral/open-mixtral-8x7b                                             | $0.7                              | $0.7                                  | 32,000              |                8191 |
-| mistral/open-mixtral-8x22b                                            | $ 2.00                            | $ 6.00                                | 64,000              |                8191 |
+| mistral/open-mixtral-8x22b                                            | $ 2.00                            | $ 6.00                                | 65,336              |                8191 |
 | mistral/codestral-latest                                              | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
 | mistral/codestral-2405                                                | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
 | mistral/open-mistral-nemo                                             | $0.3                              | $0.3                                  | 128,000             |              128000 |
@@ -347,9 +347,9 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gemini-1.5-flash-preview-0514                                         | $0.075                            | $0.0046875                            | 1,000,000           |                8192 |
 | gemini-pro-experimental                                               | $ 0.00                            | $ 0.00                                | 1,000,000           |                8192 |
 | gemini-flash-experimental                                             | $ 0.00                            | $ 0.00                                | 1,000,000           |                8192 |
-| gemini-pro-vision                                                     | $0.25                             | $0.5                                  | 16,384              |                2048 |
-| gemini-1.0-pro-vision                                                 | $0.25                             | $0.5                                  | 16,384              |                2048 |
-| gemini-1.0-pro-vision-001                                             | $0.25                             | $0.5                                  | 16,384              |                2048 |
+| gemini-pro-vision                                                     | $0.5                              | $1.5                                  | 16,384              |                2048 |
+| gemini-1.0-pro-vision                                                 | $0.5                              | $1.5                                  | 16,384              |                2048 |
+| gemini-1.0-pro-vision-001                                             | $0.5                              | $1.5                                  | 16,384              |                2048 |
 | medlm-medium                                                          | --                                | --                                    | 32,768              |                8192 |
 | medlm-large                                                           | --                                | --                                    | 8,192               |                1024 |
 | vertex_ai/claude-3-sonnet@20240229                                    | $ 3.00                            | $15.00                                | 200,000             |                4096 |
@@ -577,7 +577,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | bedrock/us-east-1/6-month-commitment/anthropic.claude-v2:1            | --                                | --                                    | 100,000             |                8191 |
 | bedrock/us-west-2/1-month-commitment/anthropic.claude-v2:1            | --                                | --                                    | 100,000             |                8191 |
 | bedrock/us-west-2/6-month-commitment/anthropic.claude-v2:1            | --                                | --                                    | 100,000             |                8191 |
-| anthropic.claude-instant-v1                                           | $1.63                             | $5.51                                 | 100,000             |                8191 |
+| anthropic.claude-instant-v1                                           | $0.8                              | $2.4                                  | 100,000             |                8191 |
 | bedrock/us-east-1/anthropic.claude-instant-v1                         | $0.8                              | $2.4                                  | 100,000             |                8191 |
 | bedrock/us-east-1/1-month-commitment/anthropic.claude-instant-v1      | --                                | --                                    | 100,000             |                8191 |
 | bedrock/us-east-1/6-month-commitment/anthropic.claude-instant-v1      | --                                | --                                    | 100,000             |                8191 |
@@ -794,9 +794,9 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-5-haiku                                 | $ 1.00                            | $ 5.00                                | nan                 |                 nan |
 | openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
-| anthropic.claude-3-5-haiku-20241022-v1:0                              | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
-| us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
-| eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| anthropic.claude-3-5-haiku-20241022-v1:0                              | $0.8                              | $ 4.00                                | 200,000             |                8192 |
+| us.anthropic.claude-3-5-haiku-20241022-v1:0                           | $0.8                              | $ 4.00                                | 200,000             |                8192 |
+| eu.anthropic.claude-3-5-haiku-20241022-v1:0                           | $0.25                             | $1.25                                 | 200,000             |                8192 |
 | stability.sd3-large-v1:0                                              | --                                | --                                    | 77                  |                 nan |
 | gpt-4o-2024-11-20                                                     | $2.5                              | $10.00                                | 128,000             |               16384 |
 | ft:gpt-4o-2024-11-20                                                  | $3.75                             | $15.00                                | 128,000             |               16384 |
@@ -838,7 +838,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | mistral/mistral-large-2411                                            | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
 | mistral/pixtral-large-latest                                          | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
 | mistral/pixtral-large-2411                                            | $ 2.00                            | $ 6.00                                | 128,000             |              128000 |
-| deepseek/deepseek-chat                                                | $0.14                             | $0.28                                 | 128,000             |                4096 |
+| deepseek/deepseek-chat                                                | $0.27                             | $1.1                                  | 65,536              |                8192 |
 | deepseek/deepseek-coder                                               | $0.14                             | $0.28                                 | 128,000             |                4096 |
 | groq/llama-3.3-70b-versatile                                          | $0.59                             | $0.79                                 | 128,000             |                8192 |
 | groq/llama-3.3-70b-specdec                                            | $0.59                             | $0.99                                 | 8,192               |                8192 |
@@ -853,7 +853,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gemini/gemini-exp-1206                                                | $ 0.00                            | $ 0.00                                | 2,097,152           |                8192 |
 | command-r7b-12-2024                                                   | $0.15                             | $0.0375                               | 128,000             |                4096 |
 | rerank-v3.5                                                           | $ 0.00                            | $ 0.00                                | 4,096               |                4096 |
-| openrouter/deepseek/deepseek-chat                                     | $0.14                             | $0.28                                 | 66,000              |                4096 |
+| openrouter/deepseek/deepseek-chat                                     | $0.14                             | $0.28                                 | 65,536              |                8192 |
 | openrouter/openai/o1                                                  | $15.00                            | $60.00                                | 200,000             |              100000 |
 | amazon.nova-micro-v1:0                                                | $0.035                            | $0.14                                 | 300,000             |                4096 |
 | amazon.nova-lite-v1:0                                                 | $0.06                             | $0.24                                 | 128,000             |                4096 |
@@ -879,23 +879,44 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | sambanova/Meta-Llama-3.2-3B-Instruct                                  | $0.8                              | $1.6                                  | 4,000               |                4000 |
 | sambanova/Qwen2.5-Coder-32B-Instruct                                  | $1.5                              | $ 3.00                                | 8,000               |                8000 |
 | sambanova/Qwen2.5-72B-Instruct                                        | $ 2.00                            | $ 4.00                                | 8,000               |                8000 |
-### Callback handlers
-You may also calculate token costs in LLM wrapper/framework libraries using callbacks. 
-
-#### LlamaIndex
-```sh
-pip install `'tokencost[llama-index]'`
-```
-To use the base callback handler, you may import it:
-
-```python
-from tokencost.callbacks.llama_index import TokenCostHandler
-```
-
-and pass to your framework callback handler.
-
-#### Langchain
-(Coming Soon)
+| o3-mini                                                               | $1.1                              | $4.4                                  | 200,000             |              100000 |
+| o3-mini-2025-01-31                                                    | $1.1                              | $4.4                                  | 200,000             |              100000 |
+| azure/o3-mini-2025-01-31                                              | $1.1                              | $4.4                                  | 200,000             |              100000 |
+| azure/o3-mini                                                         | $1.1                              | $4.4                                  | 200,000             |              100000 |
+| azure/o1-2024-12-17                                                   | $15.00                            | $60.00                                | 200,000             |              100000 |
+| azure_ai/deepseek-r1                                                  | $ 0.00                            | $ 0.00                                | 128,000             |                8192 |
+| deepseek/deepseek-reasoner                                            | $0.55                             | $2.19                                 | 65,536              |                8192 |
+| xai/grok-2-vision-1212                                                | $ 2.00                            | $10.00                                | 32,768              |               32768 |
+| xai/grok-2-vision-latest                                              | $ 2.00                            | $10.00                                | 32,768              |               32768 |
+| xai/grok-2-vision                                                     | $ 2.00                            | $10.00                                | 32,768              |               32768 |
+| xai/grok-vision-beta                                                  | $ 5.00                            | $15.00                                | 8,192               |                8192 |
+| xai/grok-2-1212                                                       | $ 2.00                            | $10.00                                | 131,072             |              131072 |
+| xai/grok-2                                                            | $ 2.00                            | $10.00                                | 131,072             |              131072 |
+| xai/grok-2-latest                                                     | $ 2.00                            | $10.00                                | 131,072             |              131072 |
+| groq/deepseek-r1-distill-llama-70b                                    | $0.75                             | $0.99                                 | 131,072             |              131072 |
+| gemini/gemini-2.0-flash                                               | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
+| gemini-2.0-flash-001                                                  | $0.15                             | $0.6                                  | 1,048,576           |                8192 |
+| gemini-2.0-flash-thinking-exp                                         | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| gemini-2.0-flash-thinking-exp-01-21                                   | $ 0.00                            | $ 0.00                                | 1,048,576           |               65536 |
+| gemini/gemini-2.0-flash-001                                           | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
+| gemini/gemini-2.0-flash-lite-preview-02-05                            | $0.075                            | $0.3                                  | 1,048,576           |                8192 |
+| gemini/gemini-2.0-flash-thinking-exp                                  | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| vertex_ai/codestral-2501                                              | $0.2                              | $0.6                                  | 128,000             |              128000 |
+| openrouter/deepseek/deepseek-r1                                       | $0.55                             | $2.19                                 | 65,336              |                8192 |
+| ai21.jamba-1-5-large-v1:0                                             | $ 2.00                            | $ 8.00                                | 256,000             |              256000 |
+| ai21.jamba-1-5-mini-v1:0                                              | $0.2                              | $0.4                                  | 256,000             |              256000 |
+| us.amazon.nova-micro-v1:0                                             | $0.035                            | $0.14                                 | 300,000             |                4096 |
+| us.amazon.nova-lite-v1:0                                              | $0.06                             | $0.24                                 | 128,000             |                4096 |
+| us.amazon.nova-pro-v1:0                                               | $0.8                              | $3.2                                  | 300,000             |                4096 |
+| stability.sd3-5-large-v1:0                                            | --                                | --                                    | 77                  |                 nan |
+| stability.stable-image-core-v1:0                                      | --                                | --                                    | 77                  |                 nan |
+| stability.stable-image-core-v1:1                                      | --                                | --                                    | 77                  |                 nan |
+| stability.stable-image-ultra-v1:1                                     | --                                | --                                    | 77                  |                 nan |
+| together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo                   | $0.88                             | $0.88                                 | nan                 |                 nan |
+| together_ai/meta-llama/Llama-3.3-70B-Instruct-Turbo-Free              | $ 0.00                            | $ 0.00                                | nan                 |                 nan |
+| fireworks_ai/accounts/fireworks/models/llama-v3p1-8b-instruct         | $0.1                              | $0.1                                  | 16,384              |               16384 |
+| assemblyai/nano                                                       | --                                | --                                    | nan                 |                 nan |
+| assemblyai/best                                                       | --                                | --                                    | nan                 |                 nan |
 
 ### Running locally
 
