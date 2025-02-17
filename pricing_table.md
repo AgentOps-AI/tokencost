@@ -791,3 +791,9 @@
 | fireworks_ai/accounts/fireworks/models/llama-v3p1-8b-instruct         | $0.1                              | $0.1                                  | 16,384              |               16384 |
 | assemblyai/nano                                                       | --                                | --                                    | nan                 |                 nan |
 | assemblyai/best                                                       | --                                | --                                    | nan                 |                 nan |
+| azure/gpt-3.5-turbo-0125                                              | $0.5                              | $1.5                                  | 16,384              |                4096 |
+| azure/gpt-3.5-turbo                                                   | $0.5                              | $1.5                                  | 4,097               |                4096 |
+| gemini-2.0-pro-exp-02-05                                              | $ 0.00                            | $ 0.00                                | 2,097,152           |                8192 |
+| us.meta.llama3-3-70b-instruct-v1:0                                    | $0.72                             | $0.72                                 | 128,000             |                4096 |
+| perplexity/sonar                                                      | $ 1.00                            | $ 1.00                                | 127,072             |              127072 |
+| perplexity/sonar-pro                                                  | $ 3.00                            | $15.00                                | 200,000             |                8096 |
