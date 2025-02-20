@@ -797,3 +797,4 @@
 | us.meta.llama3-3-70b-instruct-v1:0                                    | $0.72                             | $0.72                                 | 128,000             |                4096 |
 | perplexity/sonar                                                      | $ 1.00                            | $ 1.00                                | 127,072             |              127072 |
 | perplexity/sonar-pro                                                  | $ 3.00                            | $15.00                                | 200,000             |                8096 |
+| openrouter/google/gemini-2.0-flash-001                                | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
