@@ -790,7 +790,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | azure_ai/Phi-3-medium-4k-instruct                                     | $0.17                             | $0.68                                 | 4,096               |                4096 |
 | azure_ai/Phi-3-medium-128k-instruct                                   | $0.17                             | $0.68                                 | 128,000             |                4096 |
 | xai/grok-beta                                                         | $ 5.00                            | $15.00                                | 131,072             |              131072 |
-| claude-3-5-haiku-20241022                                             | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| claude-3-5-haiku-20241022                                             | $0.8                              | $ 4.00                                | 200,000             |                8192 |
 | vertex_ai/claude-3-5-haiku@20241022                                   | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3-5-haiku                                 | $ 1.00                            | $ 5.00                                | nan                 |                 nan |
 | openrouter/anthropic/claude-3-5-haiku-20241022                        | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
@@ -924,6 +924,21 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | perplexity/sonar                                                      | $ 1.00                            | $ 1.00                                | 127,072             |              127072 |
 | perplexity/sonar-pro                                                  | $ 3.00                            | $15.00                                | 200,000             |                8096 |
 | openrouter/google/gemini-2.0-flash-001                                | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
+| gpt-4.5-preview                                                       | $75.00                            | $150.00                               | 128,000             |               16384 |
+| gpt-4.5-preview-2025-02-27                                            | $75.00                            | $150.00                               | 128,000             |               16384 |
+| azure_ai/Phi-4                                                        | $0.125                            | $0.5                                  | 128,000             |                4096 |
+| cerebras/llama3.3-70b                                                 | $0.85                             | $1.2                                  | 128,000             |              128000 |
+| claude-3-5-haiku-latest                                               | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
+| claude-3-7-sonnet-latest                                              | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| claude-3-7-sonnet-20250219                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| vertex_ai/claude-3-7-sonnet@20250219                                  | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| openrouter/anthropic/claude-3.7-sonnet                                | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| openrouter/anthropic/claude-3.7-sonnet:beta                           | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| amazon.rerank-v1:0                                                    | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
+| anthropic.claude-3-7-sonnet-20250219-v1:0                             | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| us.anthropic.claude-3-7-sonnet-20250219-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| cohere.rerank-v3-5:0                                                  | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
+| jina-reranker-v2-base-multilingual                                    | $0.018                            | $0.018                                | 1,024               |                1024 |
 
 ### Running locally
 
