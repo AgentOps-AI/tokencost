@@ -939,6 +939,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | us.anthropic.claude-3-7-sonnet-20250219-v1:0                          | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | cohere.rerank-v3-5:0                                                  | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | jina-reranker-v2-base-multilingual                                    | $0.018                            | $0.018                                | 1,024               |                1024 |
+| bedrock/invoke/anthropic.claude-3-5-sonnet-20240620-v1:0              | $ 3.00                            | $15.00                                | 200,000             |                4096 |
 
 ### Running locally
 
