@@ -63,8 +63,8 @@
 | azure/tts-1                                                           | --                                | --                                    | nan                 |                 nan |
 | azure/tts-1-hd                                                        | --                                | --                                    | nan                 |                 nan |
 | azure/whisper-1                                                       | --                                | --                                    | nan                 |                 nan |
-| azure/o1-mini                                                         | $ 3.00                            | $12.00                                | 128,000             |               65536 |
-| azure/o1-mini-2024-09-12                                              | $ 3.00                            | $12.00                                | 128,000             |               65536 |
+| azure/o1-mini                                                         | $1.21                             | $4.84                                 | 128,000             |               65536 |
+| azure/o1-mini-2024-09-12                                              | $1.21                             | $4.84                                 | 128,000             |               65536 |
 | azure/o1-preview                                                      | $15.00                            | $60.00                                | 128,000             |               32768 |
 | azure/o1-preview-2024-09-12                                           | $15.00                            | $60.00                                | 128,000             |               32768 |
 | azure/gpt-4o                                                          | $ 5.00                            | $15.00                                | 128,000             |                4096 |
@@ -123,8 +123,8 @@
 | gpt-3.5-turbo-instruct-0914                                           | $1.5                              | $ 2.00                                | 8,192               |                4097 |
 | claude-instant-1                                                      | $1.63                             | $5.51                                 | 100,000             |                8191 |
 | mistral/mistral-tiny                                                  | $0.25                             | $0.25                                 | 32,000              |                8191 |
-| mistral/mistral-small                                                 | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
-| mistral/mistral-small-latest                                          | $ 1.00                            | $ 3.00                                | 32,000              |                8191 |
+| mistral/mistral-small                                                 | $0.1                              | $0.3                                  | 32,000              |                8191 |
+| mistral/mistral-small-latest                                          | $0.1                              | $0.3                                  | 32,000              |                8191 |
 | mistral/mistral-medium                                                | $2.7                              | $8.1                                  | 32,000              |                8191 |
 | mistral/mistral-medium-latest                                         | $2.7                              | $8.1                                  | 32,000              |                8191 |
 | mistral/mistral-medium-2312                                           | $2.7                              | $8.1                                  | 32,000              |                8191 |
@@ -758,7 +758,7 @@
 | azure/o3-mini-2025-01-31                                              | $1.1                              | $4.4                                  | 200,000             |              100000 |
 | azure/o3-mini                                                         | $1.1                              | $4.4                                  | 200,000             |              100000 |
 | azure/o1-2024-12-17                                                   | $15.00                            | $60.00                                | 200,000             |              100000 |
-| azure_ai/deepseek-r1                                                  | $ 0.00                            | $ 0.00                                | 128,000             |                8192 |
+| azure_ai/deepseek-r1                                                  | $1.35                             | $5.4                                  | 128,000             |                8192 |
 | deepseek/deepseek-reasoner                                            | $0.55                             | $2.19                                 | 65,536              |                8192 |
 | xai/grok-2-vision-1212                                                | $ 2.00                            | $10.00                                | 32,768              |               32768 |
 | xai/grok-2-vision-latest                                              | $ 2.00                            | $10.00                                | 32,768              |               32768 |
@@ -774,7 +774,7 @@
 | gemini-2.0-flash-thinking-exp-01-21                                   | $ 0.00                            | $ 0.00                                | 1,048,576           |               65536 |
 | gemini/gemini-2.0-flash-001                                           | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
 | gemini/gemini-2.0-flash-lite-preview-02-05                            | $0.075                            | $0.3                                  | 1,048,576           |                8192 |
-| gemini/gemini-2.0-flash-thinking-exp                                  | $ 0.00                            | $ 0.00                                | 1,048,576           |                8192 |
+| gemini/gemini-2.0-flash-thinking-exp                                  | $ 0.00                            | $ 0.00                                | 1,048,576           |               65536 |
 | vertex_ai/codestral-2501                                              | $0.2                              | $0.6                                  | 128,000             |              128000 |
 | openrouter/deepseek/deepseek-r1                                       | $0.55                             | $2.19                                 | 65,336              |                8192 |
 | ai21.jamba-1-5-large-v1:0                                             | $ 2.00                            | $ 8.00                                | 256,000             |              256000 |
@@ -800,11 +800,11 @@
 | openrouter/google/gemini-2.0-flash-001                                | $0.1                              | $0.4                                  | 1,048,576           |                8192 |
 | gpt-4.5-preview                                                       | $75.00                            | $150.00                               | 128,000             |               16384 |
 | gpt-4.5-preview-2025-02-27                                            | $75.00                            | $150.00                               | 128,000             |               16384 |
-| azure_ai/Phi-4                                                        | $0.125                            | $0.5                                  | 128,000             |                4096 |
+| azure_ai/Phi-4                                                        | $0.125                            | $0.5                                  | 16,384              |               16384 |
 | cerebras/llama3.3-70b                                                 | $0.85                             | $1.2                                  | 128,000             |              128000 |
 | claude-3-5-haiku-latest                                               | $ 1.00                            | $ 5.00                                | 200,000             |                8192 |
-| claude-3-7-sonnet-latest                                              | $ 3.00                            | $15.00                                | 200,000             |                8192 |
-| claude-3-7-sonnet-20250219                                            | $ 3.00                            | $15.00                                | 200,000             |                8192 |
+| claude-3-7-sonnet-latest                                              | $ 3.00                            | $15.00                                | 200,000             |              128000 |
+| claude-3-7-sonnet-20250219                                            | $ 3.00                            | $15.00                                | 200,000             |              128000 |
 | vertex_ai/claude-3-7-sonnet@20250219                                  | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.7-sonnet                                | $ 3.00                            | $15.00                                | 200,000             |                8192 |
 | openrouter/anthropic/claude-3.7-sonnet:beta                           | $ 3.00                            | $15.00                                | 200,000             |                8192 |
@@ -814,3 +814,63 @@
 | cohere.rerank-v3-5:0                                                  | $ 0.00                            | $ 0.00                                | 32,000              |               32000 |
 | jina-reranker-v2-base-multilingual                                    | $0.018                            | $0.018                                | 1,024               |                1024 |
 | bedrock/invoke/anthropic.claude-3-5-sonnet-20240620-v1:0              | $ 3.00                            | $15.00                                | 200,000             |                4096 |
+| azure/gpt-4o-mini-realtime-preview-2024-12-17                         | $0.6                              | $2.4                                  | 128,000             |                4096 |
+| azure/eu/gpt-4o-mini-realtime-preview-2024-12-17                      | $0.66                             | $2.64                                 | 128,000             |                4096 |
+| azure/us/gpt-4o-mini-realtime-preview-2024-12-17                      | $0.66                             | $2.64                                 | 128,000             |                4096 |
+| azure/gpt-4o-realtime-preview-2024-10-01                              | $ 5.00                            | $20.00                                | 128,000             |                4096 |
+| azure/us/gpt-4o-realtime-preview-2024-10-01                           | $5.5                              | $22.00                                | 128,000             |                4096 |
+| azure/eu/gpt-4o-realtime-preview-2024-10-01                           | $5.5                              | $22.00                                | 128,000             |                4096 |
+| azure/us/o3-mini-2025-01-31                                           | $1.21                             | $4.84                                 | 200,000             |              100000 |
+| azure/eu/o3-mini-2025-01-31                                           | $1.21                             | $4.84                                 | 200,000             |              100000 |
+| azure/us/o1-mini-2024-09-12                                           | $1.21                             | $4.84                                 | 128,000             |               65536 |
+| azure/eu/o1-mini-2024-09-12                                           | $1.21                             | $4.84                                 | 128,000             |               65536 |
+| azure/us/o1-2024-12-17                                                | $16.5                             | $66.00                                | 200,000             |              100000 |
+| azure/eu/o1-2024-12-17                                                | $16.5                             | $66.00                                | 200,000             |              100000 |
+| azure/us/o1-preview-2024-09-12                                        | $16.5                             | $66.00                                | 128,000             |               32768 |
+| azure/eu/o1-preview-2024-09-12                                        | $16.5                             | $66.00                                | 128,000             |               32768 |
+| azure/us/gpt-4o-2024-11-20                                            | $2.75                             | $11.00                                | 128,000             |               16384 |
+| azure/eu/gpt-4o-2024-11-20                                            | $2.75                             | $11.00                                | 128,000             |               16384 |
+| azure/us/gpt-4o-2024-08-06                                            | $2.75                             | $11.00                                | 128,000             |               16384 |
+| azure/eu/gpt-4o-2024-08-06                                            | $2.75                             | $11.00                                | 128,000             |               16384 |
+| azure/us/gpt-4o-mini-2024-07-18                                       | $0.165                            | $0.66                                 | 128,000             |               16384 |
+| azure/eu/gpt-4o-mini-2024-07-18                                       | $0.165                            | $0.66                                 | 128,000             |               16384 |
+| azure_ai/deepseek-v3                                                  | $1.14                             | $4.56                                 | 128,000             |                8192 |
+| azure_ai/mistral-nemo                                                 | $0.15                             | $0.15                                 | 131,072             |                4096 |
+| azure_ai/Phi-4-mini-instruct                                          | $ 0.00                            | $ 0.00                                | 131,072             |                4096 |
+| azure_ai/Phi-4-multimodal-instruct                                    | $ 0.00                            | $ 0.00                                | 131,072             |                4096 |
+| gemini/gemini-2.0-pro-exp-02-05                                       | $ 0.00                            | $ 0.00                                | 2,097,152           |                8192 |
+| gemini/gemini-2.0-flash-thinking-exp-01-21                            | $ 0.00                            | $ 0.00                                | 1,048,576           |               65536 |
+| gemini/gemma-3-27b-it                                                 | $ 0.00                            | $ 0.00                                | 131,072             |                8192 |
+| gemini/learnlm-1.5-pro-experimental                                   | $ 0.00                            | $ 0.00                                | 32,767              |                8192 |
+| vertex_ai/imagen-3.0-generate-002                                     | --                                | --                                    | nan                 |                 nan |
+| jamba-large-1.6                                                       | $ 2.00                            | $ 8.00                                | 256,000             |              256000 |
+| jamba-mini-1.6                                                        | $0.2                              | $0.4                                  | 256,000             |              256000 |
+| eu.amazon.nova-micro-v1:0                                             | $0.046                            | $0.184                                | 300,000             |                4096 |
+| eu.amazon.nova-lite-v1:0                                              | $0.078                            | $0.312                                | 128,000             |                4096 |
+| 1024-x-1024/50-steps/bedrock/amazon.nova-canvas-v1:0                  | --                                | --                                    | 2,600               |                 nan |
+| eu.amazon.nova-pro-v1:0                                               | $1.05                             | $4.2                                  | 300,000             |                4096 |
+| us.deepseek.r1-v1:0                                                   | $1.35                             | $5.4                                  | 128,000             |                4096 |
+| snowflake/deepseek-r1                                                 | --                                | --                                    | 32,768              |                8192 |
+| snowflake/snowflake-arctic                                            | --                                | --                                    | 4,096               |                8192 |
+| snowflake/claude-3-5-sonnet                                           | --                                | --                                    | 18,000              |                8192 |
+| snowflake/mistral-large                                               | --                                | --                                    | 32,000              |                8192 |
+| snowflake/mistral-large2                                              | --                                | --                                    | 128,000             |                8192 |
+| snowflake/reka-flash                                                  | --                                | --                                    | 100,000             |                8192 |
+| snowflake/reka-core                                                   | --                                | --                                    | 32,000              |                8192 |
+| snowflake/jamba-instruct                                              | --                                | --                                    | 256,000             |                8192 |
+| snowflake/jamba-1.5-mini                                              | --                                | --                                    | 256,000             |                8192 |
+| snowflake/jamba-1.5-large                                             | --                                | --                                    | 256,000             |                8192 |
+| snowflake/mixtral-8x7b                                                | --                                | --                                    | 32,000              |                8192 |
+| snowflake/llama2-70b-chat                                             | --                                | --                                    | 4,096               |                8192 |
+| snowflake/llama3-8b                                                   | --                                | --                                    | 8,000               |                8192 |
+| snowflake/llama3-70b                                                  | --                                | --                                    | 8,000               |                8192 |
+| snowflake/llama3.1-8b                                                 | --                                | --                                    | 128,000             |                8192 |
+| snowflake/llama3.1-70b                                                | --                                | --                                    | 128,000             |                8192 |
+| snowflake/llama3.3-70b                                                | --                                | --                                    | 128,000             |                8192 |
+| snowflake/snowflake-llama-3.3-70b                                     | --                                | --                                    | 8,000               |                8192 |
+| snowflake/llama3.1-405b                                               | --                                | --                                    | 128,000             |                8192 |
+| snowflake/snowflake-llama-3.1-405b                                    | --                                | --                                    | 8,000               |                8192 |
+| snowflake/llama3.2-1b                                                 | --                                | --                                    | 128,000             |                8192 |
+| snowflake/llama3.2-3b                                                 | --                                | --                                    | 128,000             |                8192 |
+| snowflake/mistral-7b                                                  | --                                | --                                    | 32,000              |                8192 |
+| snowflake/gemma-7b                                                    | --                                | --                                    | 8,000               |                8192 |
