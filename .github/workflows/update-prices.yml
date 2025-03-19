@@ -1,0 +1,45 @@
+name: Daily Price Updates
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run at midnight UTC daily
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e ".[dev]"
+        
+    - name: Update prices
+      run: python update_prices.py
+      
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        commit-message: "chore: Update token prices"
+        title: "chore: Daily token price update"
+        body: |
+          Automated price update via GitHub Actions
+          
+          This PR updates the token prices based on the latest data.
+        branch: automated/price-updates
+        base: main
+        delete-branch: true
+        labels: |
+          automated
+          prices 
