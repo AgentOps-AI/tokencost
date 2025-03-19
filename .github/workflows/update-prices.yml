@@ -28,8 +28,24 @@ jobs:
     - name: Update prices
       run: python update_prices.py
       
+    - name: Check for changes
+      id: git-check
+      run: |
+        git status --porcelain
+        echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+        
+    - name: Show status
+      run: |
+        if [ "${{ steps.git-check.outputs.changed }}" -gt "0" ]; then
+          echo "Changes detected - will create PR"
+          git status
+        else
+          echo "No changes detected - skipping PR creation"
+        fi
+      
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v7
+      if: steps.git-check.outputs.changed > 0
+      uses: peter-evans/create-pull-request@v5
       with:
         commit-message: "chore: Update token prices"
         title: "chore: Daily token price update"
@@ -37,6 +53,11 @@ jobs:
           Automated price update via GitHub Actions
           
           This PR updates the token prices based on the latest data.
+          
+          Changes detected:
+          ```
+          ${{ steps.git-check.outputs.changed }} files modified
+          ```
         branch: automated/price-updates
         base: main
         delete-branch: true
