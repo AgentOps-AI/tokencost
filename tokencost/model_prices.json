@@ -8642,6 +8642,17 @@
         "mode": "chat",
         "supports_tool_choice": true
     },
+    "sambanova/Meta-Llama-3.3-70B-Instruct": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 6e-07,
+        "output_cost_per_token": 1.2e-06,
+        "litellm_provider": "sambanova",
+        "supports_function_calling": true,
+        "mode": "chat",
+        "supports_tool_choice": true
+    },
     "sambanova/Qwen2.5-Coder-32B-Instruct": {
         "max_tokens": 8000,
         "max_input_tokens": 8000,
