@@ -877,6 +877,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | sambanova/Meta-Llama-3.1-405B-Instruct                                | $ 5.00                            | $10.00                                | 16,000              |               16000 |
 | sambanova/Meta-Llama-3.2-1B-Instruct                                  | $0.4                              | $0.8                                  | 16,000              |               16000 |
 | sambanova/Meta-Llama-3.2-3B-Instruct                                  | $0.8                              | $1.6                                  | 4,000               |                4000 |
+| sambanova/Meta-Llama-3.3-70B-Instruct                                 | $0.6                              | $1.2                                  | 128,000             |              128000 |
 | sambanova/Qwen2.5-Coder-32B-Instruct                                  | $1.5                              | $ 3.00                                | 8,000               |                8000 |
 | sambanova/Qwen2.5-72B-Instruct                                        | $ 2.00                            | $ 4.00                                | 8,000               |                8000 |
 | o3-mini                                                               | $1.1                              | $4.4                                  | 200,000             |              100000 |
