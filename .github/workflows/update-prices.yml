@@ -34,6 +34,10 @@ jobs:
         git status --porcelain
         echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
         
+    - name: Get current date
+      id: date
+      run: echo "date=$(date +'%d-%m-%Y')" >> $GITHUB_OUTPUT
+        
     - name: Show status
       run: |
         if [ "${{ steps.git-check.outputs.changed }}" -gt "0" ]; then
@@ -47,10 +51,10 @@ jobs:
       if: steps.git-check.outputs.changed > 0
       uses: peter-evans/create-pull-request@v5
       with:
-        commit-message: "chore: Update token prices"
-        title: "chore: Daily token price update"
+        commit-message: "chore: Update token prices (${{ steps.date.outputs.date }})"
+        title: "chore: Daily token price update (${{ steps.date.outputs.date }})"
         body: |
-          Automated price update via GitHub Actions
+          GitHub Action to update token prices
           
           This PR updates the token prices based on the latest data.
           
@@ -58,7 +62,7 @@ jobs:
           ```
           ${{ steps.git-check.outputs.changed }} files modified
           ```
-        branch: automated/price-updates
+        branch: automated/price-updates-${{ steps.date.outputs.date }}
         base: main
         delete-branch: true
         draft: false
