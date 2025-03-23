@@ -1005,6 +1005,12 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | azure/global/gpt-4o-2024-08-06                                        | $2.5                              | $10.00                                | 128,000             |               16384 |
 | o1-pro                                                                | $150.00                           | $600.00                               | 200,000             |              100000 |
 | o1-pro-2025-03-19                                                     | $150.00                           | $600.00                               | 200,000             |              100000 |
+| gpt-4o-search-preview-2025-03-11                                      | $2.5                              | $10.00                                | 128,000             |               16384 |
+| gpt-4o-search-preview                                                 | $2.5                              | $10.00                                | 128,000             |               16384 |
+| gpt-4o-mini-search-preview-2025-03-11                                 | $0.15                             | $0.6                                  | 128,000             |               16384 |
+| gpt-4o-mini-search-preview                                            | $0.15                             | $0.6                                  | 128,000             |               16384 |
+| azure/gpt-4.5-preview                                                 | $75.00                            | $150.00                               | 128,000             |               16384 |
+| azure_ai/mistral-small-2503                                           | $ 1.00                            | $ 3.00                                | 128,000             |              128000 |
 
 ### Running locally
 
