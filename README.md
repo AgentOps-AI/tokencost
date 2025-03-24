@@ -1011,6 +1011,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | gpt-4o-mini-search-preview                                            | $0.15                             | $0.6                                  | 128,000             |               16384 |
 | azure/gpt-4.5-preview                                                 | $75.00                            | $150.00                               | 128,000             |               16384 |
 | azure_ai/mistral-small-2503                                           | $ 1.00                            | $ 3.00                                | 128,000             |              128000 |
+| text-embedding-large-exp-03-07                                        | $0.1                              | $ 0.00                                | 8,192               |                 nan |
 
 ### Running locally
 
