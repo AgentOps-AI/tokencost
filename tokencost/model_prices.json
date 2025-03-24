@@ -217,7 +217,13 @@
         "supports_vision": true,
         "supports_prompt_caching": true,
         "supports_system_messages": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_web_search": true,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.03,
+            "search_context_size_medium": 0.035,
+            "search_context_size_high": 0.05
+        }
     },
     "gpt-4-turbo-preview": {
         "max_tokens": 4096,
@@ -10583,5 +10589,16 @@
         "supports_function_calling": true,
         "supports_vision": true,
         "supports_tool_choice": true
+    },
+    "text-embedding-large-exp-03-07": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "output_vector_size": 3072,
+        "input_cost_per_character": 2.5e-08,
+        "input_cost_per_token": 1e-07,
+        "output_cost_per_token": 0,
+        "litellm_provider": "vertex_ai-embedding-models",
+        "mode": "embedding",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models"
     }
 }
