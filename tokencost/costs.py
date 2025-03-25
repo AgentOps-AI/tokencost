@@ -91,7 +91,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         "gpt-4-turbo-2024-04-09",
         "gpt-4o",
         "gpt-4o-2024-05-13",
-    }:
+    } or model.startswith("o"):
         tokens_per_message = 3
         tokens_per_name = 1
     elif model == "gpt-3.5-turbo-0301":
