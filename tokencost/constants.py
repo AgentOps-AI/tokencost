@@ -61,9 +61,14 @@ with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as 
     TOKEN_COSTS_STATIC = json.load(f)
 
 
-# Ensure TOKEN_COSTS is up to date when the module is loaded
-try:
-    TOKEN_COSTS = TOKEN_COSTS_STATIC
-    asyncio.run(update_token_costs())
-except Exception:
-    logger.error("Failed to update token costs. Using static costs.")
+# Set initial TOKEN_COSTS to the static values
+TOKEN_COSTS = TOKEN_COSTS_STATIC.copy()
+
+# Only run in a non-async context
+if __name__ == "__main__":
+    try:
+        import asyncio
+        asyncio.run(update_token_costs())
+        print("Token costs updated successfully")
+    except Exception:
+        logger.error("Failed to update token costs. Using static costs.")
