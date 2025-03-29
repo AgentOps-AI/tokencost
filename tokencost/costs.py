@@ -20,6 +20,7 @@ def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int
     if not any(
         supported_model in model
         for supported_model in [
+            "claude-3-7-sonnet",
             "claude-3-5-sonnet",
             "claude-3-5-haiku",
             "claude-3-haiku",
