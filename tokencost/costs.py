@@ -7,6 +7,7 @@ import tiktoken
 import anthropic
 from typing import Union, List, Dict
 from .constants import TOKEN_COSTS
+from .types import CostAndTokenInfo
 from decimal import Decimal
 import logging
 
@@ -268,7 +269,7 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
 
 def calculate_all_costs_and_tokens(
     prompt: Union[List[dict], str], completion: str, model: str
-) -> dict:
+) -> CostAndTokenInfo:
     """
     Calculate the prompt and completion costs and tokens in USD.
 
@@ -278,7 +279,7 @@ def calculate_all_costs_and_tokens(
         model (str): The model name.
 
     Returns:
-        dict: The calculated cost and tokens in USD.
+        CostAndTokenInfo: The calculated cost and tokens in USD.
 
     e.g.:
     >>> prompt = "Hello world"
