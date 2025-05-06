@@ -107,6 +107,9 @@ with open("README.md", "r") as f:
     readme_content = f.read()
 
 # Find and replace just the table in the README, preserving the header text
+# The regex pattern matches a markdown table starting with the "Model Name" header
+# and ending before the next markdown header. DOTALL mode is enabled to allow
+# the `.` character to match newline characters.
 table_pattern = r"(?s)\| Model Name.*?\n\n(?=#)"
 table_replacement = table_md
 
