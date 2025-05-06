@@ -4,9 +4,6 @@ modules:
     depends_on:
       - tokencost.constants
       - tokencost.costs
-  - path: tokencost.callbacks.llama_index
-    depends_on:
-      - tokencost
   - path: tokencost.constants
     depends_on: []
   - path: tokencost.costs
