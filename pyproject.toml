@@ -35,7 +35,7 @@ dev = [
     "pytest>=7.4.4",
     "flake8>=3.1.0",
     "coverage[toml]>=7.4.0",
-    "tach>=0.29.0",
+    "tach>=0.6.9",
     "tabulate>=0.9.0",
     "pandas>=2.1.0",
 ]
