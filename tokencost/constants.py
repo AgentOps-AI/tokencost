@@ -60,7 +60,6 @@ async def update_token_costs():
 
 def refresh_prices(write_file=True):
     """Synchronous wrapper for update_token_costs that optionally writes to model_prices.json."""
-    import asyncio
     try:
         # Run the async function in a new event loop
         updated_costs = asyncio.run(update_token_costs())
@@ -91,7 +90,6 @@ TOKEN_COSTS = TOKEN_COSTS_STATIC.copy()
 # Only run in a non-async context
 if __name__ == "__main__":
     try:
-        import asyncio
         asyncio.run(update_token_costs())
         print("Token costs updated successfully")
     except Exception:
