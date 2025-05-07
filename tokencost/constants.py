@@ -52,9 +52,30 @@ async def update_token_costs():
         # Safely remove 'sample_spec' if it exists
         TOKEN_COSTS.update(fetched_costs)
         TOKEN_COSTS.pop("sample_spec", None)
+        return TOKEN_COSTS
     except Exception as e:
         logger.error(f"Failed to update TOKEN_COSTS: {e}")
         raise
+
+
+def refresh_prices(write_file=True):
+    """Synchronous wrapper for update_token_costs that optionally writes to model_prices.json."""
+    try:
+        # Run the async function in a new event loop
+        updated_costs = asyncio.run(update_token_costs())
+        
+        # Write to file if requested
+        if write_file:
+            file_path = os.path.join(os.path.dirname(__file__), "model_prices.json")
+            with open(file_path, "w") as f:
+                json.dump(TOKEN_COSTS, f, indent=4)
+            logger.info(f"Updated prices written to {file_path}")
+            
+        return updated_costs
+    except Exception as e:
+        logger.error(f"Failed to refresh prices: {e}")
+        # Return the static prices as fallback
+        return TOKEN_COSTS
 
 
 with open(os.path.join(os.path.dirname(__file__), "model_prices.json"), "r") as f:
@@ -67,7 +88,6 @@ TOKEN_COSTS = TOKEN_COSTS_STATIC.copy()
 # Only run in a non-async context
 if __name__ == "__main__":
     try:
-        import asyncio
         asyncio.run(update_token_costs())
         print("Token costs updated successfully")
     except Exception:

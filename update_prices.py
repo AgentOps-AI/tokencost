@@ -5,6 +5,8 @@ import json
 import re
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
+print("Fetching latest prices...")
+tokencost.refresh_prices(write_file=False)
 
 
 def diff_dicts(dict1, dict2):
@@ -21,19 +23,21 @@ def diff_dicts(dict1, dict2):
     else:
         print("No differences found.")
 
-    if differences:
-        return True
-    else:
-        return False
+    return bool(differences)
 
 
+# Load the current file for comparison
 with open("tokencost/model_prices.json", "r") as f:
     model_prices = json.load(f)
 
+# Compare the refreshed TOKEN_COSTS with the file
 if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
     print("Updating model_prices.json")
     with open("tokencost/model_prices.json", "w") as f:
         json.dump(tokencost.TOKEN_COSTS, f, indent=4)
+    print("File updated successfully")
+else:
+    print("File is already up to date")
 
 # Load the data
 df = pd.DataFrame(tokencost.TOKEN_COSTS).T
@@ -52,7 +56,7 @@ def format_cost(x):
     else:
         price_per_million = Decimal(str(x)) * Decimal(str(1_000_000))
         normalized = price_per_million.normalize()
-        formatted_price = "{:2f}".format(normalized)
+        formatted_price = "{:.2f}".format(normalized)
 
         formatted_price = (
             formatted_price.rstrip("0").rstrip(".")
@@ -103,7 +107,10 @@ with open("README.md", "r") as f:
     readme_content = f.read()
 
 # Find and replace just the table in the README, preserving the header text
-table_pattern = r"\| Model Name.*?(?=\n\n### )"
+# The regex pattern matches a markdown table starting with the "Model Name" header
+# and ending before the next markdown header. DOTALL mode is enabled to allow
+# the `.` character to match newline characters.
+table_pattern = r"(?s)\| Model Name.*?\n\n(?=#)"
 table_replacement = table_md
 
 updated_readme = re.sub(table_pattern, table_replacement, readme_content, flags=re.DOTALL)
