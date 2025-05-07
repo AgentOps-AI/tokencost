@@ -66,8 +66,6 @@ def refresh_prices(write_file=True):
         
         # Write to file if requested
         if write_file:
-            import json
-            import os
             file_path = os.path.join(os.path.dirname(__file__), "model_prices.json")
             with open(file_path, "w") as f:
                 json.dump(TOKEN_COSTS, f, indent=4)
