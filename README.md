@@ -1123,9 +1123,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | fireworks-ai-4.1b-to-16b                                              | $0.2                              | $0.2                                  | nan                 |             nan     |
 | fireworks-ai-above-16b                                                | $0.9                              | $0.9                                  | nan                 |             nan     |
 | databricks/databricks-claude-3-7-sonnet                               | $2.5                              | $178.57                               | 200,000             |          128000     |
-| databricks/databricks-meta-llama-3-3-70b-instruct                     | $1                                | $3                                    | 128,000             |          128000     |### Running locally
-
-#### Installation via [GitHub](https://github.com/AgentOps-AI/tokencost):
+| databricks/databricks-meta-llama-3-3-70b-instruct                     | $1                                | $3                                    | 128,000             |          128000     |#### Installation via [GitHub](https://github.com/AgentOps-AI/tokencost):
 
 ```bash
 git clone git@github.com:AgentOps-AI/tokencost.git
