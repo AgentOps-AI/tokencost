@@ -9458,22 +9458,33 @@
         "supports_tool_choice": false
     },
     "perplexity/sonar": {
-        "max_tokens": 127072,
-        "max_input_tokens": 127072,
-        "max_output_tokens": 127072,
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
         "input_cost_per_token": 1e-06,
         "output_cost_per_token": 1e-06,
         "litellm_provider": "perplexity",
-        "mode": "chat"
+        "mode": "chat",
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.005,
+            "search_context_size_medium": 0.008,
+            "search_context_size_high": 0.012
+        },
+        "supports_web_search": true
     },
     "perplexity/sonar-pro": {
-        "max_tokens": 200000,
+        "max_tokens": 8000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 8096,
+        "max_output_tokens": 8000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "litellm_provider": "perplexity",
-        "mode": "chat"
+        "mode": "chat",
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.006,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.014
+        },
+        "supports_web_search": true
     },
     "openrouter/google/gemini-2.0-flash-001": {
         "max_tokens": 8192,
@@ -12769,12 +12780,11 @@
         "supports_tool_choice": true
     },
     "perplexity/sonar-deep-research": {
-        "max_tokens": 12000,
-        "max_input_tokens": 12000,
-        "max_output_tokens": 12000,
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
         "input_cost_per_token": 2e-06,
         "output_cost_per_token": 8e-06,
-        "output_cost_per_reasoning_token": 3e-05,
+        "output_cost_per_reasoning_token": 3e-06,
         "litellm_provider": "perplexity",
         "mode": "chat",
         "search_context_cost_per_query": {
@@ -12894,5 +12904,191 @@
             "notes": "Input/output cost per token is dbu cost * $0.070, based on databricks Llama 3.1 70B conversion. Number provided for reference, '*_dbu_cost_per_token' used in actual calculation."
         },
         "supports_tool_choice": true
+    },
+    "cerebras/llama-3.3-70b": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 8.5e-07,
+        "output_cost_per_token": 1.2e-06,
+        "litellm_provider": "cerebras",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true
+    },
+    "perplexity/sonar-reasoning": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "input_cost_per_token": 1e-06,
+        "output_cost_per_token": 5e-06,
+        "litellm_provider": "perplexity",
+        "mode": "chat",
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.005,
+            "search_context_size_medium": 0.008,
+            "search_context_size_high": 0.014
+        },
+        "supports_web_search": true,
+        "supports_reasoning": true
+    },
+    "perplexity/sonar-reasoning-pro": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "input_cost_per_token": 2e-06,
+        "output_cost_per_token": 8e-06,
+        "litellm_provider": "perplexity",
+        "mode": "chat",
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.006,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.014
+        },
+        "supports_web_search": true,
+        "supports_reasoning": true
+    },
+    "nscale/meta-llama/Llama-4-Scout-17B-16E-Instruct": {
+        "input_cost_per_token": 9e-08,
+        "output_cost_per_token": 2.9e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models"
+    },
+    "nscale/Qwen/Qwen2.5-Coder-3B-Instruct": {
+        "input_cost_per_token": 1e-08,
+        "output_cost_per_token": 3e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models"
+    },
+    "nscale/Qwen/Qwen2.5-Coder-7B-Instruct": {
+        "input_cost_per_token": 1e-08,
+        "output_cost_per_token": 3e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models"
+    },
+    "nscale/Qwen/Qwen2.5-Coder-32B-Instruct": {
+        "input_cost_per_token": 6e-08,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models"
+    },
+    "nscale/Qwen/QwQ-32B": {
+        "input_cost_per_token": 1.8e-07,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models"
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Llama-70B": {
+        "input_cost_per_token": 3.75e-07,
+        "output_cost_per_token": 3.75e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.75/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Llama-8B": {
+        "input_cost_per_token": 2.5e-08,
+        "output_cost_per_token": 2.5e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.05/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
+        "input_cost_per_token": 9e-08,
+        "output_cost_per_token": 9e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.18/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.40/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
+        "input_cost_per_token": 7e-08,
+        "output_cost_per_token": 7e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.14/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
+        "input_cost_per_token": 1.5e-07,
+        "output_cost_per_token": 1.5e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.30/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/mistralai/mixtral-8x22b-instruct-v0.1": {
+        "input_cost_per_token": 6e-07,
+        "output_cost_per_token": 6e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $1.20/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/meta-llama/Llama-3.1-8B-Instruct": {
+        "input_cost_per_token": 3e-08,
+        "output_cost_per_token": 3e-08,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.06/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/meta-llama/Llama-3.3-70B-Instruct": {
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "nscale",
+        "mode": "chat",
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#chat-models",
+        "metadata": {
+            "notes": "Pricing listed as $0.40/1M tokens total. Assumed 50/50 split for input/output."
+        }
+    },
+    "nscale/black-forest-labs/FLUX.1-schnell": {
+        "mode": "image_generation",
+        "input_cost_per_pixel": 1.3e-09,
+        "output_cost_per_pixel": 0.0,
+        "litellm_provider": "nscale",
+        "supported_endpoints": [
+            "/v1/images/generations"
+        ],
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#image-models"
+    },
+    "nscale/stabilityai/stable-diffusion-xl-base-1.0": {
+        "mode": "image_generation",
+        "input_cost_per_pixel": 3e-09,
+        "output_cost_per_pixel": 0.0,
+        "litellm_provider": "nscale",
+        "supported_endpoints": [
+            "/v1/images/generations"
+        ],
+        "source": "https://docs.nscale.com/docs/inference/serverless-models/current#image-models"
     }
 }
