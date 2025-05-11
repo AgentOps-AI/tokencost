@@ -922,8 +922,8 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | azure/gpt-3.5-turbo                                                   | $0.5                              | $1.5                                  | 4,097               |            4096     |
 | gemini-2.0-pro-exp-02-05                                              | $1.25                             | $10                                   | 2,097,152           |            8192     |
 | us.meta.llama3-3-70b-instruct-v1:0                                    | $0.72                             | $0.72                                 | 128,000             |            4096     |
-| perplexity/sonar                                                      | $1                                | $1                                    | 127,072             |          127072     |
-| perplexity/sonar-pro                                                  | $3                                | $15                                   | 200,000             |            8096     |
+| perplexity/sonar                                                      | $1                                | $1                                    | 128,000             |             nan     |
+| perplexity/sonar-pro                                                  | $3                                | $15                                   | 200,000             |            8000     |
 | openrouter/google/gemini-2.0-flash-001                                | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
 | gpt-4.5-preview                                                       | $75                               | $150                                  | 128,000             |           16384     |
 | gpt-4.5-preview-2025-02-27                                            | $75                               | $150                                  | 128,000             |           16384     |
@@ -1078,17 +1078,17 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | meta_llama/Llama-3.3-70B-Instruct                                     | --                                | --                                    | 128,000             |            4028     |
 | meta_llama/Llama-3.3-8B-Instruct                                      | --                                | --                                    | 128,000             |            4028     |
 | gemini-2.5-pro-exp-03-25                                              | $1.25                             | $10                                   | 1,048,576           |           65535     |
-| gemini/gemini-2.5-pro-exp-03-25                                       | $0                                | $0                                    | 1,048,576           |           65536     |
-| gemini/gemini-2.5-flash-preview-04-17                                 | $0.15                             | $0.6                                  | 1,048,576           |           65536     |
-| gemini-2.5-flash-preview-04-17                                        | $0.15                             | $0.6                                  | 1,048,576           |           65536     |
+| gemini/gemini-2.5-pro-exp-03-25                                       | $0                                | $0                                    | 1,048,576           |           65535     |
+| gemini/gemini-2.5-flash-preview-04-17                                 | $0.15                             | $0.6                                  | 1,048,576           |           65535     |
+| gemini-2.5-flash-preview-04-17                                        | $0.15                             | $0.6                                  | 1,048,576           |           65535     |
 | gemini-2.0-flash                                                      | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
 | gemini-2.0-flash-lite                                                 | $0.08                             | $0.3                                  | 1,048,576           |            8192     |
 | gemini-2.0-flash-lite-001                                             | $0.08                             | $0.3                                  | 1,048,576           |            8192     |
-| gemini-2.5-pro-preview-05-06                                          | $1.25                             | $10                                   | 1,048,576           |           65536     |
-| gemini-2.5-pro-preview-03-25                                          | $1.25                             | $10                                   | 1,048,576           |           65536     |
+| gemini-2.5-pro-preview-05-06                                          | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| gemini-2.5-pro-preview-03-25                                          | $1.25                             | $10                                   | 1,048,576           |           65535     |
 | gemini/gemini-2.0-flash-lite                                          | $0.08                             | $0.3                                  | 1,048,576           |            8192     |
-| gemini/gemini-2.5-pro-preview-05-06                                   | $1.25                             | $10                                   | 1,048,576           |           65536     |
-| gemini/gemini-2.5-pro-preview-03-25                                   | $1.25                             | $10                                   | 1,048,576           |           65536     |
+| gemini/gemini-2.5-pro-preview-05-06                                   | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| gemini/gemini-2.5-pro-preview-03-25                                   | $1.25                             | $10                                   | 1,048,576           |           65535     |
 | vertex_ai/meta/llama-4-scout-17b-16e-instruct-maas                    | $0.25                             | $0.7                                  | 10,000,000          |               1e+07 |
 | vertex_ai/meta/llama-4-scout-17b-128e-instruct-maas                   | $0.25                             | $0.7                                  | 10,000,000          |               1e+07 |
 | vertex_ai/meta/llama-4-maverick-17b-128e-instruct-maas                | $0.35                             | $1.15                                 | 1,000,000           |               1e+06 |
@@ -1113,7 +1113,7 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | together_ai/Qwen/Qwen2.5-72B-Instruct-Turbo                           | --                                | --                                    | nan                 |             nan     |
 | together_ai/deepseek-ai/DeepSeek-V3                                   | --                                | --                                    | nan                 |             nan     |
 | together_ai/mistralai/Mistral-Small-24B-Instruct-2501                 | --                                | --                                    | nan                 |             nan     |
-| perplexity/sonar-deep-research                                        | $2                                | $8                                    | 12,000              |           12000     |
+| perplexity/sonar-deep-research                                        | $2                                | $8                                    | 128,000             |             nan     |
 | fireworks_ai/accounts/fireworks/models/deepseek-r1                    | $3                                | $8                                    | 128,000             |           20480     |
 | fireworks_ai/accounts/fireworks/models/deepseek-r1-basic              | $0.55                             | $2.19                                 | 128,000             |           20480     |
 | fireworks_ai/accounts/fireworks/models/llama-v3p1-405b-instruct       | $3                                | $3                                    | 128,000             |           16384     |
@@ -1123,15 +1123,29 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | fireworks-ai-4.1b-to-16b                                              | $0.2                              | $0.2                                  | nan                 |             nan     |
 | fireworks-ai-above-16b                                                | $0.9                              | $0.9                                  | nan                 |             nan     |
 | databricks/databricks-claude-3-7-sonnet                               | $2.5                              | $178.57                               | 200,000             |          128000     |
-| databricks/databricks-meta-llama-3-3-70b-instruct                     | $1                                | $3                                    | 128,000             |          128000     |#### Installation via [GitHub](https://github.com/AgentOps-AI/tokencost):
-
-```bash
-git clone git@github.com:AgentOps-AI/tokencost.git
-cd tokencost
-pip install -e .
-```
-
-## Running tests
+| databricks/databricks-meta-llama-3-3-70b-instruct                     | $1                                | $3                                    | 128,000             |          128000     |
+| azure_ai/deepseek-v3-0324                                             | $1.14                             | $4.56                                 | 128,000             |            8192     |
+| azure_ai/Llama-4-Scout-17B-16E-Instruct                               | $0.2                              | $0.78                                 | 10,000,000          |           16384     |
+| azure_ai/Llama-4-Maverick-17B-128E-Instruct-FP8                       | $1.41                             | $0.35                                 | 1,000,000           |           16384     |
+| cerebras/llama-3.3-70b                                                | $0.85                             | $1.2                                  | 128,000             |          128000     |
+| perplexity/sonar-reasoning                                            | $1                                | $5                                    | 128,000             |             nan     |
+| perplexity/sonar-reasoning-pro                                        | $2                                | $8                                    | 128,000             |             nan     |
+| nscale/meta-llama/Llama-4-Scout-17B-16E-Instruct                      | $0.09                             | $0.29                                 | nan                 |             nan     |
+| nscale/Qwen/Qwen2.5-Coder-3B-Instruct                                 | $0.01                             | $0.03                                 | nan                 |             nan     |
+| nscale/Qwen/Qwen2.5-Coder-7B-Instruct                                 | $0.01                             | $0.03                                 | nan                 |             nan     |
+| nscale/Qwen/Qwen2.5-Coder-32B-Instruct                                | $0.06                             | $0.2                                  | nan                 |             nan     |
+| nscale/Qwen/QwQ-32B                                                   | $0.18                             | $0.2                                  | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Llama-70B                      | $0.38                             | $0.38                                 | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Llama-8B                       | $0.02                             | $0.02                                 | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B                      | $0.09                             | $0.09                                 | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B                        | $0.2                              | $0.2                                  | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-14B                       | $0.07                             | $0.07                                 | nan                 |             nan     |
+| nscale/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B                       | $0.15                             | $0.15                                 | nan                 |             nan     |
+| nscale/mistralai/mixtral-8x22b-instruct-v0.1                          | $0.6                              | $0.6                                  | nan                 |             nan     |
+| nscale/meta-llama/Llama-3.1-8B-Instruct                               | $0.03                             | $0.03                                 | nan                 |             nan     |
+| nscale/meta-llama/Llama-3.3-70B-Instruct                              | $0.2                              | $0.2                                  | nan                 |             nan     |
+| nscale/black-forest-labs/FLUX.1-schnell                               | --                                | --                                    | nan                 |             nan     |
+| nscale/stabilityai/stable-diffusion-xl-base-1.0                       | --                                | --                                    | nan                 |             nan     |## Running tests
 
 1. Install `pytest` if you don't have it already
 
