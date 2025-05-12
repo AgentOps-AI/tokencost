@@ -1145,10 +1145,6 @@ Units denominated in USD. All prices can be located in `model_prices.json`.
 | nscale/meta-llama/Llama-3.1-8B-Instruct                               | $0.03                             | $0.03                                 | nan                 |             nan     |
 | nscale/meta-llama/Llama-3.3-70B-Instruct                              | $0.2                              | $0.2                                  | nan                 |             nan     |
 | nscale/black-forest-labs/FLUX.1-schnell                               | --                                | --                                    | nan                 |             nan     |
-| nscale/stabilityai/stable-diffusion-xl-base-1.0                       | --                                | --                                    | nan                 |             nan     |## Contributing
-
-Contributions to TokenCost are welcome! Feel free to create an [issue](https://github.com/AgentOps-AI/tokencost/issues) for any bug reports, complaints, or feature suggestions.
-
-## License
+| nscale/stabilityai/stable-diffusion-xl-base-1.0                       | --                                | --                                    | nan                 |             nan     |## License
 
 TokenCost is released under the MIT License.
