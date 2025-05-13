@@ -54,7 +54,7 @@ STRING = "Hello, world!"
         ("azure/gpt-4o", 15),
         pytest.param("claude-3-opus-latest", 11,
                      marks=pytest.mark.skipif(
-                         "ANTHROPIC_API_KEY" not in os.environ,
+                         bool(os.getenv("ANTHROPIC_API_KEY")),
                          reason="ANTHROPIC_API_KEY environment variable not set"
                      )),
     ],
@@ -167,7 +167,7 @@ def test_count_string_invalid_model():
         (MESSAGES, "azure/gpt-4o", Decimal("0.0000375")),
         pytest.param(MESSAGES, "claude-3-opus-latest", Decimal("0.000165"),
                      marks=pytest.mark.skipif(
-                         "ANTHROPIC_API_KEY" not in os.environ,
+                         bool(os.getenv("ANTHROPIC_API_KEY")),
                          reason="ANTHROPIC_API_KEY environment variable not set"
                      )),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
