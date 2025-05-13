@@ -5,7 +5,7 @@ Costs dictionary and utility tool for counting tokens
 import os
 import tiktoken
 import anthropic
-from typing import Union, List, Dict
+from typing import Union, List, Dict, Literal
 from .constants import TOKEN_COSTS
 from decimal import Decimal
 import logging
@@ -14,6 +14,31 @@ logger = logging.getLogger(__name__)
 
 # Note: cl100k is the openai base tokenizer. Nothing to do with Claude. Tiktoken doesn't have claude yet.
 # https://github.com/anthropics/anthropic-tokenizer-typescript/blob/main/index.ts
+
+
+TokenType = Literal["input", "output", "cached"]
+
+
+def _get_field_from_token_type(token_type: TokenType) -> str:
+    """
+    Get the field name from the token type.
+
+    Args:
+        token_type (TokenType): The token type.
+
+    Returns:
+        str: The field name to use for the token cost data in the TOKEN_COSTS dictionary.
+    """
+    lookups = {
+        "input": "input_cost_per_token",
+        "output": "output_cost_per_token",
+        "cached": "cache_read_input_token_cost",
+    }
+
+    try:
+        return lookups[token_type]
+    except KeyError:
+        raise ValueError(f"Invalid token type: {token_type}.")
 
 
 def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int:
@@ -160,7 +185,7 @@ def count_string_tokens(prompt: str, model: str) -> int:
     return len(encoding.encode(prompt))
 
 
-def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> Decimal:
+def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType) -> Decimal:
     """
     Calculate the cost based on the number of tokens and the model.
 
@@ -179,10 +204,11 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: str) -> De
             Double-check your spelling, or submit an issue/PR"""
         )
 
-    cost_per_token_key = (
-        "input_cost_per_token" if token_type == "input" else "output_cost_per_token"
-    )
-    cost_per_token = TOKEN_COSTS[model][cost_per_token_key]
+    try:
+        token_key = _get_field_from_token_type(token_type)
+        cost_per_token = TOKEN_COSTS[model][token_key]
+    except KeyError:
+        raise KeyError(f"Model {model} does not have cost data for `{token_type}` tokens.")
 
     return Decimal(str(cost_per_token)) * Decimal(num_tokens)
 
