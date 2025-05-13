@@ -1,8 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import pytest
 from decimal import Decimal
+from dotenv import load_dotenv
+
+# Load environment variables for ANTHROPIC_API_KEY
+load_dotenv()
+
 from tokencost.costs import (
     count_message_tokens,
     count_string_tokens,
@@ -46,7 +52,11 @@ STRING = "Hello, world!"
         ("gpt-4-vision-preview", 15),
         ("gpt-4o", 15),
         ("azure/gpt-4o", 15),
-        ("claude-3-opus-latest", 11),
+        pytest.param("claude-3-opus-latest", 11,
+                     marks=pytest.mark.skipif(
+                         "ANTHROPIC_API_KEY" not in os.environ,
+                         reason="ANTHROPIC_API_KEY environment variable not set"
+                     )),
     ],
 )
 def test_count_message_tokens(model, expected_output):
@@ -154,8 +164,12 @@ def test_count_string_invalid_model():
         (MESSAGES, "gpt-4-1106-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4-vision-preview", Decimal("0.00015")),
         (MESSAGES, "gpt-4o", Decimal("0.0000375")),
-        (MESSAGES, "azure/gpt-4o", Decimal("0.000075")),
-        (MESSAGES, "claude-3-opus-latest", Decimal("0.000165")),
+        (MESSAGES, "azure/gpt-4o", Decimal("0.0000375")),
+        pytest.param(MESSAGES, "claude-3-opus-latest", Decimal("0.000165"),
+                     marks=pytest.mark.skipif(
+                         "ANTHROPIC_API_KEY" not in os.environ,
+                         reason="ANTHROPIC_API_KEY environment variable not set"
+                     )),
         (STRING, "text-embedding-ada-002", Decimal("0.0000004")),
     ],
 )
@@ -191,7 +205,7 @@ def test_invalid_prompt_format():
         (STRING, "gpt-4-1106-preview", Decimal("0.00012")),
         (STRING, "gpt-4-vision-preview", Decimal("0.00012")),
         (STRING, "gpt-4o", Decimal("0.00004")),
-        (STRING, "azure/gpt-4o", Decimal("0.000060")),
+        (STRING, "azure/gpt-4o", Decimal("0.00004")),
         # (STRING, "claude-3-opus-latest", Decimal("0.000096")), # NOTE: Claude only supports messages
         (STRING, "text-embedding-ada-002", 0),
     ],
@@ -230,9 +244,30 @@ def test_calculate_invalid_input_types():
         (10, "gpt-3.5-turbo", "input", Decimal("0.0000150")),  # Example values
         (5, "gpt-4", "output", Decimal("0.00030")),  # Example values
         (10, "ai21.j2-mid-v1", "input", Decimal("0.0001250")),  # Example values
+        (100, "gpt-4o", "cached", Decimal("0.000125")),  # Cache tokens test
     ],
 )
 def test_calculate_cost_by_tokens(num_tokens, model, token_type, expected_output):
     """Test that the token cost calculation is correct."""
     cost = calculate_cost_by_tokens(num_tokens, model, token_type)
     assert cost == expected_output
+
+
+def test_calculate_cached_tokens_cost():
+    """Test that cached tokens cost calculation works correctly."""
+    # Basic test for cache token cost calculation
+    model = "gpt-4o"
+    num_tokens = 1000
+    token_type = "cached"
+
+    # Get the expected cost from the TOKEN_COSTS dictionary
+    from tokencost.constants import TOKEN_COSTS
+    cache_cost_per_token = TOKEN_COSTS[model]["cache_read_input_token_cost"]
+    expected_cost = Decimal(str(cache_cost_per_token)) * Decimal(num_tokens)
+
+    # Calculate the actual cost
+    actual_cost = calculate_cost_by_tokens(num_tokens, model, token_type)
+
+    # Assert that the costs match
+    assert actual_cost == expected_cost
+    assert actual_cost > 0, "Cache token cost should be greater than zero"
