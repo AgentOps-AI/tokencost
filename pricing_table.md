@@ -1020,3 +1020,6 @@
 | nscale/meta-llama/Llama-3.3-70B-Instruct                              | $0.2                              | $0.2                                  | nan                 |             nan     |
 | nscale/black-forest-labs/FLUX.1-schnell                               | --                                | --                                    | nan                 |             nan     |
 | nscale/stabilityai/stable-diffusion-xl-base-1.0                       | --                                | --                                    | nan                 |             nan     |
+| azure/gpt-4o-mini-tts                                                 | $2.5                              | $10                                   | nan                 |             nan     |
+| azure_ai/embed-v-4-0                                                  | $0.12                             | $0                                    | 128,000             |             nan     |
+| eu.anthropic.claude-3-7-sonnet-20250219-v1:0                          | $3                                | $15                                   | 200,000             |            8192     |
