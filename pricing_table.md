@@ -151,7 +151,7 @@
 | groq/llama2-70b-4096                                                  | $0.7                              | $0.8                                  | 4,096               |            4096     |
 | groq/llama3-8b-8192                                                   | $0.05                             | $0.08                                 | 8,192               |            8192     |
 | groq/llama3-70b-8192                                                  | $0.59                             | $0.79                                 | 8,192               |            8192     |
-| groq/llama-3.1-8b-instant                                             | $0.05                             | $0.08                                 | 8,192               |            8192     |
+| groq/llama-3.1-8b-instant                                             | $0.05                             | $0.08                                 | 128,000             |            8192     |
 | groq/llama-3.1-70b-versatile                                          | $0.59                             | $0.79                                 | 8,192               |            8192     |
 | groq/llama-3.1-405b-reasoning                                         | $0.59                             | $0.79                                 | 8,192               |            8192     |
 | groq/mixtral-8x7b-32768                                               | $0.24                             | $0.24                                 | 32,768              |           32768     |
@@ -714,7 +714,7 @@
 | mistral/pixtral-large-2411                                            | $2                                | $6                                    | 128,000             |          128000     |
 | deepseek/deepseek-chat                                                | $0.27                             | $1.1                                  | 65,536              |            8192     |
 | deepseek/deepseek-coder                                               | $0.14                             | $0.28                                 | 128,000             |            4096     |
-| groq/llama-3.3-70b-versatile                                          | $0.59                             | $0.79                                 | 128,000             |            8192     |
+| groq/llama-3.3-70b-versatile                                          | $0.59                             | $0.79                                 | 128,000             |           32768     |
 | groq/llama-3.3-70b-specdec                                            | $0.59                             | $0.99                                 | 8,192               |            8192     |
 | friendliai/meta-llama-3.1-8b-instruct                                 | $0.1                              | $0.1                                  | 8,192               |            8192     |
 | friendliai/meta-llama-3.1-70b-instruct                                | $0.6                              | $0.6                                  | 8,192               |            8192     |
@@ -768,7 +768,7 @@
 | xai/grok-2-1212                                                       | $2                                | $10                                   | 131,072             |          131072     |
 | xai/grok-2                                                            | $2                                | $10                                   | 131,072             |          131072     |
 | xai/grok-2-latest                                                     | $2                                | $10                                   | 131,072             |          131072     |
-| groq/deepseek-r1-distill-llama-70b                                    | $0.75                             | $0.99                                 | 131,072             |          131072     |
+| groq/deepseek-r1-distill-llama-70b                                    | $0.75                             | $0.99                                 | 128,000             |          128000     |
 | gemini/gemini-2.0-flash                                               | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
 | gemini-2.0-flash-001                                                  | $0.15                             | $0.6                                  | 1,048,576           |            8192     |
 | gemini-2.0-flash-thinking-exp                                         | $0                                | $0                                    | 1,048,576           |            8192     |
@@ -1023,3 +1023,9 @@
 | azure/gpt-4o-mini-tts                                                 | $2.5                              | $10                                   | nan                 |             nan     |
 | azure_ai/embed-v-4-0                                                  | $0.12                             | $0                                    | 128,000             |             nan     |
 | eu.anthropic.claude-3-7-sonnet-20250219-v1:0                          | $3                                | $15                                   | 200,000             |            8192     |
+| groq/llama-guard-3-8b                                                 | $0.2                              | $0.2                                  | 8,192               |            8192     |
+| groq/meta-llama/llama-4-scout-17b-16e-instruct                        | $0.11                             | $0.34                                 | 131,072             |            8192     |
+| groq/meta-llama/llama-4-maverick-17b-128e-instruct                    | $0.2                              | $0.6                                  | 131,072             |            8192     |
+| groq/mistral-saba-24b                                                 | $0.79                             | $0.79                                 | 32,000              |           32000     |
+| groq/qwen-qwq-32b                                                     | $0.29                             | $0.39                                 | 128,000             |          128000     |
+| groq/playai-tts                                                       | --                                | --                                    | 10,000              |           10000     |
