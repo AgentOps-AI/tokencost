@@ -1709,10 +1709,7 @@
         "input_cost_per_token": 5e-08,
         "output_cost_per_token": 8e-08,
         "litellm_provider": "groq",
-        "mode": "chat",
-        "supports_function_calling": true,
-        "supports_response_schema": true,
-        "supports_tool_choice": true
+        "mode": "chat"
     },
     "groq/llama3-70b-8192": {
         "max_tokens": 8192,
@@ -1721,14 +1718,11 @@
         "input_cost_per_token": 5.9e-07,
         "output_cost_per_token": 7.9e-07,
         "litellm_provider": "groq",
-        "mode": "chat",
-        "supports_function_calling": true,
-        "supports_response_schema": true,
-        "supports_tool_choice": true
+        "mode": "chat"
     },
     "groq/llama-3.1-8b-instant": {
         "max_tokens": 8192,
-        "max_input_tokens": 8192,
+        "max_input_tokens": 128000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 5e-08,
         "output_cost_per_token": 8e-08,
@@ -1748,7 +1742,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-01-24"
     },
     "groq/llama-3.1-405b-reasoning": {
         "max_tokens": 8192,
@@ -1772,7 +1767,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-03-20"
     },
     "groq/gemma-7b-it": {
         "max_tokens": 8192,
@@ -1784,7 +1780,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-12-18"
     },
     "groq/gemma2-9b-it": {
         "max_tokens": 8192,
@@ -1794,9 +1791,9 @@
         "output_cost_per_token": 2e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_function_calling": true,
+        "supports_function_calling": false,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": false
     },
     "groq/llama3-groq-70b-8192-tool-use-preview": {
         "max_tokens": 8192,
@@ -1808,7 +1805,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-1-6"
     },
     "groq/llama3-groq-8b-8192-tool-use-preview": {
         "max_tokens": 8192,
@@ -1820,7 +1818,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-1-6"
     },
     "cerebras/llama3.1-8b": {
         "max_tokens": 128000,
@@ -7701,7 +7700,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-3b-preview": {
         "max_tokens": 8192,
@@ -7713,7 +7713,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-11b-text-preview": {
         "max_tokens": 8192,
@@ -7725,7 +7726,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-10-28"
     },
     "groq/llama-3.2-11b-vision-preview": {
         "max_tokens": 8192,
@@ -7738,7 +7740,8 @@
         "supports_function_calling": true,
         "supports_response_schema": true,
         "supports_vision": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-90b-text-preview": {
         "max_tokens": 8192,
@@ -7750,7 +7753,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-11-25"
     },
     "groq/llama-3.2-90b-vision-preview": {
         "max_tokens": 8192,
@@ -7763,7 +7767,8 @@
         "supports_function_calling": true,
         "supports_response_schema": true,
         "supports_vision": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "vertex_ai/claude-3-sonnet": {
         "max_tokens": 4096,
@@ -8224,9 +8229,9 @@
         "supports_prompt_caching": true
     },
     "groq/llama-3.3-70b-versatile": {
-        "max_tokens": 8192,
+        "max_tokens": 32768,
         "max_input_tokens": 128000,
-        "max_output_tokens": 8192,
+        "max_output_tokens": 32768,
         "input_cost_per_token": 5.9e-07,
         "output_cost_per_token": 7.9e-07,
         "litellm_provider": "groq",
@@ -8243,7 +8248,8 @@
         "output_cost_per_token": 9.9e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "friendliai/meta-llama-3.1-8b-instruct": {
         "max_tokens": 8192,
@@ -8964,17 +8970,16 @@
         "supports_tool_choice": true
     },
     "groq/deepseek-r1-distill-llama-70b": {
-        "max_tokens": 131072,
-        "max_input_tokens": 131072,
-        "max_output_tokens": 131072,
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
         "input_cost_per_token": 7.5e-07,
         "output_cost_per_token": 9.9e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_system_messages": false,
-        "supports_function_calling": false,
+        "supports_function_calling": true,
+        "supports_response_schema": true,
         "supports_reasoning": true,
-        "supports_response_schema": false,
         "supports_tool_choice": true
     },
     "gemini/gemini-2.0-flash": {
@@ -11953,22 +11958,22 @@
         "source": "https://x.ai/api#pricing"
     },
     "groq/whisper-large-v3": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 3.083e-05,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "groq/whisper-large-v3-turbo": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 1.111e-05,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "groq/distil-whisper-large-v3-en": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 5.56e-06,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "meta_llama/Llama-4-Scout-17B-16E-Instruct-FP8": {
         "max_tokens": 128000,
@@ -13222,5 +13227,68 @@
         "supports_pdf_input": true,
         "supports_tool_choice": true,
         "supports_reasoning": true
+    },
+    "groq/llama-guard-3-8b": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "groq",
+        "mode": "chat"
+    },
+    "groq/meta-llama/llama-4-scout-17b-16e-instruct": {
+        "max_tokens": 8192,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 1.1e-07,
+        "output_cost_per_token": 3.4e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true
+    },
+    "groq/meta-llama/llama-4-maverick-17b-128e-instruct": {
+        "max_tokens": 8192,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 6e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true
+    },
+    "groq/mistral-saba-24b": {
+        "max_tokens": 32000,
+        "max_input_tokens": 32000,
+        "max_output_tokens": 32000,
+        "input_cost_per_token": 7.9e-07,
+        "output_cost_per_token": 7.9e-07,
+        "litellm_provider": "groq",
+        "mode": "chat"
+    },
+    "groq/qwen-qwq-32b": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 2.9e-07,
+        "output_cost_per_token": 3.9e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_reasoning": true,
+        "supports_tool_choice": true
+    },
+    "groq/playai-tts": {
+        "max_tokens": 10000,
+        "max_input_tokens": 10000,
+        "max_output_tokens": 10000,
+        "input_cost_per_character": 5e-05,
+        "litellm_provider": "groq",
+        "mode": "audio_speech"
     }
 }
