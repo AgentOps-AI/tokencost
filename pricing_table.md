@@ -1029,3 +1029,5 @@
 | groq/mistral-saba-24b                                                 | $0.79                             | $0.79                                 | 32,000              |           32000     |
 | groq/qwen-qwq-32b                                                     | $0.29                             | $0.39                                 | 128,000             |          128000     |
 | groq/playai-tts                                                       | --                                | --                                    | 10,000              |           10000     |
+| featherless_ai/featherless-ai/Qwerky-72B                              | --                                | --                                    | 32,768              |            4096     |
+| featherless_ai/featherless-ai/Qwerky-QwQ-32B                          | --                                | --                                    | 32,768              |            4096     |
