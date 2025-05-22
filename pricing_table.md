@@ -1040,3 +1040,11 @@
 | sambanova/DeepSeek-R1-Distill-Llama-70B                               | $0.7                              | $1.4                                  | 131,072             |          131072     |
 | sambanova/DeepSeek-R1                                                 | $5                                | $7                                    | 32,768              |           32768     |
 | sambanova/DeepSeek-V3-0324                                            | $3                                | $4.5                                  | 32,768              |           32768     |
+| xai/grok-3                                                            | $3                                | $15                                   | 131,072             |          131072     |
+| gemini/gemini-2.5-flash-preview-tts                                   | $0.15                             | $0.6                                  | 1,048,576           |           65535     |
+| gemini/gemini-2.5-flash-preview-05-20                                 | $0.15                             | $0.6                                  | 1,048,576           |           65535     |
+| gemini-2.5-flash-preview-05-20                                        | $0.15                             | $0.6                                  | 1,048,576           |           65535     |
+| gemini-2.0-flash-preview-image-generation                             | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
+| gemini-2.5-pro-preview-tts                                            | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| gemini/gemini-2.0-flash-preview-image-generation                      | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
+| gemini/gemini-2.5-pro-preview-tts                                     | $1.25                             | $10                                   | 1,048,576           |           65535     |
