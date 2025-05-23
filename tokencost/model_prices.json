@@ -13383,9 +13383,9 @@
         "mode": "audio_speech"
     },
     "claude-opus-4-20250514": {
-        "max_tokens": 128000,
+        "max_tokens": 32000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 32000,
         "input_cost_per_token": 1.5e-05,
         "output_cost_per_token": 7.5e-05,
         "search_context_cost_per_query": {
@@ -13409,9 +13409,9 @@
         "supports_computer_use": true
     },
     "claude-sonnet-4-20250514": {
-        "max_tokens": 128000,
+        "max_tokens": 64000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 64000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "search_context_cost_per_query": {
@@ -13685,9 +13685,9 @@
         "source": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview"
     },
     "vertex_ai/claude-opus-4@20250514": {
-        "max_tokens": 128000,
+        "max_tokens": 32000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 32000,
         "input_cost_per_token": 1.5e-05,
         "output_cost_per_token": 7.5e-05,
         "search_context_cost_per_query": {
@@ -13711,9 +13711,9 @@
         "supports_computer_use": true
     },
     "vertex_ai/claude-sonnet-4@20250514": {
-        "max_tokens": 128000,
+        "max_tokens": 64000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 64000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "search_context_cost_per_query": {
@@ -13737,9 +13737,9 @@
         "supports_computer_use": true
     },
     "anthropic.claude-opus-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 32000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 32000,
         "input_cost_per_token": 1.5e-05,
         "output_cost_per_token": 7.5e-05,
         "search_context_cost_per_query": {
@@ -13763,9 +13763,9 @@
         "supports_computer_use": true
     },
     "anthropic.claude-sonnet-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 64000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 64000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "search_context_cost_per_query": {
@@ -13789,9 +13789,9 @@
         "supports_computer_use": true
     },
     "us.anthropic.claude-opus-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 32000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 32000,
         "input_cost_per_token": 1.5e-05,
         "output_cost_per_token": 7.5e-05,
         "search_context_cost_per_query": {
@@ -13815,9 +13815,9 @@
         "supports_computer_use": true
     },
     "us.anthropic.claude-sonnet-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 64000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 64000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "search_context_cost_per_query": {
@@ -13841,9 +13841,9 @@
         "supports_computer_use": true
     },
     "eu.anthropic.claude-opus-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 32000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 32000,
         "input_cost_per_token": 1.5e-05,
         "output_cost_per_token": 7.5e-05,
         "search_context_cost_per_query": {
@@ -13867,9 +13867,9 @@
         "supports_computer_use": true
     },
     "eu.anthropic.claude-sonnet-4-20250514-v1:0": {
-        "max_tokens": 128000,
+        "max_tokens": 64000,
         "max_input_tokens": 200000,
-        "max_output_tokens": 128000,
+        "max_output_tokens": 64000,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
         "search_context_cost_per_query": {
