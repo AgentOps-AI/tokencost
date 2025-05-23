@@ -23,6 +23,7 @@
         "cache_read_input_token_cost": 1.25e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -82,6 +83,7 @@
         "cache_read_input_token_cost": 7.5e-08,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -107,6 +109,7 @@
         "cache_read_input_token_cost": 7.5e-08,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -130,6 +133,7 @@
         "litellm_provider": "openai",
         "mode": "chat",
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true
     },
     "o1-mini-2024-09-12": {
@@ -141,6 +145,7 @@
         "cache_read_input_token_cost": 1.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_vision": true,
         "supports_reasoning": true,
         "supports_prompt_caching": true
@@ -154,6 +159,7 @@
         "cache_read_input_token_cost": 7.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_vision": true,
         "supports_reasoning": true,
         "supports_prompt_caching": true
@@ -167,6 +173,7 @@
         "cache_read_input_token_cost": 7.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_vision": true,
         "supports_reasoning": true,
         "supports_prompt_caching": true
@@ -179,6 +186,7 @@
         "output_cost_per_token": 1.5e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -196,6 +204,7 @@
         "output_cost_per_token_batches": 7.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -214,6 +223,7 @@
         "cache_read_input_token_cost": 1.25e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -236,6 +246,7 @@
         "output_cost_per_token": 3e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_prompt_caching": true,
@@ -312,6 +323,7 @@
         "output_cost_per_token": 3e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -327,6 +339,7 @@
         "output_cost_per_token": 3e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -371,6 +384,7 @@
         "litellm_provider": "openai",
         "mode": "chat",
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_system_messages": true,
         "deprecation_date": "2024-12-06",
@@ -385,6 +399,7 @@
         "litellm_provider": "openai",
         "mode": "chat",
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_system_messages": true,
         "deprecation_date": "2024-12-06",
@@ -549,6 +564,7 @@
         "output_cost_per_token_batches": 7.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -571,6 +587,7 @@
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_system_messages": true,
         "supports_tool_choice": true
@@ -814,6 +831,7 @@
         "cache_read_input_token_cost": 7.5e-06,
         "litellm_provider": "azure",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": false,
@@ -1710,8 +1728,6 @@
         "output_cost_per_token": 8e-08,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_function_calling": true,
-        "supports_response_schema": true,
         "supports_tool_choice": true
     },
     "groq/llama3-70b-8192": {
@@ -1722,13 +1738,12 @@
         "output_cost_per_token": 7.9e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_function_calling": true,
         "supports_response_schema": true,
         "supports_tool_choice": true
     },
     "groq/llama-3.1-8b-instant": {
         "max_tokens": 8192,
-        "max_input_tokens": 8192,
+        "max_input_tokens": 128000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 5e-08,
         "output_cost_per_token": 8e-08,
@@ -1748,7 +1763,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-01-24"
     },
     "groq/llama-3.1-405b-reasoning": {
         "max_tokens": 8192,
@@ -1772,7 +1788,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-03-20"
     },
     "groq/gemma-7b-it": {
         "max_tokens": 8192,
@@ -1784,7 +1801,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-12-18"
     },
     "groq/gemma2-9b-it": {
         "max_tokens": 8192,
@@ -1794,9 +1812,9 @@
         "output_cost_per_token": 2e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_function_calling": true,
+        "supports_function_calling": false,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": false
     },
     "groq/llama3-groq-70b-8192-tool-use-preview": {
         "max_tokens": 8192,
@@ -1808,7 +1826,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-1-6"
     },
     "groq/llama3-groq-8b-8192-tool-use-preview": {
         "max_tokens": 8192,
@@ -1820,7 +1839,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-1-6"
     },
     "cerebras/llama3.1-8b": {
         "max_tokens": 128000,
@@ -2014,6 +2034,7 @@
         "supports_tool_choice": true
     },
     "claude-3-5-sonnet-20241022": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -2040,6 +2061,7 @@
         "supports_web_search": true
     },
     "claude-3-5-sonnet-latest": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -2939,6 +2961,7 @@
         "supports_tool_choice": true
     },
     "vertex_ai/claude-3-5-sonnet-v2@20241022": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -4092,6 +4115,7 @@
         "supports_prompt_caching": true
     },
     "openrouter/anthropic/claude-3.5-sonnet": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -4106,6 +4130,7 @@
         "supports_tool_choice": true
     },
     "openrouter/anthropic/claude-3.5-sonnet:beta": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -4829,11 +4854,14 @@
         "supports_tool_choice": true
     },
     "anthropic.claude-3-5-sonnet-20241022-v2:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
         "litellm_provider": "bedrock",
         "mode": "chat",
         "supports_function_calling": true,
@@ -4911,11 +4939,14 @@
         "supports_tool_choice": true
     },
     "us.anthropic.claude-3-5-sonnet-20241022-v2:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
         "litellm_provider": "bedrock",
         "mode": "chat",
         "supports_function_calling": true,
@@ -4982,6 +5013,7 @@
         "supports_tool_choice": true
     },
     "eu.anthropic.claude-3-5-sonnet-20241022-v2:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -7577,6 +7609,8 @@
         "max_output_tokens": 8192,
         "input_cost_per_token": 8e-07,
         "output_cost_per_token": 4e-06,
+        "cache_creation_input_token_cost": 1e-06,
+        "cache_read_input_token_cost": 8e-08,
         "litellm_provider": "bedrock",
         "mode": "chat",
         "supports_assistant_prefill": true,
@@ -7592,6 +7626,8 @@
         "max_output_tokens": 8192,
         "input_cost_per_token": 8e-07,
         "output_cost_per_token": 4e-06,
+        "cache_creation_input_token_cost": 1e-06,
+        "cache_read_input_token_cost": 8e-08,
         "litellm_provider": "bedrock",
         "mode": "chat",
         "supports_assistant_prefill": true,
@@ -7634,6 +7670,7 @@
         "cache_read_input_token_cost": 1.25e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -7651,6 +7688,7 @@
         "output_cost_per_token": 1.5e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -7701,7 +7739,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-3b-preview": {
         "max_tokens": 8192,
@@ -7713,7 +7752,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-11b-text-preview": {
         "max_tokens": 8192,
@@ -7725,7 +7765,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-10-28"
     },
     "groq/llama-3.2-11b-vision-preview": {
         "max_tokens": 8192,
@@ -7738,7 +7779,8 @@
         "supports_function_calling": true,
         "supports_response_schema": true,
         "supports_vision": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "groq/llama-3.2-90b-text-preview": {
         "max_tokens": 8192,
@@ -7750,7 +7792,8 @@
         "mode": "chat",
         "supports_function_calling": true,
         "supports_response_schema": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2024-11-25"
     },
     "groq/llama-3.2-90b-vision-preview": {
         "max_tokens": 8192,
@@ -7763,7 +7806,8 @@
         "supports_function_calling": true,
         "supports_response_schema": true,
         "supports_vision": true,
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "vertex_ai/claude-3-sonnet": {
         "max_tokens": 4096,
@@ -7779,6 +7823,7 @@
         "supports_tool_choice": true
     },
     "vertex_ai/claude-3-5-sonnet": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -7793,6 +7838,7 @@
         "supports_tool_choice": true
     },
     "vertex_ai/claude-3-5-sonnet-v2": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -8010,6 +8056,7 @@
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_system_messages": true,
         "supports_response_schema": true,
@@ -8025,6 +8072,7 @@
         "cache_read_input_token_cost": 7.5e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -8224,9 +8272,9 @@
         "supports_prompt_caching": true
     },
     "groq/llama-3.3-70b-versatile": {
-        "max_tokens": 8192,
+        "max_tokens": 32768,
         "max_input_tokens": 128000,
-        "max_output_tokens": 8192,
+        "max_output_tokens": 32768,
         "input_cost_per_token": 5.9e-07,
         "output_cost_per_token": 7.9e-07,
         "litellm_provider": "groq",
@@ -8243,7 +8291,8 @@
         "output_cost_per_token": 9.9e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "deprecation_date": "2025-04-14"
     },
     "friendliai/meta-llama-3.1-8b-instruct": {
         "max_tokens": 8192,
@@ -8685,15 +8734,17 @@
         "supports_tool_choice": true
     },
     "sambanova/Meta-Llama-3.1-8B-Instruct": {
-        "max_tokens": 16000,
-        "max_input_tokens": 16000,
-        "max_output_tokens": 16000,
+        "max_tokens": 16384,
+        "max_input_tokens": 16384,
+        "max_output_tokens": 16384,
         "input_cost_per_token": 1e-07,
         "output_cost_per_token": 2e-07,
         "litellm_provider": "sambanova",
-        "supports_function_calling": true,
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_response_schema": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing"
     },
     "sambanova/Meta-Llama-3.1-70B-Instruct": {
         "max_tokens": 128000,
@@ -8707,48 +8758,50 @@
         "supports_tool_choice": true
     },
     "sambanova/Meta-Llama-3.1-405B-Instruct": {
-        "max_tokens": 16000,
-        "max_input_tokens": 16000,
-        "max_output_tokens": 16000,
+        "max_tokens": 16384,
+        "max_input_tokens": 16384,
+        "max_output_tokens": 16384,
         "input_cost_per_token": 5e-06,
         "output_cost_per_token": 1e-05,
         "litellm_provider": "sambanova",
-        "supports_function_calling": true,
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_response_schema": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing"
     },
     "sambanova/Meta-Llama-3.2-1B-Instruct": {
-        "max_tokens": 16000,
-        "max_input_tokens": 16000,
-        "max_output_tokens": 16000,
-        "input_cost_per_token": 4e-07,
-        "output_cost_per_token": 8e-07,
+        "max_tokens": 16384,
+        "max_input_tokens": 16384,
+        "max_output_tokens": 16384,
+        "input_cost_per_token": 4e-08,
+        "output_cost_per_token": 8e-08,
         "litellm_provider": "sambanova",
-        "supports_function_calling": true,
         "mode": "chat",
-        "supports_tool_choice": true
+        "source": "https://cloud.sambanova.ai/plans/pricing"
     },
     "sambanova/Meta-Llama-3.2-3B-Instruct": {
-        "max_tokens": 4000,
-        "max_input_tokens": 4000,
-        "max_output_tokens": 4000,
-        "input_cost_per_token": 8e-07,
-        "output_cost_per_token": 1.6e-06,
+        "max_tokens": 4096,
+        "max_input_tokens": 4096,
+        "max_output_tokens": 4096,
+        "input_cost_per_token": 8e-08,
+        "output_cost_per_token": 1.6e-07,
         "litellm_provider": "sambanova",
-        "supports_function_calling": true,
         "mode": "chat",
-        "supports_tool_choice": true
+        "source": "https://cloud.sambanova.ai/plans/pricing"
     },
     "sambanova/Meta-Llama-3.3-70B-Instruct": {
-        "max_tokens": 128000,
-        "max_input_tokens": 128000,
-        "max_output_tokens": 128000,
+        "max_tokens": 131072,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 131072,
         "input_cost_per_token": 6e-07,
         "output_cost_per_token": 1.2e-06,
         "litellm_provider": "sambanova",
-        "supports_function_calling": true,
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing"
     },
     "sambanova/Qwen2.5-Coder-32B-Instruct": {
         "max_tokens": 8000,
@@ -8964,17 +9017,16 @@
         "supports_tool_choice": true
     },
     "groq/deepseek-r1-distill-llama-70b": {
-        "max_tokens": 131072,
-        "max_input_tokens": 131072,
-        "max_output_tokens": 131072,
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
         "input_cost_per_token": 7.5e-07,
         "output_cost_per_token": 9.9e-07,
         "litellm_provider": "groq",
         "mode": "chat",
-        "supports_system_messages": false,
-        "supports_function_calling": false,
+        "supports_function_calling": true,
+        "supports_response_schema": true,
         "supports_reasoning": true,
-        "supports_response_schema": false,
         "supports_tool_choice": true
     },
     "gemini/gemini-2.0-flash": {
@@ -9543,6 +9595,7 @@
         "cache_read_input_token_cost": 3.75e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -9562,6 +9615,7 @@
         "cache_read_input_token_cost": 3.75e-05,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -9622,6 +9676,7 @@
         "supports_web_search": true
     },
     "claude-3-7-sonnet-latest": {
+        "supports_computer_use": true,
         "max_tokens": 128000,
         "max_input_tokens": 200000,
         "max_output_tokens": 128000,
@@ -9648,6 +9703,7 @@
         "supports_reasoning": true
     },
     "claude-3-7-sonnet-20250219": {
+        "supports_computer_use": true,
         "max_tokens": 128000,
         "max_input_tokens": 200000,
         "max_output_tokens": 128000,
@@ -9675,6 +9731,7 @@
         "supports_web_search": true
     },
     "vertex_ai/claude-3-7-sonnet@20250219": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -9696,6 +9753,7 @@
         "supports_tool_choice": true
     },
     "openrouter/anthropic/claude-3.7-sonnet": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -9712,6 +9770,7 @@
         "supports_tool_choice": true
     },
     "openrouter/anthropic/claude-3.7-sonnet:beta": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -9740,11 +9799,14 @@
         "mode": "rerank"
     },
     "anthropic.claude-3-7-sonnet-20250219-v1:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
         "litellm_provider": "bedrock_converse",
         "mode": "chat",
         "supports_function_calling": true,
@@ -9757,11 +9819,14 @@
         "supports_tool_choice": true
     },
     "us.anthropic.claude-3-7-sonnet-20250219-v1:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
         "input_cost_per_token": 3e-06,
         "output_cost_per_token": 1.5e-05,
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
         "litellm_provider": "bedrock_converse",
         "mode": "chat",
         "supports_function_calling": true,
@@ -10430,6 +10495,7 @@
         "mode": "chat"
     },
     "snowflake/claude-3-5-sonnet": {
+        "supports_computer_use": true,
         "max_tokens": 18000,
         "max_input_tokens": 18000,
         "max_output_tokens": 8192,
@@ -10625,6 +10691,7 @@
         "output_cost_per_token_batches": 0.0003,
         "litellm_provider": "openai",
         "mode": "responses",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -10656,6 +10723,7 @@
         "output_cost_per_token_batches": 0.0003,
         "litellm_provider": "openai",
         "mode": "responses",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_vision": true,
@@ -10688,6 +10756,7 @@
         "cache_read_input_token_cost": 1.25e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10713,6 +10782,7 @@
         "cache_read_input_token_cost": 1.25e-06,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10738,6 +10808,7 @@
         "cache_read_input_token_cost": 7.5e-08,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10763,6 +10834,7 @@
         "cache_read_input_token_cost": 7.5e-08,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10842,6 +10914,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10880,6 +10953,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10918,6 +10992,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10956,6 +11031,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -10994,6 +11070,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -11026,6 +11103,7 @@
         "supported_output_modalities": [
             "text"
         ],
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": true,
         "supports_response_schema": true,
@@ -11092,6 +11170,7 @@
         "supports_function_calling": true,
         "supports_parallel_function_calling": false,
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_response_schema": true,
         "supports_reasoning": true,
@@ -11109,6 +11188,7 @@
         "supports_function_calling": true,
         "supports_parallel_function_calling": false,
         "supports_vision": true,
+        "supports_pdf_input": true,
         "supports_prompt_caching": true,
         "supports_response_schema": true,
         "supports_reasoning": true,
@@ -11123,6 +11203,7 @@
         "cache_read_input_token_cost": 2.75e-07,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": false,
         "supports_vision": true,
@@ -11140,6 +11221,7 @@
         "cache_read_input_token_cost": 2.75e-07,
         "litellm_provider": "openai",
         "mode": "chat",
+        "supports_pdf_input": true,
         "supports_function_calling": true,
         "supports_parallel_function_calling": false,
         "supports_vision": true,
@@ -11953,22 +12035,22 @@
         "source": "https://x.ai/api#pricing"
     },
     "groq/whisper-large-v3": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 3.083e-05,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "groq/whisper-large-v3-turbo": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 1.111e-05,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "groq/distil-whisper-large-v3-en": {
-        "mode": "audio_transcription",
         "input_cost_per_second": 5.56e-06,
-        "output_cost_per_second": 0,
-        "litellm_provider": "groq"
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "groq",
+        "mode": "audio_transcription"
     },
     "meta_llama/Llama-4-Scout-17B-16E-Instruct-FP8": {
         "max_tokens": 128000,
@@ -13207,6 +13289,7 @@
         "source": "https://azuremarketplace.microsoft.com/pt-br/marketplace/apps/cohere.cohere-embed-4-offer?tab=PlansAndPrice"
     },
     "eu.anthropic.claude-3-7-sonnet-20250219-v1:0": {
+        "supports_computer_use": true,
         "max_tokens": 8192,
         "max_input_tokens": 200000,
         "max_output_tokens": 8192,
@@ -13222,5 +13305,731 @@
         "supports_pdf_input": true,
         "supports_tool_choice": true,
         "supports_reasoning": true
+    },
+    "xai/grok-3": {
+        "max_tokens": 131072,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 131072,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "litellm_provider": "xai",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_response_schema": false,
+        "source": "https://x.ai/api#pricing"
+    },
+    "groq/llama-guard-3-8b": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 2e-07,
+        "litellm_provider": "groq",
+        "mode": "chat"
+    },
+    "groq/meta-llama/llama-4-scout-17b-16e-instruct": {
+        "max_tokens": 8192,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 1.1e-07,
+        "output_cost_per_token": 3.4e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true
+    },
+    "groq/meta-llama/llama-4-maverick-17b-128e-instruct": {
+        "max_tokens": 8192,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 6e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true
+    },
+    "groq/mistral-saba-24b": {
+        "max_tokens": 32000,
+        "max_input_tokens": 32000,
+        "max_output_tokens": 32000,
+        "input_cost_per_token": 7.9e-07,
+        "output_cost_per_token": 7.9e-07,
+        "litellm_provider": "groq",
+        "mode": "chat"
+    },
+    "groq/qwen-qwq-32b": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 2.9e-07,
+        "output_cost_per_token": 3.9e-07,
+        "litellm_provider": "groq",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_response_schema": true,
+        "supports_reasoning": true,
+        "supports_tool_choice": true
+    },
+    "groq/playai-tts": {
+        "max_tokens": 10000,
+        "max_input_tokens": 10000,
+        "max_output_tokens": 10000,
+        "input_cost_per_character": 5e-05,
+        "litellm_provider": "groq",
+        "mode": "audio_speech"
+    },
+    "claude-opus-4-20250514": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1.5e-05,
+        "output_cost_per_token": 7.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "litellm_provider": "anthropic",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "claude-sonnet-4-20250514": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "anthropic",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "gemini/gemini-2.5-flash-preview-tts": {
+        "max_tokens": 65535,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 65535,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 1e-06,
+        "input_cost_per_token": 1.5e-07,
+        "output_cost_per_token": 6e-07,
+        "output_cost_per_reasoning_token": 3.5e-06,
+        "litellm_provider": "gemini",
+        "mode": "chat",
+        "rpm": 10,
+        "tpm": 250000,
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_reasoning": true,
+        "supports_response_schema": true,
+        "supports_audio_output": false,
+        "supports_tool_choice": true,
+        "supported_endpoints": [
+            "/v1/chat/completions",
+            "/v1/completions"
+        ],
+        "supported_modalities": [
+            "text"
+        ],
+        "supported_output_modalities": [
+            "audio"
+        ],
+        "source": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview"
+    },
+    "gemini/gemini-2.5-flash-preview-05-20": {
+        "max_tokens": 65535,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 65535,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 1e-06,
+        "input_cost_per_token": 1.5e-07,
+        "output_cost_per_token": 6e-07,
+        "output_cost_per_reasoning_token": 3.5e-06,
+        "litellm_provider": "gemini",
+        "mode": "chat",
+        "rpm": 10,
+        "tpm": 250000,
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_reasoning": true,
+        "supports_response_schema": true,
+        "supports_audio_output": false,
+        "supports_tool_choice": true,
+        "supported_endpoints": [
+            "/v1/chat/completions",
+            "/v1/completions"
+        ],
+        "supported_modalities": [
+            "text",
+            "image",
+            "audio",
+            "video"
+        ],
+        "supported_output_modalities": [
+            "text"
+        ],
+        "source": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview"
+    },
+    "gemini-2.5-flash-preview-05-20": {
+        "max_tokens": 65535,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 65535,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 1e-06,
+        "input_cost_per_token": 1.5e-07,
+        "output_cost_per_token": 6e-07,
+        "output_cost_per_reasoning_token": 3.5e-06,
+        "litellm_provider": "vertex_ai-language-models",
+        "mode": "chat",
+        "supports_reasoning": true,
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_response_schema": true,
+        "supports_audio_output": false,
+        "supports_tool_choice": true,
+        "supported_endpoints": [
+            "/v1/chat/completions",
+            "/v1/completions",
+            "/v1/batch"
+        ],
+        "supported_modalities": [
+            "text",
+            "image",
+            "audio",
+            "video"
+        ],
+        "supported_output_modalities": [
+            "text"
+        ],
+        "source": "https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash-preview"
+    },
+    "gemini-2.0-flash-preview-image-generation": {
+        "max_tokens": 8192,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 8192,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 7e-07,
+        "input_cost_per_token": 1e-07,
+        "output_cost_per_token": 4e-07,
+        "litellm_provider": "vertex_ai-language-models",
+        "mode": "chat",
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_response_schema": true,
+        "supports_audio_output": true,
+        "supports_audio_input": true,
+        "supported_modalities": [
+            "text",
+            "image",
+            "audio",
+            "video"
+        ],
+        "supported_output_modalities": [
+            "text",
+            "image"
+        ],
+        "supports_tool_choice": true,
+        "source": "https://ai.google.dev/pricing#2_0flash"
+    },
+    "gemini-2.5-pro-preview-tts": {
+        "max_tokens": 65535,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 65535,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 7e-07,
+        "input_cost_per_token": 1.25e-06,
+        "input_cost_per_token_above_200k_tokens": 2.5e-06,
+        "output_cost_per_token": 1e-05,
+        "output_cost_per_token_above_200k_tokens": 1.5e-05,
+        "litellm_provider": "vertex_ai-language-models",
+        "mode": "chat",
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_response_schema": true,
+        "supports_audio_output": false,
+        "supports_tool_choice": true,
+        "supported_modalities": [
+            "text"
+        ],
+        "supported_output_modalities": [
+            "audio"
+        ],
+        "source": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview"
+    },
+    "gemini/gemini-2.0-flash-preview-image-generation": {
+        "max_tokens": 8192,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 8192,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 7e-07,
+        "input_cost_per_token": 1e-07,
+        "output_cost_per_token": 4e-07,
+        "litellm_provider": "gemini",
+        "mode": "chat",
+        "rpm": 10000,
+        "tpm": 10000000,
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_response_schema": true,
+        "supports_audio_output": true,
+        "supports_audio_input": true,
+        "supported_modalities": [
+            "text",
+            "image",
+            "audio",
+            "video"
+        ],
+        "supported_output_modalities": [
+            "text",
+            "image"
+        ],
+        "supports_tool_choice": true,
+        "source": "https://ai.google.dev/pricing#2_0flash"
+    },
+    "gemini/gemini-2.5-pro-preview-tts": {
+        "max_tokens": 65535,
+        "max_input_tokens": 1048576,
+        "max_output_tokens": 65535,
+        "max_images_per_prompt": 3000,
+        "max_videos_per_prompt": 10,
+        "max_video_length": 1,
+        "max_audio_length_hours": 8.4,
+        "max_audio_per_prompt": 1,
+        "max_pdf_size_mb": 30,
+        "input_cost_per_audio_token": 7e-07,
+        "input_cost_per_token": 1.25e-06,
+        "input_cost_per_token_above_200k_tokens": 2.5e-06,
+        "output_cost_per_token": 1e-05,
+        "output_cost_per_token_above_200k_tokens": 1.5e-05,
+        "litellm_provider": "gemini",
+        "mode": "chat",
+        "rpm": 10000,
+        "tpm": 10000000,
+        "supports_system_messages": true,
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "supports_response_schema": true,
+        "supports_audio_output": false,
+        "supports_tool_choice": true,
+        "supported_modalities": [
+            "text"
+        ],
+        "supported_output_modalities": [
+            "audio"
+        ],
+        "source": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview"
+    },
+    "vertex_ai/claude-opus-4@20250514": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1.5e-05,
+        "output_cost_per_token": 7.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "litellm_provider": "vertex_ai-anthropic_models",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "vertex_ai/claude-sonnet-4@20250514": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "vertex_ai-anthropic_models",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "anthropic.claude-opus-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1.5e-05,
+        "output_cost_per_token": 7.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "anthropic.claude-sonnet-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "us.anthropic.claude-opus-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1.5e-05,
+        "output_cost_per_token": 7.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "us.anthropic.claude-sonnet-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "eu.anthropic.claude-opus-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1.5e-05,
+        "output_cost_per_token": 7.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "eu.anthropic.claude-sonnet-4-20250514-v1:0": {
+        "max_tokens": 128000,
+        "max_input_tokens": 200000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 1.5e-05,
+        "search_context_cost_per_query": {
+            "search_context_size_low": 0.01,
+            "search_context_size_medium": 0.01,
+            "search_context_size_high": 0.01
+        },
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "litellm_provider": "bedrock_converse",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_vision": true,
+        "tool_use_system_prompt_tokens": 159,
+        "supports_assistant_prefill": true,
+        "supports_pdf_input": true,
+        "supports_prompt_caching": true,
+        "supports_response_schema": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_computer_use": true
+    },
+    "databricks/databricks-llama-4-maverick": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 5e-06,
+        "input_dbu_cost_per_token": 7.143e-05,
+        "output_cost_per_token": 1.5e-05,
+        "output_dbu_cost_per_token": 0.00021429,
+        "litellm_provider": "databricks",
+        "mode": "chat",
+        "source": "https://www.databricks.com/product/pricing/foundation-model-serving",
+        "metadata": {
+            "notes": "Databricks documentation now provides both DBU costs (_dbu_cost_per_token) and dollar costs(_cost_per_token)."
+        },
+        "supports_tool_choice": true
+    },
+    "sambanova/Llama-4-Maverick-17B-128E-Instruct": {
+        "max_tokens": 131072,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 131072,
+        "input_cost_per_token": 6.3e-07,
+        "output_cost_per_token": 1.8e-06,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_response_schema": true,
+        "supports_vision": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing",
+        "metadata": {
+            "notes": "For vision models, images are converted to 6432 input tokens and are billed at that amount"
+        }
+    },
+    "sambanova/Llama-4-Scout-17B-16E-Instruct": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 4e-07,
+        "output_cost_per_token": 7e-07,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_response_schema": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing",
+        "metadata": {
+            "notes": "For vision models, images are converted to 6432 input tokens and are billed at that amount"
+        }
+    },
+    "sambanova/Meta-Llama-Guard-3-8B": {
+        "max_tokens": 16384,
+        "max_input_tokens": 16384,
+        "max_output_tokens": 16384,
+        "input_cost_per_token": 3e-07,
+        "output_cost_per_token": 3e-07,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/Qwen3-32B": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 4e-07,
+        "output_cost_per_token": 8e-07,
+        "litellm_provider": "sambanova",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "mode": "chat",
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/QwQ-32B": {
+        "max_tokens": 16384,
+        "max_input_tokens": 16384,
+        "max_output_tokens": 16384,
+        "input_cost_per_token": 5e-07,
+        "output_cost_per_token": 1e-06,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/Qwen2-Audio-7B-Instruct": {
+        "max_tokens": 4096,
+        "max_input_tokens": 4096,
+        "max_output_tokens": 4096,
+        "input_cost_per_token": 5e-07,
+        "output_cost_per_token": 0.0001,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "supports_audio_input": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/DeepSeek-R1-Distill-Llama-70B": {
+        "max_tokens": 131072,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 131072,
+        "input_cost_per_token": 7e-07,
+        "output_cost_per_token": 1.4e-06,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/DeepSeek-R1": {
+        "max_tokens": 32768,
+        "max_input_tokens": 32768,
+        "max_output_tokens": 32768,
+        "input_cost_per_token": 5e-06,
+        "output_cost_per_token": 7e-06,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "sambanova/DeepSeek-V3-0324": {
+        "max_tokens": 32768,
+        "max_input_tokens": 32768,
+        "max_output_tokens": 32768,
+        "input_cost_per_token": 3e-06,
+        "output_cost_per_token": 4.5e-06,
+        "litellm_provider": "sambanova",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "source": "https://cloud.sambanova.ai/plans/pricing"
+    },
+    "featherless_ai/featherless-ai/Qwerky-72B": {
+        "max_tokens": 32768,
+        "max_input_tokens": 32768,
+        "max_output_tokens": 4096,
+        "litellm_provider": "featherless_ai",
+        "mode": "chat"
+    },
+    "featherless_ai/featherless-ai/Qwerky-QwQ-32B": {
+        "max_tokens": 32768,
+        "max_input_tokens": 32768,
+        "max_output_tokens": 4096,
+        "litellm_provider": "featherless_ai",
+        "mode": "chat"
     }
 }
