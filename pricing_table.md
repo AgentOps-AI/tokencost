@@ -1048,3 +1048,14 @@
 | gemini-2.5-pro-preview-tts                                            | $1.25                             | $10                                   | 1,048,576           |           65535     |
 | gemini/gemini-2.0-flash-preview-image-generation                      | $0.1                              | $0.4                                  | 1,048,576           |            8192     |
 | gemini/gemini-2.5-pro-preview-tts                                     | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| claude-opus-4-20250514                                                | $15                               | $75                                   | 200,000             |          128000     |
+| claude-sonnet-4-20250514                                              | $3                                | $15                                   | 200,000             |          128000     |
+| vertex_ai/claude-opus-4@20250514                                      | $15                               | $75                                   | 200,000             |          128000     |
+| vertex_ai/claude-sonnet-4@20250514                                    | $3                                | $15                                   | 200,000             |          128000     |
+| anthropic.claude-opus-4-20250514-v1:0                                 | $15                               | $75                                   | 200,000             |          128000     |
+| anthropic.claude-sonnet-4-20250514-v1:0                               | $3                                | $15                                   | 200,000             |          128000     |
+| us.anthropic.claude-opus-4-20250514-v1:0                              | $15                               | $75                                   | 200,000             |          128000     |
+| us.anthropic.claude-sonnet-4-20250514-v1:0                            | $3                                | $15                                   | 200,000             |          128000     |
+| eu.anthropic.claude-opus-4-20250514-v1:0                              | $15                               | $75                                   | 200,000             |          128000     |
+| eu.anthropic.claude-sonnet-4-20250514-v1:0                            | $3                                | $15                                   | 200,000             |          128000     |
+| databricks/databricks-llama-4-maverick                                | $5                                | $15                                   | 128,000             |          128000     |
