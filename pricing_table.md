@@ -996,7 +996,7 @@
 | fireworks-ai-up-to-4b                                                 | $0.2                              | $0.2                                  | nan                 |             nan     |
 | fireworks-ai-4.1b-to-16b                                              | $0.2                              | $0.2                                  | nan                 |             nan     |
 | fireworks-ai-above-16b                                                | $0.9                              | $0.9                                  | nan                 |             nan     |
-| databricks/databricks-claude-3-7-sonnet                               | $2.5                              | $178.57                               | 200,000             |          128000     |
+| databricks/databricks-claude-3-7-sonnet                               | $2.5                              | $17.86                                | 200,000             |          128000     |
 | databricks/databricks-meta-llama-3-3-70b-instruct                     | $1                                | $3                                    | 128,000             |          128000     |
 | azure_ai/deepseek-v3-0324                                             | $1.14                             | $4.56                                 | 128,000             |            8192     |
 | azure_ai/Llama-4-Scout-17B-16E-Instruct                               | $0.2                              | $0.78                                 | 10,000,000          |           16384     |
@@ -1059,3 +1059,5 @@
 | sambanova/DeepSeek-V3-0324                                            | $3                                | $4.5                                  | 32,768              |           32768     |
 | featherless_ai/featherless-ai/Qwerky-72B                              | --                                | --                                    | 32,768              |            4096     |
 | featherless_ai/featherless-ai/Qwerky-QwQ-32B                          | --                                | --                                    | 32,768              |            4096     |
+| azure_ai/mistral-medium-2505                                          | $0.4                              | $2                                    | 131,072             |            8191     |
+| mistral/devstral-small-2505                                           | $0.1                              | $0.3                                  | 128,000             |          128000     |
