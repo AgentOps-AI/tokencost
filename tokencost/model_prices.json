@@ -12999,7 +12999,7 @@
         "max_output_tokens": 128000,
         "input_cost_per_token": 2.5e-06,
         "input_dbu_cost_per_token": 3.571e-05,
-        "output_cost_per_token": 0.00017857,
+        "output_cost_per_token": 1.7857e-05,
         "output_db_cost_per_token": 0.000214286,
         "litellm_provider": "databricks",
         "mode": "chat",
@@ -14031,5 +14031,30 @@
         "max_output_tokens": 4096,
         "litellm_provider": "featherless_ai",
         "mode": "chat"
+    },
+    "azure_ai/mistral-medium-2505": {
+        "max_tokens": 8191,
+        "max_input_tokens": 131072,
+        "max_output_tokens": 8191,
+        "input_cost_per_token": 4e-07,
+        "output_cost_per_token": 2e-06,
+        "litellm_provider": "azure_ai",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_assistant_prefill": true,
+        "supports_tool_choice": true
+    },
+    "mistral/devstral-small-2505": {
+        "max_tokens": 128000,
+        "max_input_tokens": 128000,
+        "max_output_tokens": 128000,
+        "input_cost_per_token": 1e-07,
+        "output_cost_per_token": 3e-07,
+        "litellm_provider": "mistral",
+        "mode": "chat",
+        "source": "https://mistral.ai/news/devstral",
+        "supports_function_calling": true,
+        "supports_assistant_prefill": true,
+        "supports_tool_choice": true
     }
 }
