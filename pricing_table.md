@@ -126,7 +126,7 @@
 | mistral/mistral-small                                                 | $0.1                              | $0.3                                  | 32,000              |            8191     |
 | mistral/mistral-small-latest                                          | $0.1                              | $0.3                                  | 32,000              |            8191     |
 | mistral/mistral-medium                                                | $2.7                              | $8.1                                  | 32,000              |            8191     |
-| mistral/mistral-medium-latest                                         | $2.7                              | $8.1                                  | 32,000              |            8191     |
+| mistral/mistral-medium-latest                                         | $0.4                              | $2                                    | 131,072             |            8191     |
 | mistral/mistral-medium-2312                                           | $2.7                              | $8.1                                  | 32,000              |            8191     |
 | mistral/mistral-large-latest                                          | $2                                | $6                                    | 128,000             |          128000     |
 | mistral/mistral-large-2402                                            | $4                                | $12                                   | 32,000              |            8191     |
@@ -1061,3 +1061,5 @@
 | featherless_ai/featherless-ai/Qwerky-QwQ-32B                          | --                                | --                                    | 32,768              |            4096     |
 | azure_ai/mistral-medium-2505                                          | $0.4                              | $2                                    | 131,072             |            8191     |
 | mistral/devstral-small-2505                                           | $0.1                              | $0.3                                  | 128,000             |          128000     |
+| gpt-4o-mini-audio-preview                                             | $0.15                             | $0.6                                  | 128,000             |           16384     |
+| mistral/mistral-medium-2505                                           | $0.4                              | $2                                    | 131,072             |            8191     |
