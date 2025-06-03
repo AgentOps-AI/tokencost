@@ -1063,3 +1063,4 @@
 | mistral/devstral-small-2505                                           | $0.1                              | $0.3                                  | 128,000             |          128000     |
 | gpt-4o-mini-audio-preview                                             | $0.15                             | $0.6                                  | 128,000             |           16384     |
 | mistral/mistral-medium-2505                                           | $0.4                              | $2                                    | 131,072             |            8191     |
+| embed-v4.0                                                            | $0.12                             | $0                                    | 1,024               |             nan     |
