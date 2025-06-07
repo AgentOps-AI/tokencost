@@ -729,9 +729,9 @@
 | rerank-v3.5                                                           | $0                                | $0                                    | 4,096               |            4096     |
 | openrouter/deepseek/deepseek-chat                                     | $0.14                             | $0.28                                 | 65,536              |            8192     |
 | openrouter/openai/o1                                                  | $15                               | $60                                   | 200,000             |          100000     |
-| amazon.nova-micro-v1:0                                                | $0.04                             | $0.14                                 | 300,000             |            4096     |
-| amazon.nova-lite-v1:0                                                 | $0.06                             | $0.24                                 | 128,000             |            4096     |
-| amazon.nova-pro-v1:0                                                  | $0.8                              | $3.2                                  | 300,000             |            4096     |
+| amazon.nova-micro-v1:0                                                | $0.04                             | $0.14                                 | 300,000             |           10000     |
+| amazon.nova-lite-v1:0                                                 | $0.06                             | $0.24                                 | 128,000             |           10000     |
+| amazon.nova-pro-v1:0                                                  | $0.8                              | $3.2                                  | 300,000             |           10000     |
 | meta.llama3-3-70b-instruct-v1:0                                       | $0.72                             | $0.72                                 | 128,000             |            4096     |
 | together_ai/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo               | $0.18                             | $0.18                                 | nan                 |             nan     |
 | together_ai/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo              | $0.88                             | $0.88                                 | nan                 |             nan     |
@@ -780,9 +780,9 @@
 | openrouter/deepseek/deepseek-r1                                       | $0.55                             | $2.19                                 | 65,336              |            8192     |
 | ai21.jamba-1-5-large-v1:0                                             | $2                                | $8                                    | 256,000             |          256000     |
 | ai21.jamba-1-5-mini-v1:0                                              | $0.2                              | $0.4                                  | 256,000             |          256000     |
-| us.amazon.nova-micro-v1:0                                             | $0.04                             | $0.14                                 | 300,000             |            4096     |
-| us.amazon.nova-lite-v1:0                                              | $0.06                             | $0.24                                 | 128,000             |            4096     |
-| us.amazon.nova-pro-v1:0                                               | $0.8                              | $3.2                                  | 300,000             |            4096     |
+| us.amazon.nova-micro-v1:0                                             | $0.04                             | $0.14                                 | 300,000             |           10000     |
+| us.amazon.nova-lite-v1:0                                              | $0.06                             | $0.24                                 | 128,000             |           10000     |
+| us.amazon.nova-pro-v1:0                                               | $0.8                              | $3.2                                  | 300,000             |           10000     |
 | stability.sd3-5-large-v1:0                                            | --                                | --                                    | 77                  |             nan     |
 | stability.stable-image-core-v1:0                                      | --                                | --                                    | 77                  |             nan     |
 | stability.stable-image-core-v1:1                                      | --                                | --                                    | 77                  |             nan     |
@@ -846,10 +846,10 @@
 | vertex_ai/imagen-3.0-generate-002                                     | --                                | --                                    | nan                 |             nan     |
 | jamba-large-1.6                                                       | $2                                | $8                                    | 256,000             |          256000     |
 | jamba-mini-1.6                                                        | $0.2                              | $0.4                                  | 256,000             |          256000     |
-| eu.amazon.nova-micro-v1:0                                             | $0.05                             | $0.18                                 | 300,000             |            4096     |
-| eu.amazon.nova-lite-v1:0                                              | $0.08                             | $0.31                                 | 128,000             |            4096     |
+| eu.amazon.nova-micro-v1:0                                             | $0.05                             | $0.18                                 | 300,000             |           10000     |
+| eu.amazon.nova-lite-v1:0                                              | $0.08                             | $0.31                                 | 128,000             |           10000     |
 | 1024-x-1024/50-steps/bedrock/amazon.nova-canvas-v1:0                  | --                                | --                                    | 2,600               |             nan     |
-| eu.amazon.nova-pro-v1:0                                               | $1.05                             | $4.2                                  | 300,000             |            4096     |
+| eu.amazon.nova-pro-v1:0                                               | $1.05                             | $4.2                                  | 300,000             |           10000     |
 | us.deepseek.r1-v1:0                                                   | $1.35                             | $5.4                                  | 128,000             |            4096     |
 | snowflake/deepseek-r1                                                 | --                                | --                                    | 32,768              |            8192     |
 | snowflake/snowflake-arctic                                            | --                                | --                                    | 4,096               |            8192     |
@@ -975,7 +975,7 @@
 | mistralai/mistral-small-3.1-24b-instruct                              | $0.1                              | $0.3                                  | nan                 |             nan     |
 | openrouter/openai/o3-mini                                             | $1.1                              | $4.4                                  | 128,000             |           65536     |
 | openrouter/openai/o3-mini-high                                        | $1.1                              | $4.4                                  | 128,000             |           65536     |
-| us.amazon.nova-premier-v1:0                                           | $2.5                              | $12.5                                 | 1,000,000           |            4096     |
+| us.amazon.nova-premier-v1:0                                           | $2.5                              | $12.5                                 | 1,000,000           |           10000     |
 | meta.llama4-maverick-17b-instruct-v1:0                                | $0.24                             | $0.97                                 | 128,000             |            4096     |
 | us.meta.llama4-maverick-17b-instruct-v1:0                             | $0.24                             | $0.97                                 | 128,000             |            4096     |
 | meta.llama4-scout-17b-instruct-v1:0                                   | $0.17                             | $0.66                                 | 128,000             |            4096     |
@@ -1070,3 +1070,7 @@
 | claude-4-sonnet-20250514                                              | $3                                | $15                                   | 200,000             |           64000     |
 | fireworks_ai/accounts/fireworks/models/llama-v3p2-90b-vision-instruct | $0.9                              | $0.9                                  | 16,384              |           16384     |
 | fireworks_ai/accounts/fireworks/models/deepseek-r1-0528               | $3                                | $8                                    | 160,000             |          160000     |
+| codex-mini-latest                                                     | $1.5                              | $6                                    | 200,000             |          100000     |
+| azure/codex-mini-latest                                               | $1.5                              | $6                                    | 200,000             |          100000     |
+| gemini-2.5-pro-preview-06-05                                          | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| gemini/gemini-2.5-pro-preview-06-05                                   | $1.25                             | $10                                   | 1,048,576           |           65535     |
