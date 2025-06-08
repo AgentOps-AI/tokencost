@@ -10,10 +10,14 @@ tokencost.refresh_prices(write_file=False)
 
 
 def diff_dicts(dict1, dict2):
-    diff_keys = dict1.keys() ^ dict2.keys()
-    differences = {k: (dict1.get(k), dict2.get(k)) for k in diff_keys}
+    # Filter out keys from dict1 that start with 'openai/'
+    dict1_filtered = {k: v for k, v in dict1.items() if not k.startswith('openai/')}
+    
+    diff_keys_initial = dict1_filtered.keys() ^ dict2.keys()
+    diff_keys = {k for k in diff_keys_initial if not k.startswith('openai/')}
+    differences = {k: (dict1_filtered.get(k), dict2.get(k)) for k in diff_keys}
     differences.update(
-        {k: (dict1[k], dict2[k]) for k in dict1 if k in dict2 and dict1[k] != dict2[k]}
+        {k: (dict1_filtered[k], dict2[k]) for k in dict1_filtered if k in dict2 and dict1_filtered[k] != dict2[k]}
     )
 
     if differences:
@@ -30,17 +34,33 @@ def diff_dicts(dict1, dict2):
 with open("tokencost/model_prices.json", "r") as f:
     model_prices = json.load(f)
 
-# Compare the refreshed TOKEN_COSTS with the file
+# Compare the refreshed TOKEN_COSTS with the file, ignoring "openai/" keys
 if diff_dicts(model_prices, tokencost.TOKEN_COSTS):
     print("Updating model_prices.json")
     with open("tokencost/model_prices.json", "w") as f:
         json.dump(tokencost.TOKEN_COSTS, f, indent=4)
     print("File updated successfully")
+    # Reload the prices after updating
+    with open("tokencost/model_prices.json", "r") as f:
+        model_prices = json.load(f)
 else:
     print("File is already up to date")
 
+# Add/overwrite the "openai/" keys from the unprefixed keys in the final price list
+openai_models = {key: value for key, value in model_prices.items() if value.get("litellm_provider") == "openai"}
+
+for key, value in openai_models.items():
+    if not key.startswith('openai/'):
+        new_key = f"openai/{key}"
+        model_prices[new_key] = value
+
+# Write the final, consistent data back to the file
+print("Adding 'openai/' pre-fixed models to model_prices.json")
+with open("tokencost/model_prices.json", "w") as f:
+    json.dump(model_prices, f, indent=4)
+
 # Load the data
-df = pd.DataFrame(tokencost.TOKEN_COSTS).T
+df = pd.DataFrame(model_prices).T
 df.loc[df.index[1:], "max_input_tokens"] = (
     df["max_input_tokens"].iloc[1:].apply(lambda x: "{:,.0f}".format(x))
 )
