@@ -1181,3 +1181,5 @@
 | openai/gpt-4o-mini-tts                                                | $2.5                              | $10                                   | nan                 |             nan     |
 | openai/gpt-4o-mini-audio-preview                                      | $0.15                             | $0.6                                  | 128,000             |           16384     |
 | openai/codex-mini-latest                                              | $1.5                              | $6                                    | 200,000             |          100000     |
+| gpt-4o-audio-preview-2025-06-03                                       | $2.5                              | $10                                   | 128,000             |           16384     |
+| openai/gpt-4o-audio-preview-2025-06-03                                | $2.5                              | $10                                   | 128,000             |           16384     |
