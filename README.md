@@ -122,7 +122,7 @@ For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), w
 Units denominated in USD. All prices can be located in `model_prices.json`.
 
 
-* Prices last updated Jan 30, 2024 from [LiteLLM's cost dictionary](https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json)
+* Prices last updated Jan 30, 2024 from [OpenRouter's model list](https://openrouter.ai/docs/api-reference/list-available-models). Use the optional `OPENROUTER_API_KEY` environment variable if authentication is needed when refreshing prices programmatically.
 
 | Model Name                                                            | Prompt Cost (USD) per 1M tokens   | Completion Cost (USD) per 1M tokens   | Max Prompt Tokens   |   Max Output Tokens |
 |:----------------------------------------------------------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|

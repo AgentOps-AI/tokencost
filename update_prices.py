@@ -4,7 +4,7 @@ from decimal import Decimal
 import json
 import re
 
-# Update model_prices.json with the latest costs from the LiteLLM cost tracker
+# Update model_prices.json with the latest costs from OpenRouter
 print("Fetching latest prices...")
 tokencost.refresh_prices(write_file=False)
 

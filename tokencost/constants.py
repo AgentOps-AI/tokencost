@@ -24,17 +24,26 @@ is considered a prompt (for the purpose of context) and will thus cost prompt to
 # Each completion token costs __ USD per token.
 # Max prompt limit of each model is __ tokens.
 
-PRICES_URL = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
+# Endpoint to fetch the latest model information from OpenRouter.
+# ``OPENROUTER_API_KEY`` may optionally be set for authentication. The static
+# ``model_prices.json`` data is used as a fallback when the request fails.
+PRICES_URL = "https://openrouter.ai/api/v1/models"
 
 
 async def fetch_costs():
-    """Fetch the latest token costs from the LiteLLM cost tracker asynchronously.
+    """Fetch the latest token costs from OpenRouter asynchronously.
+
     Returns:
         dict: The token costs for each model.
     Raises:
         Exception: If the request fails.
     """
-    async with aiohttp.ClientSession(trust_env=True) as session:
+    headers = {}
+    api_key = os.getenv("OPENROUTER_API_KEY")
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    async with aiohttp.ClientSession(headers=headers, trust_env=True) as session:
         async with session.get(PRICES_URL) as response:
             if response.status == 200:
                 return await response.json(content_type=None)
@@ -45,7 +54,7 @@ async def fetch_costs():
 
 
 async def update_token_costs():
-    """Update the TOKEN_COSTS dictionary with the latest costs from the LiteLLM cost tracker asynchronously."""
+    """Update :data:`TOKEN_COSTS` with the latest prices from OpenRouter."""
     global TOKEN_COSTS
     try:
         fetched_costs = await fetch_costs()
