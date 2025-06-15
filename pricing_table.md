@@ -1186,7 +1186,7 @@
 | o3-pro                                                                | $20                               | $80                                   | 200,000             |          100000     |
 | o3-pro-2025-06-10                                                     | $20                               | $80                                   | 200,000             |          100000     |
 | mistral/magistral-medium-2506                                         | $2                                | $5                                    | 40,000              |           40000     |
-| mistral/magistral-small-2506                                          | $0                                | $0                                    | 40,000              |           40000     |
+| mistral/magistral-small-2506                                          | $0.5                              | $1.5                                  | 40,000              |           40000     |
 | vertex_ai/claude-opus-4                                               | $15                               | $75                                   | 200,000             |           32000     |
 | vertex_ai/claude-sonnet-4                                             | $3                                | $15                                   | 200,000             |           64000     |
 | openai/o3-pro                                                         | $20                               | $80                                   | 200,000             |          100000     |
@@ -1229,3 +1229,9 @@
 | deepgram/whisper-large                                                | --                                | --                                    | nan                 |             nan     |
 | azure/gpt-4o-transcribe                                               | $2.5                              | $10                                   | 16,000              |            2000     |
 | azure/gpt-4o-mini-transcribe                                          | $1.25                             | $5                                    | 16,000              |            2000     |
+| mistral/magistral-medium-latest                                       | $2                                | $5                                    | 40,000              |           40000     |
+| mistral/magistral-small-latest                                        | $0.5                              | $1.5                                  | 40,000              |           40000     |
+| xai/grok-3-latest                                                     | $3                                | $15                                   | 131,072             |          131072     |
+| xai/grok-3-mini                                                       | $0.3                              | $0.5                                  | 131,072             |          131072     |
+| xai/grok-3-mini-latest                                                | $0.3                              | $0.5                                  | 131,072             |          131072     |
+| xai/grok-3-mini-fast                                                  | $0.6                              | $4                                    | 131,072             |          131072     |
