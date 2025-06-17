@@ -1235,3 +1235,6 @@
 | xai/grok-3-mini                                                       | $0.3                              | $0.5                                  | 131,072             |          131072     |
 | xai/grok-3-mini-latest                                                | $0.3                              | $0.5                                  | 131,072             |          131072     |
 | xai/grok-3-mini-fast                                                  | $0.6                              | $4                                    | 131,072             |          131072     |
+| vertex_ai/imagen-4.0-generate-preview-06-06                           | --                                | --                                    | nan                 |             nan     |
+| vertex_ai/imagen-4.0-ultra-generate-preview-06-06                     | --                                | --                                    | nan                 |             nan     |
+| vertex_ai/imagen-4.0-fast-generate-preview-06-06                      | --                                | --                                    | nan                 |             nan     |
