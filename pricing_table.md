@@ -1247,3 +1247,12 @@
 | openrouter/anthropic/claude-sonnet-4                                  | $3                                | $15                                   | 200,000             |            8192     |
 | gemini/gemini-2.5-flash                                               | $0.3                              | $2.5                                  | 1,048,576           |           65535     |
 | gemini/gemini-2.5-flash-lite-preview-06-17                            | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
+| gemini-2.5-pro                                                        | $1.25                             | $10                                   | 1,048,576           |           65535     |
+| apac.amazon.nova-micro-v1:0                                           | $0.04                             | $0.15                                 | 300,000             |           10000     |
+| apac.amazon.nova-lite-v1:0                                            | $0.06                             | $0.25                                 | 128,000             |           10000     |
+| apac.amazon.nova-pro-v1:0                                             | $0.84                             | $3.36                                 | 300,000             |           10000     |
+| apac.anthropic.claude-3-haiku-20240307-v1:0                           | $0.25                             | $1.25                                 | 200,000             |            4096     |
+| apac.anthropic.claude-3-sonnet-20240229-v1:0                          | $3                                | $15                                   | 200,000             |            4096     |
+| apac.anthropic.claude-3-5-sonnet-20240620-v1:0                        | $3                                | $15                                   | 200,000             |            4096     |
+| apac.anthropic.claude-3-5-sonnet-20241022-v2:0                        | $3                                | $15                                   | 200,000             |            8192     |
+| apac.anthropic.claude-sonnet-4-20250514-v1:0                          | $3                                | $15                                   | 200,000             |           64000     |
