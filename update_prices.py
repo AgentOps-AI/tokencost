@@ -2,7 +2,6 @@ import pandas as pd
 import tokencost
 from decimal import Decimal
 import json
-import re
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
 print("Fetching latest prices...")
