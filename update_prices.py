@@ -2,7 +2,6 @@ import pandas as pd
 import tokencost
 from decimal import Decimal
 import json
-import re
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
 print("Fetching latest prices...")
@@ -122,19 +121,4 @@ table_md = df[
 with open("pricing_table.md", "w") as f:
     f.write(table_md)
 
-# Read the README.md file
-with open("README.md", "r") as f:
-    readme_content = f.read()
-
-# Find and replace just the table in the README, preserving the header text
-# The regex pattern matches a markdown table starting with the "Model Name" header
-# and ending before the next markdown header. DOTALL mode is enabled to allow
-# the `.` character to match newline characters.
-table_pattern = r"(?s)\| Model Name.*?\n\n(?=#)"
-table_replacement = table_md
-
-updated_readme = re.sub(table_pattern, table_replacement, readme_content, flags=re.DOTALL)
-
-# Write the updated README
-with open("README.md", "w") as f:
-    f.write(updated_readme)
+print("Pricing table updated in pricing_table.md")
