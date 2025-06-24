@@ -1257,3 +1257,5 @@
 | apac.anthropic.claude-3-5-sonnet-20241022-v2:0                        | $3                                | $15                                   | 200,000             |            8192     |
 | apac.anthropic.claude-sonnet-4-20250514-v1:0                          | $3                                | $15                                   | 200,000             |           64000     |
 | azure/codex-mini                                                      | $1.5                              | $6                                    | 200,000             |          100000     |
+| openrouter/mistralai/mistral-small-3.1-24b-instruct                   | $0.1                              | $0.3                                  | nan                 |             nan     |
+| openrouter/mistralai/mistral-small-3.2-24b-instruct                   | $0.1                              | $0.3                                  | nan                 |             nan     |
