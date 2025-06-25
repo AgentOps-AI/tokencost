@@ -34,7 +34,8 @@ async def fetch_costs():
     Raises:
         Exception: If the request fails.
     """
-    async with aiohttp.ClientSession(trust_env=True) as session:
+    timeout = aiohttp.ClientTimeout(total=10)  # 10 seconds timeout
+    async with aiohttp.ClientSession(trust_env=True, timeout=timeout) as session:
         async with session.get(PRICES_URL) as response:
             if response.status == 200:
                 return await response.json(content_type=None)
