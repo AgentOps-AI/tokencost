@@ -1259,3 +1259,5 @@
 | azure/codex-mini                                                      | $1.5                              | $6                                    | 200,000             |          100000     |
 | openrouter/mistralai/mistral-small-3.1-24b-instruct                   | $0.1                              | $0.3                                  | nan                 |             nan     |
 | openrouter/mistralai/mistral-small-3.2-24b-instruct                   | $0.1                              | $0.3                                  | nan                 |             nan     |
+| azure/o3-pro                                                          | $20                               | $80                                   | 200,000             |          100000     |
+| azure/o3-pro-2025-06-10                                               | $20                               | $80                                   | 200,000             |          100000     |
