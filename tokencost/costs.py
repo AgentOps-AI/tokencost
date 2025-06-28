@@ -2,11 +2,10 @@
 Costs dictionary and utility tool for counting tokens
 """
 
-import os
 import tiktoken
 import anthropic
 from typing import Union, List, Dict, Literal
-from .constants import TOKEN_COSTS
+from .constants import TOKEN_COSTS, convert_usd_to_currency
 from decimal import Decimal
 import logging
 
@@ -53,7 +52,8 @@ def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int
         ]
     ):
         raise ValueError(
-            f"{model} is not supported in token counting (beta) API. Use the `usage` property in the response for exact counts."
+            f"{model} is not supported in token counting (beta) API. "
+            f"Use the `usage` property in the response for exact counts."
         )
     try:
         return (
@@ -173,7 +173,8 @@ def count_string_tokens(prompt: str, model: str) -> int:
 
     if "claude-" in model:
         raise ValueError(
-            "Warning: Anthropic does not support this method. Please use the `count_message_tokens` function for the exact counts."
+            "Warning: Anthropic does not support this method. "
+            "Please use the `count_message_tokens` function for the exact counts."
         )
 
     try:
@@ -185,7 +186,7 @@ def count_string_tokens(prompt: str, model: str) -> int:
     return len(encoding.encode(prompt))
 
 
-def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType) -> Decimal:
+def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType, currency: str = "USD") -> Decimal:
     """
     Calculate the cost based on the number of tokens and the model.
 
@@ -193,9 +194,10 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType)
         num_tokens (int): The number of tokens.
         model (str): The model name.
         token_type (str): Type of token ('input' or 'output').
+        currency (str): Target currency for cost calculation (default: "USD").
 
     Returns:
-        Decimal: The calculated cost in USD.
+        Decimal: The calculated cost in the specified currency.
     """
     model = model.lower()
     if model not in TOKEN_COSTS:
@@ -210,19 +212,29 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType)
     except KeyError:
         raise KeyError(f"Model {model} does not have cost data for `{token_type}` tokens.")
 
-    return Decimal(str(cost_per_token)) * Decimal(num_tokens)
+    usd_cost = Decimal(str(cost_per_token)) * Decimal(num_tokens)
+
+    if currency.upper() == "USD":
+        return usd_cost
+
+    try:
+        return convert_usd_to_currency(usd_cost, currency.upper())
+    except Exception as e:
+        logger.warning(f"Currency conversion failed for {currency}, returning USD cost: {e}")
+        return usd_cost
 
 
-def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal:
+def calculate_prompt_cost(prompt: Union[List[dict], str], model: str, currency: str = "USD") -> Decimal:
     """
-    Calculate the prompt's cost in USD.
+    Calculate the prompt's cost in the specified currency.
 
     Args:
         prompt (Union[List[dict], str]): List of message objects or single string prompt.
         model (str): The model name.
+        currency (str): Target currency for cost calculation (default: "USD").
 
     Returns:
-        Decimal: The calculated cost in USD.
+        Decimal: The calculated cost in the specified currency.
 
     e.g.:
     >>> prompt = [{ "role": "user", "content": "Hello world"},
@@ -231,8 +243,8 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     Decimal('0.0000300')
     # or
     >>> prompt = "Hello world"
-    >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo")
-    Decimal('0.0000030')
+    >>> calculate_prompt_cost(prompt, "gpt-3.5-turbo", currency="EUR")
+    Decimal('0.0000027')
     """
     model = model.lower()
     model = strip_ft_model_name(model)
@@ -251,24 +263,27 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
         else count_message_tokens(prompt, model)
     )
 
-    return calculate_cost_by_tokens(prompt_tokens, model, "input")
+    return calculate_cost_by_tokens(prompt_tokens, model, "input", currency)
 
 
-def calculate_completion_cost(completion: str, model: str) -> Decimal:
+def calculate_completion_cost(completion: str, model: str, currency: str = "USD") -> Decimal:
     """
-    Calculate the prompt's cost in USD.
+    Calculate the completion's cost in the specified currency.
 
     Args:
         completion (str): Completion string.
         model (str): The model name.
+        currency (str): Target currency for cost calculation (default: "USD").
 
     Returns:
-        Decimal: The calculated cost in USD.
+        Decimal: The calculated cost in the specified currency.
 
     e.g.:
     >>> completion = "How may I assist you today?"
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
     Decimal('0.000014')
+    >>> calculate_completion_cost(completion, "gpt-3.5-turbo", currency="EUR")
+    Decimal('0.000013')
     """
     model = strip_ft_model_name(model)
     if model not in TOKEN_COSTS:
@@ -289,31 +304,36 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     else:
         completion_tokens = count_string_tokens(completion, model)
 
-    return calculate_cost_by_tokens(completion_tokens, model, "output")
+    return calculate_cost_by_tokens(completion_tokens, model, "output", currency)
 
 
 def calculate_all_costs_and_tokens(
-    prompt: Union[List[dict], str], completion: str, model: str
+    prompt: Union[List[dict], str], completion: str, model: str, currency: str = "USD"
 ) -> dict:
     """
-    Calculate the prompt and completion costs and tokens in USD.
+    Calculate the prompt and completion costs and tokens in the specified currency.
 
     Args:
         prompt (Union[List[dict], str]): List of message objects or single string prompt.
         completion (str): Completion string.
         model (str): The model name.
+        currency (str): Target currency for cost calculation (default: "USD").
 
     Returns:
-        dict: The calculated cost and tokens in USD.
+        dict: The calculated cost and tokens in the specified currency.
 
     e.g.:
     >>> prompt = "Hello world"
     >>> completion = "How may I assist you today?"
     >>> calculate_all_costs_and_tokens(prompt, completion, "gpt-3.5-turbo")
-    {'prompt_cost': Decimal('0.0000030'), 'prompt_tokens': 2, 'completion_cost': Decimal('0.000014'), 'completion_tokens': 7}
+    {'prompt_cost': Decimal('0.0000030'), 'prompt_tokens': 2,
+     'completion_cost': Decimal('0.000014'), 'completion_tokens': 7}
+    >>> calculate_all_costs_and_tokens(prompt, completion, "gpt-3.5-turbo", currency="EUR")
+    {'prompt_cost': Decimal('0.0000027'), 'prompt_tokens': 2,
+     'completion_cost': Decimal('0.000013'), 'completion_tokens': 7}
     """
-    prompt_cost = calculate_prompt_cost(prompt, model)
-    completion_cost = calculate_completion_cost(completion, model)
+    prompt_cost = calculate_prompt_cost(prompt, model, currency)
+    completion_cost = calculate_completion_cost(completion, model, currency)
     prompt_tokens = (
         count_string_tokens(prompt, model)
         if isinstance(prompt, str) and "claude-" not in model

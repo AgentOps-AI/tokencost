@@ -15,7 +15,9 @@ from tokencost.costs import (
     calculate_cost_by_tokens,
     calculate_prompt_cost,
     calculate_completion_cost,
+    calculate_all_costs_and_tokens,
 )
+from tokencost.constants import get_supported_currencies
 
 # 15 tokens
 MESSAGES = [
@@ -271,3 +273,111 @@ def test_calculate_cached_tokens_cost():
     # Assert that the costs match
     assert actual_cost == expected_cost
     assert actual_cost > 0, "Cache token cost should be greater than zero"
+
+
+class TestCurrencySupport:
+    """Test currency conversion functionality."""
+
+    def test_get_supported_currencies(self):
+        """Test that supported currencies are returned correctly."""
+        currencies = get_supported_currencies()
+        assert isinstance(currencies, list)
+        assert "USD" in currencies
+        assert "EUR" in currencies
+
+    def test_calculate_prompt_cost_eur(self):
+        """Test prompt cost calculation in EUR."""
+        prompt = "Hello world"
+        model = "gpt-3.5-turbo"
+        
+        usd_cost = calculate_prompt_cost(prompt, model, currency="USD")
+        eur_cost = calculate_prompt_cost(prompt, model, currency="EUR")
+        
+        assert isinstance(usd_cost, Decimal)
+        assert isinstance(eur_cost, Decimal)
+        assert usd_cost > 0
+        assert eur_cost > 0
+        # EUR cost should be different from USD cost (unless exchange rate is exactly 1.0)
+        assert usd_cost != eur_cost or abs(usd_cost - eur_cost) < Decimal("0.000001")
+
+    def test_calculate_completion_cost_eur(self):
+        """Test completion cost calculation in EUR."""
+        completion = "Hello world"
+        model = "gpt-3.5-turbo"
+        
+        usd_cost = calculate_completion_cost(completion, model, currency="USD")
+        eur_cost = calculate_completion_cost(completion, model, currency="EUR")
+        
+        assert isinstance(usd_cost, Decimal)
+        assert isinstance(eur_cost, Decimal)
+        assert usd_cost > 0
+        assert eur_cost > 0
+
+    def test_calculate_cost_by_tokens_eur(self):
+        """Test cost calculation by tokens in EUR."""
+        num_tokens = 100
+        model = "gpt-3.5-turbo"
+        token_type = "input"
+        
+        usd_cost = calculate_cost_by_tokens(num_tokens, model, token_type, currency="USD")
+        eur_cost = calculate_cost_by_tokens(num_tokens, model, token_type, currency="EUR")
+        
+        assert isinstance(usd_cost, Decimal)
+        assert isinstance(eur_cost, Decimal)
+        assert usd_cost > 0
+        assert eur_cost > 0
+
+    def test_calculate_all_costs_and_tokens_eur(self):
+        """Test all costs and tokens calculation in EUR."""
+        prompt = "Hello world"
+        completion = "Hi there!"
+        model = "gpt-3.5-turbo"
+        
+        usd_result = calculate_all_costs_and_tokens(prompt, completion, model, currency="USD")
+        eur_result = calculate_all_costs_and_tokens(prompt, completion, model, currency="EUR")
+        
+        # Check structure
+        for result in [usd_result, eur_result]:
+            assert "prompt_cost" in result
+            assert "prompt_tokens" in result
+            assert "completion_cost" in result
+            assert "completion_tokens" in result
+            assert isinstance(result["prompt_cost"], Decimal)
+            assert isinstance(result["completion_cost"], Decimal)
+            assert isinstance(result["prompt_tokens"], int)
+            assert isinstance(result["completion_tokens"], int)
+        
+        # Token counts should be the same
+        assert usd_result["prompt_tokens"] == eur_result["prompt_tokens"]
+        assert usd_result["completion_tokens"] == eur_result["completion_tokens"]
+
+    def test_currency_case_insensitive(self):
+        """Test that currency parameter is case insensitive."""
+        prompt = "Hello world"
+        model = "gpt-3.5-turbo"
+        
+        eur_upper = calculate_prompt_cost(prompt, model, currency="EUR")
+        eur_lower = calculate_prompt_cost(prompt, model, currency="eur")
+        
+        assert eur_upper == eur_lower
+
+    def test_invalid_currency_fallback(self):
+        """Test that invalid currency falls back to USD."""
+        prompt = "Hello world"
+        model = "gpt-3.5-turbo"
+        
+        usd_cost = calculate_prompt_cost(prompt, model, currency="USD")
+        invalid_cost = calculate_prompt_cost(prompt, model, currency="INVALID")
+        
+        # Should fallback to USD cost
+        assert usd_cost == invalid_cost
+
+    def test_default_currency_is_usd(self):
+        """Test that default currency behavior is preserved (USD)."""
+        prompt = "Hello world"
+        model = "gpt-3.5-turbo"
+        
+        default_cost = calculate_prompt_cost(prompt, model)
+        usd_cost = calculate_prompt_cost(prompt, model, currency="USD")
+        
+        assert default_cost == usd_cost
