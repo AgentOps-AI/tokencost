@@ -1261,3 +1261,11 @@
 | openrouter/mistralai/mistral-small-3.2-24b-instruct                   | $0.1                              | $0.3                                  | nan                 |             nan     |
 | azure/o3-pro                                                          | $20                               | $80                                   | 200,000             |          100000     |
 | azure/o3-pro-2025-06-10                                               | $20                               | $80                                   | 200,000             |          100000     |
+| o3-deep-research                                                      | $10                               | $40                                   | 200,000             |          100000     |
+| o3-deep-research-2025-06-26                                           | $10                               | $40                                   | 200,000             |          100000     |
+| o4-mini-deep-research                                                 | $2                                | $8                                    | 200,000             |          100000     |
+| o4-mini-deep-research-2025-06-26                                      | $2                                | $8                                    | 200,000             |          100000     |
+| openai/o3-deep-research                                               | $10                               | $40                                   | 200,000             |          100000     |
+| openai/o3-deep-research-2025-06-26                                    | $10                               | $40                                   | 200,000             |          100000     |
+| openai/o4-mini-deep-research                                          | $2                                | $8                                    | 200,000             |          100000     |
+| openai/o4-mini-deep-research-2025-06-26                               | $2                                | $8                                    | 200,000             |          100000     |
