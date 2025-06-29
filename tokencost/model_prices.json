@@ -17788,5 +17788,66 @@
         "supports_system_messages": true,
         "supports_tool_choice": true,
         "supports_native_streaming": true
+    },
+    "deepseek/deepseek-r1": {
+        "max_tokens": 8192,
+        "max_input_tokens": 65536,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 5.5e-07,
+        "input_cost_per_token_cache_hit": 1.4e-07,
+        "output_cost_per_token": 2.19e-06,
+        "litellm_provider": "deepseek",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_assistant_prefill": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "supports_prompt_caching": true
+    },
+    "deepseek/deepseek-v3": {
+        "max_tokens": 8192,
+        "max_input_tokens": 65536,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 2.7e-07,
+        "input_cost_per_token_cache_hit": 7e-08,
+        "cache_read_input_token_cost": 7e-08,
+        "cache_creation_input_token_cost": 0.0,
+        "output_cost_per_token": 1.1e-06,
+        "litellm_provider": "deepseek",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_assistant_prefill": true,
+        "supports_tool_choice": true,
+        "supports_prompt_caching": true
+    },
+    "elevenlabs/scribe_v1": {
+        "mode": "audio_transcription",
+        "input_cost_per_second": 6.11e-05,
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "elevenlabs",
+        "supported_endpoints": [
+            "/v1/audio/transcriptions"
+        ],
+        "source": "https://elevenlabs.io/pricing",
+        "metadata": {
+            "original_pricing_per_hour": 0.22,
+            "calculation": "$0.22/hour = $0.00366/minute = $0.0000611 per second (enterprise pricing)",
+            "notes": "ElevenLabs Scribe v1 - state-of-the-art speech recognition model with 99 language support"
+        }
+    },
+    "elevenlabs/scribe_v1_experimental": {
+        "mode": "audio_transcription",
+        "input_cost_per_second": 6.11e-05,
+        "output_cost_per_second": 0.0,
+        "litellm_provider": "elevenlabs",
+        "supported_endpoints": [
+            "/v1/audio/transcriptions"
+        ],
+        "source": "https://elevenlabs.io/pricing",
+        "metadata": {
+            "original_pricing_per_hour": 0.22,
+            "calculation": "$0.22/hour = $0.00366/minute = $0.0000611 per second (enterprise pricing)",
+            "notes": "ElevenLabs Scribe v1 experimental - enhanced version of the main Scribe model"
+        }
     }
 }
