@@ -1269,3 +1269,7 @@
 | openai/o3-deep-research-2025-06-26                                    | $10                               | $40                                   | 200,000             |          100000     |
 | openai/o4-mini-deep-research                                          | $2                                | $8                                    | 200,000             |          100000     |
 | openai/o4-mini-deep-research-2025-06-26                               | $2                                | $8                                    | 200,000             |          100000     |
+| deepseek/deepseek-r1                                                  | $0.55                             | $2.19                                 | 65,536              |            8192     |
+| deepseek/deepseek-v3                                                  | $0.27                             | $1.1                                  | 65,536              |            8192     |
+| elevenlabs/scribe_v1                                                  | --                                | --                                    | nan                 |             nan     |
+| elevenlabs/scribe_v1_experimental                                     | --                                | --                                    | nan                 |             nan     |
