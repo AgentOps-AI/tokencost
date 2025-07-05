@@ -1273,3 +1273,4 @@
 | deepseek/deepseek-v3                                                  | $0.27                             | $1.1                                  | 65,536              |            8192     |
 | elevenlabs/scribe_v1                                                  | --                                | --                                    | nan                 |             nan     |
 | elevenlabs/scribe_v1_experimental                                     | --                                | --                                    | nan                 |             nan     |
+| azure_ai/cohere-rerank-v3.5                                           | $0                                | $0                                    | 4,096               |            4096     |
