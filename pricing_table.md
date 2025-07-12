@@ -1273,3 +1273,17 @@
 | deepseek/deepseek-v3                                                  | $0.27                             | $1.1                                  | 65,536              |            8192     |
 | elevenlabs/scribe_v1                                                  | --                                | --                                    | nan                 |             nan     |
 | elevenlabs/scribe_v1_experimental                                     | --                                | --                                    | nan                 |             nan     |
+| watsonx/mistralai/mistral-large                                       | $3                                | $10                                   | 131,072             |           16384     |
+| azure/o3-deep-research                                                | $10                               | $40                                   | 200,000             |          100000     |
+| azure_ai/cohere-rerank-v3.5                                           | $0                                | $0                                    | 4,096               |            4096     |
+| mistral/devstral-small-2507                                           | $0.1                              | $0.3                                  | 128,000             |          128000     |
+| mistral/devstral-medium-2507                                          | $0.4                              | $2                                    | 128,000             |          128000     |
+| xai/grok-4                                                            | $3                                | $15                                   | 256,000             |          256000     |
+| xai/grok-4-0709                                                       | $3                                | $15                                   | 256,000             |          256000     |
+| xai/grok-4-latest                                                     | $3                                | $15                                   | 256,000             |          256000     |
+| eu.mistral.pixtral-large-2502-v1:0                                    | $2                                | $6                                    | 128,000             |            4096     |
+| us.mistral.pixtral-large-2502-v1:0                                    | $2                                | $6                                    | 128,000             |            4096     |
+| dashscope/qwen-max                                                    | --                                | --                                    | 30,720              |            8192     |
+| dashscope/qwen-plus-latest                                            | --                                | --                                    | 129,024             |           16384     |
+| dashscope/qwen-turbo-latest                                           | --                                | --                                    | 129,024             |           16384     |
+| dashscope/qwen3-30b-a3b                                               | --                                | --                                    | 129,024             |           16384     |
