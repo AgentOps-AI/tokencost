@@ -67,7 +67,7 @@ jobs:
         delete-branch: true
         draft: false
         reviewers: |
-          the-praxs
+          dot-agi
         labels: |
           automated
           prices 
