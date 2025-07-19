@@ -1304,3 +1304,4 @@
 | moonshot/moonshot-v1-32k-0430                                         | --                                | --                                    | 32,768              |           32768     |
 | moonshot/moonshot-v1-128k-0430                                        | --                                | --                                    | 131,072             |          131072     |
 | moonshot/moonshot-v1-8k-0430                                          | --                                | --                                    | 8,192               |            8192     |
+| azure_ai/jais-30b-chat                                                | $3200                             | $9710                                 | 8,192               |            8192     |
