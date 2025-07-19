@@ -18318,5 +18318,15 @@
         "supports_tool_choice": true,
         "mode": "chat",
         "source": "https://platform.moonshot.ai/docs/pricing"
+    },
+    "azure_ai/jais-30b-chat": {
+        "max_tokens": 8192,
+        "max_input_tokens": 8192,
+        "max_output_tokens": 8192,
+        "input_cost_per_token": 0.0032,
+        "output_cost_per_token": 0.00971,
+        "litellm_provider": "azure_ai",
+        "mode": "chat",
+        "source": "https://azure.microsoft.com/en-us/products/ai-services/ai-foundry/models/jais-30b-chat"
     }
 }
