@@ -45,13 +45,15 @@ def get_anthropic_token_count(messages: List[Dict[str, str]], model: str) -> int
     if not any(
         supported_model in model
         for supported_model in [
+            "claude-opus-4",
+            "claude-sonnet-4",
             "claude-3-7-sonnet",
             "claude-3-5-sonnet",
             "claude-3-5-haiku",
             "claude-3-haiku",
             "claude-3-opus",
         ]
-    ):
+    ):  # As per https://docs.anthropic.com/en/docs/build-with-claude/token-counting#supported-models
         raise ValueError(
             f"{model} is not supported in token counting (beta) API. Use the `usage` property in the response for exact counts."
         )
