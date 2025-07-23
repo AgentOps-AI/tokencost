@@ -1365,3 +1365,8 @@
 | recraft/recraftv2                                                     | --                                | --                                    | nan                 |             nan     |
 | morph/morph-v3-fast                                                   | $0.8                              | $1.2                                  | 16,000              |           16000     |
 | morph/morph-v3-large                                                  | $0.9                              | $1.9                                  | 16,000              |           16000     |
+| gemini/gemini-2.0-flash-live-001                                      | $0.35                             | $1.5                                  | 1,048,576           |           65535     |
+| gemini-2.0-flash-live-preview-04-09                                   | $0.5                              | $2                                    | 1,048,576           |           65535     |
+| vertex_ai/meta/llama-3.1-8b-instruct-maas                             | $0                                | $0                                    | 128,000             |            2048     |
+| vertex_ai/meta/llama-3.1-70b-instruct-maas                            | $0                                | $0                                    | 128,000             |            2048     |
+| vertex_ai/meta/llama-3.1-405b-instruct-maas                           | $5                                | $16                                   | 128,000             |            2048     |
