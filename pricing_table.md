@@ -1386,3 +1386,5 @@
 | hyperbolic/meta-llama/Meta-Llama-3.1-405B-Instruct                    | $0.12                             | $0.3                                  | 32,768              |           32768     |
 | hyperbolic/meta-llama/Meta-Llama-3.1-8B-Instruct                      | $0.12                             | $0.3                                  | 32,768              |           32768     |
 | hyperbolic/meta-llama/Meta-Llama-3.1-70B-Instruct                     | $0.12                             | $0.3                                  | 32,768              |           32768     |
+| gemini/gemini-2.5-flash-lite                                          | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
+| gemini-2.5-flash-lite                                                 | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
