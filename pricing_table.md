@@ -1388,3 +1388,7 @@
 | hyperbolic/meta-llama/Meta-Llama-3.1-70B-Instruct                     | $0.12                             | $0.3                                  | 32,768              |           32768     |
 | gemini/gemini-2.5-flash-lite                                          | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
 | gemini-2.5-flash-lite                                                 | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
+| gpt-4o-realtime-preview-2025-06-03                                    | $5                                | $20                                   | 128,000             |            4096     |
+| openrouter/bytedance/ui-tars-1.5-7b                                   | $100000                           | $200000                               | 131,072             |            2048     |
+| openrouter/qwen/qwen3-coder                                           | $1                                | $5                                    | 1,000,000           |               1e+06 |
+| openai/gpt-4o-realtime-preview-2025-06-03                             | $5                                | $20                                   | 128,000             |            4096     |
