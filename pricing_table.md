@@ -1339,7 +1339,7 @@
 | moonshot/moonshot-v1-32k-vision-preview                               | $1                                | $3                                    | 32,768              |           32768     |
 | moonshot/moonshot-v1-128k-vision-preview                              | $2                                | $5                                    | 131,072             |          131072     |
 | groq/qwen/qwen3-32b                                                   | $0.29                             | $0.59                                 | 131,000             |          131000     |
-| openrouter/qwen/qwen-vl-plus                                          | $210                              | $630                                  | 8,192               |            2048     |
+| openrouter/qwen/qwen-vl-plus                                          | $0.21                             | $0.63                                 | 8,192               |            2048     |
 | fireworks_ai/accounts/fireworks/models/kimi-k2-instruct               | $0.6                              | $2.5                                  | 131,072             |           16384     |
 | lambda_ai/deepseek-llama3.3-70b                                       | $0.2                              | $0.6                                  | 131,072             |          131072     |
 | lambda_ai/deepseek-r1-0528                                            | $0.2                              | $0.6                                  | 131,072             |          131072     |
@@ -1389,6 +1389,6 @@
 | gemini/gemini-2.5-flash-lite                                          | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
 | gemini-2.5-flash-lite                                                 | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
 | gpt-4o-realtime-preview-2025-06-03                                    | $5                                | $20                                   | 128,000             |            4096     |
-| openrouter/bytedance/ui-tars-1.5-7b                                   | $100000                           | $200000                               | 131,072             |            2048     |
+| openrouter/bytedance/ui-tars-1.5-7b                                   | $0.1                              | $0.2                                  | 131,072             |            2048     |
 | openrouter/qwen/qwen3-coder                                           | $1                                | $5                                    | 1,000,000           |               1e+06 |
 | openai/gpt-4o-realtime-preview-2025-06-03                             | $5                                | $20                                   | 128,000             |            4096     |
