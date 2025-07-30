@@ -1392,3 +1392,10 @@
 | openrouter/bytedance/ui-tars-1.5-7b                                   | $0.1                              | $0.2                                  | 131,072             |            2048     |
 | openrouter/qwen/qwen3-coder                                           | $1                                | $5                                    | 1,000,000           |               1e+06 |
 | openai/gpt-4o-realtime-preview-2025-06-03                             | $5                                | $20                                   | 128,000             |            4096     |
+| gemini/imagen-4.0-generate-preview-06-06                              | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-4.0-ultra-generate-preview-06-06                        | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-4.0-fast-generate-preview-06-06                         | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-3.0-generate-002                                        | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-3.0-generate-001                                        | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-3.0-fast-generate-001                                   | --                                | --                                    | nan                 |             nan     |
+| openrouter/x-ai/grok-4                                                | $3                                | $15                                   | 256,000             |          256000     |
