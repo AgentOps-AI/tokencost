@@ -31,6 +31,7 @@ Building AI agents? Check out [AgentOps](https://agentops.ai/?tokencost)
 
 ### Features
 * **LLM Price Tracking** Major LLM providers frequently add new models and update pricing. This repo helps track the latest price changes
+* **Multi-Currency Support** Calculate costs in USD or EUR with real-time exchange rates
 * **Token counting** Accurately count prompt tokens before sending OpenAI requests
 * **Easy integration** Get the cost of a prompt or completion with a single function
 
@@ -48,6 +49,13 @@ completion_cost = calculate_completion_cost(completion, model)
 
 print(f"{prompt_cost} + {completion_cost} = {prompt_cost + completion_cost}")
 # 0.0000135 + 0.000014 = 0.0000275
+
+# Calculate costs in EUR
+prompt_cost_eur = calculate_prompt_cost(prompt, model, currency="EUR")
+completion_cost_eur = calculate_completion_cost(completion, model, currency="EUR")
+
+print(f"EUR: {prompt_cost_eur} + {completion_cost_eur} = {prompt_cost_eur + completion_cost_eur}")
+# EUR: 0.0000121 + 0.000013 = 0.0000251
 ```
 
 ## Installation
@@ -93,6 +101,11 @@ model= "gpt-3.5-turbo"
 prompt_cost = calculate_prompt_cost(prompt_string, model)
 print(f"Cost: ${prompt_cost}")
 # Cost: $3e-06
+
+# Calculate in EUR
+prompt_cost_eur = calculate_prompt_cost(prompt_string, model, currency="EUR")
+print(f"Cost: €{prompt_cost_eur}")
+# Cost: €2.7e-06
 ```
 
 **Counting tokens**
@@ -117,6 +130,30 @@ Under the hood, strings and ChatML messages are tokenized using [Tiktoken](https
 
 For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), we use the [Anthropic beta token counting API](https://docs.anthropic.com/claude/docs/beta-api-for-counting-tokens) to ensure accurate token counts. For older Claude models, we approximate using Tiktoken with the cl100k_base encoding.
 
+
+## Multi-Currency Support
+
+TokenCost supports cost calculations in multiple currencies:
+
+```python
+from tokencost import get_supported_currencies, calculate_prompt_cost
+
+# Check supported currencies
+print(get_supported_currencies())
+# ['USD', 'EUR']
+
+# Calculate costs in different currencies
+prompt = "Hello world"
+model = "gpt-3.5-turbo"
+
+usd_cost = calculate_prompt_cost(prompt, model, currency="USD")
+eur_cost = calculate_prompt_cost(prompt, model, currency="EUR")
+
+print(f"USD: ${usd_cost}")
+print(f"EUR: €{eur_cost}")
+```
+
+Currency conversion uses real-time exchange rates from the European Central Bank, updated daily.
 
 ## Cost table
 Units denominated in USD. All prices can be located [here](pricing_table.md).
