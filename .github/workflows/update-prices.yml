@@ -68,6 +68,7 @@ jobs:
         draft: false
         reviewers: |
           dot-agi
+          bboynton97
         labels: |
           automated
           prices 
