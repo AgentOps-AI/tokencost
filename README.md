@@ -120,3 +120,23 @@ For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), w
 
 ## Cost table
 Units denominated in USD. All prices can be located [here](pricing_table.md).
+
+<details>
+<summary>📊 View Full Pricing Table</summary>
+
+| Model Name             | Prompt Cost (USD) per 1M tokens   | Completion Cost (USD) per 1M tokens   | Max Prompt Tokens   |   Max Output Tokens |
+|:-----------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|
+| gpt-4                  | $30                               | $60                                   | 8192                |                4096 |
+| gpt-4o                 | $2.5                              | $10                                   | 128,000             |               16384 |
+| gpt-4o-mini            | $0.15                             | $0.6                                  | 128,000             |               16384 |
+| o1-mini                | $1.1                              | $4.4                                  | 128,000             |               65536 |
+| o1-preview             | $15                               | $60                                   | 128,000             |               32768 |
+| gpt-3.5-turbo          | $1.5                              | $2                                    | 16,385              |                4096 |
+| gpt-3.5-turbo-0125     | $0.5                              | $1.5                                  | 16,385              |                4096 |
+| text-embedding-3-large | $0.13                             | $0                                    | 8,191               |                 nan |
+| text-embedding-3-small | $0.02                             | $0                                    | 8,191               |                 nan |
+| text-embedding-ada-002 | $0.1                              | $0                                    | 8,191               |                 nan |
+
+*For the complete pricing table with all models, see [pricing_table.md](pricing_table.md)*
+
+</details>
