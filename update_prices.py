@@ -122,3 +122,71 @@ with open("pricing_table.md", "w") as f:
     f.write(table_md)
 
 print("Pricing table updated in pricing_table.md")
+
+# Update the README.md with the pricing table
+def update_readme_pricing_table():
+    """Update the pricing table in README.md with the latest data"""
+    # Read the current README
+    with open("README.md", "r") as f:
+        readme_content = f.read()
+    
+    # Create a summary table with key models for the README
+    # Filter for the most important models to keep the README table manageable
+    important_models = [
+        'gpt-4', 'gpt-4o', 'gpt-4o-mini', 'gpt-3.5-turbo', 'gpt-3.5-turbo-0125',
+        'o1-mini', 'o1-preview', 'text-embedding-3-large', 'text-embedding-3-small', 
+        'text-embedding-ada-002'
+    ]
+    
+    # Filter the dataframe for important models
+    summary_df = df[df.index.isin(important_models)]
+    
+    # Generate the summary table
+    summary_table_md = summary_df[
+        [
+            "Model Name",
+            "Prompt Cost (USD) per 1M tokens",
+            "Completion Cost (USD) per 1M tokens",
+            "Max Prompt Tokens",
+            "Max Output Tokens",
+        ]
+    ].to_markdown(index=False)
+    
+    # Create the new pricing table section
+    new_pricing_section = f"""## Cost table
+Units denominated in USD. All prices can be located [here](pricing_table.md).
+
+<details>
+<summary>📊 View Full Pricing Table</summary>
+
+{summary_table_md}
+
+*For the complete pricing table with all models, see [pricing_table.md](pricing_table.md)*
+
+</details>"""
+    
+    # Find and replace the existing pricing table section
+    import re
+    pattern = r'## Cost table\nUnits denominated in USD\. All prices can be located \[here\]\(pricing_table\.md\)\.\n\n<details>\n<summary>📊 View Full Pricing Table</summary>\n\n.*?\n\n\*For the complete pricing table with all models, see \[pricing_table\.md\]\(pricing_table\.md\)\*\n\n</details>'
+    
+    if re.search(pattern, readme_content, re.DOTALL):
+        # Replace existing section
+        updated_readme = re.sub(pattern, new_pricing_section, readme_content, flags=re.DOTALL)
+    else:
+        # If no existing section found, add it before the end of the file
+        # Find the last section and add before it
+        lines = readme_content.split('\n')
+        for i in range(len(lines) - 1, -1, -1):
+            if lines[i].startswith('## '):
+                lines.insert(i, new_pricing_section)
+                break
+        updated_readme = '\n'.join(lines)
+    
+    # Write the updated README
+    with open("README.md", "w") as f:
+        f.write(updated_readme)
+    
+    print("Pricing table updated in README.md")
+
+# Update the README
+update_readme_pricing_table()
