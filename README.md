@@ -120,3 +120,6 @@ For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), w
 
 ## Cost table
 Units denominated in USD. All prices can be located [here](pricing_table.md).
+
+<!-- PRICING_TABLE_START -->
+<!-- PRICING_TABLE_END -->

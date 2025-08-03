@@ -2,6 +2,7 @@ import pandas as pd
 import tokencost
 from decimal import Decimal
 import json
+import re
 
 # Update model_prices.json with the latest costs from the LiteLLM cost tracker
 print("Fetching latest prices...")
@@ -122,3 +123,32 @@ with open("pricing_table.md", "w") as f:
     f.write(table_md)
 
 print("Pricing table updated in pricing_table.md")
+
+
+# --- Update README.md with the latest pricing table ---
+start_marker = "<!-- PRICING_TABLE_START -->"
+end_marker = "<!-- PRICING_TABLE_END -->"
+
+try:
+    with open("README.md", "r") as f:
+        readme_content = f.read()
+
+    table_block = f"{start_marker}\n\n{table_md}\n\n{end_marker}"
+
+    if start_marker in readme_content and end_marker in readme_content:
+        # Replace the existing table block
+        pattern = re.compile(f"{re.escape(start_marker)}.*?{re.escape(end_marker)}", re.DOTALL)
+        updated_readme = pattern.sub(table_block, readme_content)
+    else:
+        # Attempt to insert after the cost table heading; else, append to the end
+        if "## Cost table" in readme_content:
+            updated_readme = readme_content.replace("## Cost table", f"## Cost table\n\n{table_block}")
+        else:
+            updated_readme = readme_content + "\n\n" + table_block
+
+    with open("README.md", "w") as f:
+        f.write(updated_readme)
+
+    print("Pricing table updated in README.md")
+except FileNotFoundError:
+    print("README.md not found. Skipping README update.")
