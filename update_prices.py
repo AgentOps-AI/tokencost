@@ -107,7 +107,9 @@ df["Model Name"] = df.index
 df.rename(columns=column_mapping, inplace=True)
 
 # Generate the markdown table
-table_md = df[
+from tabulate import tabulate
+
+table_data = df[
     [
         "Model Name",
         "Prompt Cost (USD) per 1M tokens",
@@ -115,10 +117,81 @@ table_md = df[
         "Max Prompt Tokens",
         "Max Output Tokens",
     ]
-].to_markdown(index=False)
+].values.tolist()
+
+headers = [
+    "Model Name",
+    "Prompt Cost (USD) per 1M tokens",
+    "Completion Cost (USD) per 1M tokens",
+    "Max Prompt Tokens",
+    "Max Output Tokens",
+]
+
+table_md = tabulate(table_data, headers=headers, tablefmt='pipe')
 
 # Write the markdown table to pricing_table.md for reference
 with open("pricing_table.md", "w") as f:
     f.write(table_md)
 
 print("Pricing table updated in pricing_table.md")
+
+# Now update the README.md file with the pricing table
+def update_readme_with_pricing_table(table_md):
+    """Update README.md by inserting the pricing table after the 'Cost table' section."""
+    with open("README.md", "r") as f:
+        readme_content = f.read()
+    
+    # Find the "Cost table" section
+    cost_table_marker = "## Cost table"
+    cost_table_index = readme_content.find(cost_table_marker)
+    
+    if cost_table_index == -1:
+        print("Warning: Could not find '## Cost table' section in README.md")
+        return
+    
+    # Find the end of the current cost table section (next ## heading or end of file)
+    lines = readme_content.split('\n')
+    cost_table_line = None
+    
+    for i, line in enumerate(lines):
+        if line.strip() == cost_table_marker:
+            cost_table_line = i
+            break
+    
+    if cost_table_line is None:
+        print("Warning: Could not locate cost table line in README.md")
+        return
+    
+    # Find the next section (line starting with ##) or end of file
+    next_section_line = len(lines)
+    for i in range(cost_table_line + 1, len(lines)):
+        if lines[i].strip().startswith("## ") and lines[i].strip() != cost_table_marker:
+            next_section_line = i
+            break
+    
+    # Build the new README content
+    new_lines = []
+    
+    # Add everything up to and including the cost table header
+    new_lines.extend(lines[:cost_table_line + 1])
+    
+    # Add the description line
+    new_lines.append("Units denominated in USD. All prices can be located [here](pricing_table.md).")
+    new_lines.append("")  # Empty line
+    
+    # Add the pricing table
+    new_lines.extend(table_md.split('\n'))
+    
+    # Add everything after the old cost table section
+    if next_section_line < len(lines):
+        new_lines.append("")  # Empty line before next section
+        new_lines.extend(lines[next_section_line:])
+    
+    # Write the updated README
+    with open("README.md", "w") as f:
+        f.write('\n'.join(new_lines))
+    
+    print("README.md updated with pricing table")
+
+# Update the README with the pricing table
+update_readme_with_pricing_table(table_md)
