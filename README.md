@@ -120,3 +120,18 @@ For Anthropic models above version 3 (i.e. Sonnet 3.5, Haiku 3.5, and Opus 3), w
 
 ## Cost table
 Units denominated in USD. All prices can be located [here](pricing_table.md).
+
+| Model Name                                                            | Prompt Cost (USD) per 1M tokens   | Completion Cost (USD) per 1M tokens   | Max Prompt Tokens   |   Max Output Tokens |
+|:----------------------------------------------------------------------|:----------------------------------|:--------------------------------------|:--------------------|--------------------:|
+| gpt-4                                                                 | $30                               | $60                                   | 8192                |            4096     |
+| gpt-4o                                                                | $2.5                              | $10                                   | 128,000             |           16384     |
+| gpt-4o-audio-preview                                                  | $2.5                              | $10                                   | 128,000             |           16384     |
+| gpt-4o-audio-preview-2024-10-01                                       | $2.5                              | $10                                   | 128,000             |           16384     |
+| gpt-4o-mini                                                           | $0.15                             | $0.6                                  | 128,000             |           16384     |
+| gpt-4o-mini-2024-07-18                                                | $0.15                             | $0.6                                  | 128,000             |           16384     |
+| o1-mini                                                               | $1.1                              | $4.4                                  | 128,000             |           65536     |
+| o1-mini-2024-09-12                                                    | $3                                | $12                                   | 128,000             |           65536     |
+| o1-preview                                                            | $15                               | $60                                   | 128,000             |           32768     |
+| o1-preview-2024-09-12                                                 | $15                               | $60                                   | 128,000             |           32768     |
+
+**Note:** This table shows a subset of available models. For the complete list of models and pricing, see [pricing_table.md](pricing_table.md).
