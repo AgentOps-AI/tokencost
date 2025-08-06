@@ -1399,3 +1399,11 @@
 | gemini/imagen-3.0-generate-001                                        | --                                | --                                    | nan                 |             nan     |
 | gemini/imagen-3.0-fast-generate-001                                   | --                                | --                                    | nan                 |             nan     |
 | openrouter/x-ai/grok-4                                                | $3                                | $15                                   | 256,000             |          256000     |
+| claude-opus-4-1-20250805                                              | $15                               | $75                                   | 200,000             |           32000     |
+| anthropic.claude-opus-4-1-20250805-v1:0                               | $15                               | $75                                   | 200,000             |           32000     |
+| us.anthropic.claude-opus-4-1-20250805-v1:0                            | $15                               | $75                                   | 200,000             |           32000     |
+| eu.anthropic.claude-opus-4-1-20250805-v1:0                            | $15                               | $75                                   | 200,000             |           32000     |
+| fireworks_ai/accounts/fireworks/models/glm-4p5                        | $0.55                             | $2.19                                 | 128,000             |           96000     |
+| fireworks_ai/accounts/fireworks/models/glm-4p5-air                    | $0.22                             | $0.88                                 | 128,000             |           96000     |
+| fireworks_ai/accounts/fireworks/models/gpt-oss-120b                   | $0.15                             | $0.6                                  | 131,072             |          131072     |
+| fireworks_ai/accounts/fireworks/models/gpt-oss-20b                    | $0.05                             | $0.2                                  | 131,072             |          131072     |
