@@ -1532,5 +1532,9 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | fireworks_ai/accounts/fireworks/models/glm-4p5-air                    | $0.22                             | $0.88                                 | 128,000             |           96000     |
 | fireworks_ai/accounts/fireworks/models/gpt-oss-120b                   | $0.15                             | $0.6                                  | 131,072             |          131072     |
 | fireworks_ai/accounts/fireworks/models/gpt-oss-20b                    | $0.05                             | $0.2                                  | 131,072             |          131072     |
+| vertex_ai/claude-opus-4-1                                             | $15                               | $75                                   | 200,000             |            4096     |
+| vertex_ai/claude-opus-4-1@20250805                                    | $15                               | $75                                   | 200,000             |            4096     |
+| openai.gpt-oss-20b-1:0                                                | $0.07                             | $0.3                                  | 200,000             |           32000     |
+| openai.gpt-oss-120b-1:0                                               | $0.15                             | $0.6                                  | 200,000             |           32000     |
 
 <!-- PRICING_TABLE_END -->
