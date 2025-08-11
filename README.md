@@ -1534,8 +1534,8 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | fireworks_ai/accounts/fireworks/models/gpt-oss-20b                    | $0.05                             | $0.2                                  | 131,072             |          131072     |
 | vertex_ai/claude-opus-4-1                                             | $15                               | $75                                   | 200,000             |            4096     |
 | vertex_ai/claude-opus-4-1@20250805                                    | $15                               | $75                                   | 200,000             |            4096     |
-| openai.gpt-oss-20b-1:0                                                | $0.07                             | $0.3                                  | 200,000             |           32000     |
-| openai.gpt-oss-120b-1:0                                               | $0.15                             | $0.6                                  | 200,000             |           32000     |
+| openai.gpt-oss-20b-1:0                                                | $0.07                             | $0.3                                  | 128,000             |          128000     |
+| openai.gpt-oss-120b-1:0                                               | $0.15                             | $0.6                                  | 128,000             |          128000     |
 | gpt-5                                                                 | $1.25                             | $10                                   | 400,000             |          128000     |
 | gpt-5-mini                                                            | $0.25                             | $2                                    | 400,000             |          128000     |
 | gpt-5-nano                                                            | $0.05                             | $0.4                                  | 400,000             |          128000     |
@@ -1550,8 +1550,8 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | azure/gpt-5-mini-2025-08-07                                           | $0.25                             | $2                                    | 272,000             |          128000     |
 | azure/gpt-5-nano-2025-08-07                                           | $0.05                             | $0.4                                  | 272,000             |          128000     |
 | azure/gpt-5-nano                                                      | $0.05                             | $0.4                                  | 272,000             |          128000     |
-| azure/gpt-5-chat                                                      | $1.25                             | $10                                   | 128,000             |          128000     |
-| azure/gpt-5-chat-latest                                               | $1.25                             | $10                                   | 128,000             |          128000     |
+| azure/gpt-5-chat                                                      | $1.25                             | $10                                   | 400,000             |          128000     |
+| azure/gpt-5-chat-latest                                               | $1.25                             | $10                                   | 400,000             |          128000     |
 | groq/openai/gpt-oss-20b                                               | $0.1                              | $0.5                                  | 131,072             |           32768     |
 | groq/openai/gpt-oss-120b                                              | $0.15                             | $0.75                                 | 131,072             |           32766     |
 | claude-opus-4-1                                                       | $15                               | $75                                   | 200,000             |           32000     |
@@ -1573,5 +1573,22 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | openai/gpt-5-2025-08-07                                               | $1.25                             | $10                                   | 400,000             |          128000     |
 | openai/gpt-5-mini-2025-08-07                                          | $0.25                             | $2                                    | 400,000             |          128000     |
 | openai/gpt-5-nano-2025-08-07                                          | $0.05                             | $0.4                                  | 400,000             |          128000     |
+| cerebras/openai/gpt-oss-20b                                           | $0.07                             | $0.3                                  | 131,072             |           32768     |
+| cerebras/openai/gpt-oss-120b                                          | $0.25                             | $0.69                                 | 131,072             |           32768     |
+| openrouter/openai/gpt-oss-20b                                         | $0.18                             | $0.8                                  | 131,072             |           32768     |
+| openrouter/openai/gpt-oss-120b                                        | $0.18                             | $0.8                                  | 131,072             |           32768     |
+| gradient_ai/anthropic-claude-3.7-sonnet                               | $3                                | $15                                   | nan                 |             nan     |
+| gradient_ai/anthropic-claude-3.5-sonnet                               | $3                                | $15                                   | nan                 |             nan     |
+| gradient_ai/anthropic-claude-3.5-haiku                                | $0.8                              | $4                                    | nan                 |             nan     |
+| gradient_ai/anthropic-claude-3-opus                                   | $15                               | $75                                   | nan                 |             nan     |
+| gradient_ai/deepseek-r1-distill-llama-70b                             | $0.99                             | $0.99                                 | nan                 |             nan     |
+| gradient_ai/llama3.3-70b-instruct                                     | $0.65                             | $0.65                                 | nan                 |             nan     |
+| gradient_ai/llama3-8b-instruct                                        | $0.2                              | $0.2                                  | nan                 |             nan     |
+| gradient_ai/mistral-nemo-instruct-2407                                | $0.3                              | $0.3                                  | nan                 |             nan     |
+| gradient_ai/openai-o3                                                 | $2                                | $8                                    | nan                 |             nan     |
+| gradient_ai/openai-o3-mini                                            | $1.1                              | $4.4                                  | nan                 |             nan     |
+| gradient_ai/openai-gpt-4o                                             | --                                | --                                    | nan                 |             nan     |
+| gradient_ai/openai-gpt-4o-mini                                        | --                                | --                                    | nan                 |             nan     |
+| gradient_ai/alibaba-qwen3-32b                                         | --                                | --                                    | nan                 |             nan     |
 
 <!-- PRICING_TABLE_END -->
