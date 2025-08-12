@@ -27,7 +27,8 @@ classifiers = [
 dependencies = [
     "tiktoken>=0.9.0",
     "aiohttp>=3.9.3",
-    "anthropic>=0.34.0"
+    "anthropic>=0.34.0",
+    "forex-python>=1.6"
 ]
 
 [project.optional-dependencies]
