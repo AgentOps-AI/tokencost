@@ -82,6 +82,17 @@ def strip_ft_model_name(model: str) -> str:
     return model
 
 
+def normalize_bedrock_model_name(model: str) -> str:
+    """
+    Normalize AWS Bedrock model names by removing the 'bedrock/' prefix.
+    Bedrock models format: bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0
+    The cost dictionary uses the format without 'bedrock/' prefix.
+    """
+    if model.startswith("bedrock/"):
+        model = model[8:]  # Remove 'bedrock/' prefix
+    return model
+
+
 def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     Return the total number of tokens in a prompt's messages.
@@ -95,6 +106,7 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     model = model.lower()
     model = strip_ft_model_name(model)
+    model = normalize_bedrock_model_name(model)
 
     # Anthropic token counting requires a valid API key
     if "claude-" in model:
@@ -169,6 +181,7 @@ def count_string_tokens(prompt: str, model: str) -> int:
         int: The number of tokens in the text string.
     """
     model = model.lower()
+    model = normalize_bedrock_model_name(model)
 
     if "/" in model:
         model = model.split("/")[-1]
@@ -200,6 +213,7 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType)
         Decimal: The calculated cost in USD.
     """
     model = model.lower()
+    model = normalize_bedrock_model_name(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
@@ -238,6 +252,7 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     """
     model = model.lower()
     model = strip_ft_model_name(model)
+    model = normalize_bedrock_model_name(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
@@ -272,7 +287,9 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     >>> calculate_completion_cost(completion, "gpt-3.5-turbo")
     Decimal('0.000014')
     """
+    model = model.lower()
     model = strip_ft_model_name(model)
+    model = normalize_bedrock_model_name(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
