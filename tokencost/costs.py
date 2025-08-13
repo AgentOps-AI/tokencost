@@ -82,6 +82,36 @@ def strip_ft_model_name(model: str) -> str:
     return model
 
 
+def find_bedrock_model_alias(model: str) -> str:
+    """
+    Find the correct model name for Bedrock models by checking common patterns.
+    This helps handle different naming conventions for the same model.
+    
+    Args:
+        model (str): The model name to check
+        
+    Returns:
+        str: The correct model name if found, otherwise the original model name
+    """
+    if not model.startswith("bedrock/"):
+        return model
+    
+    # Common Bedrock model patterns and their aliases
+    bedrock_aliases = {
+        # Claude 3.5 Sonnet patterns
+        "bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0": "bedrock/invoke/anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0": "bedrock/invoke/anthropic.claude-3-5-sonnet-20241022-v2:0",
+        "bedrock/anthropic.claude-3-5-sonnet-latest-v2:0": "bedrock/invoke/anthropic.claude-3-5-sonnet-latest-v2:0",
+        
+        # Claude 3 Haiku patterns
+        "bedrock/anthropic.claude-3-haiku-20240307-v1:0": "bedrock/invoke/anthropic.claude-3-haiku-20240307-v1:0",
+        
+        # Add more patterns as needed
+    }
+    
+    return bedrock_aliases.get(model, model)
+
+
 def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     """
     Return the total number of tokens in a prompt's messages.
@@ -200,6 +230,10 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType)
         Decimal: The calculated cost in USD.
     """
     model = model.lower()
+    
+    # Try to find Bedrock model alias
+    model = find_bedrock_model_alias(model)
+    
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
@@ -238,6 +272,10 @@ def calculate_prompt_cost(prompt: Union[List[dict], str], model: str) -> Decimal
     """
     model = model.lower()
     model = strip_ft_model_name(model)
+    
+    # Try to find Bedrock model alias
+    model = find_bedrock_model_alias(model)
+    
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
@@ -273,6 +311,10 @@ def calculate_completion_cost(completion: str, model: str) -> Decimal:
     Decimal('0.000014')
     """
     model = strip_ft_model_name(model)
+    
+    # Try to find Bedrock model alias
+    model = find_bedrock_model_alias(model)
+    
     if model not in TOKEN_COSTS:
         raise KeyError(
             f"""Model {model} is not implemented.
