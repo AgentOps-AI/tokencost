@@ -1465,3 +1465,4 @@
 | gradient_ai/openai-gpt-4o                                             | --                                | --                                    | nan                 |             nan     |
 | gradient_ai/openai-gpt-4o-mini                                        | --                                | --                                    | nan                 |             nan     |
 | gradient_ai/alibaba-qwen3-32b                                         | --                                | --                                    | nan                 |             nan     |
+| vertex_ai/deepseek-ai/deepseek-r1-0528-maas                           | $1.35                             | $5.4                                  | 65,336              |            8192     |
