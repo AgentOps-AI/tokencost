@@ -1591,5 +1591,8 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | gradient_ai/openai-gpt-4o-mini                                        | --                                | --                                    | nan                 |             nan     |
 | gradient_ai/alibaba-qwen3-32b                                         | --                                | --                                    | nan                 |             nan     |
 | vertex_ai/deepseek-ai/deepseek-r1-0528-maas                           | $1.35                             | $5.4                                  | 65,336              |            8192     |
+| azure_ai/FLUX-1.1-pro                                                 | --                                | --                                    | nan                 |             nan     |
+| azure_ai/FLUX.1-Kontext-pro                                           | --                                | --                                    | nan                 |             nan     |
+| openrouter/deepseek/deepseek-chat-v3-0324                             | $0.14                             | $0.28                                 | 65,536              |            8192     |
 
 <!-- PRICING_TABLE_END -->
