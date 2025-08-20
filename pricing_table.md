@@ -1244,7 +1244,7 @@
 | openrouter/deepseek/deepseek-r1-0528                                  | $0.5                              | $2.15                                 | 65,336              |            8192     |
 | openrouter/google/gemini-2.5-pro                                      | $1.25                             | $10                                   | 1,048,576           |            8192     |
 | openrouter/google/gemini-2.5-flash                                    | $0.3                              | $2.5                                  | 1,048,576           |            8192     |
-| openrouter/anthropic/claude-sonnet-4                                  | $3                                | $15                                   | 200,000             |            8192     |
+| openrouter/anthropic/claude-sonnet-4                                  | $3                                | $15                                   | 200,000             |           64000     |
 | gemini/gemini-2.5-flash                                               | $0.3                              | $2.5                                  | 1,048,576           |           65535     |
 | gemini/gemini-2.5-flash-lite-preview-06-17                            | $0.1                              | $0.4                                  | 1,048,576           |           65535     |
 | gemini-2.5-pro                                                        | $1.25                             | $10                                   | 1,048,576           |           65535     |
