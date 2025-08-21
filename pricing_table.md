@@ -1067,7 +1067,7 @@
 | cerebras/qwen-3-32b                                                   | $0.4                              | $0.8                                  | 128,000             |          128000     |
 | gemini-embedding-001                                                  | $0.15                             | $0                                    | 2,048               |             nan     |
 | claude-4-opus-20250514                                                | $15                               | $75                                   | 200,000             |           32000     |
-| claude-4-sonnet-20250514                                              | $3                                | $15                                   | 200,000             |           64000     |
+| claude-4-sonnet-20250514                                              | $3                                | $15                                   | 1,000,000           |               1e+06 |
 | fireworks_ai/accounts/fireworks/models/llama-v3p2-90b-vision-instruct | $0.9                              | $0.9                                  | 16,384              |           16384     |
 | fireworks_ai/accounts/fireworks/models/deepseek-r1-0528               | $3                                | $8                                    | 160,000             |          160000     |
 | codex-mini-latest                                                     | $1.5                              | $6                                    | 200,000             |          100000     |
@@ -1425,8 +1425,8 @@
 | azure/gpt-5-mini-2025-08-07                                           | $0.25                             | $2                                    | 272,000             |          128000     |
 | azure/gpt-5-nano-2025-08-07                                           | $0.05                             | $0.4                                  | 272,000             |          128000     |
 | azure/gpt-5-nano                                                      | $0.05                             | $0.4                                  | 272,000             |          128000     |
-| azure/gpt-5-chat                                                      | $1.25                             | $10                                   | 400,000             |          128000     |
-| azure/gpt-5-chat-latest                                               | $1.25                             | $10                                   | 400,000             |          128000     |
+| azure/gpt-5-chat                                                      | $1.25                             | $10                                   | 272,000             |          128000     |
+| azure/gpt-5-chat-latest                                               | $1.25                             | $10                                   | 272,000             |          128000     |
 | groq/openai/gpt-oss-20b                                               | $0.1                              | $0.5                                  | 131,072             |           32768     |
 | groq/openai/gpt-oss-120b                                              | $0.15                             | $0.75                                 | 131,072             |           32766     |
 | claude-opus-4-1                                                       | $15                               | $75                                   | 200,000             |           32000     |
@@ -1469,3 +1469,14 @@
 | azure_ai/FLUX-1.1-pro                                                 | --                                | --                                    | nan                 |             nan     |
 | azure_ai/FLUX.1-Kontext-pro                                           | --                                | --                                    | nan                 |             nan     |
 | openrouter/deepseek/deepseek-chat-v3-0324                             | $0.14                             | $0.28                                 | 65,536              |            8192     |
+| vertex_ai/qwen/qwen3-coder-480b-a35b-instruct-maas                    | $1                                | $4                                    | 262,144             |           32768     |
+| vertex_ai/qwen/qwen3-235b-a22b-instruct-2507-maas                     | $0.25                             | $1                                    | 262,144             |           16384     |
+| together_ai/Qwen/Qwen3-235B-A22B-Instruct-2507-tput                   | $0.2                              | $6                                    | 262,000             |             nan     |
+| together_ai/Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8                   | $2                                | $2                                    | 256,000             |             nan     |
+| together_ai/Qwen/Qwen3-235B-A22B-Thinking-2507                        | $0.65                             | $3                                    | 256,000             |             nan     |
+| together_ai/Qwen/Qwen3-235B-A22B-fp8-tput                             | $0.2                              | $0.6                                  | 40,000              |             nan     |
+| together_ai/deepseek-ai/DeepSeek-R1-0528-tput                         | $0.55                             | $2.19                                 | 128,000             |             nan     |
+| together_ai/openai/gpt-oss-120b                                       | $0.15                             | $0.6                                  | 128,000             |             nan     |
+| together_ai/OpenAI/gpt-oss-20B                                        | $0.05                             | $0.2                                  | 128,000             |             nan     |
+| together_ai/zai-org/GLM-4.5-Air-FP8                                   | $0.2                              | $1.1                                  | 128,000             |             nan     |
+| fireworks_ai/accounts/fireworks/models/deepseek-v3-0324               | $0.9                              | $0.9                                  | 163,840             |          163840     |
