@@ -21196,5 +21196,41 @@
         "supports_response_schema": true,
         "source": "https://fireworks.ai/models/fireworks/deepseek-v3-0324",
         "supports_tool_choice": false
+    },
+    "vertex_ai/imagen-4.0-generate-001": {
+        "output_cost_per_image": 0.04,
+        "litellm_provider": "vertex_ai-image-models",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    },
+    "vertex_ai/imagen-4.0-ultra-generate-001": {
+        "output_cost_per_image": 0.06,
+        "litellm_provider": "vertex_ai-image-models",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    },
+    "vertex_ai/imagen-4.0-fast-generate-001": {
+        "output_cost_per_image": 0.02,
+        "litellm_provider": "vertex_ai-image-models",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    },
+    "gemini/imagen-4.0-generate-001": {
+        "output_cost_per_image": 0.04,
+        "litellm_provider": "gemini",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    },
+    "gemini/imagen-4.0-ultra-generate-001": {
+        "output_cost_per_image": 0.06,
+        "litellm_provider": "gemini",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    },
+    "gemini/imagen-4.0-fast-generate-001": {
+        "output_cost_per_image": 0.02,
+        "litellm_provider": "gemini",
+        "mode": "image_generation",
+        "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
     }
 }

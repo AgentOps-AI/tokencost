@@ -1480,3 +1480,9 @@
 | together_ai/OpenAI/gpt-oss-20B                                        | $0.05                             | $0.2                                  | 128,000             |             nan     |
 | together_ai/zai-org/GLM-4.5-Air-FP8                                   | $0.2                              | $1.1                                  | 128,000             |             nan     |
 | fireworks_ai/accounts/fireworks/models/deepseek-v3-0324               | $0.9                              | $0.9                                  | 163,840             |          163840     |
+| vertex_ai/imagen-4.0-generate-001                                     | --                                | --                                    | nan                 |             nan     |
+| vertex_ai/imagen-4.0-ultra-generate-001                               | --                                | --                                    | nan                 |             nan     |
+| vertex_ai/imagen-4.0-fast-generate-001                                | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-4.0-generate-001                                        | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-4.0-ultra-generate-001                                  | --                                | --                                    | nan                 |             nan     |
+| gemini/imagen-4.0-fast-generate-001                                   | --                                | --                                    | nan                 |             nan     |
