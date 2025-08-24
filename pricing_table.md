@@ -1585,3 +1585,14 @@
 | deepinfra/meta-llama/Llama-3.2-11B-Vision-Instruct                    | $0.05                             | $0.05                                 | 131,072             |    131072           |
 | deepinfra/openai/gpt-oss-20b                                          | $0.04                             | $0.16                                 | 131,072             |    131072           |
 | voyage/voyage-context-3                                               | $0.18                             | $0                                    | 120,000             |       nan           |
+| openrouter/deepseek/deepseek-chat-v3.1                                | $0.2                              | $0.8                                  | 163,840             |    163840           |
+| aiml/flux/kontext-pro/text-to-image                                   | --                                | --                                    | nan                 |       nan           |
+| aiml/flux/kontext-max/text-to-image                                   | --                                | --                                    | nan                 |       nan           |
+| aiml/flux-pro/v1.1-ultra                                              | --                                | --                                    | nan                 |       nan           |
+| aiml/flux-pro/v1.1                                                    | --                                | --                                    | nan                 |       nan           |
+| aiml/flux-realism                                                     | --                                | --                                    | nan                 |       nan           |
+| aiml/flux/schnell                                                     | --                                | --                                    | nan                 |       nan           |
+| aiml/flux/dev                                                         | --                                | --                                    | nan                 |       nan           |
+| aiml/flux-pro                                                         | --                                | --                                    | nan                 |       nan           |
+| aiml/dall-e-3                                                         | --                                | --                                    | nan                 |       nan           |
+| aiml/dall-e-2                                                         | --                                | --                                    | nan                 |       nan           |
