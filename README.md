@@ -932,8 +932,8 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | claude-3-7-sonnet-latest                                              | $3                                | $15                                   | 200,000             |    128000           |
 | claude-3-7-sonnet-20250219                                            | $3                                | $15                                   | 200,000             |    128000           |
 | vertex_ai/claude-3-7-sonnet@20250219                                  | $3                                | $15                                   | 200,000             |      8192           |
-| openrouter/anthropic/claude-3.7-sonnet                                | $3                                | $15                                   | 200,000             |      8192           |
-| openrouter/anthropic/claude-3.7-sonnet:beta                           | $3                                | $15                                   | 200,000             |      8192           |
+| openrouter/anthropic/claude-3.7-sonnet                                | $3                                | $15                                   | 200,000             |    128000           |
+| openrouter/anthropic/claude-3.7-sonnet:beta                           | $3                                | $15                                   | 200,000             |    128000           |
 | amazon.rerank-v1:0                                                    | $0                                | $0                                    | 32,000              |     32000           |
 | anthropic.claude-3-7-sonnet-20250219-v1:0                             | $3                                | $15                                   | 200,000             |      8192           |
 | us.anthropic.claude-3-7-sonnet-20250219-v1:0                          | $3                                | $15                                   | 200,000             |      8192           |
@@ -1721,5 +1721,10 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | aiml/flux-pro                                                         | --                                | --                                    | nan                 |       nan           |
 | aiml/dall-e-3                                                         | --                                | --                                    | nan                 |       nan           |
 | aiml/dall-e-2                                                         | --                                | --                                    | nan                 |       nan           |
+| gemini/gemini-2.5-flash-image-preview                                 | $0.3                              | $2.5                                  | 1,048,576           |     65535           |
+| gemini-2.5-flash-image-preview                                        | $0.3                              | $2.5                                  | 1,048,576           |     65535           |
+| openrouter/anthropic/claude-opus-4                                    | $15                               | $75                                   | 200,000             |     32000           |
+| openrouter/anthropic/claude-opus-4.1                                  | $15                               | $75                                   | 200,000             |     32000           |
+| fireworks_ai/accounts/fireworks/models/deepseek-v3p1                  | $0.56                             | $1.68                                 | 128,000             |      8192           |
 
 <!-- PRICING_TABLE_END -->
