@@ -1654,7 +1654,7 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | deepinfra/mattshumer/Reflection-Llama-3.1-70B                         | $0.35                             | $0.4                                  | 8,192               |      8192           |
 | deepinfra/Sao10K/L3.3-70B-Euryale-v2.3                                | $0.65                             | $0.75                                 | 131,072             |    131072           |
 | deepinfra/meta-llama/Meta-Llama-3.1-70B-Instruct                      | $0.23                             | $0.4                                  | 131,072             |    131072           |
-| deepinfra/deepseek-ai/DeepSeek-V3.1                                   | $0.32                             | $1.15                                 | 163,840             |    163840           |
+| deepinfra/deepseek-ai/DeepSeek-V3.1                                   | $0.3                              | $1                                    | 163,840             |    163840           |
 | deepinfra/Qwen/Qwen2.5-Coder-7B                                       | $0.02                             | $0.05                                 | 32,768              |     32768           |
 | deepinfra/deepseek-ai/DeepSeek-Prover-V2-671B                         | $0.5                              | $2.18                                 | 163,840             |    163840           |
 | deepinfra/zai-org/GLM-4.5                                             | $0.55                             | $2                                    | 131,072             |    131072           |
@@ -1726,5 +1726,8 @@ Units denominated in USD. All prices can be located [here](pricing_table.md).
 | openrouter/anthropic/claude-opus-4                                    | $15                               | $75                                   | 200,000             |     32000           |
 | openrouter/anthropic/claude-opus-4.1                                  | $15                               | $75                                   | 200,000             |     32000           |
 | fireworks_ai/accounts/fireworks/models/deepseek-v3p1                  | $0.56                             | $1.68                                 | 128,000             |      8192           |
+| openrouter/openai/gpt-5-mini                                          | $0.25                             | $2                                    | 400,000             |    128000           |
+| openrouter/openai/gpt-5-nano                                          | $0.05                             | $0.4                                  | 400,000             |    128000           |
+| openrouter/openai/gpt-5-chat                                          | $1.25                             | $10                                   | 400,000             |    128000           |
 
 <!-- PRICING_TABLE_END -->
