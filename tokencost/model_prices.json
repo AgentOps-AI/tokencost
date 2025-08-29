@@ -22524,7 +22524,7 @@
         "supported_output_modalities": [
             "text"
         ],
-        "supports_tool_choice": false,
+        "supports_tool_choice": true,
         "supports_reasoning": true
     }
 }
