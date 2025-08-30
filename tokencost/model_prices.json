@@ -21219,7 +21219,8 @@
         "output_cost_per_token": 8.9e-07,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": {
         "max_tokens": 131072,
@@ -21249,7 +21250,8 @@
         "output_cost_per_token": 3e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/Qwen/Qwen2-7B-Instruct": {
         "max_tokens": 32768,
@@ -21339,7 +21341,8 @@
         "output_cost_per_token": 8.8e-07,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/anthropic/claude-3-7-sonnet-latest": {
         "max_tokens": 200000,
@@ -21389,7 +21392,8 @@
         "output_cost_per_token": 3e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/microsoft/WizardLM-2-8x22B": {
         "max_tokens": 65536,
@@ -21509,7 +21513,8 @@
         "output_cost_per_token": 4e-07,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": false
+        "supports_tool_choice": false,
+        "supports_reasoning": true
     },
     "deepinfra/meta-llama/Llama-Guard-3-8B": {
         "max_tokens": 131072,
@@ -21649,7 +21654,8 @@
         "output_cost_per_token": 1e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": false
+        "supports_tool_choice": false,
+        "supports_reasoning": true
     },
     "deepinfra/Qwen/Qwen2.5-Coder-7B": {
         "max_tokens": 32768,
@@ -21669,7 +21675,8 @@
         "output_cost_per_token": 2.18e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": false
+        "supports_tool_choice": false,
+        "supports_reasoning": true
     },
     "deepinfra/zai-org/GLM-4.5": {
         "max_tokens": 131072,
@@ -21799,7 +21806,8 @@
         "output_cost_per_token": 2.15e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/mistralai/Mistral-7B-Instruct-v0.3": {
         "max_tokens": 32768,
@@ -21889,7 +21897,8 @@
         "output_cost_per_token": 1.5e-07,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/openai/gpt-oss-120b": {
         "max_tokens": 131072,
@@ -22059,7 +22068,8 @@
         "output_cost_per_token": 2.15e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/deepseek-ai/DeepSeek-R1-Turbo": {
         "max_tokens": 163840,
@@ -22069,7 +22079,8 @@
         "output_cost_per_token": 3e-06,
         "litellm_provider": "deepinfra",
         "mode": "chat",
-        "supports_tool_choice": true
+        "supports_tool_choice": true,
+        "supports_reasoning": true
     },
     "deepinfra/NovaSky-AI/Sky-T1-32B-Preview": {
         "max_tokens": 32768,
@@ -22526,5 +22537,47 @@
         ],
         "supports_tool_choice": true,
         "supports_reasoning": true
+    },
+    "xai/grok-code-fast-1": {
+        "max_tokens": 256000,
+        "max_input_tokens": 256000,
+        "max_output_tokens": 256000,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 1.5e-06,
+        "cache_read_input_token_cost": 2e-08,
+        "litellm_provider": "xai",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "source": "https://docs.x.ai/docs/models"
+    },
+    "xai/grok-code-fast": {
+        "max_tokens": 256000,
+        "max_input_tokens": 256000,
+        "max_output_tokens": 256000,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 1.5e-06,
+        "cache_read_input_token_cost": 2e-08,
+        "litellm_provider": "xai",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "source": "https://docs.x.ai/docs/models"
+    },
+    "xai/grok-code-fast-1-0825": {
+        "max_tokens": 256000,
+        "max_input_tokens": 256000,
+        "max_output_tokens": 256000,
+        "input_cost_per_token": 2e-07,
+        "output_cost_per_token": 1.5e-06,
+        "cache_read_input_token_cost": 2e-08,
+        "litellm_provider": "xai",
+        "mode": "chat",
+        "supports_function_calling": true,
+        "supports_tool_choice": true,
+        "supports_reasoning": true,
+        "source": "https://docs.x.ai/docs/models"
     }
 }
