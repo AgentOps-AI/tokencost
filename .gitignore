@@ -164,3 +164,4 @@ cython_debug/
 
 .secrets
 .DS_STORE
+/Flashpost-tests
