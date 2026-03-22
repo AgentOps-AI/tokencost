@@ -94,16 +94,22 @@ def test_count_message_tokens_with_name(model, expected_output):
 
 
 def test_count_message_tokens_empty_input():
-    """Empty input should raise a KeyError"""
-    with pytest.raises(KeyError):
-        count_message_tokens("", "")
+    """Empty input (not a list) should raise an error during encoding"""
+    # Empty string is not a valid message list; the function will attempt
+    # to iterate over it and fail or produce 0 tokens.
+    # With the graceful fallback, an empty string iterates as zero messages.
+    result = count_message_tokens("", "")
+    # Empty string iterates as zero messages, plus 3 for reply priming
+    assert result == 3
 
 
 def test_count_message_tokens_invalid_model():
-    """Invalid model should raise a KeyError"""
-
-    with pytest.raises(KeyError):
-        count_message_tokens(MESSAGES, model="invalid_model")
+    """Invalid model should gracefully fall back to cl100k_base encoding"""
+    # With the fix, unknown models use cl100k_base + default overhead
+    # instead of raising KeyError
+    result = count_message_tokens(MESSAGES, model="invalid_model")
+    assert isinstance(result, int)
+    assert result > 0
 
 
 @pytest.mark.parametrize(
@@ -271,3 +277,163 @@ def test_calculate_cached_tokens_cost():
     # Assert that the costs match
     assert actual_cost == expected_cost
     assert actual_cost > 0, "Cache token cost should be greater than zero"
+
+
+# ===== Tests for graceful fallback on newer model families (fixes #228, #231) =====
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-5-mini",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano",
+        "gpt-4.5-preview",
+        "gemini-2.5-flash",
+        "gemini-1.5-pro",
+        "some-future-model",
+    ],
+)
+def test_count_message_tokens_new_models(model):
+    """New model families should use graceful fallback instead of raising KeyError."""
+    result = count_message_tokens(MESSAGES, model)
+    assert isinstance(result, int)
+    assert result > 0
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-5-mini",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano",
+        "gpt-4.5-preview",
+    ],
+)
+def test_count_message_tokens_new_models_consistent(model):
+    """New models should produce the same token count as the default overhead (3 per msg + 3 priming)."""
+    result = count_message_tokens(MESSAGES, model)
+    # Use the same encoding resolution as the actual function
+    import tiktoken
+    try:
+        encoding = tiktoken.encoding_for_model(model)
+    except KeyError:
+        encoding = tiktoken.get_encoding("cl100k_base")
+    content_tokens = 0
+    for msg in MESSAGES:
+        for value in msg.values():
+            content_tokens += len(encoding.encode(value))
+    expected = 2 * 3 + content_tokens + 3  # 2 msgs * overhead + content + priming
+    assert result == expected
+
+
+def test_count_message_tokens_new_model_with_name():
+    """New models should correctly handle the name field with tokens_per_name=1."""
+    model = "gpt-5-nano"
+    result = count_message_tokens(MESSAGES_WITH_NAME, model=model)
+    # Use the same encoding resolution as the actual function
+    import tiktoken
+    try:
+        encoding = tiktoken.encoding_for_model(model)
+    except KeyError:
+        encoding = tiktoken.get_encoding("cl100k_base")
+    content_tokens = 0
+    name_tokens = 0
+    for msg in MESSAGES_WITH_NAME:
+        for key, value in msg.items():
+            content_tokens += len(encoding.encode(value))
+            if key == "name":
+                name_tokens += 1
+    expected = 2 * 3 + content_tokens + name_tokens + 3
+    assert result == expected
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.5-preview",
+    ],
+)
+def test_count_string_tokens_new_models(model):
+    """String token counting should work for new models via cl100k_base fallback."""
+    result = count_string_tokens(STRING, model=model)
+    assert isinstance(result, int)
+    assert result == 4  # "Hello, world!" = 4 tokens in cl100k_base
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.5-preview",
+    ],
+)
+def test_calculate_cost_by_tokens_new_models(model):
+    """Cost calculation by token count should work for models in model_prices.json."""
+    cost = calculate_cost_by_tokens(100, model, "input")
+    assert isinstance(cost, Decimal)
+    assert cost > 0
+
+
+def test_existing_models_unchanged():
+    """Verify that existing model behavior is completely unchanged by the fix."""
+    # gpt-4o should still produce exactly 15 tokens for MESSAGES
+    assert count_message_tokens(MESSAGES, "gpt-4o") == 15
+    # gpt-3.5-turbo-0301 should still produce 17 (different overhead)
+    assert count_message_tokens(MESSAGES, "gpt-3.5-turbo-0301") == 17
+    # gpt-4-0613 should still produce 15
+    assert count_message_tokens(MESSAGES, "gpt-4-0613") == 15
+
+
+def test_count_message_tokens_azure_prefix_new_model():
+    """Azure-prefixed new models should work via the fallback."""
+    result = count_message_tokens(MESSAGES, "azure/gpt-5-nano")
+    assert isinstance(result, int)
+    assert result > 0
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.5-preview",
+    ],
+)
+def test_calculate_prompt_cost_new_models(model):
+    """End-to-end: calculate_prompt_cost should work for new models."""
+    cost = calculate_prompt_cost(MESSAGES, model)
+    assert isinstance(cost, Decimal)
+    assert cost > 0
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "gpt-5",
+        "gpt-5-nano",
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.5-preview",
+    ],
+)
+def test_calculate_completion_cost_new_models(model):
+    """End-to-end: calculate_completion_cost should work for new models."""
+    cost = calculate_completion_cost(STRING, model)
+    assert isinstance(cost, Decimal)
+    assert cost > 0

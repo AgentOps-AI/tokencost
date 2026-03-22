@@ -260,10 +260,15 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
         )
         return count_message_tokens(messages, model="gpt-4-0613")
     else:
-        raise KeyError(
-            f"""num_tokens_from_messages() is not implemented for model {model}.
-            See https://github.com/openai/openai-python/blob/main/chatml.md for how messages are converted to tokens."""
+        # For newer model families (gpt-5, gpt-4.1, gpt-4.5, gemini, etc.)
+        # and any unknown models, use the modern default token format.
+        # All recent OpenAI chat models use tokens_per_message=3, tokens_per_name=1.
+        logger.warning(
+            f"Warning: model {model} is not explicitly handled for token counting. "
+            "Using default token-per-message overhead."
         )
+        tokens_per_message = 3
+        tokens_per_name = 1
     num_tokens = 0
     for message in messages:
         num_tokens += tokens_per_message
