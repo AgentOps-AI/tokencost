@@ -23,6 +23,7 @@
 # TokenCost
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![PyPI - Version](https://img.shields.io/pypi/v/tokencost)
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/AgentOpsAI)](https://x.com/agentopsai)
+[![Live cheapest LLM API input price](https://modelpricewatch.com/badge/cheapest.svg)](https://modelpricewatch.com/?utm_source=badge&utm_medium=readme&utm_campaign=tokencost)
 
 Tokencost helps calculate the USD cost of using major Large Language Model (LLMs) APIs by calculating the estimated cost of prompts and completions.
 
