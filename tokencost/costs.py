@@ -268,6 +268,12 @@ def count_message_tokens(messages: List[Dict[str, str]], model: str) -> int:
     for message in messages:
         num_tokens += tokens_per_message
         for key, value in message.items():
+            if value is None:
+                # OpenAI allows a null field value, most commonly an assistant
+                # message whose content is None because it only carries
+                # tool_calls. It adds no text tokens and must not be passed to
+                # the encoder, which raises TypeError on a non-string.
+                continue
             num_tokens += len(encoding.encode(value))
             if key == "name":
                 num_tokens += tokens_per_name

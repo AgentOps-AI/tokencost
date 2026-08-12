@@ -93,6 +93,16 @@ def test_count_message_tokens_with_name(model, expected_output):
     assert count_message_tokens(MESSAGES_WITH_NAME, model) == expected_output
 
 
+def test_count_message_tokens_none_content():
+    """A null content (e.g. an assistant tool-call message) counts like an
+    empty string rather than raising TypeError."""
+    none_content = [{"role": "assistant", "content": None}]
+    empty_content = [{"role": "assistant", "content": ""}]
+    assert count_message_tokens(none_content, "gpt-4o") == count_message_tokens(
+        empty_content, "gpt-4o"
+    )
+
+
 def test_count_message_tokens_empty_input():
     """Empty input should raise a KeyError"""
     with pytest.raises(KeyError):
