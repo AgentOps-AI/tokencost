@@ -271,3 +271,8 @@ def test_calculate_cached_tokens_cost():
     # Assert that the costs match
     assert actual_cost == expected_cost
     assert actual_cost > 0, "Cache token cost should be greater than zero"
+
+
+def test_calculate_cost_by_tokens_rejects_negative_token_counts():
+    with pytest.raises(ValueError, match="num_tokens must be non-negative"):
+        calculate_cost_by_tokens(-1, "gpt-4o", "input")

@@ -317,6 +317,9 @@ def calculate_cost_by_tokens(num_tokens: int, model: str, token_type: TokenType)
     Returns:
         Decimal: The calculated cost in USD.
     """
+    if num_tokens < 0:
+        raise ValueError("num_tokens must be non-negative")
+
     model = _normalize_model_for_pricing(model)
     if model not in TOKEN_COSTS:
         raise KeyError(
